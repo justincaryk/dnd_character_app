@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+/* these are lazy AF, do this better */
+form {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+form label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: -5px;   
+}
+
+/* these should be converted into a utility func when scss gets integrated */
+.space-sequence-20 > * + * {
+  margin-top: 20px;
+}
+.space-sequence-20 > *:first-child {
+  margin-top: 0;
+}
