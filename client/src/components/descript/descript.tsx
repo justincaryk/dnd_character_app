@@ -1,5 +1,5 @@
 import React from 'react'
-import './CharDescription.scss'
+import './../../scss/descript/CharDescription.scss'
 import { appDictionary } from '../../lib/dictionary'
 
 import SkillProficienciesSelector from './skill'
@@ -7,24 +7,50 @@ import ToolProficienciesSelector from './tool'
 import LanguageSelector from './language'
 import CustomBgSelector from './customBg'
 
+import { 
+    SkillDataType, 
+    LanguageDataType,
+    EquipmentDataType, 
+    BackgroundFeatureDataType, 
+    LanguageType,
+    BackgroundDataType
+} from './../../lib/types'
+
+
+interface Props {
+
+}
+interface State {
+    skillsData: SkillDataType
+    languagesData: LanguageDataType
+    backgroundData: BackgroundDataType[]
+    bgFeatures: BackgroundFeatureDataType[]
+    equipment: EquipmentDataType
+    selectedBg: BackgroundDataType | null
+}
+
 // TODO :
 // 1. eventually - we should have the related dropdowns update on selection 
 // - eg - on selection of skill, remove that skill from the other related dropdown
 // - eg - on selection of a higher order item, like instruments - remove that subset of options from array,
-// this is not MVP - this will be a PITA 
+// this is not MVP 
 
 
-export default class CharDescription extends React.Component {
-    constructor(props) {
+export default class CharDescription extends React.Component<Props, State> {
+    handleBgSelection: (e: React.ChangeEvent<HTMLSelectElement>) => void
+    buildHtmlChunks: () => void
+    buildPhysicalCharacteristicsChunk: () => any
+
+    constructor(props: Props) {
         super(props)
 
         this.state = {
-            skillsData: AppDictionary.SKILLS,
-            languagesData: AppDictionary.LANGUAGES,
-            backgroundData: AppDictionary.BACKGROUNDS,
-            bgFeatures: AppDictionary.BACKGROUND_FEATURES,
-            equipment: AppDictionary.EQUIPMENT,
-            selectedBg: false,
+            skillsData: appDictionary.SKILLS,
+            languagesData: appDictionary.LANGUAGES,
+            backgroundData: appDictionary.BACKGROUNDS,
+            bgFeatures: appDictionary.BACKGROUND_FEATURES,
+            equipment: appDictionary.EQUIPMENT,
+            selectedBg: null,
         }
 
         this.handleBgSelection = event => {
@@ -32,15 +58,8 @@ export default class CharDescription extends React.Component {
 
             if (!chosenBgName) {
                 this.setState({
-                    selectedBg: false,
+                    selectedBg: null,
                 })
-            }
-
-            if (chosenBgName == 'customBg') {
-                this.setState({
-                    selectedBg: chosenBgName,
-                })
-                return
             }
 
             for (const bg of this.state.backgroundData) {
@@ -54,16 +73,13 @@ export default class CharDescription extends React.Component {
         }
 
         this.buildHtmlChunks = () => {
-
+            if (!this.state.selectedBg) return null
+            
             let htmlBlockForUserSelectedBackground
 
-            if (this.state.selectedBg == false) {
-                return htmlBlockForUserSelectedBackground = <div></div>
-            }
-
             // make sure to return early in this condition state since the bg will no longer
-            // be false, but it will not be the full object
-            if (this.state.selectedBg == 'customBg') {
+            // be null, but rather the full object
+            if (this.state.selectedBg.name == 'Custom Background') {
 
                 htmlBlockForUserSelectedBackground = (
                     <CustomBgSelector
@@ -76,16 +92,20 @@ export default class CharDescription extends React.Component {
                 return htmlBlockForUserSelectedBackground
             }
 
+
             const skillsChunk = () => {
+                if (!this.state.selectedBg) return null
+
                 return (
                     <div className="space-sequence-20">
                         <div>
-                            <div>{this.state.selectedBg.description}</div>
+                            <div>{this.state.selectedBg?.description}</div>
                         </div>
                         <div>
                             <strong>Skill Proficiencies: </strong>
                             {
-                                this.state.selectedBg.skillOptions.map((skill, index) => {
+                                this.state.selectedBg?.skillOptions.map((skill, index) => {
+                                    //@ts-ignore
                                     const isLast = index == this.state.selectedBg.skillOptions.length - 1 ? true : false
 
                                     if (skill.isAutoGranted) {
@@ -98,15 +118,15 @@ export default class CharDescription extends React.Component {
                         </div>
                         <div>
                             <SkillProficienciesSelector
-                                skillOptions={this.state.selectedBg.skillOptions}
-                                numberOfSkillsGranted={this.state.selectedBg.numberOfSkillsGranted}></SkillProficienciesSelector>
+                                skillOptions={this.state.selectedBg?.skillOptions}
+                                numberOfSkillsGranted={this.state.selectedBg?.numberOfSkillsGranted}></SkillProficienciesSelector>
                         </div>
                     </div>
                 )
             }
             const languagesChunk = () => {
-                if (this.state.selectedBg.numberOfExtraLanguages == 0) {
-                    return <div></div>
+                if (!this.state.selectedBg || this.state.selectedBg.numberOfExtraLanguages == 0) {
+                    return null
                 }
 
                 return (
@@ -114,7 +134,8 @@ export default class CharDescription extends React.Component {
                         <div>
                             <strong>Languages: </strong>
                             {
-                                this.state.selectedBg.languageOptions.map((language, index) => {
+                                this.state.selectedBg?.languageOptions.map((language, index) => {
+                                    //@ts-ignore
                                     const isLast = index == this.state.selectedBg.languageOptions.length - 1 ? true : false
                                     if (language.isAutoGranted) {
                                         const strChunk = isLast ? `${language.name}` : `${language.name}, `
@@ -128,15 +149,15 @@ export default class CharDescription extends React.Component {
                             <LanguageSelector
                                 numberOfLanguagesGranted={this.state.selectedBg.numberOfExtraLanguages}
                                 languageOptionConstraints={this.state.selectedBg.languageOptions}
-                                languagesDictionary={AppDictionary.LANGUAGES}></LanguageSelector>
+                                languagesDictionary={appDictionary.LANGUAGES}></LanguageSelector>
                         </div>
                     </div>
                 )
             }
 
             const toolsChunk = () => {
-                if (this.state.selectedBg.numberOfToolsGranted == 0) {
-                    return <div></div>
+                if (this.state.selectedBg === null || this.state.selectedBg.numberOfToolsGranted == 0) {
+                    return null
                 }
 
                 return (
@@ -144,7 +165,8 @@ export default class CharDescription extends React.Component {
                         <div>
                             <strong>Tool Proficiencies: </strong>
                             {
-                                this.state.selectedBg.toolOptions.map((tool, index) => {
+                                this.state.selectedBg?.toolOptions.map((tool, index) => {
+                                    //@ts-ignore
                                     const isLast = index == this.state.selectedBg.toolOptions.length - 1 ? true : false
 
                                     if (tool.isAutoGranted) {
@@ -169,19 +191,19 @@ export default class CharDescription extends React.Component {
                 return (
                     <div className="space-sequence-20">
                         <div>
-                            <div>{this.state.selectedBg.backgroundFeature.name}</div>
+                            <div>{this.state.selectedBg?.backgroundFeature.name}</div>
                             <div>Background Feature</div>
                         </div>
                         <div>
-                            <div>{this.state.selectedBg.backgroundFeature.description}</div>
+                            <div>{this.state.selectedBg?.backgroundFeature.description}</div>
                         </div>
                     </div>
                 )
             }
 
             const alternateBgFeatureChunk = () => {
-                if (!this.state.selectedBg.alternateBackgroundFeature.name) {
-                    return <div></div>
+                if (!this.state.selectedBg?.alternateBackgroundFeature.name) {
+                    return null
                 }
 
                 return (
@@ -267,7 +289,6 @@ export default class CharDescription extends React.Component {
                     <div>
                         <select className="form-control" onChange={this.handleBgSelection}>
                             <option value="" selected>-- Choose a Background ---</option>
-                            <option value="customBg">Custom Background</option>
                             {
                                 this.state.backgroundData.map(bg => {
                                     return <option key={bg.name}>{bg.name}</option>

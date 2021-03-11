@@ -6,6 +6,7 @@ type AppDictionaryType = {
     RACE_DATA: any
     ATTRIBUTES: any
     LANGUAGES: any
+    LANGUAGES_W_TYPE: any
     SKILLS: any
     BACKGROUNDS: any
     BACKGROUND_FEATURES: any
@@ -1441,6 +1442,164 @@ export const appDictionary: AppDictionaryType = {
 
         ],
     },
+    'LANGUAGES_W_TYPE': [
+        {
+            "name": "Abyssal",
+            "script": "Infernal",
+            "typicalSpeakers": "Demons, chaotic evil outsiders",
+            "type": "exotic"
+        },
+        {
+            "name": "Aquan",
+            "script": "Elvish",
+            "typicalSpeakers": "Water-based creatures",
+            "type": "standard"
+        },
+        {
+            "name": "Auran",
+            "script": "Draconic",
+            "typicalSpeakers": "Air-based creatures",
+            "type": "standard"
+        },
+        {
+            "name": "Celestial",
+            "script": "Celestial",
+            "typicalSpeakers": "Celestials (angels, devas)",
+            "type": "exotic"
+        },
+        {
+            "name": "Common",
+            "script": "Common",
+            "typicalSpeakers": "Humans, halflings, half-elves, half-orcs",
+            "type": "standard"
+        },
+        {
+            "name": "Deep Speech",
+            "script": "--",
+            "typicalSpeakers": "Mind flayers, beholders",
+            "type": "exotic"
+        },
+        {
+            "name": "Draconic",
+            "script": "Draconic",
+            "typicalSpeakers": "Kobolds, troglodytes, lizardfolk, dragons, dragonborn",
+            "type": "exotic"
+        },
+        {
+            "name": "Dwarvish",
+            "script": "Dwarvish",
+            "typicalSpeakers": "Dwarves",
+            "type": "standard"
+        },
+        {
+            "name": "Elvish",
+            "script": "Elvish",
+            "typicalSpeakers": "Elves",
+            "type": "standard"
+        },
+        {
+            "name": "Giant",
+            "script": "Dwarvish",
+            "typicalSpeakers": "Ogres, giants",
+            "type": "standard"
+        },
+        {
+            "name": "Gnomish",
+            "script": "Dwarvish",
+            "typicalSpeakers": "Gnomes",
+            "type": "standard"
+        },
+        {
+            "name": "Goblin",
+            "script": "Dwarvish",
+            "typicalSpeakers": "Goblinoids, hobgoblins, bugbears",
+            "type": "standard"
+        },
+        {
+            "name": "Gnoll",
+            "script": "Common",
+            "typicalSpeakers": "Gnolls",
+            "type": "standard"
+        },
+        {
+            "name": "Halfling",
+            "script": "Common",
+            "typicalSpeakers": "Halflings",
+            "type": "standard"
+        },
+        {
+            "name": "Ignan",
+            "script": "Draconic",
+            "typicalSpeakers": "Fire-based creatures",
+            "type": "standard"
+        },
+        {
+            "name": "Infernal",
+            "script": "Infernal",
+            "typicalSpeakers": "Devils, Tieflings",
+            "type": "exotic"
+        },
+        {
+            "name": "Loxodon",
+            "script": "Loxodon",
+            "typicalSpeakers": "Elvish",
+            "type": "standard"
+        },
+        {
+            "name": "Minotaur",
+            "script": "Minotaur",
+            "typicalSpeakers": "Minotaurs",
+            "type": "standard"
+        },
+        {
+            "name": "Orc",
+            "script": "Dwarvish",
+            "typicalSpeakers": "Orcs",
+            "type": "standard"
+        },
+        {
+            "name": "Primordial",
+            "script": "Dwarvish",
+            "typicalSpeakers": "Elementals",
+            "type": "exotic"
+        },
+        {
+            "name": "Quori",
+            "script": "Quori",
+            "typicalSpeakers": "Kalashtar",
+            "type": "standard"
+        },
+        {
+            "name": "Riedran",
+            "script": "UNKNOWN",
+            "typicalSpeakers": "UNKNOWN",
+            "type": "standard"
+        },
+        {
+            "name": "Sylvan",
+            "script": "Elvish",
+            "typicalSpeakers": "Fey creatures (dryads, brownies, leprechauns)",
+            "type": "exotic"
+        },
+        {
+            "name": "Terran",
+            "script": "Dwarvish",
+            "typicalSpeakers": "Xorns and other earth-based creatures",
+            "type": "standard"
+        },
+        {
+            "name": "Undercommon",
+            "script": "Elvish",
+            "typicalSpeakers": "Drow, Underdark traders",
+            "type": "exotic"
+        },
+        {
+            "name": "Vedalken",
+            "script": "Vedalken",
+            "typicalSpeakers": "Vedalken",
+            "type": "standard"
+        }
+    ],
     'SKILLS': {
         'ByAttrDep': {
             'Strength': [
@@ -1473,7 +1632,7 @@ export const appDictionary: AppDictionaryType = {
                 'Persuasion',
             ]
         },
-        ByAlphabet: [
+        'ByAlphabet': [
             "Acrobatics",
             "Animal Handling",
             "Arcana",
@@ -1495,9 +1654,24 @@ export const appDictionary: AppDictionaryType = {
         ]
     },
     'BACKGROUNDS': [
-        // {
-        //     'name': 'Custom Background',
-        // },
+        {
+            'name': 'Custom Background',
+            "description": '',
+            'numberOfExtraLanguages': 0,
+            'languageOptions': [],
+            'numberOfToolsGranted': 0,
+            'toolOptions': [],
+            'numberOfSkillsGranted': 0,
+            'skillOptions': [],
+            'backgroundFeature': {
+                "name": "",
+                "description": ""
+            },
+            'alternateBackgroundFeature': {
+                'name': '',
+                'description': '',
+            },
+        },
         {
             'name': 'Acolyte',
             "description": "You have spent your life in the service of a temple to a specific god or pantheon of gods. You act as an intermediary between the realm of the holy and the mortal world, performing sacred rites and offering sacrifices in order to conduct worshipers into the presence of the divine. You are not necessarily a cleric—performing sacred rites is not the same thing as channeling divine power. Choose a god, a pantheon of gods, or some other quasi-divine being, and work with your DM to detail the nature of your religious service. The Gods of the Multiverse section contains a sample pantheon, from the Forgotten Realms setting. Were you a lesser functionary in a temple, raised from childhood to assist the priests in the sacred rites? Or were you a high priest who suddenly experienced a call to serve your god in a different way? Perhaps you were the leader of a small cult outside of any established temple structure, or even an occult group that served a fiendish master that you now deny.",

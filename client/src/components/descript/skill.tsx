@@ -1,18 +1,28 @@
 import React from "react";
-import "./SkillProficiencies.scss";
+import "./../../scss/descript/SkillProficiencies.scss";
 
+interface Props {
+    skillOptions: SkillType[]
+    numberOfSkillsGranted: number
+}
 
-export default class SkillProficienciesSelector extends React.Component {
-    constructor(props) {
+interface SkillType {
+    name: string
+    isAutoGranted: boolean
+}
+
+export default class SkillProficienciesSelector extends React.Component<Props> {
+    handleSelection: (e: React.ChangeEvent<HTMLSelectElement>) => void
+
+    constructor(props: Props) {
 
         super(props);
 
         this.handleSelection = (event) => {
-            
+            //do something
         }
 
     }
-
 
     render() {
 
@@ -50,7 +60,7 @@ export default class SkillProficienciesSelector extends React.Component {
 }
 
 
-function _getValidOptions(skills) {
+function _getValidOptions(skills: SkillType[]) {
     let validOptions = [];
 
     for (const skill of skills) {
@@ -64,7 +74,7 @@ function _getValidOptions(skills) {
     return validOptions;
 }
 
-function _areSkillOptionChoicesRequired(skillOptsArray) {
+function _areSkillOptionChoicesRequired(skillOptsArray: SkillType[]) {
 
     for (const skill of skillOptsArray) {
 
@@ -77,7 +87,7 @@ function _areSkillOptionChoicesRequired(skillOptsArray) {
 
 }
 
-function _calcNumOfSelectElemsToGenerate(numOfSkillsGranted, skillOptionsArray) {
+function _calcNumOfSelectElemsToGenerate(numOfSkillsGranted: number, skillOptionsArray: SkillType[]) {
     let numOfSkillsAutoGranted = 0;
 
     for (const skill of skillOptionsArray) {
@@ -90,7 +100,7 @@ function _calcNumOfSelectElemsToGenerate(numOfSkillsGranted, skillOptionsArray) 
 
 }
 
-function _buildArrayWithThisManyItems(elemsRequired) {
+function _buildArrayWithThisManyItems(elemsRequired: number) {
     const someArray = [];
 
     for (let i = 0; i < elemsRequired; i++) {

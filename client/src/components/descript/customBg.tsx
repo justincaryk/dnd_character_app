@@ -1,12 +1,45 @@
 import React from "react";
-import './CustomBg.scss';
+import './../../scss/descript/CustomBg.scss';
+import { 
+    SkillDataType, 
+    LanguageDataType,
+    EquipmentDataType, 
+    BackgroundFeatureDataType, 
+    LanguageType
+} from './../../lib/types'
+
+interface Props {
+    skillsData: SkillDataType
+    languageData: LanguageDataType
+    equipment: EquipmentDataType
+    bgFeatures: BackgroundFeatureDataType[]
+}
+interface State {
+    data: any
+    customOptionIsSelected: boolean
+    selectedCustomRuleOption: any
+    backgroundFeatureIsSelected: boolean
+    selectedBgFeature: any
+}
 
 // TODO
 // for background features: 
 //      sort them alphabetically, remove nonunique callers if going by feat name rather than conferring bg
 
-class CustomBgSelector extends React.Component {
-    constructor(props) {
+class CustomBgSelector extends React.Component<Props, State> {
+    handleSelection: (e: React.ChangeEvent<HTMLSelectElement>) => void
+    displayBgFeatureDetail: (e: React.ChangeEvent<HTMLSelectElement>) => void
+    buildProficiencySelectorsBlock: () => any
+    buildBackgroundFeatureInfoBlock: () => any
+    customOptionReferenceConstants: {
+        [key: string]: number
+    }
+    customOptions: {
+        id: number
+        display: string
+    }[]
+
+    constructor(props: Props) {
 
         super(props)
 
@@ -44,18 +77,15 @@ class CustomBgSelector extends React.Component {
             selectedBgFeature: {},
         }
 
-        this.handleSelection = event => {
+        this.handleSelection = (event: React.ChangeEvent<HTMLSelectElement>) => {
             this.setState({
                 customOptionIsSelected: true,
                 selectedCustomRuleOption: event.target.value,
             })
-
-            return;
-
         }
 
-        this.displayBgFeatureDetail = event => {
-            
+        this.displayBgFeatureDetail = (event: React.ChangeEvent<HTMLSelectElement>) => {
+
             const selectedBgName = event.target.value;
 
             let bgFeatToSave;
@@ -71,8 +101,6 @@ class CustomBgSelector extends React.Component {
                 backgroundFeatureIsSelected: true,
                 selectedBgFeature: bgFeatToSave ? bgFeatToSave : {},
             })
-
-
         }
 
         this.buildProficiencySelectorsBlock = () => {
@@ -131,7 +159,7 @@ class CustomBgSelector extends React.Component {
         }
 
         this.buildBackgroundFeatureInfoBlock = () => {
-            
+
             if (this.state.backgroundFeatureIsSelected == false) {
                 return <div></div>;
             }
@@ -187,7 +215,7 @@ export default CustomBgSelector;
 
 
 
-function _buildSkillsBlock(numOfSelectElems, skillsData) {
+function _buildSkillsBlock(numOfSelectElems: number, skillsData: string[]) {
     const dummy_array = _buildDummyArrayToMapOver(numOfSelectElems);
 
     return (
@@ -218,7 +246,7 @@ function _buildSkillsBlock(numOfSelectElems, skillsData) {
 
 
 
-function _buildToolsBlock(numOfSelectElems, equipment) {
+function _buildToolsBlock(numOfSelectElems: number, equipment: EquipmentDataType) {
     const dummy_array = _buildDummyArrayToMapOver(numOfSelectElems);
 
     const { ARTISAN_TOOLS, MUSICAL_INSTRUMENTS, GAMING_SET, MISC } = equipment;
@@ -228,7 +256,7 @@ function _buildToolsBlock(numOfSelectElems, equipment) {
     const sortedTools = tools.sort();
 
     return (
-        <div class="space-sequence-20">
+        <div className="space-sequence-20">
             <div><strong>Tools Proficiencies:</strong></div>
             {
                 dummy_array.map(x => {
@@ -250,7 +278,7 @@ function _buildToolsBlock(numOfSelectElems, equipment) {
     )
 }
 
-function _buildLanguagesBlock(numOfSelectElems, languages) {
+function _buildLanguagesBlock(numOfSelectElems: number, languages: LanguageType[]) {
     const dummy_array = _buildDummyArrayToMapOver(numOfSelectElems);
 
     return (
@@ -278,8 +306,8 @@ function _buildLanguagesBlock(numOfSelectElems, languages) {
     )
 }
 
-function _buildBgFeatureBlock(bgFeatures, displayBgFeatureDetailClosure) {
-    
+function _buildBgFeatureBlock(bgFeatures: BackgroundFeatureDataType[], displayBgFeatureDetailClosure: any) {
+
     return (
         <div>
             <div><strong>Background Features:</strong></div>
@@ -295,7 +323,7 @@ function _buildBgFeatureBlock(bgFeatures, displayBgFeatureDetailClosure) {
     )
 }
 
-function _buildDummyArrayToMapOver(elemsRequired) {
+function _buildDummyArrayToMapOver(elemsRequired: number) {
     let dummyArray = [];
 
     for (let i = 0; i < elemsRequired; i++) {

@@ -92,7 +92,7 @@ function App() {
 
         <Route path="/description" >
           <div className="container descript">
-            {/* <CharDescription /> */}
+            <CharDescription />
           </div>
         </Route>
 

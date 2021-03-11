@@ -12,7 +12,7 @@ interface Props {
     languagesDictionary: LanguagesDictType
 }
 
-export class LanguageSelector extends React.Component<Props> {
+export default class LanguageSelector extends React.Component<Props> {
     getValidLanguageOptions: () => LanguageType[]
     calcNumOfSelectElemsToGenerate: () => number
     buildDummyArrayOfCorrectLength: () => Array<any>
@@ -56,7 +56,7 @@ export class LanguageSelector extends React.Component<Props> {
 
     render() {
         
-        const currentBgRequiresChoice = _areLanguageOptionChoicesRequired(this.props.languageOptionConstraints)
+        const currentBgRequiresChoice = areLanguageOptionChoicesRequired(this.props.languageOptionConstraints)
 
         if (!currentBgRequiresChoice) {
             return <div></div>

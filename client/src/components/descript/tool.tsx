@@ -1,8 +1,28 @@
 import React from "react";
-import "./ToolProficiencies.scss";
+import "./../../scss/descript/ToolProficiencies.scss";
 
-class ToolProficienciesSelector extends React.Component {
-    constructor(props) {
+interface ToolType {
+    name: string
+    isAutoGranted: boolean
+}
+interface EquipmentType {
+    [key: string]: string[]
+}
+
+interface Props {
+    equipment: EquipmentType
+    toolOptions: ToolType[]
+    numberOfToolsGranted: number
+}
+
+interface State {
+    equipment: EquipmentType
+}
+
+export default class ToolProficienciesSelector extends React.Component<Props, State> {
+    handleSelection = (e: React.ChangeEvent<HTMLSelectElement>) => {}
+
+    constructor(props: Props) {
 
         super(props);
 
@@ -10,12 +30,11 @@ class ToolProficienciesSelector extends React.Component {
             equipment: this.props.equipment,
         }
 
-        this.handleSelection = (event) => {
-
+        this.handleSelection = event => {
+            // do something
         }
 
     }
-
 
     render() {
 
@@ -28,9 +47,6 @@ class ToolProficienciesSelector extends React.Component {
         const numOfSelectElemsToGenerate = _calcNumOfSelectElemsToGenerate(this.props.numberOfToolsGranted, this.props.toolOptions);
         const dummy_array_to_help_generate_correct_num_of_select_elems = _buildArrayWithThisManyItems(numOfSelectElemsToGenerate);
         const toolOptions = _getValidOptions(this.props.toolOptions, this.state.equipment);
-
-
-
 
         return (
             <div className="space-sequence-20">
@@ -56,17 +72,14 @@ class ToolProficienciesSelector extends React.Component {
 }
 
 
-export default ToolProficienciesSelector;
 
 
-
-
-function _getValidOptions(tools, extraEquipment) {
+function _getValidOptions(tools: ToolType[], extraEquipment: EquipmentType) {
     let standardOptions = [];
 
-    let instruments = [];
-    let artisanTools = [];
-    let gamingSet = [];
+    let instruments: string[] = [];
+    let artisanTools: string[] = [];
+    let gamingSet: string[] = [];
 
     for (const tool of tools) {
 
@@ -77,13 +90,13 @@ function _getValidOptions(tools, extraEquipment) {
             continue;
         }
 
-        if (tool.name == "Artisan\'s Tools" ) {
+        if (tool.name == "Artisan\'s Tools") {
             if (!artisanTools.length) {
                 artisanTools = extraEquipment.ARTISAN_TOOLS;
             }
             continue;
         }
-        
+
         if (tool.name == "Gaming Set") {
             if (!gamingSet.length) {
                 gamingSet = extraEquipment.GAMING_SET;
@@ -98,14 +111,14 @@ function _getValidOptions(tools, extraEquipment) {
     }
 
     const validOptions = standardOptions.concat(instruments, artisanTools, gamingSet);
-    
+
     return validOptions;
 }
 
-function _areToolOptionChoicesRequired(toolOptsArray) {
+function _areToolOptionChoicesRequired(toolOptsArray: ToolType[]) {
 
     for (const tool of toolOptsArray) {
-        
+
         if (_checkForNotAutoGrantedOrExceptionStrings(tool)) {
             return true;
         }
@@ -115,11 +128,11 @@ function _areToolOptionChoicesRequired(toolOptsArray) {
 
 }
 
-function _calcNumOfSelectElemsToGenerate(numOftoolsGranted, toolOptionsArray) {
+function _calcNumOfSelectElemsToGenerate(numOftoolsGranted: number, toolOptionsArray: ToolType[]) {
     let numOftoolsAutoGranted = 0;
 
     for (const tool of toolOptionsArray) {
-        
+
         if (_checkForNotAutoGrantedOrExceptionStrings(tool)) {
             numOftoolsAutoGranted++;
         }
@@ -130,7 +143,7 @@ function _calcNumOfSelectElemsToGenerate(numOftoolsGranted, toolOptionsArray) {
 
 }
 
-function _buildArrayWithThisManyItems(elemsRequired) {
+function _buildArrayWithThisManyItems(elemsRequired: number) {
     const someArray = [];
 
     for (let i = 0; i < elemsRequired; i++) {
@@ -141,16 +154,15 @@ function _buildArrayWithThisManyItems(elemsRequired) {
 }
 
 
-function _checkForNotAutoGrantedOrExceptionStrings(tool) {
+function _checkForNotAutoGrantedOrExceptionStrings(tool: ToolType) {
     if (
-        !tool.isAutoGranted || 
-        tool.name == "Musical Instrument" || 
-        tool.name == "Artisan\'s Tools" || 
+        !tool.isAutoGranted ||
+        tool.name == "Musical Instrument" ||
+        tool.name == "Artisan\'s Tools" ||
         tool.name == "Gaming Set"
-    ) 
-    {
+    ) {
         return true;
     }
-    
+
     return false;
 }

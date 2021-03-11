@@ -1,4 +1,57 @@
 
+type BgOptionGenericType = {
+    name: string
+    isAutoGranted: boolean
+}
+
+export type BackgroundDataType = {
+    name: string
+    description: string
+    numberOfExtraLanguages: number
+    languageOptions: BgOptionGenericType[]
+    numberOfToolsGranted: number
+    toolOptions: BgOptionGenericType[]
+    numberOfSkillsGranted: number
+    skillOptions: BgOptionGenericType[]
+    backgroundFeature: {
+        name: string
+        description: string
+    }
+    alternateBackgroundFeature: {
+        name: string
+        description: string
+    }
+}
+
+export type BackgroundFeatureDataType = {
+    name: string
+    conferringBg: string
+    description: string
+}
+
+export type LanguageType = {
+    name: string
+    script: string
+    typicalSpeakers: string
+}
+
+export type LanguageDataType = {
+    ALL: LanguageType[]
+    STANDARD: LanguageType[]
+    EXOTIC: LanguageType[]
+}
+
+export type SkillDataType = {
+    ByAttrDep: {
+        [key: string]: string[]
+    }
+    ByAlphabet: string[]
+}
+
+export type EquipmentDataType = {
+    [key:string]: []
+}
+
 export type AttributeInterface = {
     id: number
     name: string
@@ -61,11 +114,6 @@ export type SpellType = {
     circles: string
 }
 
-export type LanguageType = {
-    name: string
-    script: string
-    typicalSpeakers: string
-}
 export type LanguagesDictType = {
     ALL: LanguageType[]
     STANDARD: LanguageType[]
