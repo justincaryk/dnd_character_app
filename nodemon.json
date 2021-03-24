@@ -1,6 +1,6 @@
 {
     "ignore": [".git", "node_modules"],
-    "watch": ["./server/src"],
-    "exec": "tsc && node ./server/build/server.js",
+    "watch": ["./engine/src"],
+    "exec": "tsc && node ./engine/dist/index.js",
     "ext": "ts"
 }

@@ -1184,12 +1184,24 @@ export const appDictionary: AppDictionaryType = {
         },
     ],
     'ATTRIBUTES': [
-        'Strength',
-        'Dexterity',
-        'Constitution',
-        'Intelligence',
-        'Wisdom',
-        'Charisma',
+        {
+            'attribute': 'Strength',
+        },
+        {
+            'attribute': 'Dexterity',
+        },
+        {
+            'attribute': 'Constitution',
+        },
+        {
+            'attribute': 'Intelligence',
+        },
+        {
+            'attribute': 'Wisdom',
+        },
+        {
+            'attribute': 'Charisma',
+        },
     ],
     'LANGUAGES': {
         'ALL': [

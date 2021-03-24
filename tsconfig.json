@@ -1,14 +1,17 @@
 {
-    "compilerOptions": {
-      "target": "es6",
-      "module": "commonjs",
-      "outDir": "server/dist",
-      "sourceMap": true
-    },
-    "include": [
-      "server/src/**/*.ts"
-    ],
-    "exclude": [
-      "node_modules"
-    ]
-  }
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "engine/dist",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "allowJs": true,
+  },
+  "include": [
+    "engine/src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
