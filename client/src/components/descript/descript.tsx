@@ -1,6 +1,7 @@
 import React from 'react'
 import './../../scss/descript/CharDescription.scss'
 import { appDictionary } from '../../lib/dictionary'
+import { useGetAllLanguagesQuery } from '../../generated/graphql'
 
 import SkillProficienciesSelector from './skill'
 import ToolProficienciesSelector from './tool'
@@ -272,7 +273,7 @@ export default class CharDescription extends React.Component<Props, State> {
             )
         }
     }
-
+    
     render() {
         const selectedBackgroundHtmlChunk = this.buildHtmlChunks()
         const physicalCharacteristicsHtmlChunk = this.buildPhysicalCharacteristicsChunk()

@@ -1,6 +1,6 @@
 
-exports.up = function(knex) {
-    return knex.schema
+exports.up = knex => (
+    knex.schema
         .createTable('languages', function(table) {
             table.uuid('id').unique()
             table.string('name').notNullable()
@@ -8,8 +8,8 @@ exports.up = function(knex) {
             table.string('typical_speakers').notNullable()
             table.string('type').notNullable()
         })
-};
+)
 
-exports.down = function(knex) {
-    return knex.schema.dropTable('languages')
-};
+exports.down = knex => (
+    knex.schema.dropTable('languages')
+)

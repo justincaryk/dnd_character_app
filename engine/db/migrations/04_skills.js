@@ -1,13 +1,18 @@
-exports.up = function (knex) {
-    return knex.schema
-        .createTable('skills', function (table) {
+exports.up = knex => (
+    knex.schema
+        .createTable('skills', table => {
             table.uuid('id').unique()
             table.string('skill').notNullable()
-            table.uuid('attr_ref').unsigned()
-            table.foreign('attr_ref').references('id').inTable('attributes')
+            table.uuid('attr_id')
+                // .unsigned()
+                .notNullable()
+                .references('id')
+                .inTable('attributes')
+                
+                
         })
-};
+)
 
-exports.down = function (knex) {
-    return knex.schema.dropTable('skills')
-};
+exports.down = knex => (
+    knex.schema.dropTable('skills')
+)
