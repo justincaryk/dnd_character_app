@@ -65,7 +65,7 @@ class CustomBgSelector extends React.Component<Props, State> {
 
         this.state = {
             data: {
-                skillsData: this.props.skillsData.ByAlphabet,
+                skillsData: this.props.skillsData,
                 languageData: this.props.languageData.ALL,
                 equipment: this.props.equipment,
                 bgFeatures: this.props.bgFeatures,
@@ -214,7 +214,7 @@ export default CustomBgSelector;
 
 
 
-function _buildSkillsBlock(numOfSelectElems: number, skillsData: string[]) {
+function _buildSkillsBlock(numOfSelectElems: number, skillsData: SkillDataType[]) {
     const dummy_array = _buildDummyArrayToMapOver(numOfSelectElems);
 
     return (
@@ -229,7 +229,7 @@ function _buildSkillsBlock(numOfSelectElems: number, skillsData: string[]) {
                                 {
                                     skillsData.map(skill => {
                                         return (
-                                            <option key={skill} value={skill}>{skill}</option>
+                                            <option key={skill.skill} value={skill.skill}>{skill.skill}</option>
                                         )
                                     })
                                 }
@@ -245,14 +245,9 @@ function _buildSkillsBlock(numOfSelectElems: number, skillsData: string[]) {
 
 
 
-function _buildToolsBlock(numOfSelectElems: number, equipment: EquipmentDataType) {
+function _buildToolsBlock(numOfSelectElems: number, equipment: EquipmentDataType[]) {
     const dummy_array = _buildDummyArrayToMapOver(numOfSelectElems);
-
-    const { ARTISAN_TOOLS, MUSICAL_INSTRUMENTS, GAMING_SET, MISC } = equipment;
-
-    const tools = [].concat(ARTISAN_TOOLS, MUSICAL_INSTRUMENTS, GAMING_SET, MISC);
-
-    const sortedTools = tools.sort();
+    const sortedTools = [...equipment].sort();
 
     return (
         <div className="space-sequence-20">
@@ -265,7 +260,7 @@ function _buildToolsBlock(numOfSelectElems: number, equipment: EquipmentDataType
                                 <option value="">- Choose a Tool -</option>
                                 {
                                     sortedTools.map(tool => {
-                                        return <option key={tool} value={tool}>{tool}</option>
+                                        return <option key={tool.name} value={tool.name}>{tool.name}</option>
                                     })
                                 }
                             </select>

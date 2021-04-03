@@ -14,10 +14,6 @@ import LanguageSelector from './language'
 import CustomBgSelector from './customBg'
 
 import {
-    SkillDataType,
-    LanguageType,
-    EquipmentDataType,
-    BackgroundFeatureDataType,
     BackgroundDataType,
     BgOptionGenericType
 } from './../../lib/types'
@@ -73,21 +69,19 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
 
     if (!props.selectedBg) return null
 
-    const { selectedBg, equipment, languages, bgFeatures, skills } = props
+    const { selectedBg, equipment, languages, skills, bgFeatures } = props
     // make sure to return early in this condition state since the bg will no longer
     // be null, but rather the full object
-    // if (selectedBg.name == 'Custom Background') {
-
-    //     htmlBlockForUserSelectedBackground = (
-    //         <CustomBgSelector
-    //             skillsData={skills}
-    //             languageData={languages}
-    //             equipment={equipment}
-    //             bgFeatures={bgFeatures}></CustomBgSelector>
-    //     )
-
-    //     return htmlBlockForUserSelectedBackground
-    // }
+    if (selectedBg.name == 'Custom Background') {
+        debugger
+        return (
+            <CustomBgSelector
+                skillsData={skills.allSkills.skills}
+                languageData={languages.allLanguages.languages}
+                equipment={equipment.allEquipment.items}
+                bgFeatures={bgFeatures.allBgFeatures.bgFeatures}></CustomBgSelector>
+        )
+    }
 
     const skillsChunk = () => {
 
@@ -114,8 +108,8 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
                 </div>
                 <div>
                     <SkillProficienciesSelector
-                        skillOptions={selectedBg?.skillOptions}
-                        numberOfSkillsGranted={selectedBg?.numberOfSkillsGranted}></SkillProficienciesSelector>
+                        skillOptions={selectedBg.skillOptions}
+                        numberOfSkillsGranted={selectedBg.numberOfSkillsGranted}></SkillProficienciesSelector>
                 </div>
             </div>
         )
@@ -126,7 +120,7 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
             <div>
                 <strong>Languages: </strong>
                 {
-                    selectedBg?.languageOptions.map((language: BgOptionGenericType, index: number) => {
+                    selectedBg.languageOptions.map((language: BgOptionGenericType, index: number) => {
                         const isLast = index == selectedBg.languageOptions.length - 1 ? true : false
                         if (language.isAutoGranted) {
                             const strChunk = isLast ? `${language.name}` : `${language.name}, `
@@ -171,47 +165,35 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
         </div>
     )
 
-    // const bgFeatureChunk = () => {
-    //     return (
-    //         <div className="space-sequence-20">
-    //             <div>
-    //                 <div>{selectedBg?.backgroundFeature.name}</div>
-    //                 <div>Background Feature</div>
-    //             </div>
-    //             <div>
-    //                 <div>{selectedBg?.backgroundFeature.description}</div>
-    //             </div>
-    //         </div>
-    //     )
-    // }
+    const bgFeatureChunk = () => (
+        <div className="space-sequence-20">
+            <div>
+                <strong>Background Feature:</strong>
+            </div>
+            <div>{selectedBg.backgroundFeature.name}</div>
+            <div>{selectedBg.backgroundFeature.description}</div>
+        </div>
+    )
 
-    // const alternateBgFeatureChunk = () => {
-    //     if (!selectedBg?.alternateBackgroundFeature.name) {
-    //         return null
-    //     }
-
-    //     return (
-    //         <div className="space-sequence-20">
-    //             <div>
-    //                 <div>{selectedBg.alternateBackgroundFeature.name}</div>
-    //                 <div>Alternate Background Feature</div>
-    //             </div>
-    //             <div>
-    //                 <div>{selectedBg.alternateBackgroundFeature.description}</div>
-    //             </div>
-    //         </div>
-    //     )
-    // }
+    const alternateBgFeatureChunk = () => (
+        <div className="space-sequence-20">
+            <div>
+                <div>{selectedBg.alternateBackgroundFeature.name}</div>
+                <div>Alternate Background Feature</div>
+            </div>
+            <div>
+                <div>{selectedBg.alternateBackgroundFeature.description}</div>
+            </div>
+        </div>
+    )
 
     return (
         <div className="space-sequence-20">
             {skillsChunk()}
             {toolsChunk()}
-            {languagesChunk()}
-
-            {/* {bgFeatureChunk()}
-
-            {alternateBgFeatureChunk()} */}
+            {selectedBg.languageOptions.length ? languagesChunk() : null}
+            {bgFeatureChunk()}
+            {selectedBg.alternateBackgroundFeature.name ? alternateBgFeatureChunk() : null}
 
         </div>
     )

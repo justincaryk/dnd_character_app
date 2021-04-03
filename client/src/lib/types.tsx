@@ -37,14 +37,15 @@ export type LanguageType = {
 }
 
 export type SkillDataType = {
-    ByAttrDep: {
-        [key: string]: string[]
+    attributeByAttrId: {
+        attribute: string
     }
-    ByAlphabet: string[]
+    skill: string
 }
 
 export type EquipmentDataType = {
-    [key:string]: []
+    type: string
+    name: string
 }
 
 export type AttributeInterface = {

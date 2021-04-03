@@ -1,26 +1,18 @@
 import React from "react";
 import "./../../scss/descript/ToolProficiencies.scss";
-
+import { EquipmentDataType } from './../../lib/types'
 interface ToolType {
     name: string
     isAutoGranted: boolean
 }
-interface EquipmentType {
-    type: string
-    name: string
-}
 
 interface Props {
-    equipment: EquipmentType[]
+    equipment: EquipmentDataType[]
     toolOptions: ToolType[]
     numberOfToolsGranted: number
 }
 
-interface State {
-    equipment: EquipmentType
-}
-
-export default class ToolProficienciesSelector extends React.Component<Props, State> {
+export default class ToolProficienciesSelector extends React.Component<Props> {
     handleSelection = (e: React.ChangeEvent<HTMLSelectElement>) => {}
 
     constructor(props: Props) {
@@ -69,7 +61,7 @@ export default class ToolProficienciesSelector extends React.Component<Props, St
 }
 
 
-function _getValidOptions(tools: ToolType[], extraEquipment: EquipmentType[]) {
+function _getValidOptions(tools: ToolType[], extraEquipment: EquipmentDataType[]) {
     let standardOptions = [];
     let instruments: string[] = [];
     let artisanTools: string[] = [];
