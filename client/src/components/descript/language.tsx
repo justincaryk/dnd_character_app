@@ -1,6 +1,6 @@
 import React from "react"
 import "./../../scss/descript/LanguageSelections.scss"
-import { LanguagesDictType, LanguageType } from './../../lib/types'
+import { LanguageType } from './../../lib/types'
 
 interface LanguageOptionConstraints {
     name: string
@@ -9,7 +9,7 @@ interface LanguageOptionConstraints {
 interface Props {
     numberOfLanguagesGranted: number
     languageOptionConstraints: LanguageOptionConstraints[]
-    languagesDictionary: LanguagesDictType
+    languages: LanguageType[]
 }
 
 export default class LanguageSelector extends React.Component<Props> {
@@ -24,7 +24,10 @@ export default class LanguageSelector extends React.Component<Props> {
         this.getValidLanguageOptions = () => {
             const correctKeyReference = getKeyReferenceForLanguage(this.props.languageOptionConstraints)
             
-            return this.props.languagesDictionary[correctKeyReference]
+            if (correctKeyReference == 'ALL') {
+                return this.props.languages
+            }
+            return this.props.languages.filter(l => l.type === correctKeyReference.toLowerCase())
         }
 
         this.calcNumOfSelectElemsToGenerate = () => {

@@ -4,8 +4,7 @@ import './scss/App.scss';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 // Import data dictionaries
@@ -17,6 +16,13 @@ import AsiGenerator from './components/abilityScores/asiGenerator';
 import CharDescription from './components/descript/descript';
 import SpellsSelector from './components/spells/spells';
 import Feats from './components/feats/feats';
+import { ApolloProvider } from '@apollo/client';
+import { ApolloClient, InMemoryCache } from '@apollo/client';
+
+const client = new ApolloClient({
+  uri: 'http://localhost:8080/graphql',
+  cache: new InMemoryCache()
+});
 
 function NavBar() {
   return (
@@ -33,7 +39,7 @@ function NavBar() {
 }
 
 function Home() {
-  return(
+  return (
     <div>
       Home.
     </div>
@@ -65,51 +71,52 @@ class Setup extends React.Component {
 
 function App() {
   return (
+    <ApolloProvider client={client}>
+      <Router>
 
-    <Router>
-    
-      <div className="navbar">
-        <NavBar />
-      </div>
-    
-      <Switch>
+        <div className="navbar">
+          <NavBar />
+        </div>
 
-        <Route exact path="/">
-          <Home />
-        </Route>
+        <Switch>
 
-        <Route path="/setup" >
-          <div className="container setup">
-            <Setup />
-          </div>
-        </Route>
+          <Route exact path="/">
+            <Home />
+          </Route>
 
-        <Route path="/asi" >
-          <div className="container asi">
-            <AsiGenerator />
-          </div>
-        </Route>
+          <Route path="/setup" >
+            <div className="container setup">
+              <Setup />
+            </div>
+          </Route>
 
-        <Route path="/description" >
-          <div className="container descript">
-            <CharDescription />
-          </div>
-        </Route>
+          <Route path="/asi" >
+            <div className="container asi">
+              <AsiGenerator />
+            </div>
+          </Route>
 
-        <Route path="/spells" >
-          <div className="container spells">
-            <SpellsSelector />
-          </div>
-        </Route>
-        
-        <Route path="/feats" >
-          <div className="container">
-            <Feats feats={appDictionary.FEAT_DATA} />
-          </div>
-        </Route>
+          <Route path="/description" >
+            <div className="container descript">
+              <CharDescription />
+            </div>
+          </Route>
 
-      </Switch>
-    </Router>
+          <Route path="/spells" >
+            <div className="container spells">
+              <SpellsSelector />
+            </div>
+          </Route>
+
+          <Route path="/feats" >
+            <div className="container">
+              <Feats feats={appDictionary.FEAT_DATA} />
+            </div>
+          </Route>
+
+        </Switch>
+      </Router>
+    </ApolloProvider>
   );
 }
 

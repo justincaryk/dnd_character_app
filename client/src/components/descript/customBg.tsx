@@ -2,7 +2,6 @@ import React from "react";
 import './../../scss/descript/CustomBg.scss';
 import { 
     SkillDataType, 
-    LanguageDataType,
     EquipmentDataType, 
     BackgroundFeatureDataType, 
     LanguageType
@@ -10,7 +9,7 @@ import {
 
 interface Props {
     skillsData: SkillDataType
-    languageData: LanguageDataType
+    languageData: any //LanguageDataType
     equipment: EquipmentDataType
     bgFeatures: BackgroundFeatureDataType[]
 }

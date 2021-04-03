@@ -1,5 +1,5 @@
 
-type BgOptionGenericType = {
+export type BgOptionGenericType = {
     name: string
     isAutoGranted: boolean
 }
@@ -33,12 +33,7 @@ export type LanguageType = {
     name: string
     script: string
     typicalSpeakers: string
-}
-
-export type LanguageDataType = {
-    ALL: LanguageType[]
-    STANDARD: LanguageType[]
-    EXOTIC: LanguageType[]
+    type: string
 }
 
 export type SkillDataType = {
