@@ -1,4 +1,7 @@
 
+//TODO: 
+// 1. figure out which ones are deprecated and remove
+
 export type BgOptionGenericType = {
     name: string
     isAutoGranted: boolean

@@ -73,7 +73,6 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
     // make sure to return early in this condition state since the bg will no longer
     // be null, but rather the full object
     if (selectedBg.name == 'Custom Background') {
-        debugger
         return (
             <CustomBgSelector
                 skillsData={skills.allSkills.skills}
