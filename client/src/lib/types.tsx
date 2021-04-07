@@ -112,9 +112,3 @@ export type SpellType = {
     archetype: string
     circles: string
 }
-
-export type LanguagesDictType = {
-    ALL: LanguageType[]
-    STANDARD: LanguageType[]
-    EXOTIC: LanguageType[]
-}

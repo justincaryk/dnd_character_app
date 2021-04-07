@@ -147,7 +147,6 @@ export default class AsiGenerator extends React.Component<Props, State>{
                     callbackToGetAttributes={this.getUpdatedAttributes}
                     attributes={this.state.attributes}></PointBuy>
 
-
                 <StandardArray
                     activeMethod={this.state.activeMethod}
                     callbackToGetAttributes={this.getUpdatedAttributes}
@@ -157,7 +156,6 @@ export default class AsiGenerator extends React.Component<Props, State>{
                     activeMethod={this.state.activeMethod}
                     callbackToGetAttributes={this.getUpdatedAttributes}
                     attributes={this.state.attributes}></ManualOption>
-
 
                 <div className="space-sequence-20">
                     <div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import './../../../scss/StandardArray.scss';
 import { AttributeInterface } from './../../../lib/types'
-
 interface Props {
     attributes: AttributeInterface[]
     activeMethod: string

@@ -3,7 +3,6 @@ import './../../../scss/PointBuy.scss';
 import { AttributeInterface } from './../../../lib/types'
 import AttributeInputBlock from './attributeInput';
 
-
 interface Props {
     attributes: AttributeInterface[]
     activeMethod: string

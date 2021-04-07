@@ -242,9 +242,6 @@ function _buildSkillsBlock(numOfSelectElems: number, skillsData: SkillDataType[]
     )
 }
 
-
-
-
 function _buildToolsBlock(numOfSelectElems: number, equipment: EquipmentDataType[]) {
     const dummy_array = _buildDummyArrayToMapOver(numOfSelectElems);
     const sortedTools = [...equipment].sort();

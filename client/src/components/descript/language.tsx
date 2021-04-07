@@ -6,6 +6,7 @@ interface LanguageOptionConstraints {
     name: string
     isAutoGranted: boolean
 }
+
 interface Props {
     numberOfLanguagesGranted: number
     languageOptionConstraints: LanguageOptionConstraints[]
