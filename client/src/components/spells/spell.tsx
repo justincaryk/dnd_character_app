@@ -3,11 +3,12 @@ import './../../scss/Spell.scss';
 import { SpellType } from './../../lib/types'
 
 interface Props {
-    spell: SpellType
+    spell: any
 }
 
 interface State {
     detailsActive: boolean
+    spell: any
 }
 
 export default class Spell extends React.Component<Props, State> {
@@ -27,6 +28,7 @@ export default class Spell extends React.Component<Props, State> {
         
         this.state = {
             detailsActive: false,
+            spell: {}
         };
 
         this.toggleDetailDisplayState = () => {
@@ -41,18 +43,19 @@ export default class Spell extends React.Component<Props, State> {
                 return <div key={_getRandoNum()}>{chunk}</div>;
             })
         }
-
+        
+        
         this.rangeTextHash = {
             "point": {
                 "touch": "Touch",
                 "self": "Self",
                 "sight": "Sight",
                 "unlimited": "Unlimited",
-                "amount": `${this.props.spell.range.distance.amount} ${this.props.spell.range.distance.type}`,
+                "amount": `${this.props.spell.range.distance?.amount} ${this.props.spell.range.distance?.type}`,
             },
-            "radius": `${this.props.spell.range.distance.amount} ${this.props.spell.range.distance.type} radius`,
-            "sphere": `${this.props.spell.range.distance.amount} ${this.props.spell.range.distance.type} sphere`,
-            "cone": `${this.props.spell.range.distance.amount} ${this.props.spell.range.distance.type} cone`,
+            "radius": `${this.props.spell.range.distance?.amount} ${this.props.spell.range.distance?.type} radius`,
+            "sphere": `${this.props.spell.range.distance?.amount} ${this.props.spell.range.distance?.type} sphere`,
+            "cone": `${this.props.spell.range.distance?.amount} ${this.props.spell.range.distance?.type} cone`,
         }
 
         this.getRangeTextFromHash = () => {
@@ -210,8 +213,16 @@ export default class Spell extends React.Component<Props, State> {
         }
 
     }
-
     
+    componentDidMount() {
+        const range = JSON.parse(this.props.spell.range)
+        const spell = {...this.props.spell}
+        spell.range = range
+        this.setState({
+            spell: spell
+        })
+    }
+
     render() {
         const spell = this.props.spell;
 

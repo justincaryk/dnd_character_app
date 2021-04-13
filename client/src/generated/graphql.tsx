@@ -19,6 +19,8 @@ export type Scalars = {
    * 8601](https://en.wikipedia.org/wiki/ISO_8601) standard. May or may not include a timezone.
    */
   Datetime: any;
+  /** A JavaScript object encoded in the JSON format as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
+  JSON: any;
   /** A universally unique identifier as defined by [RFC 4122](https://tools.ietf.org/html/rfc4122). */
   UUID: any;
 };
@@ -403,6 +405,72 @@ export type CreateSkillPayloadSkillEdgeArgs = {
   orderBy?: Maybe<Array<SkillsOrderBy>>;
 };
 
+/** All input for the create `Spell` mutation. */
+export type CreateSpellInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Spell` to be created by this mutation. */
+  spell: SpellInput;
+};
+
+/** The output of our create `Spell` mutation. */
+export type CreateSpellPayload = {
+  __typename?: 'CreateSpellPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Spell` that was created by this mutation. */
+  spell?: Maybe<Spell>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Spell`. May be used by Relay 1. */
+  spellEdge?: Maybe<SpellsEdge>;
+};
+
+
+/** The output of our create `Spell` mutation. */
+export type CreateSpellPayloadSpellEdgeArgs = {
+  orderBy?: Maybe<Array<SpellsOrderBy>>;
+};
+
+/** All input for the create `SpellSlug` mutation. */
+export type CreateSpellSlugInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `SpellSlug` to be created by this mutation. */
+  spellSlug: SpellSlugInput;
+};
+
+/** The output of our create `SpellSlug` mutation. */
+export type CreateSpellSlugPayload = {
+  __typename?: 'CreateSpellSlugPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `SpellSlug` that was created by this mutation. */
+  spellSlug?: Maybe<SpellSlug>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `SpellSlug`. May be used by Relay 1. */
+  spellSlugEdge?: Maybe<SpellSlugsEdge>;
+};
+
+
+/** The output of our create `SpellSlug` mutation. */
+export type CreateSpellSlugPayloadSpellSlugEdgeArgs = {
+  orderBy?: Maybe<Array<SpellSlugsOrderBy>>;
+};
+
 
 
 /** All input for the `deleteAttributeById` mutation. */
@@ -660,6 +728,72 @@ export type DeleteSkillPayloadSkillEdgeArgs = {
   orderBy?: Maybe<Array<SkillsOrderBy>>;
 };
 
+/** All input for the `deleteSpellById` mutation. */
+export type DeleteSpellByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  id: Scalars['UUID'];
+};
+
+/** The output of our delete `Spell` mutation. */
+export type DeleteSpellPayload = {
+  __typename?: 'DeleteSpellPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Spell` that was deleted by this mutation. */
+  spell?: Maybe<Spell>;
+  deletedSpellId?: Maybe<Scalars['ID']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Spell`. May be used by Relay 1. */
+  spellEdge?: Maybe<SpellsEdge>;
+};
+
+
+/** The output of our delete `Spell` mutation. */
+export type DeleteSpellPayloadSpellEdgeArgs = {
+  orderBy?: Maybe<Array<SpellsOrderBy>>;
+};
+
+/** All input for the `deleteSpellSlugById` mutation. */
+export type DeleteSpellSlugByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  id: Scalars['UUID'];
+};
+
+/** The output of our delete `SpellSlug` mutation. */
+export type DeleteSpellSlugPayload = {
+  __typename?: 'DeleteSpellSlugPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `SpellSlug` that was deleted by this mutation. */
+  spellSlug?: Maybe<SpellSlug>;
+  deletedSpellSlugId?: Maybe<Scalars['ID']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `SpellSlug`. May be used by Relay 1. */
+  spellSlugEdge?: Maybe<SpellSlugsEdge>;
+};
+
+
+/** The output of our delete `SpellSlug` mutation. */
+export type DeleteSpellSlugPayloadSpellSlugEdgeArgs = {
+  orderBy?: Maybe<Array<SpellSlugsOrderBy>>;
+};
+
 export type Equipment = {
   __typename?: 'Equipment';
   id?: Maybe<Scalars['UUID']>;
@@ -726,6 +860,7 @@ export type EquipmentPatch = {
   type?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
 };
+
 
 export type KnexMigration = Node & {
   __typename?: 'KnexMigration';
@@ -967,6 +1102,10 @@ export type Mutation = {
   createLanguage?: Maybe<CreateLanguagePayload>;
   /** Creates a single `Skill`. */
   createSkill?: Maybe<CreateSkillPayload>;
+  /** Creates a single `SpellSlug`. */
+  createSpellSlug?: Maybe<CreateSpellSlugPayload>;
+  /** Creates a single `Spell`. */
+  createSpell?: Maybe<CreateSpellPayload>;
   /** Updates a single `Attribute` using a unique key and a patch. */
   updateAttributeById?: Maybe<UpdateAttributePayload>;
   /** Updates a single `BgFeature` using a unique key and a patch. */
@@ -985,6 +1124,10 @@ export type Mutation = {
   updateLanguageById?: Maybe<UpdateLanguagePayload>;
   /** Updates a single `Skill` using a unique key and a patch. */
   updateSkillById?: Maybe<UpdateSkillPayload>;
+  /** Updates a single `SpellSlug` using a unique key and a patch. */
+  updateSpellSlugById?: Maybe<UpdateSpellSlugPayload>;
+  /** Updates a single `Spell` using a unique key and a patch. */
+  updateSpellById?: Maybe<UpdateSpellPayload>;
   /** Deletes a single `Attribute` using a unique key. */
   deleteAttributeById?: Maybe<DeleteAttributePayload>;
   /** Deletes a single `BgFeature` using a unique key. */
@@ -1003,6 +1146,10 @@ export type Mutation = {
   deleteLanguageById?: Maybe<DeleteLanguagePayload>;
   /** Deletes a single `Skill` using a unique key. */
   deleteSkillById?: Maybe<DeleteSkillPayload>;
+  /** Deletes a single `SpellSlug` using a unique key. */
+  deleteSpellSlugById?: Maybe<DeleteSpellSlugPayload>;
+  /** Deletes a single `Spell` using a unique key. */
+  deleteSpellById?: Maybe<DeleteSpellPayload>;
 };
 
 
@@ -1045,6 +1192,18 @@ export type MutationCreateLanguageArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateSkillArgs = {
   input: CreateSkillInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateSpellSlugArgs = {
+  input: CreateSpellSlugInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateSpellArgs = {
+  input: CreateSpellInput;
 };
 
 
@@ -1103,6 +1262,18 @@ export type MutationUpdateSkillByIdArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateSpellSlugByIdArgs = {
+  input: UpdateSpellSlugByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateSpellByIdArgs = {
+  input: UpdateSpellByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteAttributeByIdArgs = {
   input: DeleteAttributeByIdInput;
 };
@@ -1155,6 +1326,18 @@ export type MutationDeleteSkillByIdArgs = {
   input: DeleteSkillByIdInput;
 };
 
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteSpellSlugByIdArgs = {
+  input: DeleteSpellSlugByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteSpellByIdArgs = {
+  input: DeleteSpellByIdInput;
+};
+
 /** An object with a globally unique `ID`. */
 export type Node = {
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -1200,6 +1383,10 @@ export type Query = Node & {
   allLanguages?: Maybe<LanguagesConnection>;
   /** Reads and enables pagination through a set of `Skill`. */
   allSkills?: Maybe<SkillsConnection>;
+  /** Reads and enables pagination through a set of `SpellSlug`. */
+  allSpellSlugs?: Maybe<SpellSlugsConnection>;
+  /** Reads and enables pagination through a set of `Spell`. */
+  allSpells?: Maybe<SpellsConnection>;
   attributeById?: Maybe<Attribute>;
   bgFeatureById?: Maybe<BgFeature>;
   equipmentById?: Maybe<Equipment>;
@@ -1207,6 +1394,8 @@ export type Query = Node & {
   knexMigrationsLockByIndex?: Maybe<KnexMigrationsLock>;
   languageById?: Maybe<Language>;
   skillById?: Maybe<Skill>;
+  spellSlugById?: Maybe<SpellSlug>;
+  spellById?: Maybe<Spell>;
   /** Reads a single `KnexMigration` using its globally unique `ID`. */
   knexMigration?: Maybe<KnexMigration>;
   /** Reads a single `KnexMigrationsLock` using its globally unique `ID`. */
@@ -1305,6 +1494,30 @@ export type QueryAllSkillsArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
+export type QueryAllSpellSlugsArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<SpellSlugsOrderBy>>;
+  condition?: Maybe<SpellSlugCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAllSpellsArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<SpellsOrderBy>>;
+  condition?: Maybe<SpellCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
 export type QueryAttributeByIdArgs = {
   id: Scalars['UUID'];
 };
@@ -1342,6 +1555,18 @@ export type QueryLanguageByIdArgs = {
 
 /** The root query type which gives access points into the data universe. */
 export type QuerySkillByIdArgs = {
+  id: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QuerySpellSlugByIdArgs = {
+  id: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QuerySpellByIdArgs = {
   id: Scalars['UUID'];
 };
 
@@ -1421,6 +1646,284 @@ export enum SkillsOrderBy {
   SkillDesc = 'SKILL_DESC',
   AttrIdAsc = 'ATTR_ID_ASC',
   AttrIdDesc = 'ATTR_ID_DESC'
+}
+
+export type Spell = {
+  __typename?: 'Spell';
+  id?: Maybe<Scalars['UUID']>;
+  slug: Scalars['String'];
+  name: Scalars['String'];
+  desc: Array<Maybe<Scalars['String']>>;
+  page?: Maybe<Scalars['String']>;
+  range: Scalars['JSON'];
+  components: Scalars['String'];
+  material: Scalars['String'];
+  ritual: Scalars['String'];
+  duration: Scalars['String'];
+  concentration: Scalars['Boolean'];
+  castingTime: Scalars['String'];
+  level: Scalars['String'];
+  levelInt: Scalars['Int'];
+  school?: Maybe<Scalars['String']>;
+  higherLevel?: Maybe<Scalars['String']>;
+  dndClass?: Maybe<Scalars['String']>;
+  archetype?: Maybe<Scalars['String']>;
+  circles?: Maybe<Scalars['String']>;
+};
+
+/** A condition to be used against `Spell` object types. All fields are tested for equality and combined with a logical ‘and.’ */
+export type SpellCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `slug` field. */
+  slug?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `name` field. */
+  name?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `desc` field. */
+  desc?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Checks for equality with the object’s `page` field. */
+  page?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `range` field. */
+  range?: Maybe<Scalars['JSON']>;
+  /** Checks for equality with the object’s `components` field. */
+  components?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `material` field. */
+  material?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `ritual` field. */
+  ritual?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `duration` field. */
+  duration?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `concentration` field. */
+  concentration?: Maybe<Scalars['Boolean']>;
+  /** Checks for equality with the object’s `castingTime` field. */
+  castingTime?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `level` field. */
+  level?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `levelInt` field. */
+  levelInt?: Maybe<Scalars['Int']>;
+  /** Checks for equality with the object’s `school` field. */
+  school?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `higherLevel` field. */
+  higherLevel?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `dndClass` field. */
+  dndClass?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `archetype` field. */
+  archetype?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `circles` field. */
+  circles?: Maybe<Scalars['String']>;
+};
+
+/** An input for mutations affecting `Spell` */
+export type SpellInput = {
+  id?: Maybe<Scalars['UUID']>;
+  slug: Scalars['String'];
+  name: Scalars['String'];
+  desc: Array<Maybe<Scalars['String']>>;
+  page?: Maybe<Scalars['String']>;
+  range: Scalars['JSON'];
+  components: Scalars['String'];
+  material: Scalars['String'];
+  ritual: Scalars['String'];
+  duration: Scalars['String'];
+  concentration: Scalars['Boolean'];
+  castingTime: Scalars['String'];
+  level: Scalars['String'];
+  levelInt: Scalars['Int'];
+  school?: Maybe<Scalars['String']>;
+  higherLevel?: Maybe<Scalars['String']>;
+  dndClass?: Maybe<Scalars['String']>;
+  archetype?: Maybe<Scalars['String']>;
+  circles?: Maybe<Scalars['String']>;
+};
+
+/** Represents an update to a `Spell`. Fields that are set will be updated. */
+export type SpellPatch = {
+  id?: Maybe<Scalars['UUID']>;
+  slug?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  desc?: Maybe<Array<Maybe<Scalars['String']>>>;
+  page?: Maybe<Scalars['String']>;
+  range?: Maybe<Scalars['JSON']>;
+  components?: Maybe<Scalars['String']>;
+  material?: Maybe<Scalars['String']>;
+  ritual?: Maybe<Scalars['String']>;
+  duration?: Maybe<Scalars['String']>;
+  concentration?: Maybe<Scalars['Boolean']>;
+  castingTime?: Maybe<Scalars['String']>;
+  level?: Maybe<Scalars['String']>;
+  levelInt?: Maybe<Scalars['Int']>;
+  school?: Maybe<Scalars['String']>;
+  higherLevel?: Maybe<Scalars['String']>;
+  dndClass?: Maybe<Scalars['String']>;
+  archetype?: Maybe<Scalars['String']>;
+  circles?: Maybe<Scalars['String']>;
+};
+
+export type SpellSlug = {
+  __typename?: 'SpellSlug';
+  id?: Maybe<Scalars['UUID']>;
+  slug: Scalars['String'];
+  name: Scalars['String'];
+  components: Scalars['String'];
+  level: Scalars['String'];
+  levelInt: Scalars['Int'];
+  school?: Maybe<Scalars['String']>;
+  dndClass: Scalars['String'];
+};
+
+/**
+ * A condition to be used against `SpellSlug` object types. All fields are tested
+ * for equality and combined with a logical ‘and.’
+ */
+export type SpellSlugCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `slug` field. */
+  slug?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `name` field. */
+  name?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `components` field. */
+  components?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `level` field. */
+  level?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `levelInt` field. */
+  levelInt?: Maybe<Scalars['Int']>;
+  /** Checks for equality with the object’s `school` field. */
+  school?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `dndClass` field. */
+  dndClass?: Maybe<Scalars['String']>;
+};
+
+/** An input for mutations affecting `SpellSlug` */
+export type SpellSlugInput = {
+  id?: Maybe<Scalars['UUID']>;
+  slug: Scalars['String'];
+  name: Scalars['String'];
+  components: Scalars['String'];
+  level: Scalars['String'];
+  levelInt: Scalars['Int'];
+  school?: Maybe<Scalars['String']>;
+  dndClass: Scalars['String'];
+};
+
+/** Represents an update to a `SpellSlug`. Fields that are set will be updated. */
+export type SpellSlugPatch = {
+  id?: Maybe<Scalars['UUID']>;
+  slug?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  components?: Maybe<Scalars['String']>;
+  level?: Maybe<Scalars['String']>;
+  levelInt?: Maybe<Scalars['Int']>;
+  school?: Maybe<Scalars['String']>;
+  dndClass?: Maybe<Scalars['String']>;
+};
+
+/** A connection to a list of `SpellSlug` values. */
+export type SpellSlugsConnection = {
+  __typename?: 'SpellSlugsConnection';
+  /** A list of `SpellSlug` objects. */
+  nodes: Array<Maybe<SpellSlug>>;
+  /** A list of edges which contains the `SpellSlug` and cursor to aid in pagination. */
+  edges: Array<SpellSlugsEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `SpellSlug` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `SpellSlug` edge in the connection. */
+export type SpellSlugsEdge = {
+  __typename?: 'SpellSlugsEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `SpellSlug` at the end of the edge. */
+  node?: Maybe<SpellSlug>;
+};
+
+/** Methods to use when ordering `SpellSlug`. */
+export enum SpellSlugsOrderBy {
+  Natural = 'NATURAL',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  SlugAsc = 'SLUG_ASC',
+  SlugDesc = 'SLUG_DESC',
+  NameAsc = 'NAME_ASC',
+  NameDesc = 'NAME_DESC',
+  ComponentsAsc = 'COMPONENTS_ASC',
+  ComponentsDesc = 'COMPONENTS_DESC',
+  LevelAsc = 'LEVEL_ASC',
+  LevelDesc = 'LEVEL_DESC',
+  LevelIntAsc = 'LEVEL_INT_ASC',
+  LevelIntDesc = 'LEVEL_INT_DESC',
+  SchoolAsc = 'SCHOOL_ASC',
+  SchoolDesc = 'SCHOOL_DESC',
+  DndClassAsc = 'DND_CLASS_ASC',
+  DndClassDesc = 'DND_CLASS_DESC'
+}
+
+/** A connection to a list of `Spell` values. */
+export type SpellsConnection = {
+  __typename?: 'SpellsConnection';
+  /** A list of `Spell` objects. */
+  nodes: Array<Maybe<Spell>>;
+  /** A list of edges which contains the `Spell` and cursor to aid in pagination. */
+  edges: Array<SpellsEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `Spell` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `Spell` edge in the connection. */
+export type SpellsEdge = {
+  __typename?: 'SpellsEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `Spell` at the end of the edge. */
+  node?: Maybe<Spell>;
+};
+
+/** Methods to use when ordering `Spell`. */
+export enum SpellsOrderBy {
+  Natural = 'NATURAL',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  SlugAsc = 'SLUG_ASC',
+  SlugDesc = 'SLUG_DESC',
+  NameAsc = 'NAME_ASC',
+  NameDesc = 'NAME_DESC',
+  DescAsc = 'DESC_ASC',
+  DescDesc = 'DESC_DESC',
+  PageAsc = 'PAGE_ASC',
+  PageDesc = 'PAGE_DESC',
+  RangeAsc = 'RANGE_ASC',
+  RangeDesc = 'RANGE_DESC',
+  ComponentsAsc = 'COMPONENTS_ASC',
+  ComponentsDesc = 'COMPONENTS_DESC',
+  MaterialAsc = 'MATERIAL_ASC',
+  MaterialDesc = 'MATERIAL_DESC',
+  RitualAsc = 'RITUAL_ASC',
+  RitualDesc = 'RITUAL_DESC',
+  DurationAsc = 'DURATION_ASC',
+  DurationDesc = 'DURATION_DESC',
+  ConcentrationAsc = 'CONCENTRATION_ASC',
+  ConcentrationDesc = 'CONCENTRATION_DESC',
+  CastingTimeAsc = 'CASTING_TIME_ASC',
+  CastingTimeDesc = 'CASTING_TIME_DESC',
+  LevelAsc = 'LEVEL_ASC',
+  LevelDesc = 'LEVEL_DESC',
+  LevelIntAsc = 'LEVEL_INT_ASC',
+  LevelIntDesc = 'LEVEL_INT_DESC',
+  SchoolAsc = 'SCHOOL_ASC',
+  SchoolDesc = 'SCHOOL_DESC',
+  HigherLevelAsc = 'HIGHER_LEVEL_ASC',
+  HigherLevelDesc = 'HIGHER_LEVEL_DESC',
+  DndClassAsc = 'DND_CLASS_ASC',
+  DndClassDesc = 'DND_CLASS_DESC',
+  ArchetypeAsc = 'ARCHETYPE_ASC',
+  ArchetypeDesc = 'ARCHETYPE_DESC',
+  CirclesAsc = 'CIRCLES_ASC',
+  CirclesDesc = 'CIRCLES_DESC'
 }
 
 
@@ -1526,51 +2029,120 @@ export type UpdateEquipmentPayloadEquipmentEdgeArgs = {
   orderBy?: Maybe<Array<EquipmentOrderBy>>;
 };
 
-/** All input for the `updateKnexMigrationById` mutation. */
-export type UpdateKnexMigrationByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** An object where the defined keys will be set on the `KnexMigration` being updated. */
-  knexMigrationPatch: KnexMigrationPatch;
-  id: Scalars['Int'];
-};
-
-/** All input for the `updateKnexMigration` mutation. */
-export type UpdateKnexMigrationInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The globally unique `ID` which will identify a single `KnexMigration` to be updated. */
-  nodeId: Scalars['ID'];
-  /** An object where the defined keys will be set on the `KnexMigration` being updated. */
-  knexMigrationPatch: KnexMigrationPatch;
-};
-
-/** The output of our update `KnexMigration` mutation. */
-export type UpdateKnexMigrationPayload = {
-  __typename?: 'UpdateKnexMigrationPayload';
+/** The output of our update `Spell` mutation. */
+export type UpdateSpellPayload = {
+  __typename?: 'UpdateSpellPayload';
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']>;
-  /** The `KnexMigration` that was updated by this mutation. */
-  knexMigration?: Maybe<KnexMigration>;
+  /** The `Spell` that was updated by this mutation. */
+  spell?: Maybe<Spell>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** An edge for our `KnexMigration`. May be used by Relay 1. */
-  knexMigrationEdge?: Maybe<KnexMigrationsEdge>;
+  /** An edge for our `Spell`. May be used by Relay 1. */
+  spellEdge?: Maybe<SpellsEdge>;
 };
 
 
-/** The output of our update `KnexMigration` mutation. */
-export type UpdateKnexMigrationPayloadKnexMigrationEdgeArgs = {
-  orderBy?: Maybe<Array<KnexMigrationsOrderBy>>;
+/** The output of our update `Spell` mutation. */
+export type UpdateSpellPayloadSpellEdgeArgs = {
+  orderBy?: Maybe<Array<SpellsOrderBy>>;
+};
+
+/** All input for the `updateSpellSlugById` mutation. */
+export type UpdateSpellSlugByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `SpellSlug` being updated. */
+  spellSlugPatch: SpellSlugPatch;
+  id: Scalars['UUID'];
+};
+
+/** The output of our update `SpellSlug` mutation. */
+export type UpdateSpellSlugPayload = {
+  __typename?: 'UpdateSpellSlugPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `SpellSlug` that was updated by this mutation. */
+  spellSlug?: Maybe<SpellSlug>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `SpellSlug`. May be used by Relay 1. */
+  spellSlugEdge?: Maybe<SpellSlugsEdge>;
+};
+
+
+/** The output of our update `SpellSlug` mutation. */
+export type UpdateSpellSlugPayloadSpellSlugEdgeArgs = {
+  orderBy?: Maybe<Array<SpellSlugsOrderBy>>;
+};
+
+/** All input for the `updateSkillById` mutation. */
+export type UpdateSkillByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `Skill` being updated. */
+  skillPatch: SkillPatch;
+  id: Scalars['UUID'];
+};
+
+/** The output of our update `Skill` mutation. */
+export type UpdateSkillPayload = {
+  __typename?: 'UpdateSkillPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Skill` that was updated by this mutation. */
+  skill?: Maybe<Skill>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Attribute` that is related to this `Skill`. */
+  attributeByAttrId?: Maybe<Attribute>;
+  /** An edge for our `Skill`. May be used by Relay 1. */
+  skillEdge?: Maybe<SkillsEdge>;
+};
+
+
+/** The output of our update `Skill` mutation. */
+export type UpdateSkillPayloadSkillEdgeArgs = {
+  orderBy?: Maybe<Array<SkillsOrderBy>>;
+};
+
+/** All input for the `updateLanguageById` mutation. */
+export type UpdateLanguageByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `Language` being updated. */
+  languagePatch: LanguagePatch;
+  id: Scalars['UUID'];
+};
+
+/** All input for the `updateSpellById` mutation. */
+export type UpdateSpellByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `Spell` being updated. */
+  spellPatch: SpellPatch;
+  id: Scalars['UUID'];
 };
 
 /** All input for the `updateKnexMigrationsLockByIndex` mutation. */
@@ -1620,16 +2192,51 @@ export type UpdateKnexMigrationsLockPayloadKnexMigrationsLockEdgeArgs = {
   orderBy?: Maybe<Array<KnexMigrationsLocksOrderBy>>;
 };
 
-/** All input for the `updateLanguageById` mutation. */
-export type UpdateLanguageByIdInput = {
+/** All input for the `updateKnexMigrationById` mutation. */
+export type UpdateKnexMigrationByIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars['String']>;
-  /** An object where the defined keys will be set on the `Language` being updated. */
-  languagePatch: LanguagePatch;
-  id: Scalars['UUID'];
+  /** An object where the defined keys will be set on the `KnexMigration` being updated. */
+  knexMigrationPatch: KnexMigrationPatch;
+  id: Scalars['Int'];
+};
+
+/** All input for the `updateKnexMigration` mutation. */
+export type UpdateKnexMigrationInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `KnexMigration` to be updated. */
+  nodeId: Scalars['ID'];
+  /** An object where the defined keys will be set on the `KnexMigration` being updated. */
+  knexMigrationPatch: KnexMigrationPatch;
+};
+
+/** The output of our update `KnexMigration` mutation. */
+export type UpdateKnexMigrationPayload = {
+  __typename?: 'UpdateKnexMigrationPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `KnexMigration` that was updated by this mutation. */
+  knexMigration?: Maybe<KnexMigration>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `KnexMigration`. May be used by Relay 1. */
+  knexMigrationEdge?: Maybe<KnexMigrationsEdge>;
+};
+
+
+/** The output of our update `KnexMigration` mutation. */
+export type UpdateKnexMigrationPayloadKnexMigrationEdgeArgs = {
+  orderBy?: Maybe<Array<KnexMigrationsOrderBy>>;
 };
 
 /** The output of our update `Language` mutation. */
@@ -1652,42 +2259,6 @@ export type UpdateLanguagePayload = {
 /** The output of our update `Language` mutation. */
 export type UpdateLanguagePayloadLanguageEdgeArgs = {
   orderBy?: Maybe<Array<LanguagesOrderBy>>;
-};
-
-/** All input for the `updateSkillById` mutation. */
-export type UpdateSkillByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** An object where the defined keys will be set on the `Skill` being updated. */
-  skillPatch: SkillPatch;
-  id: Scalars['UUID'];
-};
-
-/** The output of our update `Skill` mutation. */
-export type UpdateSkillPayload = {
-  __typename?: 'UpdateSkillPayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `Skill` that was updated by this mutation. */
-  skill?: Maybe<Skill>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** Reads a single `Attribute` that is related to this `Skill`. */
-  attributeByAttrId?: Maybe<Attribute>;
-  /** An edge for our `Skill`. May be used by Relay 1. */
-  skillEdge?: Maybe<SkillsEdge>;
-};
-
-
-/** The output of our update `Skill` mutation. */
-export type UpdateSkillPayloadSkillEdgeArgs = {
-  orderBy?: Maybe<Array<SkillsOrderBy>>;
 };
 
 export type AllAttributesQueryVariables = Exact<{ [key: string]: never; }>;
@@ -1767,6 +2338,20 @@ export type AllSkillsQuery = (
         { __typename?: 'Attribute' }
         & Pick<Attribute, 'attribute'>
       )> }
+    )>> }
+  )> }
+);
+
+export type GetAllSpellsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllSpellsQuery = (
+  { __typename?: 'Query' }
+  & { allSpells?: Maybe<(
+    { __typename?: 'SpellsConnection' }
+    & { spells: Array<Maybe<(
+      { __typename?: 'Spell' }
+      & Pick<Spell, 'archetype' | 'castingTime' | 'circles' | 'components' | 'concentration' | 'desc' | 'dndClass' | 'duration' | 'higherLevel' | 'levelInt' | 'level' | 'material' | 'name' | 'page' | 'range' | 'ritual' | 'school' | 'slug'>
     )>> }
   )> }
 );
@@ -1966,3 +2551,56 @@ export function useAllSkillsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<
 export type AllSkillsQueryHookResult = ReturnType<typeof useAllSkillsQuery>;
 export type AllSkillsLazyQueryHookResult = ReturnType<typeof useAllSkillsLazyQuery>;
 export type AllSkillsQueryResult = Apollo.QueryResult<AllSkillsQuery, AllSkillsQueryVariables>;
+export const GetAllSpellsDocument = gql`
+    query GetAllSpells {
+  allSpells {
+    spells: nodes {
+      archetype
+      castingTime
+      circles
+      components
+      concentration
+      desc
+      dndClass
+      duration
+      higherLevel
+      levelInt
+      level
+      material
+      name
+      page
+      range
+      ritual
+      school
+      slug
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetAllSpellsQuery__
+ *
+ * To run a query within a React component, call `useGetAllSpellsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllSpellsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllSpellsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetAllSpellsQuery(baseOptions?: Apollo.QueryHookOptions<GetAllSpellsQuery, GetAllSpellsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllSpellsQuery, GetAllSpellsQueryVariables>(GetAllSpellsDocument, options);
+      }
+export function useGetAllSpellsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllSpellsQuery, GetAllSpellsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllSpellsQuery, GetAllSpellsQueryVariables>(GetAllSpellsDocument, options);
+        }
+export type GetAllSpellsQueryHookResult = ReturnType<typeof useGetAllSpellsQuery>;
+export type GetAllSpellsLazyQueryHookResult = ReturnType<typeof useGetAllSpellsLazyQuery>;
+export type GetAllSpellsQueryResult = Apollo.QueryResult<GetAllSpellsQuery, GetAllSpellsQueryVariables>;
