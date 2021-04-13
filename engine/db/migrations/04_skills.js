@@ -4,7 +4,7 @@ exports.up = knex => (
             table.uuid('id').unique()
             table.string('skill').notNullable()
             table.uuid('attr_id')
-                // .unsigned()
+                .unsigned()
                 .notNullable()
                 .references('id')
                 .inTable('attributes')
