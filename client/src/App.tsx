@@ -7,9 +7,6 @@ import {
   Route
 } from "react-router-dom";
 
-// Import data dictionaries
-import { appDictionary } from './lib/dictionary'
-
 import DndClasses from './components/dndClasses/dndClasses';
 import RaceSelectionForm from './components/raceForm/raceForm';
 import AsiGenerator from './components/abilityScores/asiGenerator';
@@ -110,7 +107,7 @@ function App() {
 
           <Route path="/feats" >
             <div className="container">
-              <Feats feats={appDictionary.FEAT_DATA} />
+              <Feats />
             </div>
           </Route>
 

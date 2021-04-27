@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { appDictionary } from '../../lib/dictionary';
 import './../../scss/Spells.scss';
 import Spell from './spell';
-// import { SpellType } from './../../lib/types'
 import { useGetAllSpellsQuery } from './../../generated/graphql'
 interface SpellLevel {
     lvl: string

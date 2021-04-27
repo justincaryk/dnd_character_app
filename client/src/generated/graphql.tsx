@@ -271,6 +271,39 @@ export type CreateEquipmentPayloadEquipmentEdgeArgs = {
   orderBy?: Maybe<Array<EquipmentOrderBy>>;
 };
 
+/** All input for the create `Feat` mutation. */
+export type CreateFeatInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Feat` to be created by this mutation. */
+  feat: FeatInput;
+};
+
+/** The output of our create `Feat` mutation. */
+export type CreateFeatPayload = {
+  __typename?: 'CreateFeatPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Feat` that was created by this mutation. */
+  feat?: Maybe<Feat>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Feat`. May be used by Relay 1. */
+  featEdge?: Maybe<FeatsEdge>;
+};
+
+
+/** The output of our create `Feat` mutation. */
+export type CreateFeatPayloadFeatEdgeArgs = {
+  orderBy?: Maybe<Array<FeatsOrderBy>>;
+};
+
 /** All input for the create `KnexMigration` mutation. */
 export type CreateKnexMigrationInput = {
   /**
@@ -572,6 +605,39 @@ export type DeleteEquipmentPayloadEquipmentEdgeArgs = {
   orderBy?: Maybe<Array<EquipmentOrderBy>>;
 };
 
+/** All input for the `deleteFeatById` mutation. */
+export type DeleteFeatByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  id: Scalars['UUID'];
+};
+
+/** The output of our delete `Feat` mutation. */
+export type DeleteFeatPayload = {
+  __typename?: 'DeleteFeatPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Feat` that was deleted by this mutation. */
+  feat?: Maybe<Feat>;
+  deletedFeatId?: Maybe<Scalars['ID']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Feat`. May be used by Relay 1. */
+  featEdge?: Maybe<FeatsEdge>;
+};
+
+
+/** The output of our delete `Feat` mutation. */
+export type DeleteFeatPayloadFeatEdgeArgs = {
+  orderBy?: Maybe<Array<FeatsOrderBy>>;
+};
+
 /** All input for the `deleteKnexMigrationById` mutation. */
 export type DeleteKnexMigrationByIdInput = {
   /**
@@ -861,6 +927,84 @@ export type EquipmentPatch = {
   name?: Maybe<Scalars['String']>;
 };
 
+export type Feat = {
+  __typename?: 'Feat';
+  id: Scalars['UUID'];
+  name: Scalars['String'];
+  desc: Scalars['String'];
+  points?: Maybe<Array<Maybe<Scalars['String']>>>;
+  prereq?: Maybe<Scalars['String']>;
+};
+
+/** A condition to be used against `Feat` object types. All fields are tested for equality and combined with a logical ‘and.’ */
+export type FeatCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `name` field. */
+  name?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `desc` field. */
+  desc?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `points` field. */
+  points?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Checks for equality with the object’s `prereq` field. */
+  prereq?: Maybe<Scalars['String']>;
+};
+
+/** An input for mutations affecting `Feat` */
+export type FeatInput = {
+  id: Scalars['UUID'];
+  name: Scalars['String'];
+  desc: Scalars['String'];
+  points?: Maybe<Array<Maybe<Scalars['String']>>>;
+  prereq?: Maybe<Scalars['String']>;
+};
+
+/** Represents an update to a `Feat`. Fields that are set will be updated. */
+export type FeatPatch = {
+  id?: Maybe<Scalars['UUID']>;
+  name?: Maybe<Scalars['String']>;
+  desc?: Maybe<Scalars['String']>;
+  points?: Maybe<Array<Maybe<Scalars['String']>>>;
+  prereq?: Maybe<Scalars['String']>;
+};
+
+/** A connection to a list of `Feat` values. */
+export type FeatsConnection = {
+  __typename?: 'FeatsConnection';
+  /** A list of `Feat` objects. */
+  nodes: Array<Maybe<Feat>>;
+  /** A list of edges which contains the `Feat` and cursor to aid in pagination. */
+  edges: Array<FeatsEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `Feat` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `Feat` edge in the connection. */
+export type FeatsEdge = {
+  __typename?: 'FeatsEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `Feat` at the end of the edge. */
+  node?: Maybe<Feat>;
+};
+
+/** Methods to use when ordering `Feat`. */
+export enum FeatsOrderBy {
+  Natural = 'NATURAL',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  NameAsc = 'NAME_ASC',
+  NameDesc = 'NAME_DESC',
+  DescAsc = 'DESC_ASC',
+  DescDesc = 'DESC_DESC',
+  PointsAsc = 'POINTS_ASC',
+  PointsDesc = 'POINTS_DESC',
+  PrereqAsc = 'PREREQ_ASC',
+  PrereqDesc = 'PREREQ_DESC'
+}
+
 
 export type KnexMigration = Node & {
   __typename?: 'KnexMigration';
@@ -1094,6 +1238,8 @@ export type Mutation = {
   createBgFeature?: Maybe<CreateBgFeaturePayload>;
   /** Creates a single `Equipment`. */
   createEquipment?: Maybe<CreateEquipmentPayload>;
+  /** Creates a single `Feat`. */
+  createFeat?: Maybe<CreateFeatPayload>;
   /** Creates a single `KnexMigration`. */
   createKnexMigration?: Maybe<CreateKnexMigrationPayload>;
   /** Creates a single `KnexMigrationsLock`. */
@@ -1112,6 +1258,8 @@ export type Mutation = {
   updateBgFeatureById?: Maybe<UpdateBgFeaturePayload>;
   /** Updates a single `Equipment` using a unique key and a patch. */
   updateEquipmentById?: Maybe<UpdateEquipmentPayload>;
+  /** Updates a single `Feat` using a unique key and a patch. */
+  updateFeatById?: Maybe<UpdateFeatPayload>;
   /** Updates a single `KnexMigration` using its globally unique id and a patch. */
   updateKnexMigration?: Maybe<UpdateKnexMigrationPayload>;
   /** Updates a single `KnexMigration` using a unique key and a patch. */
@@ -1134,6 +1282,8 @@ export type Mutation = {
   deleteBgFeatureById?: Maybe<DeleteBgFeaturePayload>;
   /** Deletes a single `Equipment` using a unique key. */
   deleteEquipmentById?: Maybe<DeleteEquipmentPayload>;
+  /** Deletes a single `Feat` using a unique key. */
+  deleteFeatById?: Maybe<DeleteFeatPayload>;
   /** Deletes a single `KnexMigration` using its globally unique id. */
   deleteKnexMigration?: Maybe<DeleteKnexMigrationPayload>;
   /** Deletes a single `KnexMigration` using a unique key. */
@@ -1168,6 +1318,12 @@ export type MutationCreateBgFeatureArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateEquipmentArgs = {
   input: CreateEquipmentInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateFeatArgs = {
+  input: CreateFeatInput;
 };
 
 
@@ -1222,6 +1378,12 @@ export type MutationUpdateBgFeatureByIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateEquipmentByIdArgs = {
   input: UpdateEquipmentByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateFeatByIdArgs = {
+  input: UpdateFeatByIdInput;
 };
 
 
@@ -1288,6 +1450,12 @@ export type MutationDeleteBgFeatureByIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteEquipmentByIdArgs = {
   input: DeleteEquipmentByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteFeatByIdArgs = {
+  input: DeleteFeatByIdInput;
 };
 
 
@@ -1375,6 +1543,8 @@ export type Query = Node & {
   allBgFeatures?: Maybe<BgFeaturesConnection>;
   /** Reads and enables pagination through a set of `Equipment`. */
   allEquipment?: Maybe<EquipmentConnection>;
+  /** Reads and enables pagination through a set of `Feat`. */
+  allFeats?: Maybe<FeatsConnection>;
   /** Reads and enables pagination through a set of `KnexMigration`. */
   allKnexMigrations?: Maybe<KnexMigrationsConnection>;
   /** Reads and enables pagination through a set of `KnexMigrationsLock`. */
@@ -1390,6 +1560,7 @@ export type Query = Node & {
   attributeById?: Maybe<Attribute>;
   bgFeatureById?: Maybe<BgFeature>;
   equipmentById?: Maybe<Equipment>;
+  featById?: Maybe<Feat>;
   knexMigrationById?: Maybe<KnexMigration>;
   knexMigrationsLockByIndex?: Maybe<KnexMigrationsLock>;
   languageById?: Maybe<Language>;
@@ -1442,6 +1613,18 @@ export type QueryAllEquipmentArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<EquipmentOrderBy>>;
   condition?: Maybe<EquipmentCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAllFeatsArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<FeatsOrderBy>>;
+  condition?: Maybe<FeatCondition>;
 };
 
 
@@ -1531,6 +1714,12 @@ export type QueryBgFeatureByIdArgs = {
 
 /** The root query type which gives access points into the data universe. */
 export type QueryEquipmentByIdArgs = {
+  id: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryFeatByIdArgs = {
   id: Scalars['UUID'];
 };
 
@@ -2029,6 +2218,40 @@ export type UpdateEquipmentPayloadEquipmentEdgeArgs = {
   orderBy?: Maybe<Array<EquipmentOrderBy>>;
 };
 
+/** All input for the `updateFeatById` mutation. */
+export type UpdateFeatByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `Feat` being updated. */
+  featPatch: FeatPatch;
+  id: Scalars['UUID'];
+};
+
+/** The output of our update `Feat` mutation. */
+export type UpdateFeatPayload = {
+  __typename?: 'UpdateFeatPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Feat` that was updated by this mutation. */
+  feat?: Maybe<Feat>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Feat`. May be used by Relay 1. */
+  featEdge?: Maybe<FeatsEdge>;
+};
+
+
+/** The output of our update `Feat` mutation. */
+export type UpdateFeatPayloadFeatEdgeArgs = {
+  orderBy?: Maybe<Array<FeatsOrderBy>>;
+};
+
 /** The output of our update `Spell` mutation. */
 export type UpdateSpellPayload = {
   __typename?: 'UpdateSpellPayload';
@@ -2310,6 +2533,20 @@ export type AllEquipmentQuery = (
   )> }
 );
 
+export type AllFeatsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AllFeatsQuery = (
+  { __typename?: 'Query' }
+  & { allFeats?: Maybe<(
+    { __typename?: 'FeatsConnection' }
+    & { feats: Array<Maybe<(
+      { __typename?: 'Feat' }
+      & Pick<Feat, 'id' | 'name' | 'desc' | 'points' | 'prereq'>
+    )>> }
+  )> }
+);
+
 export type GetAllLanguagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -2473,6 +2710,46 @@ export function useAllEquipmentLazyQuery(baseOptions?: Apollo.LazyQueryHookOptio
 export type AllEquipmentQueryHookResult = ReturnType<typeof useAllEquipmentQuery>;
 export type AllEquipmentLazyQueryHookResult = ReturnType<typeof useAllEquipmentLazyQuery>;
 export type AllEquipmentQueryResult = Apollo.QueryResult<AllEquipmentQuery, AllEquipmentQueryVariables>;
+export const AllFeatsDocument = gql`
+    query AllFeats {
+  allFeats {
+    feats: nodes {
+      id
+      name
+      desc
+      points
+      prereq
+    }
+  }
+}
+    `;
+
+/**
+ * __useAllFeatsQuery__
+ *
+ * To run a query within a React component, call `useAllFeatsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAllFeatsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAllFeatsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useAllFeatsQuery(baseOptions?: Apollo.QueryHookOptions<AllFeatsQuery, AllFeatsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AllFeatsQuery, AllFeatsQueryVariables>(AllFeatsDocument, options);
+      }
+export function useAllFeatsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllFeatsQuery, AllFeatsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AllFeatsQuery, AllFeatsQueryVariables>(AllFeatsDocument, options);
+        }
+export type AllFeatsQueryHookResult = ReturnType<typeof useAllFeatsQuery>;
+export type AllFeatsLazyQueryHookResult = ReturnType<typeof useAllFeatsLazyQuery>;
+export type AllFeatsQueryResult = Apollo.QueryResult<AllFeatsQuery, AllFeatsQueryVariables>;
 export const GetAllLanguagesDocument = gql`
     query GetAllLanguages {
   allLanguages {

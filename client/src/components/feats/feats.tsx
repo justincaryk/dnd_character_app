@@ -1,5 +1,5 @@
-import React from 'react';
-// import './Feats.scss';
+import React, { useState } from 'react';
+import { useAllFeatsQuery } from './../../generated/graphql'
 
 interface FeatInterface {
     id: string
@@ -9,49 +9,38 @@ interface FeatInterface {
     prereq?: string
 }
 
-interface Props {
-    feats: FeatInterface[]
-}
-interface State {
-    focusedFeat: FeatInterface
-}
+const Feats: React.FC = () => {
 
-export default class Feats extends React.Component<Props, State> {
-    handleMethodChange: any
+    const [focusedFeat, setFocusedFeat] = useState<FeatInterface | null>(null)
+    const { data, loading } = useAllFeatsQuery()
 
-    constructor(props: Props) {
+    if (!data && loading) {
+        return <div>...Loading</div>
+    }
 
-        super(props)
-
-        this.state = {
-            focusedFeat: props.feats[0]
-        }
-
-        this.handleMethodChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-            const feat = this.props.feats.filter(feat => feat.id == event.target.value)
-            this.setState({focusedFeat: feat[0]})
+    const handleMethodChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const feat = data?.allFeats?.feats.find(f => f?.id == event.target.value) as FeatInterface
+        if (feat) {
+            setFocusedFeat(feat)
         }
     }
 
-    render() {
-
-        const { focusedFeat } = this.state
-        let prereq: string | null = null
-
-        if (focusedFeat.prereq) {
-            prereq = focusedFeat.prereq
-        } else {
-            prereq = "none"
-        }
-
+    if (data && !focusedFeat) {
+        const feat = data?.allFeats?.feats[0] as FeatInterface
+        setFocusedFeat(feat)
+    }
+    if (data && data.allFeats && focusedFeat) {
         return (
             <div className="space-sequence-20">
                 <div>
-                    <select className="form-control" onChange={this.handleMethodChange}>
-                        { this.props.feats.map(f => {
-                            return (
-                                <option value={f.id} key={f.id}>{f.name}</option>
-                            )
+                    <select className="form-control" onChange={(e) => handleMethodChange(e)}>
+                        {data.allFeats.feats.map(f => {
+                            if (f) {
+                                return (
+                                    <option value={f.id} key={f.id}>{f.name}</option>
+                                )
+                            }
+                            return null
                         })}
                     </select>
                 </div>
@@ -60,14 +49,16 @@ export default class Feats extends React.Component<Props, State> {
                     {focusedFeat.desc}
                 </div>
 
-                <div>
-                    Prerequisite: {prereq}
-                </div>
+                {focusedFeat.prereq ? (
+                    <div>
+                        Prerequisite: {focusedFeat.prereq}
+                    </div>
+                ) : null}
 
                 {focusedFeat.points && focusedFeat.points.length > 0 &&
-                    <ul className="space-sequence-20">  
-                        {focusedFeat.points.map((p, i) => {
-                            return(
+                    <ul>
+                        {focusedFeat.points.map((p: string, i: number) => {
+                            return (
                                 <li key={i}>{p}</li>
                             )
                         })}
@@ -75,6 +66,10 @@ export default class Feats extends React.Component<Props, State> {
                 }
             </div>
 
-        );
+        )
     }
+
+    return null
 }
+
+export default Feats
