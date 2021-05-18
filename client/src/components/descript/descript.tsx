@@ -5,7 +5,8 @@ import {
     useGetAllLanguagesQuery,
     useAllEquipmentQuery,
     useAllBgFeaturesQuery,
-    useAllSkillsQuery
+    useAllSkillsQuery,
+    useAllBgsQuery,
 } from '../../generated/graphql'
 
 import SkillProficienciesSelector from './skill'
@@ -93,7 +94,7 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
                     <strong>Skill Proficiencies: </strong>
                     {
                         //@ts-ignore
-                        selectedBg.skillOptions.map((skill, index) => {
+                        JSON.parse(selectedBg.skillOptions).options.map((skill, index) => {
                             //@ts-ignore
                             const isLast = index == selectedBg.skillOptions.length - 1 ? true : false
 
@@ -107,7 +108,7 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
                 </div>
                 <div>
                     <SkillProficienciesSelector
-                        skillOptions={selectedBg.skillOptions}
+                        skillOptions={JSON.parse(selectedBg.skillOptions).options}
                         numberOfSkillsGranted={selectedBg.numberOfSkillsGranted}></SkillProficienciesSelector>
                 </div>
             </div>
@@ -119,7 +120,7 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
             <div>
                 <strong>Languages: </strong>
                 {
-                    selectedBg.languageOptions.map((language: BgOptionGenericType, index: number) => {
+                    JSON.parse(selectedBg.languageOptions).options.map((language: BgOptionGenericType, index: number) => {
                         const isLast = index == selectedBg.languageOptions.length - 1 ? true : false
                         if (language.isAutoGranted) {
                             const strChunk = isLast ? `${language.name}` : `${language.name}, `
@@ -132,7 +133,7 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
             <div>
                 <LanguageSelector
                     numberOfLanguagesGranted={selectedBg.numberOfExtraLanguages}
-                    languageOptionConstraints={selectedBg.languageOptions}
+                    languageOptionConstraints={JSON.parse(selectedBg.languageOptions).options}
                     languages={languages.allLanguages.languages}
                 />
             </div>
@@ -144,7 +145,7 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
             <div>
                 <strong>Tool Proficiencies: </strong>
                 {
-                    selectedBg.toolOptions.map((tool: BgOptionGenericType, index: number) => {
+                    JSON.parse(selectedBg.toolOptions).options.map((tool: BgOptionGenericType, index: number) => {
                         const isLast = index == selectedBg.toolOptions.length - 1 ? true : false
 
                         if (tool.isAutoGranted) {
@@ -157,7 +158,7 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
             </div>
             <div>
                 <ToolProficienciesSelector
-                    toolOptions={selectedBg.toolOptions}
+                    toolOptions={JSON.parse(selectedBg.toolOptions).options}
                     numberOfToolsGranted={selectedBg.numberOfToolsGranted}
                     equipment={equipment.allEquipment.items} ></ToolProficienciesSelector>
             </div>
@@ -169,19 +170,19 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
             <div>
                 <strong>Background Feature:</strong>
             </div>
-            <div>{selectedBg.backgroundFeature.name}</div>
-            <div>{selectedBg.backgroundFeature.description}</div>
+            <div>{selectedBg.bgFeatureByBackgroundFeature.name}</div>
+            <div>{selectedBg.bgFeatureByBackgroundFeature.description}</div>
         </div>
     )
 
     const alternateBgFeatureChunk = () => (
         <div className="space-sequence-20">
             <div>
-                <div>{selectedBg.alternateBackgroundFeature.name}</div>
-                <div>Alternate Background Feature</div>
+                <strong>Alternate Background Feature:</strong>
             </div>
             <div>
-                <div>{selectedBg.alternateBackgroundFeature.description}</div>
+                <div>{selectedBg.bgFeatureByAlternateBackgroundFeature?.name}</div>
+                <div>{selectedBg.bgFeatureByAlternateBackgroundFeature?.description}</div>
             </div>
         </div>
     )
@@ -192,15 +193,15 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
             {toolsChunk()}
             {selectedBg.languageOptions.length ? languagesChunk() : null}
             {bgFeatureChunk()}
-            {selectedBg.alternateBackgroundFeature.name ? alternateBgFeatureChunk() : null}
+            {selectedBg.bgFeatureByAlternateBackgroundFeature ? alternateBgFeatureChunk() : null}
 
         </div>
     )
 }
 
 const CharDescript: React.FC = () => {
-    const [backgrounds] = useState<BackgroundDataType[]>(appDictionary.BACKGROUNDS)
     const [selectedBg, setSelectedBg] = useState<any>(null)
+    const { data: backgrounds, error: bgError, loading: bgsLoading } = useAllBgsQuery()
     const { data: languages, error: langError, loading: langLoading } = useGetAllLanguagesQuery()
     const { data: equipment, error: equipError, loading: equipLoading } = useAllEquipmentQuery()
     const { data: bgFeatures, error: bgFeatError, loading: bgFeatLoading } = useAllBgFeaturesQuery()
@@ -212,9 +213,11 @@ const CharDescript: React.FC = () => {
         if (!chosenBgName) {
             setSelectedBg(null)
         }
-
-        for (const bg of backgrounds) {
-            if (chosenBgName == bg.name) {
+        if (!backgrounds?.allBgs) {
+            return
+        }
+        for (const bg of backgrounds.allBgs?.nodes) {
+            if (chosenBgName == bg?.name) {
                 setSelectedBg(bg)
                 return
             }
@@ -235,8 +238,8 @@ const CharDescript: React.FC = () => {
                     <select className="form-control" onChange={handleBgSelection}>
                         <option value="" selected>-- Choose a Background ---</option>
                         {
-                            backgrounds.map(bg => {
-                                return <option key={bg.name}>{bg.name}</option>
+                            backgrounds?.allBgs?.nodes.map(bg => {
+                                return <option key={bg?.name}>{bg?.name}</option>
                             })
                         }
                     </select>

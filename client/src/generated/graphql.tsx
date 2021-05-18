@@ -98,12 +98,83 @@ export enum AttributesOrderBy {
   AttributeDesc = 'ATTRIBUTE_DESC'
 }
 
+export type Bg = {
+  __typename?: 'Bg';
+  id: Scalars['UUID'];
+  name: Scalars['String'];
+  description: Scalars['String'];
+  numberOfExtraLanguages?: Maybe<Scalars['Int']>;
+  languageOptions?: Maybe<Scalars['JSON']>;
+  numberOfToolsGranted?: Maybe<Scalars['Int']>;
+  toolOptions?: Maybe<Scalars['JSON']>;
+  numberOfSkillsGranted?: Maybe<Scalars['Int']>;
+  skillOptions?: Maybe<Scalars['JSON']>;
+  backgroundFeature?: Maybe<Scalars['UUID']>;
+  alternateBackgroundFeature?: Maybe<Scalars['UUID']>;
+  /** Reads a single `BgFeature` that is related to this `Bg`. */
+  bgFeatureByBackgroundFeature?: Maybe<BgFeature>;
+  /** Reads a single `BgFeature` that is related to this `Bg`. */
+  bgFeatureByAlternateBackgroundFeature?: Maybe<BgFeature>;
+};
+
+/** A condition to be used against `Bg` object types. All fields are tested for equality and combined with a logical ‘and.’ */
+export type BgCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `name` field. */
+  name?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `description` field. */
+  description?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `numberOfExtraLanguages` field. */
+  numberOfExtraLanguages?: Maybe<Scalars['Int']>;
+  /** Checks for equality with the object’s `languageOptions` field. */
+  languageOptions?: Maybe<Scalars['JSON']>;
+  /** Checks for equality with the object’s `numberOfToolsGranted` field. */
+  numberOfToolsGranted?: Maybe<Scalars['Int']>;
+  /** Checks for equality with the object’s `toolOptions` field. */
+  toolOptions?: Maybe<Scalars['JSON']>;
+  /** Checks for equality with the object’s `numberOfSkillsGranted` field. */
+  numberOfSkillsGranted?: Maybe<Scalars['Int']>;
+  /** Checks for equality with the object’s `skillOptions` field. */
+  skillOptions?: Maybe<Scalars['JSON']>;
+  /** Checks for equality with the object’s `backgroundFeature` field. */
+  backgroundFeature?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `alternateBackgroundFeature` field. */
+  alternateBackgroundFeature?: Maybe<Scalars['UUID']>;
+};
+
 export type BgFeature = {
   __typename?: 'BgFeature';
   id?: Maybe<Scalars['UUID']>;
   name: Scalars['String'];
   conferringBg: Scalars['String'];
   description: Scalars['String'];
+  /** Reads and enables pagination through a set of `Bg`. */
+  bgsByBackgroundFeature: BgsConnection;
+  /** Reads and enables pagination through a set of `Bg`. */
+  bgsByAlternateBackgroundFeature: BgsConnection;
+};
+
+
+export type BgFeatureBgsByBackgroundFeatureArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<BgsOrderBy>>;
+  condition?: Maybe<BgCondition>;
+};
+
+
+export type BgFeatureBgsByAlternateBackgroundFeatureArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<BgsOrderBy>>;
+  condition?: Maybe<BgCondition>;
 };
 
 /**
@@ -172,6 +243,85 @@ export enum BgFeaturesOrderBy {
   DescriptionDesc = 'DESCRIPTION_DESC'
 }
 
+/** An input for mutations affecting `Bg` */
+export type BgInput = {
+  id: Scalars['UUID'];
+  name: Scalars['String'];
+  description: Scalars['String'];
+  numberOfExtraLanguages?: Maybe<Scalars['Int']>;
+  languageOptions?: Maybe<Scalars['JSON']>;
+  numberOfToolsGranted?: Maybe<Scalars['Int']>;
+  toolOptions?: Maybe<Scalars['JSON']>;
+  numberOfSkillsGranted?: Maybe<Scalars['Int']>;
+  skillOptions?: Maybe<Scalars['JSON']>;
+  backgroundFeature?: Maybe<Scalars['UUID']>;
+  alternateBackgroundFeature?: Maybe<Scalars['UUID']>;
+};
+
+/** Represents an update to a `Bg`. Fields that are set will be updated. */
+export type BgPatch = {
+  id?: Maybe<Scalars['UUID']>;
+  name?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  numberOfExtraLanguages?: Maybe<Scalars['Int']>;
+  languageOptions?: Maybe<Scalars['JSON']>;
+  numberOfToolsGranted?: Maybe<Scalars['Int']>;
+  toolOptions?: Maybe<Scalars['JSON']>;
+  numberOfSkillsGranted?: Maybe<Scalars['Int']>;
+  skillOptions?: Maybe<Scalars['JSON']>;
+  backgroundFeature?: Maybe<Scalars['UUID']>;
+  alternateBackgroundFeature?: Maybe<Scalars['UUID']>;
+};
+
+/** A connection to a list of `Bg` values. */
+export type BgsConnection = {
+  __typename?: 'BgsConnection';
+  /** A list of `Bg` objects. */
+  nodes: Array<Maybe<Bg>>;
+  /** A list of edges which contains the `Bg` and cursor to aid in pagination. */
+  edges: Array<BgsEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `Bg` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `Bg` edge in the connection. */
+export type BgsEdge = {
+  __typename?: 'BgsEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `Bg` at the end of the edge. */
+  node?: Maybe<Bg>;
+};
+
+/** Methods to use when ordering `Bg`. */
+export enum BgsOrderBy {
+  Natural = 'NATURAL',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  NameAsc = 'NAME_ASC',
+  NameDesc = 'NAME_DESC',
+  DescriptionAsc = 'DESCRIPTION_ASC',
+  DescriptionDesc = 'DESCRIPTION_DESC',
+  NumberOfExtraLanguagesAsc = 'NUMBER_OF_EXTRA_LANGUAGES_ASC',
+  NumberOfExtraLanguagesDesc = 'NUMBER_OF_EXTRA_LANGUAGES_DESC',
+  LanguageOptionsAsc = 'LANGUAGE_OPTIONS_ASC',
+  LanguageOptionsDesc = 'LANGUAGE_OPTIONS_DESC',
+  NumberOfToolsGrantedAsc = 'NUMBER_OF_TOOLS_GRANTED_ASC',
+  NumberOfToolsGrantedDesc = 'NUMBER_OF_TOOLS_GRANTED_DESC',
+  ToolOptionsAsc = 'TOOL_OPTIONS_ASC',
+  ToolOptionsDesc = 'TOOL_OPTIONS_DESC',
+  NumberOfSkillsGrantedAsc = 'NUMBER_OF_SKILLS_GRANTED_ASC',
+  NumberOfSkillsGrantedDesc = 'NUMBER_OF_SKILLS_GRANTED_DESC',
+  SkillOptionsAsc = 'SKILL_OPTIONS_ASC',
+  SkillOptionsDesc = 'SKILL_OPTIONS_DESC',
+  BackgroundFeatureAsc = 'BACKGROUND_FEATURE_ASC',
+  BackgroundFeatureDesc = 'BACKGROUND_FEATURE_DESC',
+  AlternateBackgroundFeatureAsc = 'ALTERNATE_BACKGROUND_FEATURE_ASC',
+  AlternateBackgroundFeatureDesc = 'ALTERNATE_BACKGROUND_FEATURE_DESC'
+}
+
 /** All input for the create `Attribute` mutation. */
 export type CreateAttributeInput = {
   /**
@@ -236,6 +386,43 @@ export type CreateBgFeaturePayload = {
 /** The output of our create `BgFeature` mutation. */
 export type CreateBgFeaturePayloadBgFeatureEdgeArgs = {
   orderBy?: Maybe<Array<BgFeaturesOrderBy>>;
+};
+
+/** All input for the create `Bg` mutation. */
+export type CreateBgInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Bg` to be created by this mutation. */
+  bg: BgInput;
+};
+
+/** The output of our create `Bg` mutation. */
+export type CreateBgPayload = {
+  __typename?: 'CreateBgPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Bg` that was created by this mutation. */
+  bg?: Maybe<Bg>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `BgFeature` that is related to this `Bg`. */
+  bgFeatureByBackgroundFeature?: Maybe<BgFeature>;
+  /** Reads a single `BgFeature` that is related to this `Bg`. */
+  bgFeatureByAlternateBackgroundFeature?: Maybe<BgFeature>;
+  /** An edge for our `Bg`. May be used by Relay 1. */
+  bgEdge?: Maybe<BgsEdge>;
+};
+
+
+/** The output of our create `Bg` mutation. */
+export type CreateBgPayloadBgEdgeArgs = {
+  orderBy?: Maybe<Array<BgsOrderBy>>;
 };
 
 /** All input for the create `Equipment` mutation. */
@@ -539,6 +726,16 @@ export type DeleteAttributePayloadAttributeEdgeArgs = {
   orderBy?: Maybe<Array<AttributesOrderBy>>;
 };
 
+/** All input for the `deleteBgById` mutation. */
+export type DeleteBgByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  id: Scalars['UUID'];
+};
+
 /** All input for the `deleteBgFeatureById` mutation. */
 export type DeleteBgFeatureByIdInput = {
   /**
@@ -570,6 +767,33 @@ export type DeleteBgFeaturePayload = {
 /** The output of our delete `BgFeature` mutation. */
 export type DeleteBgFeaturePayloadBgFeatureEdgeArgs = {
   orderBy?: Maybe<Array<BgFeaturesOrderBy>>;
+};
+
+/** The output of our delete `Bg` mutation. */
+export type DeleteBgPayload = {
+  __typename?: 'DeleteBgPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Bg` that was deleted by this mutation. */
+  bg?: Maybe<Bg>;
+  deletedBgId?: Maybe<Scalars['ID']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `BgFeature` that is related to this `Bg`. */
+  bgFeatureByBackgroundFeature?: Maybe<BgFeature>;
+  /** Reads a single `BgFeature` that is related to this `Bg`. */
+  bgFeatureByAlternateBackgroundFeature?: Maybe<BgFeature>;
+  /** An edge for our `Bg`. May be used by Relay 1. */
+  bgEdge?: Maybe<BgsEdge>;
+};
+
+
+/** The output of our delete `Bg` mutation. */
+export type DeleteBgPayloadBgEdgeArgs = {
+  orderBy?: Maybe<Array<BgsOrderBy>>;
 };
 
 /** All input for the `deleteEquipmentById` mutation. */
@@ -1236,6 +1460,8 @@ export type Mutation = {
   createAttribute?: Maybe<CreateAttributePayload>;
   /** Creates a single `BgFeature`. */
   createBgFeature?: Maybe<CreateBgFeaturePayload>;
+  /** Creates a single `Bg`. */
+  createBg?: Maybe<CreateBgPayload>;
   /** Creates a single `Equipment`. */
   createEquipment?: Maybe<CreateEquipmentPayload>;
   /** Creates a single `Feat`. */
@@ -1256,6 +1482,8 @@ export type Mutation = {
   updateAttributeById?: Maybe<UpdateAttributePayload>;
   /** Updates a single `BgFeature` using a unique key and a patch. */
   updateBgFeatureById?: Maybe<UpdateBgFeaturePayload>;
+  /** Updates a single `Bg` using a unique key and a patch. */
+  updateBgById?: Maybe<UpdateBgPayload>;
   /** Updates a single `Equipment` using a unique key and a patch. */
   updateEquipmentById?: Maybe<UpdateEquipmentPayload>;
   /** Updates a single `Feat` using a unique key and a patch. */
@@ -1280,6 +1508,8 @@ export type Mutation = {
   deleteAttributeById?: Maybe<DeleteAttributePayload>;
   /** Deletes a single `BgFeature` using a unique key. */
   deleteBgFeatureById?: Maybe<DeleteBgFeaturePayload>;
+  /** Deletes a single `Bg` using a unique key. */
+  deleteBgById?: Maybe<DeleteBgPayload>;
   /** Deletes a single `Equipment` using a unique key. */
   deleteEquipmentById?: Maybe<DeleteEquipmentPayload>;
   /** Deletes a single `Feat` using a unique key. */
@@ -1312,6 +1542,12 @@ export type MutationCreateAttributeArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateBgFeatureArgs = {
   input: CreateBgFeatureInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateBgArgs = {
+  input: CreateBgInput;
 };
 
 
@@ -1372,6 +1608,12 @@ export type MutationUpdateAttributeByIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateBgFeatureByIdArgs = {
   input: UpdateBgFeatureByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateBgByIdArgs = {
+  input: UpdateBgByIdInput;
 };
 
 
@@ -1444,6 +1686,12 @@ export type MutationDeleteAttributeByIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteBgFeatureByIdArgs = {
   input: DeleteBgFeatureByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteBgByIdArgs = {
+  input: DeleteBgByIdInput;
 };
 
 
@@ -1541,6 +1789,8 @@ export type Query = Node & {
   allAttributes?: Maybe<AttributesConnection>;
   /** Reads and enables pagination through a set of `BgFeature`. */
   allBgFeatures?: Maybe<BgFeaturesConnection>;
+  /** Reads and enables pagination through a set of `Bg`. */
+  allBgs?: Maybe<BgsConnection>;
   /** Reads and enables pagination through a set of `Equipment`. */
   allEquipment?: Maybe<EquipmentConnection>;
   /** Reads and enables pagination through a set of `Feat`. */
@@ -1559,6 +1809,7 @@ export type Query = Node & {
   allSpells?: Maybe<SpellsConnection>;
   attributeById?: Maybe<Attribute>;
   bgFeatureById?: Maybe<BgFeature>;
+  bgById?: Maybe<Bg>;
   equipmentById?: Maybe<Equipment>;
   featById?: Maybe<Feat>;
   knexMigrationById?: Maybe<KnexMigration>;
@@ -1601,6 +1852,18 @@ export type QueryAllBgFeaturesArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<BgFeaturesOrderBy>>;
   condition?: Maybe<BgFeatureCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAllBgsArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<BgsOrderBy>>;
+  condition?: Maybe<BgCondition>;
 };
 
 
@@ -1708,6 +1971,12 @@ export type QueryAttributeByIdArgs = {
 
 /** The root query type which gives access points into the data universe. */
 export type QueryBgFeatureByIdArgs = {
+  id: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryBgByIdArgs = {
   id: Scalars['UUID'];
 };
 
@@ -2150,6 +2419,18 @@ export type UpdateAttributePayloadAttributeEdgeArgs = {
   orderBy?: Maybe<Array<AttributesOrderBy>>;
 };
 
+/** All input for the `updateBgById` mutation. */
+export type UpdateBgByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `Bg` being updated. */
+  bgPatch: BgPatch;
+  id: Scalars['UUID'];
+};
+
 /** All input for the `updateBgFeatureById` mutation. */
 export type UpdateBgFeatureByIdInput = {
   /**
@@ -2182,6 +2463,32 @@ export type UpdateBgFeaturePayload = {
 /** The output of our update `BgFeature` mutation. */
 export type UpdateBgFeaturePayloadBgFeatureEdgeArgs = {
   orderBy?: Maybe<Array<BgFeaturesOrderBy>>;
+};
+
+/** The output of our update `Bg` mutation. */
+export type UpdateBgPayload = {
+  __typename?: 'UpdateBgPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Bg` that was updated by this mutation. */
+  bg?: Maybe<Bg>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `BgFeature` that is related to this `Bg`. */
+  bgFeatureByBackgroundFeature?: Maybe<BgFeature>;
+  /** Reads a single `BgFeature` that is related to this `Bg`. */
+  bgFeatureByAlternateBackgroundFeature?: Maybe<BgFeature>;
+  /** An edge for our `Bg`. May be used by Relay 1. */
+  bgEdge?: Maybe<BgsEdge>;
+};
+
+
+/** The output of our update `Bg` mutation. */
+export type UpdateBgPayloadBgEdgeArgs = {
+  orderBy?: Maybe<Array<BgsOrderBy>>;
 };
 
 /** All input for the `updateEquipmentById` mutation. */
@@ -2519,6 +2826,27 @@ export type AllBgFeaturesQuery = (
   )> }
 );
 
+export type AllBgsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AllBgsQuery = (
+  { __typename?: 'Query' }
+  & { allBgs?: Maybe<(
+    { __typename?: 'BgsConnection' }
+    & { nodes: Array<Maybe<(
+      { __typename?: 'Bg' }
+      & Pick<Bg, 'name' | 'description' | 'numberOfExtraLanguages' | 'languageOptions' | 'numberOfSkillsGranted' | 'skillOptions' | 'numberOfToolsGranted' | 'toolOptions'>
+      & { bgFeatureByAlternateBackgroundFeature?: Maybe<(
+        { __typename?: 'BgFeature' }
+        & Pick<BgFeature, 'name' | 'description'>
+      )>, bgFeatureByBackgroundFeature?: Maybe<(
+        { __typename?: 'BgFeature' }
+        & Pick<BgFeature, 'name' | 'description'>
+      )> }
+    )>> }
+  )> }
+);
+
 export type AllEquipmentQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -2673,6 +3001,57 @@ export function useAllBgFeaturesLazyQuery(baseOptions?: Apollo.LazyQueryHookOpti
 export type AllBgFeaturesQueryHookResult = ReturnType<typeof useAllBgFeaturesQuery>;
 export type AllBgFeaturesLazyQueryHookResult = ReturnType<typeof useAllBgFeaturesLazyQuery>;
 export type AllBgFeaturesQueryResult = Apollo.QueryResult<AllBgFeaturesQuery, AllBgFeaturesQueryVariables>;
+export const AllBgsDocument = gql`
+    query AllBgs {
+  allBgs {
+    nodes {
+      name
+      description
+      numberOfExtraLanguages
+      languageOptions
+      numberOfSkillsGranted
+      skillOptions
+      numberOfToolsGranted
+      toolOptions
+      bgFeatureByAlternateBackgroundFeature {
+        name
+        description
+      }
+      bgFeatureByBackgroundFeature {
+        name
+        description
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useAllBgsQuery__
+ *
+ * To run a query within a React component, call `useAllBgsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAllBgsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAllBgsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useAllBgsQuery(baseOptions?: Apollo.QueryHookOptions<AllBgsQuery, AllBgsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AllBgsQuery, AllBgsQueryVariables>(AllBgsDocument, options);
+      }
+export function useAllBgsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllBgsQuery, AllBgsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AllBgsQuery, AllBgsQueryVariables>(AllBgsDocument, options);
+        }
+export type AllBgsQueryHookResult = ReturnType<typeof useAllBgsQuery>;
+export type AllBgsLazyQueryHookResult = ReturnType<typeof useAllBgsLazyQuery>;
+export type AllBgsQueryResult = Apollo.QueryResult<AllBgsQuery, AllBgsQueryVariables>;
 export const AllEquipmentDocument = gql`
     query AllEquipment {
   allEquipment {
