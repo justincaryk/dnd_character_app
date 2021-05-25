@@ -91,13 +91,7 @@ export type SpellType = {
     name: string
     desc: any // this is ugly
     page: string
-    range: {
-        type: string
-        distance: {
-            type: string
-            amount: number
-        }
-    }
+    range: string
     higher_level?: string
     components: string
     material: string
