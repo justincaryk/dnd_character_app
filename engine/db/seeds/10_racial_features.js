@@ -355,7 +355,7 @@ exports.seed = knex => (
         },
         {
           "id": "2aaf6363-91bd-4f06-ae7d-ea73a2066a08",
-          "name": "Goring Rus",
+          "name": "Goring Rush",
           "description": "Immediately after you use the Dash action on your turn and move at least 20 feet, you can make one melee attack with your horns as a bonus action."
         },
         {
@@ -792,6 +792,16 @@ exports.seed = knex => (
           "id": "571457e8-e516-4e1e-957f-fe62d455f47a",
           "name": "Shifting Feature",
           "description": "While shifted, you have advantage on Wisdom checks, and no creature within 30 feet of you can make an attack roll with advantage against you, unless you’re incapacitated."
+        },
+        {
+          "id": "2eb7e720-b763-4fe2-a830-7b807cf05a68",
+          "name": "Natural Armor",
+          "description": "You have thick, leathery skin. When you aren’t wearing armor, your AC is 12 + your Constitution modifier. You can use your natural armor to determine your AC if the armor you wear would leave you with a lower AC. A shield’s benefits apply as normal while you use your natural armor."
+        },
+        {
+          "id": "e5d89d99-20cb-4e2a-adb3-8376f07f8458",
+          "name": "Natural Armor",
+          "description": "Due to your shell and the shape of your body, you are ill-suited to wearing armor. Your shell provides ample protection, however; it gives you a base AC of 17 (your Dexterity modifier doesn’t affect this number). You gain no benefit from wearing armor, but if you are using a shield, you can apply the shield’s bonus as normal."
         }
       ])
     ))
