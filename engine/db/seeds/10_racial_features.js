@@ -482,6 +482,316 @@ exports.seed = knex => (
           "id": "948afcf9-046e-4864-a1fe-af7e6b85503b",
           "name": "Poison Immunity",
           "description": "You are immune to poison damage and the poisoned condition."
+        },
+        {
+          "id": "0ae5fbb2-9ba9-47f5-84b9-a46c700e088c",
+          "name": "Necrotic Shroud",
+          "description": "Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing your eyes to turn into pools of darkness and two skeletal, ghostly, flightless wings to sprout from your back. The instant you transform, other creatures within 10 feet of you that can see you must each succeed on a Charisma saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or become frightened of you until the end of your next turn. Your transformation lasts for 1 minute or until you end it as a bonus action. During it, once on each of your turns, you can deal extra necrotic damage to one target when you deal damage to it with an attack or a spell. The extra necrotic damage equals your level. Once you use this trait, you can’t use it again until you finish a long rest."
+        },
+        {
+          "id": "cdbbdb4f-7904-4f98-9c96-b70f47031262",
+          "name": "Radiant Soul",
+          "description": "Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing your eyes to glimmer and two luminous, incorporeal wings to sprout from your back. Your transformation lasts for 1 minute or until you end it as a bonus action. During it, you have a flying speed of 30 feet, and once on each of your turns, you can deal extra radiant damage to one target when you deal damage to it with an attack or a spell. The extra radiant damage equals your level. Once you use this trait, you can’t use it again until you finish a long rest."
+        },
+        {
+          "id": "401f3662-5e14-4807-8b00-123f394c75e7",
+          "name": "Radiant Consumption",
+          "description": "Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing a searing light to radiate from you, pour out of your eyes and mouth, and threaten to char you. Your transformation lasts for 1 minute or until you end it as a bonus action. During it, you shed bright light in a 10-foot radius and dim light for an additional 10 feet, and at the end of each of your turns, you and each creature within 10 feet of you take radiant damage equal to half your level (rounded up). In addition, once on each of your turns, you can deal extra radiant damage to one target when you deal damage to it with an attack or a spell. The extra radiant damage equals your level. Once you use this trait, you can’t use it again until you finish a long rest."
+        },
+        {
+          "id": "099590de-e0ac-4eb1-ac7f-55c870fcfb68",
+          "name": "Celestial Legacy",
+          "description": "You know the light cantrip. Once you reach 3rd level, you can cast the lesser restoration spell once with this trait, and you regain the ability to do so when you finish a long rest. Once you reach 5th level, you can cast the daylight spell once with this trait as a 3rd-level spell, and you regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
+        },
+        {
+          "id": "d7328166-8904-4d32-b903-6863780fb5b3",
+          "name": "Superior Darkvision",
+          "description": "120"
+        },
+        {
+          "id": "f8927d61-73c8-49fa-aebf-43a0c96c2635",
+          "name": "Extra Language",
+          "description": "You can speak, read, and write Undercommon."
+        },
+        {
+          "id": "a9040021-b138-4c68-9344-419368dfc6d9",
+          "name": "Duergar Resilience",
+          "description": "You have advantage on saving throws against illusions and against being charmed or paralyzed."
+        },
+        {
+          "id": "31cb4b93-db8c-43f6-8d6c-4c9916cb0056",
+          "name": "Duergar Magic",
+          "description": "When you reach 3rd level, you can cast the enlarge/reduce spell on yourself once with this trait, using only the spell’s enlarge option. When you reach 5th level, you can cast the invisibility spell on yourself once with this trait. You don’t need material components for either spell, and you can’t cast them while you’re in direct sunlight, although sunlight has no effect on them once cast. You regain the ability to cast these spells with this trait when you finish a long rest. Intelligence is your spellcasting ability for these spells."
+        },
+        {
+          "id": "d8ecb045-8c51-4266-9d5b-299543cbc979",
+          "name": "Dwarf Toughness",
+          "description": "Your hit point maximum increases by 1, and it increases by 1 every time you gain a level."
+        },
+        {
+          "id": "cd124564-a8fb-4c88-b2ab-5fd77daff03a",
+          "name": "Dwarven Armor Training",
+          "description": "You have proficiency with light and medium armor."
+        },
+        {
+          "id": "eafe5bfe-b9cb-427e-bbd2-7dcecaa785af",
+          "name": "Drow Magic",
+          "description": "You know the dancing lights cantrip. When you reach 3rd level, you can cast the faerie fire spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the darkness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
+        },
+        {
+          "id": "ba33a067-84a5-4c62-84af-b30f29a1b76c",
+          "name": "Drow Weapon Training",
+          "description": "You have proficiency with rapiers, shortswords, and hand crossbows."
+        },
+        {
+          "id": "a80add10-66cd-4f9d-bea5-9d4fe8626760",
+          "name": "Fey Step: Autumn",
+          "description": "As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see. Once you use this trait, you can’t do so again until you finish a short or long rest. When you reach 3rd level, your Fey Step gains an additional effect based on your season; if the effect requires a saving throw, the DC equals 8 + your proficiency bonus + your Charisma modifier: Autumn. Immediately after you use your Fey Step, up to two creatures of your choice that you can see within 10 feet of you must succeed on a Wisdom saving throw or be charmed by you for 1 minute, or until you or your companions deal any damage to it."
+        },
+        {
+          "id": "a4841abc-7c4b-4e5c-9332-7fa01beb44e2",
+          "name": "Fey Step: Winter",
+          "description": "As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see. Once you use this trait, you can’t do so again until you finish a short or long rest. When you reach 3rd level, your Fey Step gains an additional effect based on your season; if the effect requires a saving throw, the DC equals 8 + your proficiency bonus + your Charisma modifier: "
+        },
+        {
+          "id": "eec82090-19fd-4d55-86d2-ba620fc5588f",
+          "name": "Fey Step: Spring",
+          "description": "As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see. Once you use this trait, you can’t do so again until you finish a short or long rest. When you reach 3rd level, your Fey Step gains an additional effect based on your season; if the effect requires a saving throw, the DC equals 8 + your proficiency bonus + your Charisma modifier: "
+        },
+        {
+          "id": "991d78bd-e768-431e-92c7-b9835c7de55f",
+          "name": "Fey Step: Summer",
+          "description": "As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see. Once you use this trait, you can’t do so again until you finish a short or long rest. When you reach 3rd level, your Fey Step gains an additional effect based on your season; if the effect requires a saving throw, the DC equals 8 + your proficiency bonus + your Charisma modifier: "
+        },
+        {
+          "id": "863a17f9-7129-4dce-ada9-c2cf2bf6dd61",
+          "name": "Elf Weapon Training",
+          "description": "You have proficiency with the longsword, shortsword, shortbow, and longbow."
+        },
+        {
+          "id": "23c98fca-81f6-4317-9801-d0014a7ce22a",
+          "name": "Cantrip",
+          "description": "You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it."
+        },
+        {
+          "id": "a3fd6ae4-6fa4-42eb-934c-f73b170d0fd4",
+          "name": "Sea Elf Training",
+          "description": "You have proficiency with the spear, trident, light crossbow, and net."
+        },
+        {
+          "id": "2e9e2911-6bdb-4f68-b659-d3deead9a26c",
+          "name": "Child of the Sea",
+          "description": "You have a swimming speed of 30 feet, and you can breathe air and water."
+        },
+        {
+          "id": "f4d3b1f4-33dc-4d66-a13d-41a1e9617231",
+          "name": "Friend of the Sea",
+          "description": "Using gestures and sounds, you can communicate simple ideas with any beast that has an innate swimming speed."
+        },
+        {
+          "id": "0690abf0-f493-4a96-bcd8-430f2a5e41aa",
+          "name": "Languages",
+          "description": "You can speak, read, and write Aquan."
+        },
+        {
+          "id": "c1700616-b49a-4c81-9169-ee209fcbd288",
+          "name": "Necrotic Resistance",
+          "description": "You have resistance to necrotic damage."
+        },
+        {
+          "id": "b2292575-6df4-4613-8ffb-ec740fe00768",
+          "name": "Blessing of the Raven Queen",
+          "description": "As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see. Once you use this trait, you can’t do so again until you finish a long rest. Starting at 3rd level, you also gain resistance to all damage when you teleport using this trait. The resistance lasts until the start of your next turn. During that time, you appear ghostly and translucent."
+        },
+        {
+          "id": "4c3f13dd-b7d0-4ce4-837b-f850325b994b",
+          "name": "Fleet of Foot",
+          "description": "Your base walking speed increases to 35 feet."
+        },
+        {
+          "id": "cf00e974-301e-4839-bd75-4067b4168451",
+          "name": "Mask of the Wild",
+          "description": "You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena."
+        },
+        {
+          "id": "c0a009ce-db31-460f-ba64-c7bcdf19017e",
+          "name": "Valenar Elf",
+          "description": "A Valenar elf gains proficiency with the scimitar, double scimitar, longbow, and shortbow."
+        },
+        {
+          "id": "422a8c9e-f06b-49e5-a528-9d0f1b52a96b",
+          "name": "Unending Breath",
+          "description": "You can hold your breath indefinitely while you’re not incapacitated."
+        },
+        {
+          "id": "3f65c9ee-f5f8-4ae2-94d6-0b6d178f5b38",
+          "name": "Mingle with the Wind",
+          "description": "You can cast the levitate spell once with this trait, requiring no material components, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for this spell."
+        },
+        {
+          "id": "7a3796c3-c84d-4779-a425-c2121ba86d35",
+          "name": "Earth Walk",
+          "description": "You can move across difficult terrain made of earth or stone without expending extra movement."
+        },
+        {
+          "id": "ae357bbe-e004-4a3c-a83d-25c4d2135272",
+          "name": "Merge with Stone",
+          "description": "You can cast the pass without trace spell once with this trait, requiring no material components, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for this spell."
+        },
+        {
+          "id": "5845f54e-d7f0-4133-8992-a459f52147f7",
+          "name": "Fire Resistance",
+          "description": "You have resistance to fire damage."
+        },
+        {
+          "id": "a3a68aa5-987a-49a1-83b8-b935bbd23550",
+          "name": "Reach to the Blaze",
+          "description": "You know the produce flame cantrip. Once you reach 3rd level, you can cast the burning hands spell once with this trait as a 1st-level spell, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for these spells."
+        },
+        {
+          "id": "e0f94fd4-01a2-4bd1-b158-477812400bc0",
+          "name": "Acid Resistance",
+          "description": "You have resistance to acid damage."
+        },
+        {
+          "id": "edfb6ee8-6402-41f4-84fd-c8fe6fe0a1f6",
+          "name": "Amphibious",
+          "description": "You can breathe air and water."
+        },
+        {
+          "id": "26d0532a-38ca-47c9-b1a1-cb2b5454ddf3",
+          "name": "Call to the Wave",
+          "description": "You know the shape water cantrip. When you reach 3rd level, you can cast the create or destroy water spell as a 2nd-level spell once with this trait, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for these spells."
+        },
+        {
+          "id": "41822342-8b49-4e45-9c71-aece44ad9e08",
+          "name": "Decadent Mastery",
+          "description": "You learn one language of your choice, and you are proficient with one skill or tool of your choice. In the timeless city of Tu’narath, githyanki have bountiful time to master odd bits of knowledge."
+        },
+        {
+          "id": "9b1da95f-ac5b-45b1-8214-daf11a887ad9",
+          "name": "Martial Prodigy",
+          "description": "You are proficient with light and medium armor and with shortswords, longswords, and greatswords."
+        },
+        {
+          "id": "dc785a59-1b75-41ac-90f3-73a586c02936",
+          "name": "Githyanki Psionics",
+          "description": "You know the mage hand cantrip, and the hand is invisible when you cast the cantrip with this trait. When you reach 3rd level, you can cast the jump spell once with this trait, and you regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the misty step spell once with this trait, and you regain the ability to do so when you finish a long rest. Intelligence is your spellcasting ability for these spells. When you cast them with this trait, they don’t require components."
+        },
+        {
+          "id": "bb6e3c99-12a3-4907-9ed4-d04ee07c9eb2",
+          "name": "Githzerai Psionics",
+          "description": "You know the mage hand cantrip, and the hand is invisible when you cast the cantrip with this trait. When you reach 3rd level, you can cast the shield spell once with this trait, and you regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the detect thoughts spell once with this trait, and you regain the ability to do so when you finish a long rest. Wisdom is your spellcasting ability for these spells. When you cast them with this trait, they don’t require components"
+        },
+        {
+          "id": "5f0a72c1-6c0b-487c-97f1-b9e0ad46cf6d",
+          "name": "Age",
+          "description": "Deep gnomes are short-lived for gnomes. They mature at the same rate humans do and are considered full-grown adults by 25. They live 200 to 250 years, although hard toil and the dangers of the Underdark often claim them before their time."
+        },
+        {
+          "id": "4a0efcdb-bb1c-448f-bff7-a160e2924e47",
+          "name": "Stone Camouflage",
+          "description": "You have advantage on Dexterity (stealth) checks to hide in rocky terrain."
+        },
+        {
+          "id": "317c6247-04c9-483e-84e1-025a10daec15",
+          "name": "Natural Illusionist",
+          "description": "You know the minor illusion cantrip. Intelligence is your spellcasting ability for it"
+        },
+        {
+          "id": "a977b73c-bc53-4571-bf35-2e7856466c5a",
+          "name": "Speak with Small Beasts",
+          "description": "Through sounds and gestures, you can communicate simple ideas with Small or smaller beasts. Forest gnomes love animals and often keep squirrels, badgers, rabbits, moles, woodpeckers, and other creatures as beloved pets."
+        },
+        {
+          "id": "ce0fac5f-22fa-4e42-a283-d98d632a20ec",
+          "name": "Artificer's Lore",
+          "description": "Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply."
+        },
+        {
+          "id": "b680ecfd-3474-4f21-9daf-a51808df6857",
+          "name": "Tinker",
+          "description": "You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time. When you create a device, choose one of the following options: Clockwork Toy. This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents. Fire Starter. The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action. Music Box. When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song’s end or when it is closed."
+        },
+        {
+          "id": "3dcb5062-b867-4178-90ea-d8144a8dfff5",
+          "name": "Silent Speech",
+          "description": "You can speak telepathically to any creature within 30 feet of you. The creature understands you only if the two of you share a language. You can speak telepathically in this way to one creature at a time."
+        },
+        {
+          "id": "bdc6755f-c324-4439-8cce-be2913829e83",
+          "name": "Naturally Stealthy",
+          "description": "You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you."
+        },
+        {
+          "id": "88506899-e171-46c1-9fb7-f1ad2b979671",
+          "name": "Stout Resilience",
+          "description": "You have advantage on saving throws against poison, and you have resistance against poison damage."
+        },
+        {
+          "id": "05c7ef27-ec98-460e-95ee-4ceef4a16537",
+          "name": "Shifting Feature",
+          "description": "Whenever you shift, you gain 1d6 additional temporary hit points. While shifted, you have a +1 bonus to your Armor Class."
+        },
+        {
+          "id": "d2c9d99c-cefc-498f-885c-dd6743aeac2e",
+          "name": "Fierce",
+          "description": "You have proficiency in the Intimidation skill."
+        },
+        {
+          "id": "104dec56-1bc1-4d05-aac5-5c3508e2c07d",
+          "name": "Graceful",
+          "description": "You have proficiency in the Acrobatics skill."
+        },
+        {
+          "id": "5cf4f7c2-9a0d-413c-a393-1b3fc0f4c445",
+          "name": "Natural Tracker",
+          "description": "You have proficiency in the Survival skill."
+        },
+        {
+          "id": "e1e23543-3554-4e67-a6a4-da52cb4d4229",
+          "name": "Infernal Legacy",
+          "description": "You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the hellish rebuke spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the darkness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
+        },
+        {
+          "id": "02620457-7a9a-460b-bf72-7a01506cc18b",
+          "name": "Devil’s Tongue",
+          "description": "You know the vicious mockery cantrip. When you reach 3rd level, you can cast the charm person spell as a 2nd-level spell once with this trait. When you reach 5th level, you can cast the enthrall spell once with this trait. You must finish a long rest to cast these spells once again with this trait. Charisma is your spellcasting ability for them. This trait replaces the Infernal Legacy trait."
+        },
+        {
+          "id": "8aaf5037-8bc3-45a0-8f84-cfc7de666680",
+          "name": "Hellfire",
+          "description": "Once you reach 3rd level, you can cast the burning hands spell once per day as a 2nd-level spell. This trait replaces the hellish rebuke spell of the Infernal Legacy trait."
+        },
+        {
+          "id": "77f0da99-2853-424b-9773-771fbaaaeb76",
+          "name": "Winged",
+          "description": "You have bat-like wings sprouting from your shoulder blades. You have a flying speed of 30 feet while you aren’t wearing heavy armor. This trait replaces the Infernal Legacy trait."
+        },
+        {
+          "id": "7e7601f3-6ab0-49fa-a33a-d61b48da9c4f",
+          "name": "Extra Language",
+          "description": "1"
+        },
+        {
+          "id": "0238ce9c-ffd2-44fb-b064-a696482f794c",
+          "name": "Languages",
+          "description": 'Undercommon'
+        },
+        {
+          "id": "9145f73a-9ac1-40b1-b768-171ac83f10ff",
+          "name": "Shifting Feature",
+          "description": "While shifted, you can use your elongated fangs to make an unarmed strike as a bonus action. If you hit with your fangs, you can deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
+        },
+        {
+          "id": "d03432b7-7788-4ce1-8d90-7864065cc939",
+          "name": "Shifting Feature",
+          "description": "While shifted, your walking speed increases by 10 feet. Additionally, you can move up to 10 feet as a reaction when a creature ends its turn within 5 feet of you. This reactive movement doesn’t provoke opportunity attacks."
+        },
+        {
+          "id": "571457e8-e516-4e1e-957f-fe62d455f47a",
+          "name": "Shifting Feature",
+          "description": "While shifted, you have advantage on Wisdom checks, and no creature within 30 feet of you can make an attack roll with advantage against you, unless you’re incapacitated."
         }
       ])
     ))
