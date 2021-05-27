@@ -1,103 +1,96 @@
-import React from "react";
-import "./scss/App.scss";
+import React from 'react'
+import './scss/App.scss'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import NavBar from './components/nav'
+// import DndClasses from './components/dndClasses/dndClasses'
+import RaceSelectionForm from './components/races/raceForm'
+import AsiGenerator from './components/abilityScores/asiGenerator'
+import CharDescription from './components/descript/descript'
+import SpellsSelector from './components/spells/spells'
+import Feats from './components/feats/feats'
 
-import DndClasses from "./components/dndClasses/dndClasses";
-import RaceSelectionForm from "./components/races/raceForm";
-import AsiGenerator from "./components/abilityScores/asiGenerator";
-import CharDescription from "./components/descript/descript";
-import SpellsSelector from "./components/spells/spells";
-import Feats from "./components/feats/feats";
-import { ApolloProvider } from "@apollo/client";
-import { ApolloClient, InMemoryCache } from "@apollo/client";
+import { ApolloProvider } from '@apollo/client'
+import { ApolloClient, InMemoryCache } from '@apollo/client'
+
+import { LinkType } from './lib/types'
 
 const client = new ApolloClient({
-  uri: "http://localhost:8080/graphql",
+  uri: 'http://localhost:8080/graphql',
   cache: new InMemoryCache(),
-});
+})
 
-const NavBar: React.FC = () => (
-  <div>
-    <div>
-      <a href="/races">Choose a Race</a>
-    </div>
-    <div>
-      <a href="/asi">Set Ability Scores</a>
-    </div>
-    <div>
-      <a href="">Choose a Class</a>
-    </div>
-    <div>
-      <a href="/description">Description</a>
-    </div>
-    <div>
-      <a href="/spells">Spells</a>
-    </div>
-    <div>
-      <a href="/feats">Feats</a>
-    </div>
-  </div>
-);
+const links: LinkType[] = [
+  {
+    link: '/races',
+    text: '1. Race',
+  },
+  {
+    link: '/asi',
+    text: '2. Abilities',
+  },
+  {
+    link: '/',
+    text: '3. Class (TODO)',
+  },
+  {
+    link: '/description',
+    text: '4. Description',
+  },
+  {
+    link: '/spells',
+    text: 'View Spells',
+  },
+  {
+    link: '/feats',
+    text: 'View Feats',
+  },
+]
 
-const Home = () => (
-  <div>Home.</div>
-)
-
-{
-  /* The `Setup` component is the form and actions for creating the character
-  it is responsible for displaying the form as the attributes are being chosen.
-
-  When a form has been submitted in completion we will pass the user data to another 
-  component to handle persistence. (TBD datastore)
-
- */
-}
+const Home = () => <div>Home.</div>
 
 const App: React.FC = () => (
   <ApolloProvider client={client}>
     <Router>
-      <div className="navbar">
-        <NavBar />
-      </div>
-
+      <NavBar links={links} />
+      
       <Switch>
         <Route exact path="/">
           <Home />
         </Route>
 
         <Route path="/races">
-          <div className="container setup">
+          <div className="layout container setup">
             <RaceSelectionForm />
           </div>
         </Route>
 
         <Route path="/asi">
-          <div className="container asi">
+          <div className="layout container asi">
             <AsiGenerator />
           </div>
         </Route>
 
         <Route path="/description">
-          <div className="container descript">
+          <div className="layout container descript">
             <CharDescription />
           </div>
         </Route>
 
         <Route path="/spells">
-          <div className="container spells">
+          <div className="layout container spells">
             <SpellsSelector />
           </div>
         </Route>
 
         <Route path="/feats">
-          <div className="container">
+          <div className="layout container">
             <Feats />
           </div>
         </Route>
       </Switch>
     </Router>
   </ApolloProvider>
-);
+)
 
-export default App;
+export default App

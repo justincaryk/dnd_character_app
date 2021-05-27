@@ -1,0 +1,28 @@
+.navbar {
+    height: 80px;
+    width: 100%;
+    padding: 40px 80px;
+    
+    // styling
+    background: rgb(53, 53, 54);
+
+    //children
+    .flex {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    a {
+        color:rgb(240, 239, 239);
+        font-weight: 500;
+        font-family: Roboto Condensed,Roboto,Helvetica,sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        &:hover {
+            color: rgb(155, 152, 152);
+            text-decoration: none;
+        }
+    }
+}

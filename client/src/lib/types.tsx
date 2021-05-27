@@ -106,3 +106,8 @@ export type SpellType = {
     archetype: string
     circles: string
 }
+
+export type LinkType = {
+    link: string
+    text: string
+}
