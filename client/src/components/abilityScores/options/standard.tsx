@@ -28,7 +28,7 @@ class StandardArray extends React.Component<Props, State<any>> {
 
     this.handleSelection = (event: React.ChangeEvent<HTMLInputElement>) => {
       const optionValuesSplit = event.target.value.split('_')
-      const newSelectedScore = optionValuesSplit[0]
+      let newSelectedScore = optionValuesSplit[0]
       const updatedAttrId = parseInt(optionValuesSplit[1])
       const hashTable = this.state.hashTable
       const attrIds = Object.keys(hashTable)
@@ -122,10 +122,6 @@ class StandardArray extends React.Component<Props, State<any>> {
         }
       }
     }
-  }
-
-  getCurrentOptions = () => {
-    return this.availOptions
   }
 
   render() {
