@@ -2,7 +2,7 @@ import React from 'react';
 import './../../../scss/StandardArray.scss';
 import { AttributeInterface } from './../../../lib/types'
 interface Props {
-    attributesImmutable: AttributeInterface[]
+    attributes: AttributeInterface[]
     callbackToSetAttributes: (attr: AttributeInterface[]) => void
 }
 
@@ -23,7 +23,7 @@ class StandardArray extends React.Component<Props, State<any>> {
         this.allOptions = _getStandardArrayValues();
 
         this.state = {
-            hashTable: _buildHashMap(this.props.attributesImmutable),
+            hashTable: _buildHashMap(this.props.attributes),
         }
 
         this.handleSelection = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -99,19 +99,19 @@ class StandardArray extends React.Component<Props, State<any>> {
             })
 
             // update the attribute prop for export
-            for (const attr of this.props.attributesImmutable) {
+            for (const attr of this.props.attributes) {
                 if (attr.id == updatedAttrId) {
                     
                     if (newSelectedScore == '--') {
                         attr.previousAssignedScore = attr.currentAssignedScore;
                         attr.currentAssignedScore = 8;  // setting this 8 so it behaves consistently with the parent component
-                        this.props.callbackToSetAttributes(this.props.attributesImmutable) // callback handler;
+                        this.props.callbackToSetAttributes(this.props.attributes) // callback handler;
                         return;
                     }
 
                     attr.previousAssignedScore = attr.currentAssignedScore;
                     attr.currentAssignedScore = parseInt(newSelectedScore);
-                    this.props.callbackToSetAttributes(this.props.attributesImmutable) // callback handler;
+                    this.props.callbackToSetAttributes(this.props.attributes) // callback handler;
                     return;
                 }
 
@@ -132,7 +132,7 @@ class StandardArray extends React.Component<Props, State<any>> {
                     <form>
                         <div className="big-ole-table-outer">
                             <div className="tbl-row">
-                                {this.props.attributesImmutable.map(attr => {
+                                {this.props.attributes.map(attr => {
                                     return (
                                         <div className="tbl-cell" key={attr.name}>
                                             <div className="asi-heading">{attr.name}</div>
