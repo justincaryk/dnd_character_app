@@ -141,8 +141,6 @@ const addOrRemoveAvailableOptionsAtIndex = (state: any, props: Props) => {
 }
 
 const AttributeInputBlock: React.FC<Props> = (props) => {
-  const [attribute, setAttribute] = useState(props.attribute)
-  const [hasValueSelected, setHasValueSelected] = useState<boolean>(false)
   const [indexOfOptionSelected, setIndexOfOptionSelected] = useState<number>(0)
   const [allOptions] = useState<JSX.Element[]>(buildAvailableOptions(props))
 
@@ -163,13 +161,10 @@ const AttributeInputBlock: React.FC<Props> = (props) => {
     // we'll need to set this so we can strip more expensive options if user runs out of points elsewhere
     let indexOfOptionSelected = getIndexOfOptions(event.target.value, options)
 
-    //used as a flag to ensure options aren't reset when a user selected a value
-    const hasValueSelected = newAssignedScore != 8 ? true : false
-
     setIndexOfOptionSelected(indexOfOptionSelected)
-    setHasValueSelected(hasValueSelected)
 
-    //using this as a callback of sorts.. not sure whether this is reliable...
+    //TODO:
+    //this is gross ... pass in an onChangeCallback to update this...
     props.attribute.currentAssignedScore = newAssignedScore
   }
 

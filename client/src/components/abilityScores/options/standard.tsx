@@ -2,8 +2,7 @@ import React from 'react';
 import './../../../scss/StandardArray.scss';
 import { AttributeInterface } from './../../../lib/types'
 interface Props {
-    attributes: AttributeInterface[]
-    activeMethod: string
+    attributesImmutable: AttributeInterface[]
     callbackToGetAttributes: (attr: AttributeInterface[]) => void
 }
 
@@ -24,7 +23,7 @@ class StandardArray extends React.Component<Props, State<any>> {
         this.allOptions = _getStandardArrayValues();
 
         this.state = {
-            hashTable: _buildHashMap(this.props.attributes),
+            hashTable: _buildHashMap(this.props.attributesImmutable),
         }
 
         this.handleSelection = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -100,19 +99,19 @@ class StandardArray extends React.Component<Props, State<any>> {
             })
 
             // update the attribute prop for export
-            for (const attr of this.props.attributes) {
+            for (const attr of this.props.attributesImmutable) {
                 if (attr.id == updatedAttrId) {
                     
                     if (newSelectedScore == '--') {
                         attr.previousAssignedScore = attr.currentAssignedScore;
                         attr.currentAssignedScore = 8;  // setting this 8 so it behaves consistently with the parent component
-                        this.props.callbackToGetAttributes(this.props.attributes) // callback handler;
+                        this.props.callbackToGetAttributes(this.props.attributesImmutable) // callback handler;
                         return;
                     }
 
                     attr.previousAssignedScore = attr.currentAssignedScore;
                     attr.currentAssignedScore = parseInt(newSelectedScore);
-                    this.props.callbackToGetAttributes(this.props.attributes) // callback handler;
+                    this.props.callbackToGetAttributes(this.props.attributesImmutable) // callback handler;
                     return;
                 }
 
@@ -126,10 +125,6 @@ class StandardArray extends React.Component<Props, State<any>> {
     }
 
     render() {
-        
-        if (this.props.activeMethod != 'StandardArray') {
-            return null;
-        }
 
         return (
             <div className="content-wrap space-sequence-20">
@@ -137,7 +132,7 @@ class StandardArray extends React.Component<Props, State<any>> {
                     <form>
                         <div className="big-ole-table-outer">
                             <div className="tbl-row">
-                                {this.props.attributes.map(attr => {
+                                {this.props.attributesImmutable.map(attr => {
                                     return (
                                         <div className="tbl-cell" key={attr.name}>
                                             <div className="asi-heading">{attr.name}</div>
