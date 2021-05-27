@@ -103,7 +103,7 @@ export type Bg = {
   id: Scalars['UUID'];
   name: Scalars['String'];
   description: Scalars['String'];
-  numberOfExtraLanguages?: Maybe<Scalars['Int']>;
+  numberOfExtraLanguages: Scalars['Int'];
   languageOptions?: Maybe<Scalars['JSON']>;
   numberOfToolsGranted?: Maybe<Scalars['Int']>;
   toolOptions?: Maybe<Scalars['JSON']>;
@@ -248,7 +248,7 @@ export type BgInput = {
   id: Scalars['UUID'];
   name: Scalars['String'];
   description: Scalars['String'];
-  numberOfExtraLanguages?: Maybe<Scalars['Int']>;
+  numberOfExtraLanguages: Scalars['Int'];
   languageOptions?: Maybe<Scalars['JSON']>;
   numberOfToolsGranted?: Maybe<Scalars['Int']>;
   toolOptions?: Maybe<Scalars['JSON']>;
@@ -590,6 +590,109 @@ export type CreateLanguagePayloadLanguageEdgeArgs = {
   orderBy?: Maybe<Array<LanguagesOrderBy>>;
 };
 
+/** All input for the create `RaceFeature` mutation. */
+export type CreateRaceFeatureInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `RaceFeature` to be created by this mutation. */
+  raceFeature: RaceFeatureInput;
+};
+
+/** The output of our create `RaceFeature` mutation. */
+export type CreateRaceFeaturePayload = {
+  __typename?: 'CreateRaceFeaturePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `RaceFeature` that was created by this mutation. */
+  raceFeature?: Maybe<RaceFeature>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Race` that is related to this `RaceFeature`. */
+  raceByRaceId?: Maybe<Race>;
+  /** Reads a single `RacialFeature` that is related to this `RaceFeature`. */
+  racialFeatureByRacialFeatureId?: Maybe<RacialFeature>;
+  /** An edge for our `RaceFeature`. May be used by Relay 1. */
+  raceFeatureEdge?: Maybe<RaceFeaturesEdge>;
+};
+
+
+/** The output of our create `RaceFeature` mutation. */
+export type CreateRaceFeaturePayloadRaceFeatureEdgeArgs = {
+  orderBy?: Maybe<Array<RaceFeaturesOrderBy>>;
+};
+
+/** All input for the create `Race` mutation. */
+export type CreateRaceInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Race` to be created by this mutation. */
+  race: RaceInput;
+};
+
+/** The output of our create `Race` mutation. */
+export type CreateRacePayload = {
+  __typename?: 'CreateRacePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Race` that was created by this mutation. */
+  race?: Maybe<Race>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Race`. May be used by Relay 1. */
+  raceEdge?: Maybe<RacesEdge>;
+};
+
+
+/** The output of our create `Race` mutation. */
+export type CreateRacePayloadRaceEdgeArgs = {
+  orderBy?: Maybe<Array<RacesOrderBy>>;
+};
+
+/** All input for the create `RacialFeature` mutation. */
+export type CreateRacialFeatureInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `RacialFeature` to be created by this mutation. */
+  racialFeature: RacialFeatureInput;
+};
+
+/** The output of our create `RacialFeature` mutation. */
+export type CreateRacialFeaturePayload = {
+  __typename?: 'CreateRacialFeaturePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `RacialFeature` that was created by this mutation. */
+  racialFeature?: Maybe<RacialFeature>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `RacialFeature`. May be used by Relay 1. */
+  racialFeatureEdge?: Maybe<RacialFeaturesEdge>;
+};
+
+
+/** The output of our create `RacialFeature` mutation. */
+export type CreateRacialFeaturePayloadRacialFeatureEdgeArgs = {
+  orderBy?: Maybe<Array<RacialFeaturesOrderBy>>;
+};
+
 /** All input for the create `Skill` mutation. */
 export type CreateSkillInput = {
   /**
@@ -689,6 +792,78 @@ export type CreateSpellSlugPayload = {
 /** The output of our create `SpellSlug` mutation. */
 export type CreateSpellSlugPayloadSpellSlugEdgeArgs = {
   orderBy?: Maybe<Array<SpellSlugsOrderBy>>;
+};
+
+/** All input for the create `SubraceFeature` mutation. */
+export type CreateSubraceFeatureInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `SubraceFeature` to be created by this mutation. */
+  subraceFeature: SubraceFeatureInput;
+};
+
+/** The output of our create `SubraceFeature` mutation. */
+export type CreateSubraceFeaturePayload = {
+  __typename?: 'CreateSubraceFeaturePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `SubraceFeature` that was created by this mutation. */
+  subraceFeature?: Maybe<SubraceFeature>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Subrace` that is related to this `SubraceFeature`. */
+  subraceBySubraceId?: Maybe<Subrace>;
+  /** Reads a single `RacialFeature` that is related to this `SubraceFeature`. */
+  racialFeatureByRacialFeatureId?: Maybe<RacialFeature>;
+  /** An edge for our `SubraceFeature`. May be used by Relay 1. */
+  subraceFeatureEdge?: Maybe<SubraceFeaturesEdge>;
+};
+
+
+/** The output of our create `SubraceFeature` mutation. */
+export type CreateSubraceFeaturePayloadSubraceFeatureEdgeArgs = {
+  orderBy?: Maybe<Array<SubraceFeaturesOrderBy>>;
+};
+
+/** All input for the create `Subrace` mutation. */
+export type CreateSubraceInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Subrace` to be created by this mutation. */
+  subrace: SubraceInput;
+};
+
+/** The output of our create `Subrace` mutation. */
+export type CreateSubracePayload = {
+  __typename?: 'CreateSubracePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Subrace` that was created by this mutation. */
+  subrace?: Maybe<Subrace>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Race` that is related to this `Subrace`. */
+  raceByRaceId?: Maybe<Race>;
+  /** An edge for our `Subrace`. May be used by Relay 1. */
+  subraceEdge?: Maybe<SubracesEdge>;
+};
+
+
+/** The output of our create `Subrace` mutation. */
+export type CreateSubracePayloadSubraceEdgeArgs = {
+  orderBy?: Maybe<Array<SubracesOrderBy>>;
 };
 
 
@@ -983,6 +1158,109 @@ export type DeleteLanguagePayloadLanguageEdgeArgs = {
   orderBy?: Maybe<Array<LanguagesOrderBy>>;
 };
 
+/** All input for the `deleteRaceById` mutation. */
+export type DeleteRaceByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  id: Scalars['UUID'];
+};
+
+/** All input for the `deleteRaceFeatureById` mutation. */
+export type DeleteRaceFeatureByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  id: Scalars['UUID'];
+};
+
+/** The output of our delete `RaceFeature` mutation. */
+export type DeleteRaceFeaturePayload = {
+  __typename?: 'DeleteRaceFeaturePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `RaceFeature` that was deleted by this mutation. */
+  raceFeature?: Maybe<RaceFeature>;
+  deletedRaceFeatureId?: Maybe<Scalars['ID']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Race` that is related to this `RaceFeature`. */
+  raceByRaceId?: Maybe<Race>;
+  /** Reads a single `RacialFeature` that is related to this `RaceFeature`. */
+  racialFeatureByRacialFeatureId?: Maybe<RacialFeature>;
+  /** An edge for our `RaceFeature`. May be used by Relay 1. */
+  raceFeatureEdge?: Maybe<RaceFeaturesEdge>;
+};
+
+
+/** The output of our delete `RaceFeature` mutation. */
+export type DeleteRaceFeaturePayloadRaceFeatureEdgeArgs = {
+  orderBy?: Maybe<Array<RaceFeaturesOrderBy>>;
+};
+
+/** The output of our delete `Race` mutation. */
+export type DeleteRacePayload = {
+  __typename?: 'DeleteRacePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Race` that was deleted by this mutation. */
+  race?: Maybe<Race>;
+  deletedRaceId?: Maybe<Scalars['ID']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Race`. May be used by Relay 1. */
+  raceEdge?: Maybe<RacesEdge>;
+};
+
+
+/** The output of our delete `Race` mutation. */
+export type DeleteRacePayloadRaceEdgeArgs = {
+  orderBy?: Maybe<Array<RacesOrderBy>>;
+};
+
+/** All input for the `deleteRacialFeatureById` mutation. */
+export type DeleteRacialFeatureByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  id: Scalars['UUID'];
+};
+
+/** The output of our delete `RacialFeature` mutation. */
+export type DeleteRacialFeaturePayload = {
+  __typename?: 'DeleteRacialFeaturePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `RacialFeature` that was deleted by this mutation. */
+  racialFeature?: Maybe<RacialFeature>;
+  deletedRacialFeatureId?: Maybe<Scalars['ID']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `RacialFeature`. May be used by Relay 1. */
+  racialFeatureEdge?: Maybe<RacialFeaturesEdge>;
+};
+
+
+/** The output of our delete `RacialFeature` mutation. */
+export type DeleteRacialFeaturePayloadRacialFeatureEdgeArgs = {
+  orderBy?: Maybe<Array<RacialFeaturesOrderBy>>;
+};
+
 /** All input for the `deleteSkillById` mutation. */
 export type DeleteSkillByIdInput = {
   /**
@@ -1082,6 +1360,78 @@ export type DeleteSpellSlugPayload = {
 /** The output of our delete `SpellSlug` mutation. */
 export type DeleteSpellSlugPayloadSpellSlugEdgeArgs = {
   orderBy?: Maybe<Array<SpellSlugsOrderBy>>;
+};
+
+/** All input for the `deleteSubraceById` mutation. */
+export type DeleteSubraceByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  id: Scalars['UUID'];
+};
+
+/** All input for the `deleteSubraceFeatureById` mutation. */
+export type DeleteSubraceFeatureByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  id: Scalars['UUID'];
+};
+
+/** The output of our delete `SubraceFeature` mutation. */
+export type DeleteSubraceFeaturePayload = {
+  __typename?: 'DeleteSubraceFeaturePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `SubraceFeature` that was deleted by this mutation. */
+  subraceFeature?: Maybe<SubraceFeature>;
+  deletedSubraceFeatureId?: Maybe<Scalars['ID']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Subrace` that is related to this `SubraceFeature`. */
+  subraceBySubraceId?: Maybe<Subrace>;
+  /** Reads a single `RacialFeature` that is related to this `SubraceFeature`. */
+  racialFeatureByRacialFeatureId?: Maybe<RacialFeature>;
+  /** An edge for our `SubraceFeature`. May be used by Relay 1. */
+  subraceFeatureEdge?: Maybe<SubraceFeaturesEdge>;
+};
+
+
+/** The output of our delete `SubraceFeature` mutation. */
+export type DeleteSubraceFeaturePayloadSubraceFeatureEdgeArgs = {
+  orderBy?: Maybe<Array<SubraceFeaturesOrderBy>>;
+};
+
+/** The output of our delete `Subrace` mutation. */
+export type DeleteSubracePayload = {
+  __typename?: 'DeleteSubracePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Subrace` that was deleted by this mutation. */
+  subrace?: Maybe<Subrace>;
+  deletedSubraceId?: Maybe<Scalars['ID']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Race` that is related to this `Subrace`. */
+  raceByRaceId?: Maybe<Race>;
+  /** An edge for our `Subrace`. May be used by Relay 1. */
+  subraceEdge?: Maybe<SubracesEdge>;
+};
+
+
+/** The output of our delete `Subrace` mutation. */
+export type DeleteSubracePayloadSubraceEdgeArgs = {
+  orderBy?: Maybe<Array<SubracesOrderBy>>;
 };
 
 export type Equipment = {
@@ -1472,12 +1822,22 @@ export type Mutation = {
   createKnexMigrationsLock?: Maybe<CreateKnexMigrationsLockPayload>;
   /** Creates a single `Language`. */
   createLanguage?: Maybe<CreateLanguagePayload>;
+  /** Creates a single `RaceFeature`. */
+  createRaceFeature?: Maybe<CreateRaceFeaturePayload>;
+  /** Creates a single `Race`. */
+  createRace?: Maybe<CreateRacePayload>;
+  /** Creates a single `RacialFeature`. */
+  createRacialFeature?: Maybe<CreateRacialFeaturePayload>;
   /** Creates a single `Skill`. */
   createSkill?: Maybe<CreateSkillPayload>;
   /** Creates a single `SpellSlug`. */
   createSpellSlug?: Maybe<CreateSpellSlugPayload>;
   /** Creates a single `Spell`. */
   createSpell?: Maybe<CreateSpellPayload>;
+  /** Creates a single `SubraceFeature`. */
+  createSubraceFeature?: Maybe<CreateSubraceFeaturePayload>;
+  /** Creates a single `Subrace`. */
+  createSubrace?: Maybe<CreateSubracePayload>;
   /** Updates a single `Attribute` using a unique key and a patch. */
   updateAttributeById?: Maybe<UpdateAttributePayload>;
   /** Updates a single `BgFeature` using a unique key and a patch. */
@@ -1498,12 +1858,22 @@ export type Mutation = {
   updateKnexMigrationsLockByIndex?: Maybe<UpdateKnexMigrationsLockPayload>;
   /** Updates a single `Language` using a unique key and a patch. */
   updateLanguageById?: Maybe<UpdateLanguagePayload>;
+  /** Updates a single `RaceFeature` using a unique key and a patch. */
+  updateRaceFeatureById?: Maybe<UpdateRaceFeaturePayload>;
+  /** Updates a single `Race` using a unique key and a patch. */
+  updateRaceById?: Maybe<UpdateRacePayload>;
+  /** Updates a single `RacialFeature` using a unique key and a patch. */
+  updateRacialFeatureById?: Maybe<UpdateRacialFeaturePayload>;
   /** Updates a single `Skill` using a unique key and a patch. */
   updateSkillById?: Maybe<UpdateSkillPayload>;
   /** Updates a single `SpellSlug` using a unique key and a patch. */
   updateSpellSlugById?: Maybe<UpdateSpellSlugPayload>;
   /** Updates a single `Spell` using a unique key and a patch. */
   updateSpellById?: Maybe<UpdateSpellPayload>;
+  /** Updates a single `SubraceFeature` using a unique key and a patch. */
+  updateSubraceFeatureById?: Maybe<UpdateSubraceFeaturePayload>;
+  /** Updates a single `Subrace` using a unique key and a patch. */
+  updateSubraceById?: Maybe<UpdateSubracePayload>;
   /** Deletes a single `Attribute` using a unique key. */
   deleteAttributeById?: Maybe<DeleteAttributePayload>;
   /** Deletes a single `BgFeature` using a unique key. */
@@ -1524,12 +1894,22 @@ export type Mutation = {
   deleteKnexMigrationsLockByIndex?: Maybe<DeleteKnexMigrationsLockPayload>;
   /** Deletes a single `Language` using a unique key. */
   deleteLanguageById?: Maybe<DeleteLanguagePayload>;
+  /** Deletes a single `RaceFeature` using a unique key. */
+  deleteRaceFeatureById?: Maybe<DeleteRaceFeaturePayload>;
+  /** Deletes a single `Race` using a unique key. */
+  deleteRaceById?: Maybe<DeleteRacePayload>;
+  /** Deletes a single `RacialFeature` using a unique key. */
+  deleteRacialFeatureById?: Maybe<DeleteRacialFeaturePayload>;
   /** Deletes a single `Skill` using a unique key. */
   deleteSkillById?: Maybe<DeleteSkillPayload>;
   /** Deletes a single `SpellSlug` using a unique key. */
   deleteSpellSlugById?: Maybe<DeleteSpellSlugPayload>;
   /** Deletes a single `Spell` using a unique key. */
   deleteSpellById?: Maybe<DeleteSpellPayload>;
+  /** Deletes a single `SubraceFeature` using a unique key. */
+  deleteSubraceFeatureById?: Maybe<DeleteSubraceFeaturePayload>;
+  /** Deletes a single `Subrace` using a unique key. */
+  deleteSubraceById?: Maybe<DeleteSubracePayload>;
 };
 
 
@@ -1582,6 +1962,24 @@ export type MutationCreateLanguageArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateRaceFeatureArgs = {
+  input: CreateRaceFeatureInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateRaceArgs = {
+  input: CreateRaceInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateRacialFeatureArgs = {
+  input: CreateRacialFeatureInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateSkillArgs = {
   input: CreateSkillInput;
 };
@@ -1596,6 +1994,18 @@ export type MutationCreateSpellSlugArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateSpellArgs = {
   input: CreateSpellInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateSubraceFeatureArgs = {
+  input: CreateSubraceFeatureInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateSubraceArgs = {
+  input: CreateSubraceInput;
 };
 
 
@@ -1660,6 +2070,24 @@ export type MutationUpdateLanguageByIdArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateRaceFeatureByIdArgs = {
+  input: UpdateRaceFeatureByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateRaceByIdArgs = {
+  input: UpdateRaceByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateRacialFeatureByIdArgs = {
+  input: UpdateRacialFeatureByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateSkillByIdArgs = {
   input: UpdateSkillByIdInput;
 };
@@ -1674,6 +2102,18 @@ export type MutationUpdateSpellSlugByIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateSpellByIdArgs = {
   input: UpdateSpellByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateSubraceFeatureByIdArgs = {
+  input: UpdateSubraceFeatureByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateSubraceByIdArgs = {
+  input: UpdateSubraceByIdInput;
 };
 
 
@@ -1738,6 +2178,24 @@ export type MutationDeleteLanguageByIdArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteRaceFeatureByIdArgs = {
+  input: DeleteRaceFeatureByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteRaceByIdArgs = {
+  input: DeleteRaceByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteRacialFeatureByIdArgs = {
+  input: DeleteRacialFeatureByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteSkillByIdArgs = {
   input: DeleteSkillByIdInput;
 };
@@ -1752,6 +2210,18 @@ export type MutationDeleteSpellSlugByIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteSpellByIdArgs = {
   input: DeleteSpellByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteSubraceFeatureByIdArgs = {
+  input: DeleteSubraceFeatureByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteSubraceByIdArgs = {
+  input: DeleteSubraceByIdInput;
 };
 
 /** An object with a globally unique `ID`. */
@@ -1801,12 +2271,22 @@ export type Query = Node & {
   allKnexMigrationsLocks?: Maybe<KnexMigrationsLocksConnection>;
   /** Reads and enables pagination through a set of `Language`. */
   allLanguages?: Maybe<LanguagesConnection>;
+  /** Reads and enables pagination through a set of `RaceFeature`. */
+  allRaceFeatures?: Maybe<RaceFeaturesConnection>;
+  /** Reads and enables pagination through a set of `Race`. */
+  allRaces?: Maybe<RacesConnection>;
+  /** Reads and enables pagination through a set of `RacialFeature`. */
+  allRacialFeatures?: Maybe<RacialFeaturesConnection>;
   /** Reads and enables pagination through a set of `Skill`. */
   allSkills?: Maybe<SkillsConnection>;
   /** Reads and enables pagination through a set of `SpellSlug`. */
   allSpellSlugs?: Maybe<SpellSlugsConnection>;
   /** Reads and enables pagination through a set of `Spell`. */
   allSpells?: Maybe<SpellsConnection>;
+  /** Reads and enables pagination through a set of `SubraceFeature`. */
+  allSubraceFeatures?: Maybe<SubraceFeaturesConnection>;
+  /** Reads and enables pagination through a set of `Subrace`. */
+  allSubraces?: Maybe<SubracesConnection>;
   attributeById?: Maybe<Attribute>;
   bgFeatureById?: Maybe<BgFeature>;
   bgById?: Maybe<Bg>;
@@ -1815,9 +2295,14 @@ export type Query = Node & {
   knexMigrationById?: Maybe<KnexMigration>;
   knexMigrationsLockByIndex?: Maybe<KnexMigrationsLock>;
   languageById?: Maybe<Language>;
+  raceFeatureById?: Maybe<RaceFeature>;
+  raceById?: Maybe<Race>;
+  racialFeatureById?: Maybe<RacialFeature>;
   skillById?: Maybe<Skill>;
   spellSlugById?: Maybe<SpellSlug>;
   spellById?: Maybe<Spell>;
+  subraceFeatureById?: Maybe<SubraceFeature>;
+  subraceById?: Maybe<Subrace>;
   /** Reads a single `KnexMigration` using its globally unique `ID`. */
   knexMigration?: Maybe<KnexMigration>;
   /** Reads a single `KnexMigrationsLock` using its globally unique `ID`. */
@@ -1928,6 +2413,42 @@ export type QueryAllLanguagesArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
+export type QueryAllRaceFeaturesArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<RaceFeaturesOrderBy>>;
+  condition?: Maybe<RaceFeatureCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAllRacesArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<RacesOrderBy>>;
+  condition?: Maybe<RaceCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAllRacialFeaturesArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<RacialFeaturesOrderBy>>;
+  condition?: Maybe<RacialFeatureCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
 export type QueryAllSkillsArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
@@ -1960,6 +2481,30 @@ export type QueryAllSpellsArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<SpellsOrderBy>>;
   condition?: Maybe<SpellCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAllSubraceFeaturesArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<SubraceFeaturesOrderBy>>;
+  condition?: Maybe<SubraceFeatureCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAllSubracesArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<SubracesOrderBy>>;
+  condition?: Maybe<SubraceCondition>;
 };
 
 
@@ -2012,6 +2557,24 @@ export type QueryLanguageByIdArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
+export type QueryRaceFeatureByIdArgs = {
+  id: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryRaceByIdArgs = {
+  id: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryRacialFeatureByIdArgs = {
+  id: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
 export type QuerySkillByIdArgs = {
   id: Scalars['UUID'];
 };
@@ -2030,6 +2593,18 @@ export type QuerySpellByIdArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
+export type QuerySubraceFeatureByIdArgs = {
+  id: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QuerySubraceByIdArgs = {
+  id: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
 export type QueryKnexMigrationArgs = {
   nodeId: Scalars['ID'];
 };
@@ -2039,6 +2614,302 @@ export type QueryKnexMigrationArgs = {
 export type QueryKnexMigrationsLockArgs = {
   nodeId: Scalars['ID'];
 };
+
+export type Race = {
+  __typename?: 'Race';
+  id: Scalars['UUID'];
+  name: Scalars['String'];
+  summary?: Maybe<Scalars['String']>;
+  asis?: Maybe<Scalars['JSON']>;
+  movement?: Maybe<Scalars['Int']>;
+  size?: Maybe<Scalars['String']>;
+  languages?: Maybe<Array<Maybe<Scalars['String']>>>;
+  lifespan?: Maybe<Scalars['String']>;
+  alignment?: Maybe<Scalars['String']>;
+  /** Reads and enables pagination through a set of `Subrace`. */
+  subracesByRaceId: SubracesConnection;
+  /** Reads and enables pagination through a set of `RaceFeature`. */
+  raceFeaturesByRaceId: RaceFeaturesConnection;
+};
+
+
+export type RaceSubracesByRaceIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<SubracesOrderBy>>;
+  condition?: Maybe<SubraceCondition>;
+};
+
+
+export type RaceRaceFeaturesByRaceIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<RaceFeaturesOrderBy>>;
+  condition?: Maybe<RaceFeatureCondition>;
+};
+
+/** A condition to be used against `Race` object types. All fields are tested for equality and combined with a logical ‘and.’ */
+export type RaceCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `name` field. */
+  name?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `summary` field. */
+  summary?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `asis` field. */
+  asis?: Maybe<Scalars['JSON']>;
+  /** Checks for equality with the object’s `movement` field. */
+  movement?: Maybe<Scalars['Int']>;
+  /** Checks for equality with the object’s `size` field. */
+  size?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `languages` field. */
+  languages?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Checks for equality with the object’s `lifespan` field. */
+  lifespan?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `alignment` field. */
+  alignment?: Maybe<Scalars['String']>;
+};
+
+export type RaceFeature = {
+  __typename?: 'RaceFeature';
+  id: Scalars['UUID'];
+  raceId?: Maybe<Scalars['UUID']>;
+  racialFeatureId?: Maybe<Scalars['UUID']>;
+  /** Reads a single `Race` that is related to this `RaceFeature`. */
+  raceByRaceId?: Maybe<Race>;
+  /** Reads a single `RacialFeature` that is related to this `RaceFeature`. */
+  racialFeatureByRacialFeatureId?: Maybe<RacialFeature>;
+};
+
+/**
+ * A condition to be used against `RaceFeature` object types. All fields are tested
+ * for equality and combined with a logical ‘and.’
+ */
+export type RaceFeatureCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `raceId` field. */
+  raceId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `racialFeatureId` field. */
+  racialFeatureId?: Maybe<Scalars['UUID']>;
+};
+
+/** An input for mutations affecting `RaceFeature` */
+export type RaceFeatureInput = {
+  id: Scalars['UUID'];
+  raceId?: Maybe<Scalars['UUID']>;
+  racialFeatureId?: Maybe<Scalars['UUID']>;
+};
+
+/** Represents an update to a `RaceFeature`. Fields that are set will be updated. */
+export type RaceFeaturePatch = {
+  id?: Maybe<Scalars['UUID']>;
+  raceId?: Maybe<Scalars['UUID']>;
+  racialFeatureId?: Maybe<Scalars['UUID']>;
+};
+
+/** A connection to a list of `RaceFeature` values. */
+export type RaceFeaturesConnection = {
+  __typename?: 'RaceFeaturesConnection';
+  /** A list of `RaceFeature` objects. */
+  nodes: Array<Maybe<RaceFeature>>;
+  /** A list of edges which contains the `RaceFeature` and cursor to aid in pagination. */
+  edges: Array<RaceFeaturesEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `RaceFeature` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `RaceFeature` edge in the connection. */
+export type RaceFeaturesEdge = {
+  __typename?: 'RaceFeaturesEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `RaceFeature` at the end of the edge. */
+  node?: Maybe<RaceFeature>;
+};
+
+/** Methods to use when ordering `RaceFeature`. */
+export enum RaceFeaturesOrderBy {
+  Natural = 'NATURAL',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  RaceIdAsc = 'RACE_ID_ASC',
+  RaceIdDesc = 'RACE_ID_DESC',
+  RacialFeatureIdAsc = 'RACIAL_FEATURE_ID_ASC',
+  RacialFeatureIdDesc = 'RACIAL_FEATURE_ID_DESC'
+}
+
+/** An input for mutations affecting `Race` */
+export type RaceInput = {
+  id: Scalars['UUID'];
+  name: Scalars['String'];
+  summary?: Maybe<Scalars['String']>;
+  asis?: Maybe<Scalars['JSON']>;
+  movement?: Maybe<Scalars['Int']>;
+  size?: Maybe<Scalars['String']>;
+  languages?: Maybe<Array<Maybe<Scalars['String']>>>;
+  lifespan?: Maybe<Scalars['String']>;
+  alignment?: Maybe<Scalars['String']>;
+};
+
+/** Represents an update to a `Race`. Fields that are set will be updated. */
+export type RacePatch = {
+  id?: Maybe<Scalars['UUID']>;
+  name?: Maybe<Scalars['String']>;
+  summary?: Maybe<Scalars['String']>;
+  asis?: Maybe<Scalars['JSON']>;
+  movement?: Maybe<Scalars['Int']>;
+  size?: Maybe<Scalars['String']>;
+  languages?: Maybe<Array<Maybe<Scalars['String']>>>;
+  lifespan?: Maybe<Scalars['String']>;
+  alignment?: Maybe<Scalars['String']>;
+};
+
+/** A connection to a list of `Race` values. */
+export type RacesConnection = {
+  __typename?: 'RacesConnection';
+  /** A list of `Race` objects. */
+  nodes: Array<Maybe<Race>>;
+  /** A list of edges which contains the `Race` and cursor to aid in pagination. */
+  edges: Array<RacesEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `Race` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `Race` edge in the connection. */
+export type RacesEdge = {
+  __typename?: 'RacesEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `Race` at the end of the edge. */
+  node?: Maybe<Race>;
+};
+
+/** Methods to use when ordering `Race`. */
+export enum RacesOrderBy {
+  Natural = 'NATURAL',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  NameAsc = 'NAME_ASC',
+  NameDesc = 'NAME_DESC',
+  SummaryAsc = 'SUMMARY_ASC',
+  SummaryDesc = 'SUMMARY_DESC',
+  AsisAsc = 'ASIS_ASC',
+  AsisDesc = 'ASIS_DESC',
+  MovementAsc = 'MOVEMENT_ASC',
+  MovementDesc = 'MOVEMENT_DESC',
+  SizeAsc = 'SIZE_ASC',
+  SizeDesc = 'SIZE_DESC',
+  LanguagesAsc = 'LANGUAGES_ASC',
+  LanguagesDesc = 'LANGUAGES_DESC',
+  LifespanAsc = 'LIFESPAN_ASC',
+  LifespanDesc = 'LIFESPAN_DESC',
+  AlignmentAsc = 'ALIGNMENT_ASC',
+  AlignmentDesc = 'ALIGNMENT_DESC'
+}
+
+export type RacialFeature = {
+  __typename?: 'RacialFeature';
+  id: Scalars['UUID'];
+  name: Scalars['String'];
+  description: Scalars['String'];
+  /** Reads and enables pagination through a set of `SubraceFeature`. */
+  subraceFeaturesByRacialFeatureId: SubraceFeaturesConnection;
+  /** Reads and enables pagination through a set of `RaceFeature`. */
+  raceFeaturesByRacialFeatureId: RaceFeaturesConnection;
+};
+
+
+export type RacialFeatureSubraceFeaturesByRacialFeatureIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<SubraceFeaturesOrderBy>>;
+  condition?: Maybe<SubraceFeatureCondition>;
+};
+
+
+export type RacialFeatureRaceFeaturesByRacialFeatureIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<RaceFeaturesOrderBy>>;
+  condition?: Maybe<RaceFeatureCondition>;
+};
+
+/**
+ * A condition to be used against `RacialFeature` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type RacialFeatureCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `name` field. */
+  name?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `description` field. */
+  description?: Maybe<Scalars['String']>;
+};
+
+/** An input for mutations affecting `RacialFeature` */
+export type RacialFeatureInput = {
+  id: Scalars['UUID'];
+  name: Scalars['String'];
+  description: Scalars['String'];
+};
+
+/** Represents an update to a `RacialFeature`. Fields that are set will be updated. */
+export type RacialFeaturePatch = {
+  id?: Maybe<Scalars['UUID']>;
+  name?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+/** A connection to a list of `RacialFeature` values. */
+export type RacialFeaturesConnection = {
+  __typename?: 'RacialFeaturesConnection';
+  /** A list of `RacialFeature` objects. */
+  nodes: Array<Maybe<RacialFeature>>;
+  /** A list of edges which contains the `RacialFeature` and cursor to aid in pagination. */
+  edges: Array<RacialFeaturesEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `RacialFeature` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `RacialFeature` edge in the connection. */
+export type RacialFeaturesEdge = {
+  __typename?: 'RacialFeaturesEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `RacialFeature` at the end of the edge. */
+  node?: Maybe<RacialFeature>;
+};
+
+/** Methods to use when ordering `RacialFeature`. */
+export enum RacialFeaturesOrderBy {
+  Natural = 'NATURAL',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  NameAsc = 'NAME_ASC',
+  NameDesc = 'NAME_DESC',
+  DescriptionAsc = 'DESCRIPTION_ASC',
+  DescriptionDesc = 'DESCRIPTION_DESC'
+}
 
 export type Skill = {
   __typename?: 'Skill';
@@ -2384,6 +3255,170 @@ export enum SpellsOrderBy {
   CirclesDesc = 'CIRCLES_DESC'
 }
 
+export type Subrace = {
+  __typename?: 'Subrace';
+  id: Scalars['UUID'];
+  name: Scalars['String'];
+  summary?: Maybe<Scalars['String']>;
+  asis?: Maybe<Scalars['JSON']>;
+  raceId?: Maybe<Scalars['UUID']>;
+  /** Reads a single `Race` that is related to this `Subrace`. */
+  raceByRaceId?: Maybe<Race>;
+  /** Reads and enables pagination through a set of `SubraceFeature`. */
+  subraceFeaturesBySubraceId: SubraceFeaturesConnection;
+};
+
+
+export type SubraceSubraceFeaturesBySubraceIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<SubraceFeaturesOrderBy>>;
+  condition?: Maybe<SubraceFeatureCondition>;
+};
+
+/** A condition to be used against `Subrace` object types. All fields are tested for equality and combined with a logical ‘and.’ */
+export type SubraceCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `name` field. */
+  name?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `summary` field. */
+  summary?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `asis` field. */
+  asis?: Maybe<Scalars['JSON']>;
+  /** Checks for equality with the object’s `raceId` field. */
+  raceId?: Maybe<Scalars['UUID']>;
+};
+
+export type SubraceFeature = {
+  __typename?: 'SubraceFeature';
+  id: Scalars['UUID'];
+  subraceId?: Maybe<Scalars['UUID']>;
+  racialFeatureId?: Maybe<Scalars['UUID']>;
+  /** Reads a single `Subrace` that is related to this `SubraceFeature`. */
+  subraceBySubraceId?: Maybe<Subrace>;
+  /** Reads a single `RacialFeature` that is related to this `SubraceFeature`. */
+  racialFeatureByRacialFeatureId?: Maybe<RacialFeature>;
+};
+
+/**
+ * A condition to be used against `SubraceFeature` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type SubraceFeatureCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `subraceId` field. */
+  subraceId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `racialFeatureId` field. */
+  racialFeatureId?: Maybe<Scalars['UUID']>;
+};
+
+/** An input for mutations affecting `SubraceFeature` */
+export type SubraceFeatureInput = {
+  id: Scalars['UUID'];
+  subraceId?: Maybe<Scalars['UUID']>;
+  racialFeatureId?: Maybe<Scalars['UUID']>;
+};
+
+/** Represents an update to a `SubraceFeature`. Fields that are set will be updated. */
+export type SubraceFeaturePatch = {
+  id?: Maybe<Scalars['UUID']>;
+  subraceId?: Maybe<Scalars['UUID']>;
+  racialFeatureId?: Maybe<Scalars['UUID']>;
+};
+
+/** A connection to a list of `SubraceFeature` values. */
+export type SubraceFeaturesConnection = {
+  __typename?: 'SubraceFeaturesConnection';
+  /** A list of `SubraceFeature` objects. */
+  nodes: Array<Maybe<SubraceFeature>>;
+  /** A list of edges which contains the `SubraceFeature` and cursor to aid in pagination. */
+  edges: Array<SubraceFeaturesEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `SubraceFeature` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `SubraceFeature` edge in the connection. */
+export type SubraceFeaturesEdge = {
+  __typename?: 'SubraceFeaturesEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `SubraceFeature` at the end of the edge. */
+  node?: Maybe<SubraceFeature>;
+};
+
+/** Methods to use when ordering `SubraceFeature`. */
+export enum SubraceFeaturesOrderBy {
+  Natural = 'NATURAL',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  SubraceIdAsc = 'SUBRACE_ID_ASC',
+  SubraceIdDesc = 'SUBRACE_ID_DESC',
+  RacialFeatureIdAsc = 'RACIAL_FEATURE_ID_ASC',
+  RacialFeatureIdDesc = 'RACIAL_FEATURE_ID_DESC'
+}
+
+/** An input for mutations affecting `Subrace` */
+export type SubraceInput = {
+  id: Scalars['UUID'];
+  name: Scalars['String'];
+  summary?: Maybe<Scalars['String']>;
+  asis?: Maybe<Scalars['JSON']>;
+  raceId?: Maybe<Scalars['UUID']>;
+};
+
+/** Represents an update to a `Subrace`. Fields that are set will be updated. */
+export type SubracePatch = {
+  id?: Maybe<Scalars['UUID']>;
+  name?: Maybe<Scalars['String']>;
+  summary?: Maybe<Scalars['String']>;
+  asis?: Maybe<Scalars['JSON']>;
+  raceId?: Maybe<Scalars['UUID']>;
+};
+
+/** A connection to a list of `Subrace` values. */
+export type SubracesConnection = {
+  __typename?: 'SubracesConnection';
+  /** A list of `Subrace` objects. */
+  nodes: Array<Maybe<Subrace>>;
+  /** A list of edges which contains the `Subrace` and cursor to aid in pagination. */
+  edges: Array<SubracesEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `Subrace` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `Subrace` edge in the connection. */
+export type SubracesEdge = {
+  __typename?: 'SubracesEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `Subrace` at the end of the edge. */
+  node?: Maybe<Subrace>;
+};
+
+/** Methods to use when ordering `Subrace`. */
+export enum SubracesOrderBy {
+  Natural = 'NATURAL',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  NameAsc = 'NAME_ASC',
+  NameDesc = 'NAME_DESC',
+  SummaryAsc = 'SUMMARY_ASC',
+  SummaryDesc = 'SUMMARY_DESC',
+  AsisAsc = 'ASIS_ASC',
+  AsisDesc = 'ASIS_DESC',
+  RaceIdAsc = 'RACE_ID_ASC',
+  RaceIdDesc = 'RACE_ID_DESC'
+}
+
 
 /** All input for the `updateAttributeById` mutation. */
 export type UpdateAttributeByIdInput = {
@@ -2559,6 +3594,288 @@ export type UpdateFeatPayloadFeatEdgeArgs = {
   orderBy?: Maybe<Array<FeatsOrderBy>>;
 };
 
+/** All input for the `updateKnexMigrationById` mutation. */
+export type UpdateKnexMigrationByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `KnexMigration` being updated. */
+  knexMigrationPatch: KnexMigrationPatch;
+  id: Scalars['Int'];
+};
+
+/** All input for the `updateKnexMigration` mutation. */
+export type UpdateKnexMigrationInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `KnexMigration` to be updated. */
+  nodeId: Scalars['ID'];
+  /** An object where the defined keys will be set on the `KnexMigration` being updated. */
+  knexMigrationPatch: KnexMigrationPatch;
+};
+
+/** The output of our update `KnexMigration` mutation. */
+export type UpdateKnexMigrationPayload = {
+  __typename?: 'UpdateKnexMigrationPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `KnexMigration` that was updated by this mutation. */
+  knexMigration?: Maybe<KnexMigration>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `KnexMigration`. May be used by Relay 1. */
+  knexMigrationEdge?: Maybe<KnexMigrationsEdge>;
+};
+
+
+/** The output of our update `KnexMigration` mutation. */
+export type UpdateKnexMigrationPayloadKnexMigrationEdgeArgs = {
+  orderBy?: Maybe<Array<KnexMigrationsOrderBy>>;
+};
+
+/** All input for the `updateKnexMigrationsLockByIndex` mutation. */
+export type UpdateKnexMigrationsLockByIndexInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `KnexMigrationsLock` being updated. */
+  knexMigrationsLockPatch: KnexMigrationsLockPatch;
+  index: Scalars['Int'];
+};
+
+/** All input for the `updateKnexMigrationsLock` mutation. */
+export type UpdateKnexMigrationsLockInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `KnexMigrationsLock` to be updated. */
+  nodeId: Scalars['ID'];
+  /** An object where the defined keys will be set on the `KnexMigrationsLock` being updated. */
+  knexMigrationsLockPatch: KnexMigrationsLockPatch;
+};
+
+/** The output of our update `KnexMigrationsLock` mutation. */
+export type UpdateKnexMigrationsLockPayload = {
+  __typename?: 'UpdateKnexMigrationsLockPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `KnexMigrationsLock` that was updated by this mutation. */
+  knexMigrationsLock?: Maybe<KnexMigrationsLock>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `KnexMigrationsLock`. May be used by Relay 1. */
+  knexMigrationsLockEdge?: Maybe<KnexMigrationsLocksEdge>;
+};
+
+
+/** The output of our update `KnexMigrationsLock` mutation. */
+export type UpdateKnexMigrationsLockPayloadKnexMigrationsLockEdgeArgs = {
+  orderBy?: Maybe<Array<KnexMigrationsLocksOrderBy>>;
+};
+
+/** All input for the `updateLanguageById` mutation. */
+export type UpdateLanguageByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `Language` being updated. */
+  languagePatch: LanguagePatch;
+  id: Scalars['UUID'];
+};
+
+/** The output of our update `Language` mutation. */
+export type UpdateLanguagePayload = {
+  __typename?: 'UpdateLanguagePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Language` that was updated by this mutation. */
+  language?: Maybe<Language>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Language`. May be used by Relay 1. */
+  languageEdge?: Maybe<LanguagesEdge>;
+};
+
+
+/** The output of our update `Language` mutation. */
+export type UpdateLanguagePayloadLanguageEdgeArgs = {
+  orderBy?: Maybe<Array<LanguagesOrderBy>>;
+};
+
+/** All input for the `updateRaceById` mutation. */
+export type UpdateRaceByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `Race` being updated. */
+  racePatch: RacePatch;
+  id: Scalars['UUID'];
+};
+
+/** All input for the `updateRaceFeatureById` mutation. */
+export type UpdateRaceFeatureByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `RaceFeature` being updated. */
+  raceFeaturePatch: RaceFeaturePatch;
+  id: Scalars['UUID'];
+};
+
+/** The output of our update `RaceFeature` mutation. */
+export type UpdateRaceFeaturePayload = {
+  __typename?: 'UpdateRaceFeaturePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `RaceFeature` that was updated by this mutation. */
+  raceFeature?: Maybe<RaceFeature>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Race` that is related to this `RaceFeature`. */
+  raceByRaceId?: Maybe<Race>;
+  /** Reads a single `RacialFeature` that is related to this `RaceFeature`. */
+  racialFeatureByRacialFeatureId?: Maybe<RacialFeature>;
+  /** An edge for our `RaceFeature`. May be used by Relay 1. */
+  raceFeatureEdge?: Maybe<RaceFeaturesEdge>;
+};
+
+
+/** The output of our update `RaceFeature` mutation. */
+export type UpdateRaceFeaturePayloadRaceFeatureEdgeArgs = {
+  orderBy?: Maybe<Array<RaceFeaturesOrderBy>>;
+};
+
+/** The output of our update `Race` mutation. */
+export type UpdateRacePayload = {
+  __typename?: 'UpdateRacePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Race` that was updated by this mutation. */
+  race?: Maybe<Race>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Race`. May be used by Relay 1. */
+  raceEdge?: Maybe<RacesEdge>;
+};
+
+
+/** The output of our update `Race` mutation. */
+export type UpdateRacePayloadRaceEdgeArgs = {
+  orderBy?: Maybe<Array<RacesOrderBy>>;
+};
+
+/** All input for the `updateRacialFeatureById` mutation. */
+export type UpdateRacialFeatureByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `RacialFeature` being updated. */
+  racialFeaturePatch: RacialFeaturePatch;
+  id: Scalars['UUID'];
+};
+
+/** The output of our update `RacialFeature` mutation. */
+export type UpdateRacialFeaturePayload = {
+  __typename?: 'UpdateRacialFeaturePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `RacialFeature` that was updated by this mutation. */
+  racialFeature?: Maybe<RacialFeature>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `RacialFeature`. May be used by Relay 1. */
+  racialFeatureEdge?: Maybe<RacialFeaturesEdge>;
+};
+
+
+/** The output of our update `RacialFeature` mutation. */
+export type UpdateRacialFeaturePayloadRacialFeatureEdgeArgs = {
+  orderBy?: Maybe<Array<RacialFeaturesOrderBy>>;
+};
+
+/** All input for the `updateSkillById` mutation. */
+export type UpdateSkillByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `Skill` being updated. */
+  skillPatch: SkillPatch;
+  id: Scalars['UUID'];
+};
+
+/** The output of our update `Skill` mutation. */
+export type UpdateSkillPayload = {
+  __typename?: 'UpdateSkillPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Skill` that was updated by this mutation. */
+  skill?: Maybe<Skill>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Attribute` that is related to this `Skill`. */
+  attributeByAttrId?: Maybe<Attribute>;
+  /** An edge for our `Skill`. May be used by Relay 1. */
+  skillEdge?: Maybe<SkillsEdge>;
+};
+
+
+/** The output of our update `Skill` mutation. */
+export type UpdateSkillPayloadSkillEdgeArgs = {
+  orderBy?: Maybe<Array<SkillsOrderBy>>;
+};
+
+/** All input for the `updateSpellById` mutation. */
+export type UpdateSpellByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `Spell` being updated. */
+  spellPatch: SpellPatch;
+  id: Scalars['UUID'];
+};
+
 /** The output of our update `Spell` mutation. */
 export type UpdateSpellPayload = {
   __typename?: 'UpdateSpellPayload';
@@ -2615,180 +3932,78 @@ export type UpdateSpellSlugPayloadSpellSlugEdgeArgs = {
   orderBy?: Maybe<Array<SpellSlugsOrderBy>>;
 };
 
-/** All input for the `updateSkillById` mutation. */
-export type UpdateSkillByIdInput = {
+/** All input for the `updateSubraceById` mutation. */
+export type UpdateSubraceByIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars['String']>;
-  /** An object where the defined keys will be set on the `Skill` being updated. */
-  skillPatch: SkillPatch;
+  /** An object where the defined keys will be set on the `Subrace` being updated. */
+  subracePatch: SubracePatch;
   id: Scalars['UUID'];
 };
 
-/** The output of our update `Skill` mutation. */
-export type UpdateSkillPayload = {
-  __typename?: 'UpdateSkillPayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `Skill` that was updated by this mutation. */
-  skill?: Maybe<Skill>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** Reads a single `Attribute` that is related to this `Skill`. */
-  attributeByAttrId?: Maybe<Attribute>;
-  /** An edge for our `Skill`. May be used by Relay 1. */
-  skillEdge?: Maybe<SkillsEdge>;
-};
-
-
-/** The output of our update `Skill` mutation. */
-export type UpdateSkillPayloadSkillEdgeArgs = {
-  orderBy?: Maybe<Array<SkillsOrderBy>>;
-};
-
-/** All input for the `updateLanguageById` mutation. */
-export type UpdateLanguageByIdInput = {
+/** All input for the `updateSubraceFeatureById` mutation. */
+export type UpdateSubraceFeatureByIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars['String']>;
-  /** An object where the defined keys will be set on the `Language` being updated. */
-  languagePatch: LanguagePatch;
+  /** An object where the defined keys will be set on the `SubraceFeature` being updated. */
+  subraceFeaturePatch: SubraceFeaturePatch;
   id: Scalars['UUID'];
 };
 
-/** All input for the `updateSpellById` mutation. */
-export type UpdateSpellByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** An object where the defined keys will be set on the `Spell` being updated. */
-  spellPatch: SpellPatch;
-  id: Scalars['UUID'];
-};
-
-/** All input for the `updateKnexMigrationsLockByIndex` mutation. */
-export type UpdateKnexMigrationsLockByIndexInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** An object where the defined keys will be set on the `KnexMigrationsLock` being updated. */
-  knexMigrationsLockPatch: KnexMigrationsLockPatch;
-  index: Scalars['Int'];
-};
-
-/** All input for the `updateKnexMigrationsLock` mutation. */
-export type UpdateKnexMigrationsLockInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The globally unique `ID` which will identify a single `KnexMigrationsLock` to be updated. */
-  nodeId: Scalars['ID'];
-  /** An object where the defined keys will be set on the `KnexMigrationsLock` being updated. */
-  knexMigrationsLockPatch: KnexMigrationsLockPatch;
-};
-
-/** The output of our update `KnexMigrationsLock` mutation. */
-export type UpdateKnexMigrationsLockPayload = {
-  __typename?: 'UpdateKnexMigrationsLockPayload';
+/** The output of our update `SubraceFeature` mutation. */
+export type UpdateSubraceFeaturePayload = {
+  __typename?: 'UpdateSubraceFeaturePayload';
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']>;
-  /** The `KnexMigrationsLock` that was updated by this mutation. */
-  knexMigrationsLock?: Maybe<KnexMigrationsLock>;
+  /** The `SubraceFeature` that was updated by this mutation. */
+  subraceFeature?: Maybe<SubraceFeature>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** An edge for our `KnexMigrationsLock`. May be used by Relay 1. */
-  knexMigrationsLockEdge?: Maybe<KnexMigrationsLocksEdge>;
+  /** Reads a single `Subrace` that is related to this `SubraceFeature`. */
+  subraceBySubraceId?: Maybe<Subrace>;
+  /** Reads a single `RacialFeature` that is related to this `SubraceFeature`. */
+  racialFeatureByRacialFeatureId?: Maybe<RacialFeature>;
+  /** An edge for our `SubraceFeature`. May be used by Relay 1. */
+  subraceFeatureEdge?: Maybe<SubraceFeaturesEdge>;
 };
 
 
-/** The output of our update `KnexMigrationsLock` mutation. */
-export type UpdateKnexMigrationsLockPayloadKnexMigrationsLockEdgeArgs = {
-  orderBy?: Maybe<Array<KnexMigrationsLocksOrderBy>>;
+/** The output of our update `SubraceFeature` mutation. */
+export type UpdateSubraceFeaturePayloadSubraceFeatureEdgeArgs = {
+  orderBy?: Maybe<Array<SubraceFeaturesOrderBy>>;
 };
 
-/** All input for the `updateKnexMigrationById` mutation. */
-export type UpdateKnexMigrationByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** An object where the defined keys will be set on the `KnexMigration` being updated. */
-  knexMigrationPatch: KnexMigrationPatch;
-  id: Scalars['Int'];
-};
-
-/** All input for the `updateKnexMigration` mutation. */
-export type UpdateKnexMigrationInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The globally unique `ID` which will identify a single `KnexMigration` to be updated. */
-  nodeId: Scalars['ID'];
-  /** An object where the defined keys will be set on the `KnexMigration` being updated. */
-  knexMigrationPatch: KnexMigrationPatch;
-};
-
-/** The output of our update `KnexMigration` mutation. */
-export type UpdateKnexMigrationPayload = {
-  __typename?: 'UpdateKnexMigrationPayload';
+/** The output of our update `Subrace` mutation. */
+export type UpdateSubracePayload = {
+  __typename?: 'UpdateSubracePayload';
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']>;
-  /** The `KnexMigration` that was updated by this mutation. */
-  knexMigration?: Maybe<KnexMigration>;
+  /** The `Subrace` that was updated by this mutation. */
+  subrace?: Maybe<Subrace>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** An edge for our `KnexMigration`. May be used by Relay 1. */
-  knexMigrationEdge?: Maybe<KnexMigrationsEdge>;
+  /** Reads a single `Race` that is related to this `Subrace`. */
+  raceByRaceId?: Maybe<Race>;
+  /** An edge for our `Subrace`. May be used by Relay 1. */
+  subraceEdge?: Maybe<SubracesEdge>;
 };
 
 
-/** The output of our update `KnexMigration` mutation. */
-export type UpdateKnexMigrationPayloadKnexMigrationEdgeArgs = {
-  orderBy?: Maybe<Array<KnexMigrationsOrderBy>>;
-};
-
-/** The output of our update `Language` mutation. */
-export type UpdateLanguagePayload = {
-  __typename?: 'UpdateLanguagePayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `Language` that was updated by this mutation. */
-  language?: Maybe<Language>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** An edge for our `Language`. May be used by Relay 1. */
-  languageEdge?: Maybe<LanguagesEdge>;
-};
-
-
-/** The output of our update `Language` mutation. */
-export type UpdateLanguagePayloadLanguageEdgeArgs = {
-  orderBy?: Maybe<Array<LanguagesOrderBy>>;
+/** The output of our update `Subrace` mutation. */
+export type UpdateSubracePayloadSubraceEdgeArgs = {
+  orderBy?: Maybe<Array<SubracesOrderBy>>;
 };
 
 export type AllAttributesQueryVariables = Exact<{ [key: string]: never; }>;
@@ -2885,6 +4100,46 @@ export type GetAllLanguagesQuery = (
     & { languages: Array<Maybe<(
       { __typename?: 'Language' }
       & Pick<Language, 'name' | 'script' | 'type' | 'typicalSpeakers'>
+    )>> }
+  )> }
+);
+
+export type GetAllRacesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllRacesQuery = (
+  { __typename?: 'Query' }
+  & { allRaces?: Maybe<(
+    { __typename?: 'RacesConnection' }
+    & { nodes: Array<Maybe<(
+      { __typename?: 'Race' }
+      & Pick<Race, 'id' | 'name' | 'movement' | 'lifespan' | 'languages' | 'asis' | 'alignment' | 'size' | 'summary'>
+      & { raceFeaturesByRaceId: (
+        { __typename?: 'RaceFeaturesConnection' }
+        & { nodes: Array<Maybe<(
+          { __typename?: 'RaceFeature' }
+          & { racialFeatureByRacialFeatureId?: Maybe<(
+            { __typename?: 'RacialFeature' }
+            & Pick<RacialFeature, 'name' | 'description'>
+          )> }
+        )>> }
+      ), subracesByRaceId: (
+        { __typename?: 'SubracesConnection' }
+        & { nodes: Array<Maybe<(
+          { __typename?: 'Subrace' }
+          & Pick<Subrace, 'id' | 'name' | 'summary' | 'asis'>
+          & { subraceFeaturesBySubraceId: (
+            { __typename?: 'SubraceFeaturesConnection' }
+            & { nodes: Array<Maybe<(
+              { __typename?: 'SubraceFeature' }
+              & { racialFeatureByRacialFeatureId?: Maybe<(
+                { __typename?: 'RacialFeature' }
+                & Pick<RacialFeature, 'name' | 'description'>
+              )> }
+            )>> }
+          ) }
+        )>> }
+      ) }
     )>> }
   )> }
 );
@@ -3168,6 +4423,74 @@ export function useGetAllLanguagesLazyQuery(baseOptions?: Apollo.LazyQueryHookOp
 export type GetAllLanguagesQueryHookResult = ReturnType<typeof useGetAllLanguagesQuery>;
 export type GetAllLanguagesLazyQueryHookResult = ReturnType<typeof useGetAllLanguagesLazyQuery>;
 export type GetAllLanguagesQueryResult = Apollo.QueryResult<GetAllLanguagesQuery, GetAllLanguagesQueryVariables>;
+export const GetAllRacesDocument = gql`
+    query GetAllRaces {
+  allRaces {
+    nodes {
+      id
+      name
+      movement
+      lifespan
+      languages
+      asis
+      alignment
+      size
+      summary
+      raceFeaturesByRaceId {
+        nodes {
+          racialFeatureByRacialFeatureId {
+            name
+            description
+          }
+        }
+      }
+      subracesByRaceId {
+        nodes {
+          id
+          name
+          summary
+          asis
+          subraceFeaturesBySubraceId {
+            nodes {
+              racialFeatureByRacialFeatureId {
+                name
+                description
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetAllRacesQuery__
+ *
+ * To run a query within a React component, call `useGetAllRacesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllRacesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllRacesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetAllRacesQuery(baseOptions?: Apollo.QueryHookOptions<GetAllRacesQuery, GetAllRacesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllRacesQuery, GetAllRacesQueryVariables>(GetAllRacesDocument, options);
+      }
+export function useGetAllRacesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllRacesQuery, GetAllRacesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllRacesQuery, GetAllRacesQueryVariables>(GetAllRacesDocument, options);
+        }
+export type GetAllRacesQueryHookResult = ReturnType<typeof useGetAllRacesQuery>;
+export type GetAllRacesLazyQueryHookResult = ReturnType<typeof useGetAllRacesLazyQuery>;
+export type GetAllRacesQueryResult = Apollo.QueryResult<GetAllRacesQuery, GetAllRacesQueryVariables>;
 export const AllSkillsDocument = gql`
     query AllSkills {
   allSkills {
