@@ -121,8 +121,8 @@ const AsiGenerator: React.FC = () => {
       )}
       {activeMethod === 'StandardArray' && (
         <StandardArray
-          callbackToGetAttributes={getUpdatedAttributes}
-          attributesImmutable={attributes}
+          callbackToSetAttributes={getUpdatedAttributes}
+          attributes={attributes}
         />
       )}
       {activeMethod === 'Manual' && (

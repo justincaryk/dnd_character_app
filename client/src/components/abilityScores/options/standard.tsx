@@ -3,7 +3,7 @@ import './../../../scss/StandardArray.scss';
 import { AttributeInterface } from './../../../lib/types'
 interface Props {
     attributesImmutable: AttributeInterface[]
-    callbackToGetAttributes: (attr: AttributeInterface[]) => void
+    callbackToSetAttributes: (attr: AttributeInterface[]) => void
 }
 
 interface State<T> {
@@ -105,13 +105,13 @@ class StandardArray extends React.Component<Props, State<any>> {
                     if (newSelectedScore == '--') {
                         attr.previousAssignedScore = attr.currentAssignedScore;
                         attr.currentAssignedScore = 8;  // setting this 8 so it behaves consistently with the parent component
-                        this.props.callbackToGetAttributes(this.props.attributesImmutable) // callback handler;
+                        this.props.callbackToSetAttributes(this.props.attributesImmutable) // callback handler;
                         return;
                     }
 
                     attr.previousAssignedScore = attr.currentAssignedScore;
                     attr.currentAssignedScore = parseInt(newSelectedScore);
-                    this.props.callbackToGetAttributes(this.props.attributesImmutable) // callback handler;
+                    this.props.callbackToSetAttributes(this.props.attributesImmutable) // callback handler;
                     return;
                 }
 
