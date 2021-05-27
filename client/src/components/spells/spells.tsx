@@ -164,7 +164,7 @@ const SpellsSelector: React.FC = () => {
                     filteredSpells ? filteredSpells.map((spell: any) => {
                         return (
                             <div className='content-block' key={spell.slug}>
-                                <Spell spell={spell}></Spell>
+                                <Spell rawSpell={spell}></Spell>
                             </div>
                         )
                     }) : null
