@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './../../scss/RaceForm.scss'
-import { RaceType } from '../../lib/types'
 import { useGetAllRacesQuery } from './../../generated/graphql'
 
 import Races from './races'
