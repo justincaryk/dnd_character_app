@@ -58,32 +58,16 @@ export type AttributeInterface = {
     currentAssignedScore: number
 }
 
-export type RaceAsiType = {
-    [key: string]: number
-}
 export type RaceFeatureType = {
-    [key: string]: string | number
+    name: string
+    description: string
 }
 export type SubraceType = {
     id: string
     name: string
     summary: string
-    asis: RaceAsiType[]
+    asis: string // json
     features: RaceFeatureType[]
-}
-
-export type RaceType = {
-    id: number
-    name: string
-    summary: string
-    asis: RaceAsiType[]
-    movement: number
-    size: string
-    languages: string[]
-    lifespan: string
-    alignment: string
-    features: RaceFeatureType[]
-    subraces: SubraceType[]
 }
 
 export type SpellType = {

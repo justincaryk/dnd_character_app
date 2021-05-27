@@ -1,9 +1,11 @@
 import React from "react";
 // import "./Races.scss";
-import { appDictionary } from "../../lib/dictionary";
+// import { appDictionary } from "../../lib/dictionary";
 
-const Races: React.FC = () => {
-  const races = appDictionary.RACE_DATA;
+interface Props {
+  races: any
+}
+const Races: React.FC<Props> = ({races}) => {
 
   return (
     <>
