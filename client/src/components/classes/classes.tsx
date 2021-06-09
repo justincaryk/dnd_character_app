@@ -64,7 +64,6 @@ const Classes: React.FC = () => {
   return (
     <>
       <div className="mb-6">
-        <label>Choose a Class</label>
         <select className="form-control" onChange={handleClassChange}>
           <option value="" key="" selected disabled>
             Make a selection

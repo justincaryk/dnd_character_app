@@ -30,7 +30,7 @@ const links: LinkType[] = [
     text: '2. Abilities',
   },
   {
-    link: '/class',
+    link: '/',
     text: '3. Class (TODO)',
   },
   {
@@ -44,6 +44,10 @@ const links: LinkType[] = [
   {
     link: '/feats',
     text: 'View Feats',
+  },
+  {
+    link: '/classes',
+    text: 'View Classes',
   },
 ]
 
@@ -71,7 +75,7 @@ const App: React.FC = () => (
           </div>
         </Route>
 
-        <Route path="/class">
+        <Route path="/classes">
           <div className="layout container">
             <Classes />
           </div>
