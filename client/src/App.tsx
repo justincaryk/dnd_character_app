@@ -3,7 +3,7 @@ import './scss/App.scss'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import NavBar from './components/nav'
-// import DndClasses from './components/dndClasses/dndClasses'
+import Classes from './components/classes/classes'
 import RaceSelectionForm from './components/races/race-form'
 import AsiGenerator from './components/ability-scores/asi-generator'
 import CharDescription from './components/descript/descript'
@@ -30,7 +30,7 @@ const links: LinkType[] = [
     text: '2. Abilities',
   },
   {
-    link: '/',
+    link: '/class',
     text: '3. Class (TODO)',
   },
   {
@@ -68,6 +68,12 @@ const App: React.FC = () => (
         <Route path="/asi">
           <div className="layout container asi">
             <AsiGenerator />
+          </div>
+        </Route>
+
+        <Route path="/class">
+          <div className="layout container">
+            <Classes />
           </div>
         </Route>
 
