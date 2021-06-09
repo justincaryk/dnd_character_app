@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './../../scss/AbilityScore.scss'
-import { AttributeInterface } from './../../lib/types'
-import PointBuy from './options/pointBuy'
+import { AttributeInterface } from '../../lib/types'
+import PointBuy from './options/point-buy'
 import StandardArray from './options/standard'
 import ManualOption from './options/manual'
 

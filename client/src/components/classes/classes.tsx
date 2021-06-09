@@ -1,23 +1,6 @@
 import React from "react";
 import "./../../scss/DndClasses.scss";
 
-export default class DndClasses extends React.Component {
-    
-    render() {
-        const races = CLASS_DATA;
-
-        return (
-            <div>
-                <label>Choose a Class</label>
-                <select className="form-control">
-                    <option value="" key="" selected disabled>Make a selection</option>
-                    {races.map(x => <option value={x.id} key={x.id}>{x.name}</option>)}
-                </select>
-            </div>
-        );
-    }
-
-}
 
 const CLASS_DATA = [
     {
@@ -69,3 +52,22 @@ const CLASS_DATA = [
         name: 'Wizard'
     },
 ];
+
+export default class DndClasses extends React.Component {
+    
+    render() {
+        const races = CLASS_DATA;
+
+        return (
+            <div>
+                <label>Choose a Class</label>
+                <select className="form-control">
+                    <option value="" key="" selected disabled>Make a selection</option>
+                    {races.map(x => <option value={x.id} key={x.id}>{x.name}</option>)}
+                </select>
+            </div>
+        );
+    }
+
+}
+

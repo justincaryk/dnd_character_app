@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './../../../scss/PointBuy.scss'
-import { AttributeInterface } from './../../../lib/types'
-import AttributeInputBlock from './attributeInput'
+import { AttributeInterface } from '../../../lib/types'
+import AttributeInputBlock from './attribute-input'
 
 interface Props {
     attributesImmutable: AttributeInterface[]
