@@ -55,7 +55,7 @@ const CLASS_DATA = [
 ]
 
 const Classes: React.FC = () => {
-  const races = CLASS_DATA
+  const classes = CLASS_DATA
   const [ selectedClass, setSelectedClass ] = useState(0)
   
   const handleClassChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -69,7 +69,7 @@ const Classes: React.FC = () => {
           <option value="" key="" selected disabled>
             Make a selection
           </option>
-          {races.map((x) => (
+          {classes.map((x) => (
             <option value={x.id} key={x.id}>
               {x.name}
             </option>

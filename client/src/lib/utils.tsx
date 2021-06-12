@@ -33,3 +33,42 @@ export const getLongFormAbilityScore = (asiAbbrev: string): string => {
 
     return hash[asiAbbrev]
 }
+
+export const getFeatures = (list: any, featsFull: any, subclassFeats?: any) => {
+  const sortedList = list.sort((a: any, b: any) => {
+    if (typeof a == 'string' && typeof b === 'string') {
+      return Number(a.split('||')[1]) - Number(b.split('||')[1])
+    }
+    if (a.classFeature && b.classFeature) {
+      return (
+        Number(a.classFeature.split('||')[1]) -
+        Number(b.classFeature.split('||')[1])
+      )
+    }
+    if (b.classFeature) {
+      return Number(a.split('||')[1]) - Number(b.classFeature.split('||')[1])
+    }
+    // only a.classFeature
+    return Number(a.classFeature.split('||')[1]) - Number(b.split('||')[1])
+  })
+  
+  const parsedList = sortedList.map((x: any) => {
+    if (typeof x === 'string') {
+      return x.split('||')[0]
+    } 
+    return x.classFeature.split('||')[0]
+  })
+
+  const featsFormatted = []
+
+  for (const key of parsedList) {
+    for (const feat of featsFull) {
+      if (feat.name === key) {
+        featsFormatted.push(feat)
+        break;
+      }
+    }
+  }
+
+  return featsFormatted
+}
