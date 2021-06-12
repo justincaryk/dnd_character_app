@@ -12,21 +12,20 @@ export const bd = {
     startingProficiencies: {
       armor: ['light', 'medium', 'shield'],
       weapons: ['simple', 'martial'],
-      skills: [
-        {
-          choose: {
-            from: [
-              'animal handling',
-              'athletics',
-              'intimidation',
-              'nature',
-              'perception',
-              'survival',
-            ],
-            count: 2,
-          },
+      tools: [],
+      skills: {
+        choose: {
+          from: [
+            'animal handling',
+            'athletics',
+            'intimidation',
+            'nature',
+            'perception',
+            'survival',
+          ],
+          count: 2,
         },
-      ],
+      },
     },
     startingEquipment: {
       additionalFromBackground: true,

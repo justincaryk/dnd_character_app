@@ -51,7 +51,7 @@ const links: LinkType[] = [
   },
 ]
 
-const Home = () => <div>Home.</div>
+const Home = () =>  <div className="layout container">Home.</div>
 
 const App: React.FC = () => (
   <ApolloProvider client={client}>

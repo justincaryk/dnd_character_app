@@ -1,19 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
+import {
+  getProficiencyRules
+} from '../../../lib/utils'
 import { bd } from './barbarian-data'
+import ClassSummary from './../shared/class-summary'
 
-interface ITable {
+interface ISubtableProps {
   features: {
     [key: string]: string[]
   }
 }
-const Table: React.FC<ITable> = ({ features }) => {
-  const getProficiencyRules = (level: number) => {
-    if (level < 5) return 2
-    if (level < 9) return 3
-    if (level < 13) return 4
-    if (level < 17) return 5
-    return 6
-  }
+
+const Subtable: React.FC<ISubtableProps> = ({ features }) => {
   const levels = [
     {
       level: 1,
@@ -101,11 +99,11 @@ const Table: React.FC<ITable> = ({ features }) => {
     <>
       <div className='border table text-center text-sm max-w-screen-md shadow-sm'>
         <div className='table-header-group font-semibold'>
-          <div className='table-cell'>Level</div>
+          <div className='table-cell p-2'>Level</div>
           <div className='table-cell'>Proficiency Bonus</div>
           <div className='table-cell text-left'>Features</div>
           {bd.class.classTableGroups.colLabels.map((col) => (
-            <div className='table-cell'>{col}</div>
+            <div className='table-cell p-2'>{col}</div>
           ))}
         </div>
         {levels.map((l, i) => (
@@ -129,33 +127,38 @@ const Table: React.FC<ITable> = ({ features }) => {
   )
 }
 
+const parsedFeatures = () => {
+  const hashFeatures: any = {}
+
+  bd.class.classFeatures.forEach((f) => {
+    if (typeof f === 'string') {
+      const feature = f.split('||')[0]
+      const level = f.split('||')[1]
+      hashFeatures[level]
+        ? hashFeatures[level].push(feature)
+        : (hashFeatures[level] = [feature])
+    } else {
+      const feature = f.classFeature.split('||')[0]
+      const level = f.classFeature.split('||')[1]
+      hashFeatures[level]
+        ? hashFeatures[level].push(feature)
+        : (hashFeatures[level] = [feature])
+    }
+  })
+
+  return hashFeatures
+}
+
 const Barbarian: React.FC = () => {
-
-  const parsedFeatures = () => {
-    const hashFeatures: any = {}
-
-    bd.class.classFeatures.forEach((f) => {
-      if (typeof f === 'string') {
-        const feature = f.split('||')[0]
-        const level = f.split('||')[1]
-        hashFeatures[level]
-          ? hashFeatures[level].push(feature)
-          : (hashFeatures[level] = [feature])
-      } else {
-        const feature = f.classFeature.split('||')[0]
-        const level = f.classFeature.split('||')[1]
-        hashFeatures[level]
-          ? hashFeatures[level].push(feature)
-          : (hashFeatures[level] = [feature])
-      }
-    })
-
-    return hashFeatures
-  }
+  const [subtableFeatures] = useState(parsedFeatures())
 
   return (
     <div>
-      <Table features={parsedFeatures()} />
+      <div className='text-lg font-bold mb-4'>{bd.class.name}</div>
+      <div className='flex justify-between w-full'>
+        <ClassSummary gen={bd.class} />
+        <Subtable features={subtableFeatures} />
+      </div>
     </div>
   )
 }

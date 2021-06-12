@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './../../scss/DndClasses.scss'
-import Barbarian from './barbarian'
+import Barbarian from './barbarian/barbarian'
+import Fighter from './fighter/fighter'
 
 const CLASS_DATA = [
   {
@@ -76,6 +77,7 @@ const Classes: React.FC = () => {
         </select>
       </div>
       {selectedClass === 1 && <Barbarian />}
+      {selectedClass === 5 && <Fighter />}
     </>
   )
 }
