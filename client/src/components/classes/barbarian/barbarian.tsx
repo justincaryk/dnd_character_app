@@ -152,11 +152,19 @@ const parsedFeatures = () => {
 
 const Barbarian: React.FC = () => {
   const [subtableFeatures] = useState(parsedFeatures())
-  const [subclasses] = useState<any[]>(bd.class.subclasses.map((sc) => sc.name))
+  const [subclasses] = useState<any[]>(bd.class.subclasses.map((sc) => sc))
   const [features, setFeatures] = useState<any>(
     getFeatures(bd.class.classFeatures, bd.classFeature)
   )
-  const handleSubclassChange = (e: React.ChangeEvent<HTMLSelectElement>) => {}
+  const handleSubclassChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const subclassShortName = e.currentTarget.value
+    const subclassFeatures = bd.subclassFeature.filter((x) => {
+      return x.subclassShortName === subclassShortName ? true : false
+    })
+    setFeatures(
+      getFeatures(bd.class.classFeatures, bd.classFeature, subclassFeatures)
+    )
+  }
 
   return (
     <div>
@@ -165,8 +173,8 @@ const Barbarian: React.FC = () => {
           Make a selection
         </option>
         {subclasses.map((x) => (
-          <option value={x} key={x}>
-            {x}
+          <option value={x.shortName} key={x.shortName}>
+            {x.name}
           </option>
         ))}
       </select>

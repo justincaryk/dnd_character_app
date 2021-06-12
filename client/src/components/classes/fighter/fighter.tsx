@@ -8,8 +8,17 @@ const Fighter: React.FC = () => {
   const [features, setFeatures] = useState<any>(
     getFeatures(fd.class.classFeatures, fd.classFeature)
   )
-  const [subclasses] = useState<any[]>(fd.class.subclasses.map((sc) => sc.name))
-  const handleSubclassChange = (e: React.ChangeEvent<HTMLSelectElement>) => {}
+  const [subclasses] = useState<any[]>(fd.class.subclasses)
+
+  const handleSubclassChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const subclassShortName = e.currentTarget.value
+    const subclassFeatures = fd.subclassFeature.filter((x) => {
+      return x.subclassShortName === subclassShortName ? true : false
+    })
+    setFeatures(
+      getFeatures(fd.class.classFeatures, fd.classFeature, subclassFeatures)
+    )
+  }
 
   return (
     <div>
@@ -18,8 +27,8 @@ const Fighter: React.FC = () => {
           Make a selection
         </option>
         {subclasses.map((x) => (
-          <option value={x} key={x}>
-            {x}
+          <option value={x.shortName} key={x.shortName}>
+            {x.name}
           </option>
         ))}
       </select>

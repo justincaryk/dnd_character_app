@@ -8,7 +8,8 @@ const Features: React.FC<IFeatureProps> = ({ features }) => {
     <div className='space-y-2'>
       {features.map((x) => (
         <div className='border p-2 text-sm'>
-          <div className='font-semibold'>{x.name}</div>
+          <div className={x.subclassShortName ? 'text-blue-600 font-semibold': 'font-semibold'}>{x.name}</div>
+          <div className='text-xs italic'>Level {x.level}</div>
           <div>
             {x.entries.map((x: any) => {
               if (typeof x === 'string') {
