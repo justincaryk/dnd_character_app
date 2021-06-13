@@ -34,8 +34,8 @@ export const getLongFormAbilityScore = (asiAbbrev: string): string => {
     return hash[asiAbbrev]
 }
 
-export const getFeatures = (list: any, classFeats: any, subclassFeats?: any) => {
-  const sortedList = list.sort((a: any, b: any) => {
+const sortFeatureList = (list: any[]) => (
+  list.sort((a: any, b: any) => {
     if (typeof a == 'string' && typeof b === 'string') {
       return Number(a.split('||')[1]) - Number(b.split('||')[1])
     }
@@ -51,13 +51,15 @@ export const getFeatures = (list: any, classFeats: any, subclassFeats?: any) => 
     // a.classFeature only
     return Number(a.classFeature.split('||')[1]) - Number(b.split('||')[1])
   })
-  
-  const parsedList = sortedList.map((x: any) => {
+)
+
+const parseFeatureList = (list: any[], hasSubclassFeats: boolean) => (
+  list.map((x: any) => {
     if (typeof x === 'string') {
       return x.split('||')[0]
     } 
 
-    if (subclassFeats) {
+    if (hasSubclassFeats) {
       const y = {...x}
       y.classFeature = x.classFeature.split('||')[1]
       return y
@@ -65,6 +67,11 @@ export const getFeatures = (list: any, classFeats: any, subclassFeats?: any) => 
 
     return x.classFeature.split('||')[0]
   })
+)
+
+export const getFeatures = (list: any, classFeats: any, subclassFeats?: any) => {
+  const sortedList = sortFeatureList(list)
+  const parsedList = parseFeatureList(sortedList, subclassFeats !== undefined)
 
   const featsFormatted = []
 
