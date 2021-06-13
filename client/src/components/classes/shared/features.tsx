@@ -7,7 +7,7 @@ const Features: React.FC<IFeatureProps> = ({ features }) => {
   return (
     <div className='space-y-2'>
       {features.map((x) => (
-        <div className='border p-2 text-sm'>
+        <div className='border p-2 text-sm shadow-sm' key={x.shortName}>
           <div className={x.subclassShortName ? 'text-blue-600 font-semibold': 'font-semibold'}>{x.name}</div>
           <div className='text-xs italic'>Level {x.level}</div>
           <div>

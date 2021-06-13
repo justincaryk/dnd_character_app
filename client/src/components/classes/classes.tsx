@@ -66,8 +66,12 @@ const Classes: React.FC = () => {
   return (
     <>
       <div className="mb-6">
-        <select className="form-control" onChange={handleClassChange}>
-          <option value="" key="" selected disabled>
+        <select 
+          className="form-control" 
+          defaultValue={''}
+          onChange={handleClassChange}
+        >
+          <option value="" key="" disabled>
             Make a selection
           </option>
           {classes.map((x) => (

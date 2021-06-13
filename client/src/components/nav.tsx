@@ -11,7 +11,7 @@ const NavBar: React.FC<Props> = ({ links }) => (
       <div className='container'>
         <div className='flex'>
             {links.map(x => (
-                <div>
+                <div key={x.text}>
                     <a href={x.link}>{x.text}</a>
                 </div>
             ))}
