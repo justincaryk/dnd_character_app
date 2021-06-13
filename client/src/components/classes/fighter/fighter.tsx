@@ -116,10 +116,9 @@ const Subtable: React.FC<ISubtableProps> = ({ features, subclassTableGroups }) =
               {features[l.level.toString()].join(', ')}
             </div>
             {subclassTableGroups?.map((sctg: any) => (
-              sctg.rows[l.level - 1].map((col: string) => {
-                debugger
-                return <div className='table-cell p-2'>{col}</div>
-              })
+              sctg.rows[l.level - 1].map((col: string) => (
+                <div className='table-cell'>{col}</div>
+              ))
             ))}
           </div>
         ))}
