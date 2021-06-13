@@ -58,8 +58,9 @@ export const getFeatures = (list: any, classFeats: any, subclassFeats?: any) => 
     } 
 
     if (subclassFeats) {
-      x.classFeature = x.classFeature.split('||')[1]
-      return x
+      const y = {...x}
+      y.classFeature = x.classFeature.split('||')[1]
+      return y
     }
 
     return x.classFeature.split('||')[0]

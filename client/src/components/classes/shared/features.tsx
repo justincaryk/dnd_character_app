@@ -13,12 +13,12 @@ const Features: React.FC<IFeatureProps> = ({ features }) => {
           <div>
             {x.entries.map((x: any) => {
               if (typeof x === 'string') {
-                return <div>{x}</div>
+                return <div key={x}>{x}</div>
               } else if (x.type === 'list') {
                 return (
                   <ul className='list-disc list-inside mt-2 mb-2'>
                     {x.items.map((x: string) => (
-                      <li>{x}</li>
+                      <li key={x}>{x}</li>
                     ))}
                   </ul>
                 )
