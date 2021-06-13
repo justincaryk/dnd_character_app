@@ -94,7 +94,7 @@ const Subtable: React.FC<ISubtableProps> = ({ features, subclassTableGroups }) =
       label: '20th',
     },
   ]
-  debugger
+  
   return (
     <>
       <div className='border table text-center text-sm max-w-screen-md shadow-sm'>
