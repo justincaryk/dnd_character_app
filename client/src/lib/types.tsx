@@ -95,3 +95,41 @@ export type LinkType = {
     link: string
     text: string
 }
+
+export type Hash = {
+    [key: string]: any
+}
+
+export type ClassClassType = {
+    gen: {
+      name: string
+      hd: {
+        number: number
+        faces: number
+      }
+      proficiency: string[]
+      startingProficiencies: {
+        armor: string[]
+        weapons: string[]
+        tools: string[]
+        skills: {
+          choose: {
+            from: string[]
+            count: number
+          }
+        }
+      }
+      startingEquipment: {
+        additionalFromBackground: boolean
+        default: string[]
+        goldAlternative: string
+      }
+      multiclassing: {
+        requirements: any
+        proficienciesGained: {
+          armor: string[]
+          weapons: string[]
+        }
+      }
+    }
+  }

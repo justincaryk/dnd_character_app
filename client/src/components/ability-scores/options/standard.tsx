@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './../../../scss/StandardArray.scss'
-import { AttributeInterface } from './../../../lib/types'
+import { AttributeInterface } from '../../../lib/types'
 interface Props {
   attributes: AttributeInterface[]
   callbackToSetAttributes: (attr: AttributeInterface[]) => void

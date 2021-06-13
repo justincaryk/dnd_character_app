@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './../../../scss/Manual.scss'
-import { AttributeInterface } from './../../../lib/types'
-import { tryParseInt } from './../../../lib/utils'
+import { AttributeInterface } from '../../../lib/types'
+import { tryParseInt } from '../../../lib/utils'
 
 interface Props {
   attributesImmutable: AttributeInterface[]

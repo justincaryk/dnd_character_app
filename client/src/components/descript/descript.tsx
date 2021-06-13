@@ -12,7 +12,7 @@ import {
 import SkillProficienciesSelector from "./skill";
 import ToolProficienciesSelector from "./tool";
 import LanguageSelector from "./language";
-import CustomBgSelector from "./customBg";
+import CustomBgSelector from "./custom-bg";
 
 import { BackgroundDataType, BgOptionGenericType } from "./../../lib/types";
 
@@ -278,7 +278,7 @@ const CharDescript: React.FC = () => {
               -- Choose a Background ---
             </option>
             {backgrounds?.allBgs?.nodes.map((bg) => {
-              return <option key={bg?.name}>{bg?.name}</option>;
+              return bg && <option key={bg.name}>{bg.name}</option>
             })}
           </select>
         </div>

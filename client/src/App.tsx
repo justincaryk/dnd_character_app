@@ -3,9 +3,9 @@ import './scss/App.scss'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import NavBar from './components/nav'
-// import DndClasses from './components/dndClasses/dndClasses'
-import RaceSelectionForm from './components/races/raceForm'
-import AsiGenerator from './components/abilityScores/asiGenerator'
+import Classes from './components/classes/classes'
+import RaceSelectionForm from './components/races/race-form'
+import AsiGenerator from './components/ability-scores/asi-generator'
 import CharDescription from './components/descript/descript'
 import SpellsSelector from './components/spells/spells'
 import Feats from './components/feats/feats'
@@ -45,9 +45,13 @@ const links: LinkType[] = [
     link: '/feats',
     text: 'View Feats',
   },
+  {
+    link: '/classes',
+    text: 'View Classes',
+  },
 ]
 
-const Home = () => <div>Home.</div>
+const Home = () =>  <div className="layout container">Home.</div>
 
 const App: React.FC = () => (
   <ApolloProvider client={client}>
@@ -68,6 +72,12 @@ const App: React.FC = () => (
         <Route path="/asi">
           <div className="layout container asi">
             <AsiGenerator />
+          </div>
+        </Route>
+
+        <Route path="/classes">
+          <div className="layout container">
+            <Classes />
           </div>
         </Route>
 

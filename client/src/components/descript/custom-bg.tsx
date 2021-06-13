@@ -5,7 +5,7 @@ import {
   EquipmentDataType,
   BackgroundFeatureDataType,
   LanguageType,
-} from './../../lib/types'
+} from '../../lib/types'
 
 interface Props {
   skillsData: SkillDataType
