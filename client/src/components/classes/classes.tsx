@@ -8,6 +8,7 @@ import { pd } from './data/paladin-data'
 import { wd } from './data/wizard-data'
 import { rgd } from './data/rogue-data'
 import Select, { } from 'react-select'
+import { cd } from './data/cleric-data'
 
 const CLASS_DATA = [
   {
@@ -19,10 +20,11 @@ const CLASS_DATA = [
   //   id: 2,
   //   name: 'Bard',
   // },
-  // {
-  //   id: 3,
-  //   name: 'Cleric',
-  // },
+  {
+    id: 3,
+    name: 'Cleric',
+    data: cd
+  },
   // {
   //   id: 4,
   //   name: 'Druid',
