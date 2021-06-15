@@ -93,12 +93,17 @@ const Subtable: React.FC<ISubtableProps> = ({ features, tableGroups }) => {
   ]
 
   return (
-    <>
-      <div className='border table text-center text-sm max-w-screen-md shadow-sm'>
+    <div className='text-sm'>
+      {tableGroups && tableGroups.find((x: any)=> x.title) &&
+        <div className='pt-2 pr-2 font-semibold w-full text-right'>
+          Spell Slots Per Spell Level
+        </div>
+      }
+      <div className='table text-center max-w-screen-md shadow-sm'>
         <div className='table-header-group font-semibold'>
           <div className='table-cell p-2'>Level</div>
           <div className='table-cell'>Proficiency Bonus</div>
-          <div className='table-cell text-left'>Features</div>
+          <div className='table-cell text-left pl-2'>Features</div>
           {tableGroups?.map((sctg: any) => {
             return sctg.colLabels.map((col: string) => (
               <div className='table-cell p-2'>{col}</div>
@@ -109,7 +114,7 @@ const Subtable: React.FC<ISubtableProps> = ({ features, tableGroups }) => {
           <div className={i % 2 === 0 ? 'table-row bg-gray-100' : 'table-row'}>
             <div className='table-cell'>{l.label}</div>
             <div className='table-cell'>+{getProficiencyRules(l.level)}</div>
-            <div className='table-cell text-left'>
+            <div className='table-cell text-left pl-2'>
               {features[l.level.toString()]
                 ? features[l.level.toString()].join(', ')
                 : '---'}
@@ -126,7 +131,7 @@ const Subtable: React.FC<ISubtableProps> = ({ features, tableGroups }) => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   )
 }
 
