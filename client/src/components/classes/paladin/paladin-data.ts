@@ -96,7 +96,7 @@ export const pd = {
         gainSubclassFeature: true,
       },
       'Ability Score Improvement||4',
-      'Martial Versatility||4|TCE',
+      'Martial Versatility||4',
       'Extra Attack||5',
       'Aura of Protection||6',
       {

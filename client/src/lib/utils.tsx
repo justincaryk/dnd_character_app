@@ -98,3 +98,26 @@ export const getFeatures = (list: any, classFeats: any, subclassFeats?: any) => 
 
   return featsFormatted
 }
+
+
+export const parsedFeatures = (classFeatures: any) => {
+  const hashFeatures: any = {}
+
+  classFeatures.forEach((f: any) => {
+    if (typeof f === 'string') {
+      const feature = f.split('||')[0]
+      const level = f.split('||')[1]
+      hashFeatures[level]
+        ? hashFeatures[level].push(feature)
+        : (hashFeatures[level] = [feature])
+    } else {
+      const feature = f.classFeature.split('||')[0]
+      const level = f.classFeature.split('||')[1]
+      hashFeatures[level]
+        ? hashFeatures[level].push(feature)
+        : (hashFeatures[level] = [feature])
+    }
+  })
+
+  return hashFeatures
+}

@@ -45,151 +45,153 @@ export const bd = {
         weapons: ['simple', 'martial'],
       },
     },
-    classTableGroups: {
-      colLabels: ['Rages', 'Rage Damage'],
-      rows: [
-        [
-          '2',
-          {
-            type: 'bonus',
-            value: 2,
-          },
+    classTableGroups: [
+      {
+        colLabels: ['Rages', 'Rage Damage'],
+        rows: [
+          [
+            '2',
+            {
+              type: 'bonus',
+              value: 2,
+            },
+          ],
+          [
+            '2',
+            {
+              type: 'bonus',
+              value: 2,
+            },
+          ],
+          [
+            '3',
+            {
+              type: 'bonus',
+              value: 2,
+            },
+          ],
+          [
+            '3',
+            {
+              type: 'bonus',
+              value: 2,
+            },
+          ],
+          [
+            '3',
+            {
+              type: 'bonus',
+              value: 2,
+            },
+          ],
+          [
+            '4',
+            {
+              type: 'bonus',
+              value: 2,
+            },
+          ],
+          [
+            '4',
+            {
+              type: 'bonus',
+              value: 2,
+            },
+          ],
+          [
+            '4',
+            {
+              type: 'bonus',
+              value: 2,
+            },
+          ],
+          [
+            '4',
+            {
+              type: 'bonus',
+              value: 3,
+            },
+          ],
+          [
+            '4',
+            {
+              type: 'bonus',
+              value: 3,
+            },
+          ],
+          [
+            '4',
+            {
+              type: 'bonus',
+              value: 3,
+            },
+          ],
+          [
+            '5',
+            {
+              type: 'bonus',
+              value: 3,
+            },
+          ],
+          [
+            '5',
+            {
+              type: 'bonus',
+              value: 3,
+            },
+          ],
+          [
+            '5',
+            {
+              type: 'bonus',
+              value: 3,
+            },
+          ],
+          [
+            '5',
+            {
+              type: 'bonus',
+              value: 3,
+            },
+          ],
+          [
+            '5',
+            {
+              type: 'bonus',
+              value: 4,
+            },
+          ],
+          [
+            '6',
+            {
+              type: 'bonus',
+              value: 4,
+            },
+          ],
+          [
+            '6',
+            {
+              type: 'bonus',
+              value: 4,
+            },
+          ],
+          [
+            '6',
+            {
+              type: 'bonus',
+              value: 4,
+            },
+          ],
+          [
+            'Unlimited',
+            {
+              type: 'bonus',
+              value: 4,
+            },
+          ],
         ],
-        [
-          '2',
-          {
-            type: 'bonus',
-            value: 2,
-          },
-        ],
-        [
-          '3',
-          {
-            type: 'bonus',
-            value: 2,
-          },
-        ],
-        [
-          '3',
-          {
-            type: 'bonus',
-            value: 2,
-          },
-        ],
-        [
-          '3',
-          {
-            type: 'bonus',
-            value: 2,
-          },
-        ],
-        [
-          '4',
-          {
-            type: 'bonus',
-            value: 2,
-          },
-        ],
-        [
-          '4',
-          {
-            type: 'bonus',
-            value: 2,
-          },
-        ],
-        [
-          '4',
-          {
-            type: 'bonus',
-            value: 2,
-          },
-        ],
-        [
-          '4',
-          {
-            type: 'bonus',
-            value: 3,
-          },
-        ],
-        [
-          '4',
-          {
-            type: 'bonus',
-            value: 3,
-          },
-        ],
-        [
-          '4',
-          {
-            type: 'bonus',
-            value: 3,
-          },
-        ],
-        [
-          '5',
-          {
-            type: 'bonus',
-            value: 3,
-          },
-        ],
-        [
-          '5',
-          {
-            type: 'bonus',
-            value: 3,
-          },
-        ],
-        [
-          '5',
-          {
-            type: 'bonus',
-            value: 3,
-          },
-        ],
-        [
-          '5',
-          {
-            type: 'bonus',
-            value: 3,
-          },
-        ],
-        [
-          '5',
-          {
-            type: 'bonus',
-            value: 4,
-          },
-        ],
-        [
-          '6',
-          {
-            type: 'bonus',
-            value: 4,
-          },
-        ],
-        [
-          '6',
-          {
-            type: 'bonus',
-            value: 4,
-          },
-        ],
-        [
-          '6',
-          {
-            type: 'bonus',
-            value: 4,
-          },
-        ],
-        [
-          'Unlimited',
-          {
-            type: 'bonus',
-            value: 4,
-          },
-        ],
-      ],
-    },
+      },
+    ],
     classFeatures: [
       'Rage||1',
       'Unarmored Defense||1',
