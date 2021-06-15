@@ -6,9 +6,10 @@ interface ISubtableProps {
     [key: string]: string[]
   }
   tableGroups?: any
+  subclassTableGroups?: any
 }
 
-const Subtable: React.FC<ISubtableProps> = ({ features, tableGroups }) => {
+const Subtable: React.FC<ISubtableProps> = ({ features, tableGroups, subclassTableGroups }) => {
   const levels = [
     {
       level: 1,
@@ -91,10 +92,10 @@ const Subtable: React.FC<ISubtableProps> = ({ features, tableGroups }) => {
       label: '20th',
     },
   ]
-
+  const showSpellSlotsHeader = (tableGroups && tableGroups.find((x: any)=> x.title)) || (subclassTableGroups && subclassTableGroups.find((x: any)=> x.title))
   return (
     <div className='text-sm'>
-      {tableGroups && tableGroups.find((x: any)=> x.title) &&
+      {showSpellSlotsHeader &&
         <div className='pt-2 pr-2 font-semibold w-full text-right'>
           Spell Slots Per Spell Level
         </div>
@@ -105,6 +106,11 @@ const Subtable: React.FC<ISubtableProps> = ({ features, tableGroups }) => {
           <div className='table-cell'>Proficiency Bonus</div>
           <div className='table-cell text-left pl-2'>Features</div>
           {tableGroups?.map((sctg: any) => {
+            return sctg.colLabels.map((col: string) => (
+              <div className='table-cell p-2' key={col}>{col}</div>
+            ))
+          })}
+          {subclassTableGroups?.map((sctg: any) => {
             return sctg.colLabels.map((col: string) => (
               <div className='table-cell p-2' key={col}>{col}</div>
             ))
@@ -122,9 +128,22 @@ const Subtable: React.FC<ISubtableProps> = ({ features, tableGroups }) => {
             {tableGroups?.map((sctg: any) =>
               sctg.rows[l.level - 1].map((col: any, i: number) => {
                 if (typeof col == 'string' || typeof col == 'number') {
-                  return <div className='table-cell' key={`${col}-${i}`}>{col}</div>
+                  return <div className='table-cell' key={`$${i}`}>{col}</div>
+                } else if (col.type === 'dice') {
+                  debugger
+                  return <div className='table-cell' key={`$${i}`}>{col.toRoll[0].number}d{col.toRoll[0].faces}</div>
+                }
+                else {
+                  return <div className='table-cell' key={`${i}`}>+{col.value}</div>
+                }
+              })
+            )}
+            {subclassTableGroups?.map((sctg: any) =>
+              sctg.rows[l.level - 1].map((col: any, i: number) => {
+                if (typeof col == 'string' || typeof col == 'number') {
+                  return <div className='table-cell' key={`${i}`}>{col}</div>
                 } else {
-                  return <div className='table-cell' key={`${col}-${i}`}>+{col.value}</div>
+                  return <div className='table-cell' key={`${i}`}>+{col.value}</div>
                 }
               })
             )}

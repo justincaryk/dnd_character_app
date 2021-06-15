@@ -6,6 +6,7 @@ import { fd } from './data/fighter-data'
 import { bd } from './data/barbarian-data'
 import { pd } from './data/paladin-data'
 import { wd } from './data/wizard-data'
+import { rgd } from './data/rogue-data'
 import Select, { } from 'react-select'
 
 const CLASS_DATA = [
@@ -45,10 +46,11 @@ const CLASS_DATA = [
     name: 'Ranger',
     data: rd,
   },
-  // {
-  //   id: 9,
-  //   name: 'Rogue',
-  // },
+  {
+    id: 9,
+    name: 'Rogue',
+    data: rgd
+  },
   // {
   //   id: 10,
   //   name: 'Sorcerer',

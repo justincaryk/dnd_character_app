@@ -21,7 +21,7 @@ const getSubclassTableGroups = (subclasses: any, subclassName: string) => {
 
 const PcClass: React.FC<IProps> = ({ classData, subclassFeatures }) => {
   const subclassName = subclassFeatures ? subclassFeatures[0].subclassShortName : null
-    const classTableGroups = getSubclassTableGroups(classData.class.subclasses, subclassName) || classData.class.classTableGroups 
+    const subclassTableGroups = getSubclassTableGroups(classData.class.subclasses, subclassName)
   
   const features = subclassFeatures
     ? getFeatures(
@@ -38,7 +38,8 @@ const PcClass: React.FC<IProps> = ({ classData, subclassFeatures }) => {
         <ClassSummary gen={classData.class} />
         <Subtable
           features={parsedFeatures(classData.class.classFeatures)}
-          tableGroups={classTableGroups}
+          tableGroups={classData.class.classTableGroups}
+          subclassTableGroups={subclassTableGroups}
         />
       </div>
       <div className='mt-4'>
