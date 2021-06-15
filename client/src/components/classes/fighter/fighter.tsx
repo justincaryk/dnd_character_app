@@ -27,8 +27,12 @@ const Fighter: React.FC = () => {
 
   return (
     <div>
-      <select className='form-control mb-6' onChange={handleSubclassChange}>
-        <option value='' key='' selected disabled>
+      <select 
+        className='form-control mb-6' 
+        defaultValue={''}
+        onChange={handleSubclassChange}
+      >
+        <option value='' key='' disabled>
           Make a selection
         </option>
         {subclasses.map((x) => (

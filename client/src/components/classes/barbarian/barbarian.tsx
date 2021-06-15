@@ -12,7 +12,7 @@ const Barbarian: React.FC = () => {
   const [features, setFeatures] = useState<any>(
     getFeatures(bd.class.classFeatures, bd.classFeature)
   )
-  
+
   const handleSubclassChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const subclassShortName = e.currentTarget.value
     const subclassFeatures = bd.subclassFeature.filter((x) => {
@@ -25,8 +25,12 @@ const Barbarian: React.FC = () => {
 
   return (
     <div>
-      <select className='form-control mb-6' onChange={handleSubclassChange}>
-        <option value='' key='' selected disabled>
+      <select 
+        className='form-control mb-6' 
+        defaultValue={''}
+        onChange={handleSubclassChange}
+      >
+        <option value='' key='' disabled>
           Make a selection
         </option>
         {subclasses.map((x) => (

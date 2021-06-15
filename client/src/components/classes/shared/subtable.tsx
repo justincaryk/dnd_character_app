@@ -106,12 +106,12 @@ const Subtable: React.FC<ISubtableProps> = ({ features, tableGroups }) => {
           <div className='table-cell text-left pl-2'>Features</div>
           {tableGroups?.map((sctg: any) => {
             return sctg.colLabels.map((col: string) => (
-              <div className='table-cell p-2'>{col}</div>
+              <div className='table-cell p-2' key={col}>{col}</div>
             ))
           })}
         </div>
         {levels.map((l, i) => (
-          <div className={i % 2 === 0 ? 'table-row bg-gray-100' : 'table-row'}>
+          <div className={i % 2 === 0 ? 'table-row bg-gray-100' : 'table-row'} key={l.level}>
             <div className='table-cell'>{l.label}</div>
             <div className='table-cell'>+{getProficiencyRules(l.level)}</div>
             <div className='table-cell text-left pl-2'>
@@ -120,11 +120,11 @@ const Subtable: React.FC<ISubtableProps> = ({ features, tableGroups }) => {
                 : '---'}
             </div>
             {tableGroups?.map((sctg: any) =>
-              sctg.rows[l.level - 1].map((col: any) => {
+              sctg.rows[l.level - 1].map((col: any, i: number) => {
                 if (typeof col == 'string' || typeof col == 'number') {
-                  return <div className='table-cell'>{col}</div>
+                  return <div className='table-cell' key={`${col}-${i}`}>{col}</div>
                 } else {
-                  return <div className='table-cell'>+{col.value}</div>
+                  return <div className='table-cell' key={`${col}-${i}`}>+{col.value}</div>
                 }
               })
             )}
