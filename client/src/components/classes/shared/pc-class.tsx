@@ -9,7 +9,20 @@ interface IProps {
   subclassFeatures: any
 }
 
+const getSubclassTableGroups = (subclasses: any, subclassName: string) => {
+    for (const sc of subclasses) {
+        if (subclassName === sc.shortName) {
+            if (sc.subclassTableGroups) {
+                return sc.subclassTableGroups
+            }   
+        }
+    }
+}
+
 const PcClass: React.FC<IProps> = ({ classData, subclassFeatures }) => {
+  const subclassName = subclassFeatures ? subclassFeatures[0].subclassShortName : null
+    const classTableGroups = getSubclassTableGroups(classData.class.subclasses, subclassName) || classData.class.classTableGroups 
+  
   const features = subclassFeatures
     ? getFeatures(
         classData.class.classFeatures,
@@ -25,7 +38,7 @@ const PcClass: React.FC<IProps> = ({ classData, subclassFeatures }) => {
         <ClassSummary gen={classData.class} />
         <Subtable
           features={parsedFeatures(classData.class.classFeatures)}
-          tableGroups={classData.class.classTableGroups}
+          tableGroups={classTableGroups}
         />
       </div>
       <div className='mt-4'>
