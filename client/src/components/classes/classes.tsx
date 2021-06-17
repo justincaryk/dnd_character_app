@@ -1,25 +1,26 @@
 import React, { useState } from 'react'
 import './../../scss/DndClasses.scss'
 import PcClass from './shared/pc-class'
+import Select, { } from 'react-select'
 import { rd } from './data/ranger-data'
 import { fd } from './data/fighter-data'
 import { bd } from './data/barbarian-data'
 import { pd } from './data/paladin-data'
 import { wd } from './data/wizard-data'
 import { rgd } from './data/rogue-data'
-import Select, { } from 'react-select'
 import { cd } from './data/cleric-data'
-
+import { bardD  } from './data/bard-data'
 const CLASS_DATA = [
   {
     id: 1,
     name: 'Barbarian',
     data: bd,
   },
-  // {
-  //   id: 2,
-  //   name: 'Bard',
-  // },
+  {
+    id: 2,
+    name: 'Bard',
+    data: bardD
+  },
   {
     id: 3,
     name: 'Cleric',
