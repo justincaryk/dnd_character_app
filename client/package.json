@@ -64,5 +64,9 @@
     "autoprefixer": "^9",
     "postcss": "^7",
     "tailwindcss": "yarn:@tailwindcss/postcss7-compat"
-  }
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "engineStrict" : true
 }
