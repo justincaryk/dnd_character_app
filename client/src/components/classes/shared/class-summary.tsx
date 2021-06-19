@@ -113,17 +113,17 @@ const ClassSummary: React.FC<ClassClassType> = ({ gen }) => {
             </span>
           )}
         </div>
-        <div>
+        {mcProf.armor.length > 0 && <div>
           <span className='font-semibold mr-1 inline'>Armor:</span>
           <span>{mcProf.armor.join(', ')}</span>
-        </div>
-        <div>
+        </div>}
+        {mcProf.weapons.length > 0 && <div>
           <span className='font-semibold mr-1 inline'>Weapons:</span>
           <span>
             {mcProf.weapons.join(' weapons, ')}{' '}
             {mcProf.weapons.length && ' weapons'}
           </span>
-        </div>
+        </div>}
       </div>
     </div>
   )

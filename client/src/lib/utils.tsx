@@ -55,8 +55,12 @@ const sortFeatureList = (list: any[]) => (
 
 const parseFeatureList = (list: any[], hasSubclassFeats: boolean) => (
   list.map((x: any) => {
+    
     if (typeof x === 'string') {
-      return x.split('||')[0]
+      return {
+        name: x.split('||')[0],
+        level: x.split('||')[1]
+      }
     } 
 
     if (hasSubclassFeats) {
@@ -64,23 +68,28 @@ const parseFeatureList = (list: any[], hasSubclassFeats: boolean) => (
       y.classFeature = x.classFeature.split('||')[1]
       return y
     }
-
-    return x.classFeature.split('||')[0]
+    // debugger
+    // const test = x
+    return {
+      name: x.classFeature.split('||')[0],
+      level: x.classFeature.split('||')[1]
+    }
   })
 )
 
 export const getFeatures = (list: any, classFeats: any, subclassFeats?: any) => {
   const sortedList = sortFeatureList(list)
   const parsedList = parseFeatureList(sortedList, subclassFeats !== undefined)
-
+  
   const featsFormatted = []
 
   for (const key of parsedList) {
 
     //regular class feature
-    if (typeof key === 'string') {
+    if (key.name) {
       for (const feat of classFeats) {
-        if (feat.name === key) {
+        // filtering by name AND level ensures proper choice with dupe feat names (eg. ASI)
+        if (feat.name === key.name && feat.level === Number(key.level)) {
           featsFormatted.push(feat)
           break;
         }
@@ -97,4 +106,27 @@ export const getFeatures = (list: any, classFeats: any, subclassFeats?: any) => 
   }
 
   return featsFormatted
+}
+
+
+export const parsedFeatures = (classFeatures: any) => {
+  const hashFeatures: any = {}
+
+  classFeatures.forEach((f: any) => {
+    if (typeof f === 'string') {
+      const feature = f.split('||')[0]
+      const level = f.split('||')[1]
+      hashFeatures[level]
+        ? hashFeatures[level].push(feature)
+        : (hashFeatures[level] = [feature])
+    } else {
+      const feature = f.classFeature.split('||')[0]
+      const level = f.classFeature.split('||')[1]
+      hashFeatures[level]
+        ? hashFeatures[level].push(feature)
+        : (hashFeatures[level] = [feature])
+    }
+  })
+
+  return hashFeatures
 }
