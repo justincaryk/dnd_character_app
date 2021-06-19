@@ -68,8 +68,7 @@ const parseFeatureList = (list: any[], hasSubclassFeats: boolean) => (
       y.classFeature = x.classFeature.split('||')[1]
       return y
     }
-    // debugger
-    // const test = x
+    
     return {
       name: x.classFeature.split('||')[0],
       level: x.classFeature.split('||')[1]
