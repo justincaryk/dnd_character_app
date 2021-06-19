@@ -130,7 +130,6 @@ const Subtable: React.FC<ISubtableProps> = ({ features, tableGroups, subclassTab
                 if (typeof col == 'string' || typeof col == 'number') {
                   return <div className='table-cell' key={`$${i}`}>{col}</div>
                 } else if (col.type === 'dice') {
-                  debugger
                   return <div className='table-cell' key={`$${i}`}>{col.toRoll[0].number}d{col.toRoll[0].faces}</div>
                 }
                 else {
