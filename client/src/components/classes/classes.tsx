@@ -5,11 +5,16 @@ import Select, { } from 'react-select'
 import { rd } from './data/ranger-data'
 import { fd } from './data/fighter-data'
 import { bd } from './data/barbarian-data'
+import { sd } from './data/sorcerer-data'
+import { md } from './data/monk-data'
 import { pd } from './data/paladin-data'
+import { dd } from './data/druid-data'
 import { wd } from './data/wizard-data'
 import { rgd } from './data/rogue-data'
 import { cd } from './data/cleric-data'
 import { bardD  } from './data/bard-data'
+import { warlockd } from './data/warlock-data'
+
 const CLASS_DATA = [
   {
     id: 1,
@@ -26,19 +31,21 @@ const CLASS_DATA = [
     name: 'Cleric',
     data: cd
   },
-  // {
-  //   id: 4,
-  //   name: 'Druid',
-  // },
+  {
+    id: 4,
+    name: 'Druid',
+    data: dd
+  },
   {
     id: 5,
     name: 'Fighter',
     data: fd,
   },
-  // {
-  //   id: 6,
-  //   name: 'Monk',
-  // },
+  {
+    id: 6,
+    name: 'Monk',
+    data: md
+  },
   {
     id: 7,
     name: 'Paladin',
@@ -54,14 +61,16 @@ const CLASS_DATA = [
     name: 'Rogue',
     data: rgd
   },
-  // {
-  //   id: 10,
-  //   name: 'Sorcerer',
-  // },
-  // {
-  //   id: 11,
-  //   name: 'Warlock',
-  // },
+  {
+    id: 10,
+    name: 'Sorcerer',
+    data: sd
+  },
+  {
+    id: 11,
+    name: 'Warlock',
+    data: warlockd
+  },
   {
     id: 12,
     name: 'Wizard',
