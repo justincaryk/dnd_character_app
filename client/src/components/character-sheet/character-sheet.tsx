@@ -1,9 +1,10 @@
 import React from 'react'
+import GeneralBlock from './character-components/general-block'
 import SavingThrowBlock from './character-components/saving-throw-block'
 import SkillsBlock from './character-components/skills-block'
-import CharacterCoreStats from './character-core-stats'
-import CharacterSubHeader from './character-subheader'
-import PassiveBlock from './passive-block'
+import CharacterCoreStats from './character-components/character-core-stats'
+import CharacterSubHeader from './character-components/character-subheader'
+import PassiveBlock from './character-components/passive-block'
 
 const CharacterSheet: React.FC = () => {
   return (
@@ -20,12 +21,20 @@ const CharacterSheet: React.FC = () => {
 
       {/* 3 columns */}
       <div className='mt-6 grid grid-cols-4 space-x-6'>
+        {/* left column */}
         <div className='space-y-6'>
           <SavingThrowBlock />
           <PassiveBlock />
         </div>
+        
+        {/* mid column */}
         <div><SkillsBlock/></div>
-        <div className='border col-span-2'>col 3-50%</div>
+
+        {/* right column (main beef) */}
+        <div className='col-span-2'>
+          <GeneralBlock/>
+
+        </div>
       </div>
     </div>
   )

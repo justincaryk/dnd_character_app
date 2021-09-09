@@ -10,6 +10,9 @@ module.exports = {
         gray: {
           dark: '#242527'
         }
+      },
+      maxWidth: {
+        xxs: '3.5em'
       }
     }
   },

@@ -1,6 +1,6 @@
 import React from 'react'
-import CoreStatBlock from './character-components/core-stat-block'
-import HealthBlock from './character-components/health-block'
+import CoreStatBlock from './core-stat-block'
+import HealthBlock from './health-block'
 
 const CharacterCoreStats: React.FC = () => {
   const coreStats = [
