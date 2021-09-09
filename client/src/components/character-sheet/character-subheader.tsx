@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 
 const CharacterSubHeader: React.FC = () => {
   return (
-    <div className='pb-2'>
-      <div className='text-lg'>Character Name</div>
-      <div className='text-sm text-gray-400'>Character Class + Level</div>
-      <div className='text-sm'>Character Level</div>
-    </div>
+    <>
+      <div className='text-4xl font-roboto text-white'>Logan Ninefingers</div>
+      <div className='text-sm font-roboto text-gray-400'>Illrigger 7</div>
+      <div className='text-sm font-roboto text-gray-300'>Painkiller</div>
+    </>
   )
 }
 

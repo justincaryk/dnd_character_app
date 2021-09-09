@@ -53,9 +53,9 @@ const CharacterCoreStats: React.FC = () => {
           <div className='grid grid-cols-2 space-x-4'>
             <div className='border-2 border-red-400 rounded flex items-center justify-center text-center'>
               <div>
-                <div className='font-roboto text-xs'>BONUS</div>
-                <div className='font-roboto text-xl bold'>+3</div>
                 <div className='font-roboto text-xs'>PROFICIENCY</div>
+                <div className='font-roboto text-xl bold'>+3</div>
+                <div className='font-roboto text-xs'>BONUS</div>
               </div>
             </div>
             <div className='border-2 border-red-400 rounded flex items-center justify-center text-center'>
