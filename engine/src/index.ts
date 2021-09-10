@@ -7,11 +7,11 @@ import postgraphile from './postgraphile'
 
 const app = express()
 
-const { PORT } = process.env
+const { SERVER_PORT } = process.env
 
 app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(postgraphile)
 
-app.listen(PORT, () => console.log(`Server ready on port ${PORT}`))
+app.listen(SERVER_PORT, () => console.log(`Server ready on port ${SERVER_PORT}`))
