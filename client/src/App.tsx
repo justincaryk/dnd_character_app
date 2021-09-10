@@ -14,6 +14,7 @@ import { ApolloProvider } from '@apollo/client'
 import { ApolloClient, InMemoryCache } from '@apollo/client'
 
 import { LinkType } from './lib/types'
+import CharacterSheet from './components/character-sheet/character-sheet'
 
 const client = new ApolloClient({
   uri: 'http://localhost:8080/graphql',
@@ -38,6 +39,10 @@ const links: LinkType[] = [
     text: '4. Description',
   },
   {
+    link: '/sheet',
+    text: '5. Character Sheet',
+  },
+  {
     link: '/spells',
     text: 'View Spells',
   },
@@ -49,6 +54,7 @@ const links: LinkType[] = [
     link: '/classes',
     text: 'View Classes',
   },
+  
 ]
 
 const Home = () =>  <div className="layout container">Home.</div>
@@ -96,6 +102,12 @@ const App: React.FC = () => (
         <Route path="/feats">
           <div className="layout container">
             <Feats />
+          </div>
+        </Route>
+
+        <Route path="/sheet">
+          <div className="layout">
+            <CharacterSheet />
           </div>
         </Route>
       </Switch>
