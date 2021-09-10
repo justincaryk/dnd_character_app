@@ -35,10 +35,10 @@ const SavingThrowBlock: React.FC = () => {
   ]
 
   const prof = (
-    <div className='text-xs w-2 h-2 rounded-full border border-dotted bg-gray-800'></div>
+    <div className='text-xs w-2 h-2 rounded-full ring-2 bg-gray-800 ring-black'></div>
   )
   const notProf = (
-    <div className='text-xs w-2 h-2 rounded-full border border-gray-900 border-dotted'></div>
+    <div className='text-xs w-2 h-2 rounded-full ring-2 ring-black'></div>
   )
 
   return (

@@ -5,6 +5,7 @@ import SkillsBlock from './character-components/skills-block'
 import CharacterCoreStats from './character-components/character-core-stats'
 import CharacterSubHeader from './character-components/character-subheader'
 import PassiveBlock from './character-components/passive-block'
+import ActionFeatureBlock from './character-components/action-feature-block'
 
 const CharacterSheet: React.FC = () => {
   return (
@@ -33,7 +34,9 @@ const CharacterSheet: React.FC = () => {
         {/* right column (main beef) */}
         <div className='col-span-2'>
           <GeneralBlock/>
-
+          <div className='mt-4 border-red-400 rounded border-2'>
+            <ActionFeatureBlock />
+          </div>
         </div>
       </div>
     </div>

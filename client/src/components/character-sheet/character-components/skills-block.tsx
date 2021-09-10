@@ -113,10 +113,10 @@ const SkillsBlock: React.FC = () => {
   ]
 
   const prof = (
-    <div className='text-xs w-2 h-2 rounded-full border border-dotted bg-gray-800'></div>
+    <div className='text-xs w-2 h-2 rounded-full ring-2 bg-gray-800 ring-black'></div>
   )
   const notProf = (
-    <div className='text-xs w-2 h-2 rounded-full border border-black'></div>
+    <div className='text-xs w-2 h-2 rounded-full ring-2 ring-black'></div>
   )
 
   return (
@@ -146,7 +146,7 @@ const SkillsBlock: React.FC = () => {
           </div>
         ))}
         <div className='mt-4 font-roboto text-sm text-center'>
-          SAVING THROWS
+          SKILLS
         </div>
       </div>
     </div>
