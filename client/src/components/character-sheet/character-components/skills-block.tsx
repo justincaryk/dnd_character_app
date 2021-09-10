@@ -120,8 +120,8 @@ const SkillsBlock: React.FC = () => {
   )
 
   return (
-    <div className='p-6 border-2 border-red-400 rounded'>
-      <div>
+    <div className='p-6'>
+      <div className='space-y-2'>
         <div className='grid grid-cols-5 mb-2'>
             <div className='text-xs font-roboto text-gray-500 bold'>PROF</div>
             <div className='text-xs font-roboto text-gray-500 bold'>MOD</div>
