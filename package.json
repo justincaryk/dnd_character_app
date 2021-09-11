@@ -6,7 +6,7 @@
     "migrate": "cd engine && yarn migrate:latest",
     "seed": "cd engine && yarn seed:run",
     "server": "nodemon",
-    "build": "tsc",
+    "build": "cd client && craco build",
     "start": "node engine/dist/index.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn migrate\" \"yarn seed\" \"yarn client\""
   },
@@ -19,7 +19,7 @@
     "stylelint-config-recommended": "^5.0.0"
   },
   "private": true,
-  "heroku-postbuild": "cd engine npm install && npm run migrate:latest && npm seed:run",
+  "heroku-postbuild": "cd engine yarn && yarn migrate:latest && yarn seed:run",
   "engines": {
     "yarn": "1.19.1",
     "node": ">=12"
