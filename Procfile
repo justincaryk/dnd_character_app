@@ -1,1 +1,1 @@
-web: node engine/dist/index.js
+web: node engine/src/index.ts
