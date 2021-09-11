@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { DATABASE, DATABASE_URL, CLIENT, PG_USER, PG_PASSWORD, DB_HOST, PG_PORT } = process.env
+const { DATABASE, CLIENT, PG_USER, PG_PASSWORD, DB_HOST, PG_PORT } = process.env
 
 module.exports = {
     development: {
@@ -20,8 +20,14 @@ module.exports = {
     },
 
     production: {
-        client: CLIENT || 'pg',
-        connection: DATABASE_URL || 'postgres://uqbluxdcbbield:b20fbfce2eabeb23349b0ff8bc2c0cd0c7b29cb8c3f078f7dabf9d979566c533@ec2-52-0-93-3.compute-1.amazonaws.com:5432/d6pp4voh9a9hdr',
+        client: CLIENT || 'postgres',
+        connection: {
+            database: DATABASE,
+            user: PG_USER,
+            host: DB_HOST,
+            password: PG_PASSWORD,
+            ssl: true
+        },
         pool: {
             min: 2,
             max: 10
