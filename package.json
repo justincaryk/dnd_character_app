@@ -6,7 +6,7 @@
     "migrate": "cd engine && yarn migrate:latest",
     "seed": "cd engine && yarn seed:run",
     "server": "nodemon",
-    "build": "cd client && yarn && tailwindcss@yarn:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9 && craco build",
+    "build": "cd client && yarn &&  && craco build",
     "start": "node engine/dist/index.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn migrate\" \"yarn seed\" \"yarn client\""
   },
