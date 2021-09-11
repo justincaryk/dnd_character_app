@@ -26,7 +26,7 @@ module.exports = {
             user: PG_USER,
             host: DB_HOST,
             password: PG_PASSWORD,
-            ssl: true
+            ssl: { rejectUnauthorized: false }
         },
         pool: {
             min: 2,
