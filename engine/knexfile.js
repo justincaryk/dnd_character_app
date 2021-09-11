@@ -20,7 +20,7 @@ module.exports = {
     },
 
     production: {
-        client: CLIENT | 'postgres',
+        client: CLIENT || 'postgres',
         connection: {
             database: DATABASE,
             user: PG_USER,
