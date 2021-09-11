@@ -7,7 +7,7 @@ module.exports = {
         connection: {
             database: DATABASE || 'dnd',
             user: PG_USER || 'postgres',
-            password: PASSWORD || 'test',
+            password: PG_PASSWORD || 'test',
             host: DB_HOST || 'localhost',
             port: PG_PORT || '5432',
         },

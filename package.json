@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "scripts": {
     "client": "cd client && yarn start",
+    "migrate": "cd engine && yarn migrate:latest",
+    "seed": "cd engine && yarn seed:run",
     "server": "nodemon",
     "build": "tsc",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "start": "node engine/dist/index.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn migrate\" \"yarn seed\" \"yarn client\""
   },
   "dependencies": {
     "nodemon": "^2.0.7",
@@ -15,7 +18,10 @@
     "concurrently": "^4.0.1",
     "stylelint-config-recommended": "^5.0.0"
   },
+  "private": true,
+  "heroku-postbuild": "cd engine npm install && npm run migrate:latest && npm seed:run",
   "engines": {
+    "npm": "6.14.11",
     "node": ">=12"
   },
   "engineStrict" : true
