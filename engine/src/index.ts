@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(postgraphile)
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join('../../client/build', 'index.html'));
+  res.sendFile(path.join(process.cwd(), '/client/build', 'index.html'));
 });
 
 app.listen(PORT, () =>
