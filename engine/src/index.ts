@@ -15,9 +15,12 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(postgraphile)
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(process.cwd(), '/client/build', 'index.html'));
+app.use(express.static(path.join(process.cwd(), 'client/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(process.cwd(), 'client/build', 'index.html'));
 });
+
 
 app.listen(PORT, () =>
   console.log(`Server ready on port ${PORT}`)
