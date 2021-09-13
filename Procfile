@@ -1,1 +1,1 @@
-web: node engine/src/index.ts
+web: npm start
