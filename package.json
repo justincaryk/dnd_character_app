@@ -8,7 +8,7 @@
     "server": "nodemon",
     "build": "cd client && yarn && craco build",
     "heroku-postbuild": "cd client && yarn && cd ../engine && yarn",
-    "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "start": "nodemon",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn migrate\" \"yarn seed\" \"yarn client\""
   },
   "dependencies": {
