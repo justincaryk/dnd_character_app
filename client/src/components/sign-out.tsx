@@ -1,11 +1,9 @@
 import React from 'react'
-import { useHistory } from 'react-router'
 import { AUTH_TOKEN } from '../constants'
 
-const SignOut = () => {
+const SignOut: React.FC = () => {
     localStorage.setItem(AUTH_TOKEN, '')
-    const history = useHistory()
-    history.push('/')
+    window.location.href = ('/signin')
     return null
 }
 
