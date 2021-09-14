@@ -18,7 +18,7 @@ interface IListType {
 }
 const ListType: React.FC<IListType> = ({ entry }) => (
   <ul className='list-disc list-inside mt-2 mb-2'>
-    {entry.items.map((x,i) => {
+    {entry.items.map((x, i) => {
       if (typeof x === 'string') {
         return <li key={x}>{x}</li>
       }
@@ -36,16 +36,29 @@ const ListType: React.FC<IListType> = ({ entry }) => (
 interface IEntryType {
   entry: {
     name: string
-    entries: string[]
+    entries: any[]
   }
 }
 
 const EntryType: React.FC<IEntryType> = ({ entry }) => (
-  <div>
-    <div>{entry.name}</div>
-    {entry.entries.map((e) => (
-      <div key={e}>{e}</div>
-    ))}
+  <div className='space-y-1'>
+    <div className='font-bold'>{entry.name}.</div>
+    {entry.entries.map((e, i) => {
+      if (typeof e == 'string') {
+        return <div key={e}>{e}</div>
+      }
+
+      const predicate = e.type.toLowerCase() === 'abilitydc' ? 'save DC' : 'attack modifier'
+
+        return (
+          <div key={i} className='font-bold text-center'>
+            <strong>
+              {e.name} {predicate} = 8 + your proficiency bonus + your{' '}
+              <span className='capitalize'>{e.attributes[0]}</span> modifier
+            </strong>
+          </div>
+        ) 
+    })}
   </div>
 )
 
@@ -86,17 +99,14 @@ interface IFeatureProps {
 }
 const Features: React.FC<IFeatureProps> = ({ features }) => {
   const copied = cloneDeep(features)
-  const features2 = copied.map(feat=> {
+  const features2 = copied.map((feat) => {
     try {
       feat.entries = JSON.parse(feat.entries).e
-    } 
-    catch {
-      
-    }
-    
+    } catch {}
+
     return feat
   })
-  
+
   return (
     <div className='space-y-2'>
       {features2.map((x) => (
@@ -129,6 +139,14 @@ const Features: React.FC<IFeatureProps> = ({ features }) => {
                 return (
                   <div key={i}>
                     <EntryType entry={x} />
+                  </div>
+                )
+              } else if (x.type === 'entries') {
+                return (
+                  <div key={i}>
+                    {x.entries.map((entry: any) => {
+                      return <EntryType entry={entry} />
+                    })}
                   </div>
                 )
               } else if (x.type === 'table') {

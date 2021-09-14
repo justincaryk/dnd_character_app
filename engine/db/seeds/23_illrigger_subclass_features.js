@@ -189,21 +189,6 @@ exports.seed = knex => (
                     class_id: '4e5a19eb-13d0-4925-a4f3-0a9733707329',
                 },
                 {
-                    name: 'Invoke Authority: Moloch’s Blessing',
-                    source: 'MCDM',
-                    page: 13,
-                    subclass_short_name: 'Shadowmaster',
-                    subclass_source: 'MCDM',
-                    level: 3,
-                    entries: {
-                        e: [
-                            'As a bonus action, you can place all your remaining seals on a creature.',
-                        ],
-                    },
-                    id: uuidv4(),
-                    class_id: '4e5a19eb-13d0-4925-a4f3-0a9733707329',
-                },
-                {
                     name: 'Bonus Proficiencies',
                     source: 'MCDM',
                     page: 13,
@@ -310,7 +295,7 @@ exports.seed = knex => (
                     class_id: '4e5a19eb-13d0-4925-a4f3-0a9733707329',
                 },
                 {
-                    name: 'Invoke Authority: Moloch’s Blessing',
+                    name: 'Invoke Authority: Moloch\'s Blessing',
                     source: 'MCDM',
                     page: 13,
                     subclass_short_name: 'Shadowmaster',
@@ -445,7 +430,7 @@ exports.seed = knex => (
                         ],
                     },
                     id: uuidv4(),
-                    class_id: '429ccb89-62a8-4d1f-8c82-9549a988de3e',
+                    class_id: '4e5a19eb-13d0-4925-a4f3-0a9733707329',
                 },
                 {
                     name: 'Spellmaster',
@@ -498,7 +483,7 @@ exports.seed = knex => (
                     page: 17,
                     subclass_short_name: 'Ruin',
                     subclass_source: 'MCDM',
-                    level: `7`,
+                    level: 17,
                     entries: {
                         e: [
                             'At 17th level, you can, as a reaction to taking damage, cast fire shield. The shield is always a warm shield, deals fire damage, and deals 4d8 damage instead of 2d8. You cannot use this feature again until you complete a long rest.',
@@ -510,10 +495,10 @@ exports.seed = knex => (
                 {
                     name: 'Lore Devil',
                     source: 'MCDM',
-                    page: 13,
+                    page: 17,
                     subclass_short_name: 'Ruin',
                     subclass_source: 'MCDM',
-                    level: 3,
+                    level: 20,
                     entries: {
                         e: [
                             'Starting at 20th level, as an action, you can become a lore devil for 1 minute. You gain three extra seals. Enemies with seals on them automatically fail their saving throws against your spells. You emanate an interference aura, forcing any creature within 60 feet trying to cast a spell to first succeed at a DC 18 Intelligence saving throw or else the spell fails and they lose the spell slot.',
@@ -525,13 +510,28 @@ exports.seed = knex => (
                 {
                     name: 'Invoke Authority: Spellbreaker',
                     source: 'MCDM',
-                    page: 13,
+                    page: 16,
                     subclass_short_name: 'Ruin',
                     subclass_source: 'MCDM',
                     level: 3,
                     entries: {
                         e: [
-                            'You call on Asmodeus’ authority to protect you from enemy magic. Any time you are targeted by a magic missile spell, a line spell, or a spell that requires a ranged attack roll, roll a d6. On a 1 to 5, you are unaffected. On a 6, your are unaffected and the effect is reflected back at the caster as though it originated from you, turning the caster into the target.',
+                            'You call on Asmodeus\' authority to protect you from enemy magic. Any time you are targeted by a magic missile spell, a line spell, or a spell that requires a ranged attack roll, roll a d6. On a 1 to 5, you are unaffected. On a 6, your are unaffected and the effect is reflected back at the caster as though it originated from you, turning the caster into the target.',
+                        ],
+                    },
+                    id: uuidv4(),
+                    class_id: '4e5a19eb-13d0-4925-a4f3-0a9733707329',
+                },
+                {
+                    name: 'Invoke Authority: Veteran of Sorcery',
+                    source: 'MCDM',
+                    page: 16,
+                    subclass_short_name: 'Ruin',
+                    subclass_source: 'MCDM',
+                    level: 3,
+                    entries: {
+                        e: [
+                            'As a reaction to failing a saving throw against a spell, you can choose to succeed instead.',
                         ],
                     },
                     id: uuidv4(),

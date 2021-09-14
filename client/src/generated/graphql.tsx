@@ -7039,7 +7039,7 @@ export type AllBgsLazyQueryHookResult = ReturnType<typeof useAllBgsLazyQuery>;
 export type AllBgsQueryResult = Apollo.QueryResult<AllBgsQuery, AllBgsQueryVariables>;
 export const AllClassesDocument = gql`
     query AllClasses {
-  allClasses {
+  allClasses(orderBy: NAME_ASC) {
     nodes {
       name
       id
@@ -7081,7 +7081,7 @@ export const AllClassesDocument = gql`
           preparedSpells
         }
       }
-      subclassFeaturesByClassId {
+      subclassFeaturesByClassId(orderBy: NAME_ASC) {
         nodes {
           entries
           id
@@ -7095,7 +7095,7 @@ export const AllClassesDocument = gql`
           source
         }
       }
-      classFeaturesByClassId {
+      classFeaturesByClassId(condition: {}) {
         nodes {
           id
           entries
