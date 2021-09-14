@@ -36,6 +36,7 @@ exports.up = knex => (
             GRANT SELECT ON public.race_features TO role_minion;
             GRANT SELECT ON public.skills TO role_minion;
             GRANT SELECT ON public.subclasses TO role_minion;
+            GRANT SELECT ON public.spells TO role_minion;
             GRANT SELECT ON public.spell_slugs TO role_minion;
             GRANT SELECT ON public.subrace_features TO role_minion;
             GRANT SELECT ON public.subraces TO role_minion;
