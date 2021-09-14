@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { cloneDeep } from 'lodash'
 interface IStringType {
   entry: string
 }
@@ -18,13 +18,13 @@ interface IListType {
 }
 const ListType: React.FC<IListType> = ({ entry }) => (
   <ul className='list-disc list-inside mt-2 mb-2'>
-    {entry.items.map((x) => {
+    {entry.items.map((x,i) => {
       if (typeof x === 'string') {
         return <li key={x}>{x}</li>
       }
 
       return (
-        <div key={x.name}>
+        <div key={i}>
           <div className='italic'>{x.name}</div>
           <div>{x.entry}</div>
         </div>
@@ -85,10 +85,22 @@ interface IFeatureProps {
   features: any[]
 }
 const Features: React.FC<IFeatureProps> = ({ features }) => {
+  const copied = cloneDeep(features)
+  const features2 = copied.map(feat=> {
+    try {
+      feat.entries = JSON.parse(feat.entries).e
+    } 
+    catch {
+      
+    }
+    
+    return feat
+  })
+  
   return (
     <div className='space-y-2'>
-      {features.map((x) => (
-        <div className='border p-2 text-sm shadow-sm' key={x.shortName}>
+      {features2.map((x) => (
+        <div className='border p-2 text-sm shadow-sm' key={x.id}>
           <div
             className={
               x.subclassShortName
