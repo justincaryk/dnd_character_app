@@ -21,6 +21,7 @@ import SignIn from './components/sign-in'
 
 import { setContext } from '@apollo/client/link/context'
 import { HttpLink } from '@apollo/client'
+import SignOut from './components/sign-out'
 
 const publicLinks: LinkType[] = [
   {
@@ -177,6 +178,12 @@ const App: React.FC = () => {
                 <Route path='/sheet'>
                   <div className='layout'>
                     <CharacterSheet />
+                  </div>
+                </Route>
+
+                <Route path='/signout'>
+                  <div className='layout'>
+                    <SignOut />
                   </div>
                 </Route>
               </>
