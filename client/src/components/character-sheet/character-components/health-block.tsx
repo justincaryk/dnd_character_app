@@ -27,7 +27,7 @@ const HealthBlock: React.FC<Props> = ({ maxHealth }) => {
     const intInputVal = Number(inputVal)
     // get total to restore minus temp
     const totalMinusTemp = intInputVal - intTempHp
-    debugger
+
     // deal with temp hp
     if (tempHp) {
       setTempHp(intInputVal - intTempHp < 0 ? (intInputVal - intTempHp).toString() : '0')

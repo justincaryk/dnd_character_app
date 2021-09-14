@@ -215,7 +215,7 @@ const ActionFeatureBlock: React.FC = () => {
                 die of damage your seals deals.
               </div>
               <div>
-                A creature with a seal on them is an inter- dicted creature.
+                A creature with a seal on them is an interdicted creature.
               </div>
               <div>
                 Seals evaporate if not used after 1 minute. Only the illrigger
@@ -224,6 +224,8 @@ const ActionFeatureBlock: React.FC = () => {
                 creature with any of your seals on it dies, you can move all of
                 its seals to another creature within range.
               </div>
+              <div className='font-bold text-gray-500'>I Am Death.</div>
+              <div> At 6th level, after placing a seal on a creature, your attacks against that creature have advantage until the end of your turn.</div>
             </div>
             <div>
               <div className='text-gray-400 font-bold'>2d6 (Short rest)</div>

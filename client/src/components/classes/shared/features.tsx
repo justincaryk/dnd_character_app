@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { cloneDeep } from 'lodash'
 interface IStringType {
   entry: string
 }
@@ -18,13 +18,13 @@ interface IListType {
 }
 const ListType: React.FC<IListType> = ({ entry }) => (
   <ul className='list-disc list-inside mt-2 mb-2'>
-    {entry.items.map((x) => {
+    {entry.items.map((x, i) => {
       if (typeof x === 'string') {
         return <li key={x}>{x}</li>
       }
 
       return (
-        <div key={x.name}>
+        <div key={i}>
           <div className='italic'>{x.name}</div>
           <div>{x.entry}</div>
         </div>
@@ -36,16 +36,29 @@ const ListType: React.FC<IListType> = ({ entry }) => (
 interface IEntryType {
   entry: {
     name: string
-    entries: string[]
+    entries: any[]
   }
 }
 
 const EntryType: React.FC<IEntryType> = ({ entry }) => (
-  <div>
-    <div>{entry.name}</div>
-    {entry.entries.map((e) => (
-      <div key={e}>{e}</div>
-    ))}
+  <div className='space-y-1'>
+    <div className='font-bold'>{entry.name}.</div>
+    {entry.entries.map((e, i) => {
+      if (typeof e == 'string') {
+        return <div key={e}>{e}</div>
+      }
+
+      const predicate = e.type.toLowerCase() === 'abilitydc' ? 'save DC' : 'attack modifier'
+
+        return (
+          <div key={i} className='font-bold text-center'>
+            <strong>
+              {e.name} {predicate} = 8 + your proficiency bonus + your{' '}
+              <span className='capitalize'>{e.attributes[0]}</span> modifier
+            </strong>
+          </div>
+        ) 
+    })}
   </div>
 )
 
@@ -85,10 +98,19 @@ interface IFeatureProps {
   features: any[]
 }
 const Features: React.FC<IFeatureProps> = ({ features }) => {
+  const copied = cloneDeep(features)
+  const features2 = copied.map((feat) => {
+    try {
+      feat.entries = JSON.parse(feat.entries).e
+    } catch {}
+
+    return feat
+  })
+
   return (
     <div className='space-y-2'>
-      {features.map((x) => (
-        <div className='border p-2 text-sm shadow-sm' key={x.shortName}>
+      {features2.map((x) => (
+        <div className='border p-2 text-sm shadow-sm' key={x.id}>
           <div
             className={
               x.subclassShortName
@@ -117,6 +139,14 @@ const Features: React.FC<IFeatureProps> = ({ features }) => {
                 return (
                   <div key={i}>
                     <EntryType entry={x} />
+                  </div>
+                )
+              } else if (x.type === 'entries') {
+                return (
+                  <div key={i}>
+                    {x.entries.map((entry: any) => {
+                      return <EntryType entry={entry} />
+                    })}
                   </div>
                 )
               } else if (x.type === 'table') {

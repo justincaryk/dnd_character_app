@@ -7,19 +7,22 @@
     "@apollo/react-hoc": "^4.0.0",
     "@apollo/react-hooks": "^4.0.0",
     "@craco/craco": "^6.1.2",
+    "@tailwindcss/postcss7-compat": "2.2.14",
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.8",
     "@types/react-select": "^4.0.15",
+    "add": "^2.0.6",
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-client": "^2.6.10",
     "apollo-link-http": "^1.5.17",
-    "autoprefixer": "9",
+    "autoprefixer": "^9",
     "bootstrap": "^4.6.0",
     "classnames": "^2.3.1",
     "graphql": "^15.5.0",
     "graphql-tag": "^2.11.0",
+    "lodash": "^4.17.21",
     "postcss": "^7",
     "postcss-loader": "^6.1.1",
     "react": "^17.0.1",
@@ -29,9 +32,10 @@
     "react-select": "^4.3.1",
     "sass": "^1.32.8",
     "tailwind": "^4.0.0",
-    "tailwindcss": "yarn:@tailwindcss/postcss7-compat",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "typescript": "^4.1.2",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "yarn": "^1.22.11"
   },
   "keywords": [
     "Typescript",
@@ -66,7 +70,8 @@
     "@graphql-codegen/cli": "1.21.3",
     "@graphql-codegen/typescript": "1.21.1",
     "@graphql-codegen/typescript-operations": "^1.17.15",
-    "@graphql-codegen/typescript-react-apollo": "^2.2.3"
+    "@graphql-codegen/typescript-react-apollo": "^2.2.3",
+    "@types/lodash": "^4.14.172"
   },
   "engines": {
     "node": ">=12"
