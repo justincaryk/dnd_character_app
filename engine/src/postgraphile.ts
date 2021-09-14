@@ -12,8 +12,11 @@ export default postgraphile(
     },
     'public',
     {
+        jwtSecret: 'REMOVE_ME',
+        jwtPgTypeIdentifier: 'public.jwt_token',
         watchPg: true,
         graphiql: true,
-        enhanceGraphiql: true
+        enhanceGraphiql: true,
+        // ignoreRBAC: true, // Role Based Access Control (RBAC)
     }
 )
