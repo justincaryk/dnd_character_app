@@ -55,35 +55,40 @@ const sortFeatureList = (list: any[]) => (
 
 const parseFeatureList = (list: any[], hasSubclassFeats: boolean) => (
   list.map((x: any) => {
-    
-    if (typeof x === 'string') {
+    if (typeof x === 'string' && x.toLowerCase().indexOf('subclass') === -1) {
       return {
         name: x.split('||')[0],
         level: x.split('||')[1]
       }
     } 
-
+    
     if (hasSubclassFeats) {
-      const y = {...x}
-      y.classFeature = x.classFeature.split('||')[1]
+      const y = {
+        level: x
+      }
+      y.level = x.toLowerCase().split('||subclass')[0]
+      y.level = y.level.split('||')[1]
       return y
     }
     
+    const remainder = x.split('||subclass')[0]
+    const name = remainder.split('||')[0]
+    const level = name.split('||')[1] 
     return {
-      name: x.classFeature.split('||')[0],
-      level: x.classFeature.split('||')[1]
+      name: name,
+      level: level
     }
   })
 )
 
+
 export const getFeatures = (list: any, classFeats: any, subclassFeats?: any) => {
-  const sortedList = sortFeatureList(list)
-  const parsedList = parseFeatureList(sortedList, subclassFeats !== undefined)
+  const sortedList: any = sortFeatureList([...list])
+  const parsedList: any = parseFeatureList(sortedList, subclassFeats !== undefined)
   
   const featsFormatted = []
 
   for (const key of parsedList) {
-
     //regular class feature
     if (key.name) {
       for (const feat of classFeats) {
@@ -98,7 +103,7 @@ export const getFeatures = (list: any, classFeats: any, subclassFeats?: any) => 
     
     //subclass feature
     for (const feat of subclassFeats) {
-      if (Number(key.classFeature) === feat.level) {
+      if (Number(key.level) === feat.level) {
         featsFormatted.push(feat)  
       }
     }

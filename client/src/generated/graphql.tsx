@@ -5219,6 +5219,7 @@ export type Subclass = Node & {
   spellsKnownProgression?: Maybe<Array<Maybe<Scalars['Int']>>>;
   source?: Maybe<Scalars['String']>;
   page?: Maybe<Scalars['Int']>;
+  preparedSpells?: Maybe<Scalars['String']>;
   /** Reads a single `Class` that is related to this `Subclass`. */
   classByClassId?: Maybe<Class>;
 };
@@ -5254,6 +5255,8 @@ export type SubclassCondition = {
   source?: Maybe<Scalars['String']>;
   /** Checks for equality with the object’s `page` field. */
   page?: Maybe<Scalars['Int']>;
+  /** Checks for equality with the object’s `preparedSpells` field. */
+  preparedSpells?: Maybe<Scalars['String']>;
 };
 
 export type SubclassFeature = Node & {
@@ -5393,6 +5396,7 @@ export type SubclassInput = {
   spellsKnownProgression?: Maybe<Array<Maybe<Scalars['Int']>>>;
   source?: Maybe<Scalars['String']>;
   page?: Maybe<Scalars['Int']>;
+  preparedSpells?: Maybe<Scalars['String']>;
 };
 
 /** Represents an update to a `Subclass`. Fields that are set will be updated. */
@@ -5410,6 +5414,7 @@ export type SubclassPatch = {
   spellsKnownProgression?: Maybe<Array<Maybe<Scalars['Int']>>>;
   source?: Maybe<Scalars['String']>;
   page?: Maybe<Scalars['Int']>;
+  preparedSpells?: Maybe<Scalars['String']>;
 };
 
 /** A connection to a list of `Subclass` values. */
@@ -5463,6 +5468,8 @@ export enum SubclassesOrderBy {
   SourceDesc = 'SOURCE_DESC',
   PageAsc = 'PAGE_ASC',
   PageDesc = 'PAGE_DESC',
+  PreparedSpellsAsc = 'PREPARED_SPELLS_ASC',
+  PreparedSpellsDesc = 'PREPARED_SPELLS_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -6778,6 +6785,39 @@ export type AllBgsQuery = (
   )> }
 );
 
+export type AllClassesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AllClassesQuery = (
+  { __typename?: 'Query' }
+  & { allClasses?: Maybe<(
+    { __typename?: 'ClassesConnection' }
+    & { nodes: Array<Maybe<(
+      { __typename?: 'Class' }
+      & Pick<Class, 'name' | 'id' | 'cantripProgression' | 'casterProgression' | 'classFeatures' | 'hdFaces' | 'hdNumber' | 'meta' | 'multiclassing' | 'optionalFeatureProgression' | 'page' | 'preparedSpells' | 'proficiency' | 'source' | 'spellcastingAbility' | 'spellsKnownProgression' | 'spellsKnownProgressionFixed' | 'spellsKnownProgressionFixedAllowLowerLevel' | 'spellsKnownProgressionFixedByLevel' | 'srd' | 'startingEquipment' | 'startingProficiencies' | 'subclassTitle'>
+      & { subclassesByClassId: (
+        { __typename?: 'SubclassesConnection' }
+        & { nodes: Array<Maybe<(
+          { __typename?: 'Subclass' }
+          & Pick<Subclass, 'additionalSpells' | 'cantripProgression' | 'casterProgression' | 'name' | 'page' | 'shortName' | 'source' | 'spellcastingAbility' | 'spellsKnownProgression' | 'subclassFeatures' | 'subclassTableGroups' | 'id' | 'preparedSpells'>
+        )>> }
+      ), subclassFeaturesByClassId: (
+        { __typename?: 'SubclassFeaturesConnection' }
+        & { nodes: Array<Maybe<(
+          { __typename?: 'SubclassFeature' }
+          & Pick<SubclassFeature, 'entries' | 'id' | 'level' | 'isClassFeatureVariant' | 'nodeId' | 'name' | 'page' | 'subclassShortName' | 'subclassSource' | 'source'>
+        )>> }
+      ), classFeaturesByClassId: (
+        { __typename?: 'ClassFeaturesConnection' }
+        & { nodes: Array<Maybe<(
+          { __typename?: 'ClassFeature' }
+          & Pick<ClassFeature, 'id' | 'entries' | 'classSource' | 'isClassFeatureVariant' | 'level' | 'name' | 'page' | 'source'>
+        )>> }
+      ) }
+    )>> }
+  )> }
+);
+
 export type AllEquipmentQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -7091,6 +7131,107 @@ export function useAllBgsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<All
 export type AllBgsQueryHookResult = ReturnType<typeof useAllBgsQuery>;
 export type AllBgsLazyQueryHookResult = ReturnType<typeof useAllBgsLazyQuery>;
 export type AllBgsQueryResult = Apollo.QueryResult<AllBgsQuery, AllBgsQueryVariables>;
+export const AllClassesDocument = gql`
+    query AllClasses {
+  allClasses(orderBy: NAME_ASC) {
+    nodes {
+      name
+      id
+      cantripProgression
+      casterProgression
+      classFeatures
+      hdFaces
+      hdNumber
+      meta
+      multiclassing
+      optionalFeatureProgression
+      page
+      preparedSpells
+      proficiency
+      source
+      spellcastingAbility
+      spellsKnownProgression
+      spellsKnownProgressionFixed
+      spellsKnownProgressionFixedAllowLowerLevel
+      spellsKnownProgressionFixedByLevel
+      srd
+      startingEquipment
+      startingProficiencies
+      subclassTitle
+      subclassesByClassId {
+        nodes {
+          additionalSpells
+          cantripProgression
+          casterProgression
+          name
+          page
+          shortName
+          source
+          spellcastingAbility
+          spellsKnownProgression
+          subclassFeatures
+          subclassTableGroups
+          id
+          preparedSpells
+        }
+      }
+      subclassFeaturesByClassId(orderBy: NAME_ASC) {
+        nodes {
+          entries
+          id
+          level
+          isClassFeatureVariant
+          nodeId
+          name
+          page
+          subclassShortName
+          subclassSource
+          source
+        }
+      }
+      classFeaturesByClassId(condition: {}) {
+        nodes {
+          id
+          entries
+          classSource
+          isClassFeatureVariant
+          level
+          name
+          page
+          source
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useAllClassesQuery__
+ *
+ * To run a query within a React component, call `useAllClassesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAllClassesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAllClassesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useAllClassesQuery(baseOptions?: Apollo.QueryHookOptions<AllClassesQuery, AllClassesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AllClassesQuery, AllClassesQueryVariables>(AllClassesDocument, options);
+      }
+export function useAllClassesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllClassesQuery, AllClassesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AllClassesQuery, AllClassesQueryVariables>(AllClassesDocument, options);
+        }
+export type AllClassesQueryHookResult = ReturnType<typeof useAllClassesQuery>;
+export type AllClassesLazyQueryHookResult = ReturnType<typeof useAllClassesLazyQuery>;
+export type AllClassesQueryResult = Apollo.QueryResult<AllClassesQuery, AllClassesQueryVariables>;
 export const AllEquipmentDocument = gql`
     query AllEquipment {
   allEquipment {

@@ -10,6 +10,7 @@ interface ISubtableProps {
 }
 
 const Subtable: React.FC<ISubtableProps> = ({ features, tableGroups, subclassTableGroups }) => {
+  
   const levels = [
     {
       level: 1,
@@ -92,7 +93,7 @@ const Subtable: React.FC<ISubtableProps> = ({ features, tableGroups, subclassTab
       label: '20th',
     },
   ]
-  const showSpellSlotsHeader = (tableGroups && tableGroups.find((x: any)=> x.title)) || (subclassTableGroups && subclassTableGroups.find((x: any)=> x.title))
+  const showSpellSlotsHeader = (tableGroups && tableGroups?.classTableGroups?.find((x: any)=> x.title)) || (subclassTableGroups && subclassTableGroups.find((x: any)=> x.title))
   return (
     <div className='text-sm'>
       {showSpellSlotsHeader &&
@@ -105,7 +106,7 @@ const Subtable: React.FC<ISubtableProps> = ({ features, tableGroups, subclassTab
           <div className='table-cell p-2'>Level</div>
           <div className='table-cell'>Proficiency Bonus</div>
           <div className='table-cell text-left pl-2'>Features</div>
-          {tableGroups?.map((sctg: any) => {
+          {tableGroups?.classTableGroups?.map((sctg: any) => {
             return sctg.colLabels.map((col: string) => (
               <div className='table-cell p-2' key={col}>{col}</div>
             ))
@@ -125,7 +126,7 @@ const Subtable: React.FC<ISubtableProps> = ({ features, tableGroups, subclassTab
                 ? features[l.level.toString()].join(', ')
                 : '---'}
             </div>
-            {tableGroups?.map((sctg: any) =>
+            {tableGroups?.classTableGroups?.map((sctg: any) =>
               sctg.rows[l.level - 1].map((col: any, i: number) => {
                 if (typeof col == 'string' || typeof col == 'number') {
                   return <div className='table-cell' key={`$${i}`}>{col}</div>
