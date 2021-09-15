@@ -15,11 +15,9 @@ RUN yarn install --production
 # Copy local codebase into the container image
 COPY . .
 
-# # Compile down to ES5 with Babel
-# RUN yarn build-server
-
-# # Remove unused src directory
-# RUN rm -rf src/
+CMD [ "cd", "engine"]
+CMD [ "yarn", "migrate:latest"]
 
 # Start the api server
+
 CMD [ "yarn", "start" ]
