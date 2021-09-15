@@ -1,6 +1,3 @@
-require('dotenv').config()
-const { ROLE_MINION, ROLE_ANON } = process.env
-
 exports.up = knex => (
     knex.schema
         .raw(`
