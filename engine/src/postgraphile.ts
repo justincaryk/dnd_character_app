@@ -17,7 +17,7 @@ export default postgraphile(
         watchPg: true,
         graphiql: true,
         enhanceGraphiql: true,
-        pgDefaultRole: 'dthloxycycmlsu',
+        pgDefaultRole: 'qpczpijvwmtlwd',
         ignoreRBAC: false, // Role Based Access Control (RBAC)
     }
 )

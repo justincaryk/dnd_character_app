@@ -62,7 +62,7 @@ exports.up = knex => (
         VOLATILE
         SECURITY DEFINER;
         
-        GRANT EXECUTE ON FUNCTION public.signup(username varchar(50), PASSWORD varchar(50)) TO dthloxycycmlsu;
+        GRANT EXECUTE ON FUNCTION public.signup(username varchar(50), PASSWORD varchar(50)) TO qpczpijvwmtlwd;
 
         CREATE TYPE public.jwt_token AS (
             ROLE text, --db role of the user
@@ -110,7 +110,7 @@ exports.up = knex => (
         VOLATILE
         SECURITY DEFINER;
         
-        GRANT EXECUTE ON FUNCTION public.signin(username text, PASSWORD text) TO dthloxycycmlsu;
+        GRANT EXECUTE ON FUNCTION public.signin(username text, PASSWORD text) TO qpczpijvwmtlwd;
     `)
 )
 
