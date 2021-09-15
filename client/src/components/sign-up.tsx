@@ -28,7 +28,7 @@ const SignUp: React.FC = () => {
   return (
     <form className='text-center space-y-4' onSubmit={handleSubmit}>
       <div>
-        <label className='block mb-1' htmlFor='username'>
+        <label className='block mb-1' htmlFor='username' hidden>
           Username
         </label>
         <input
@@ -40,7 +40,7 @@ const SignUp: React.FC = () => {
         />
       </div>
       <div>
-        <label className='block mb-1' htmlFor='password'>
+        <label className='block mb-1' htmlFor='password' hidden>
           Password
         </label>
         <input

@@ -25,7 +25,7 @@ const publicLinks: LinkType[] = [
     text: 'Signup',
   },
   {
-    link: '/signin',
+    link: '/',
     text: 'Signin',
   },
 ]
@@ -76,7 +76,7 @@ const App: React.FC = () => {
   
   if (!authToken) {
     const client = new ApolloClient({
-      uri: '/graphql',
+      uri: 'http://localhost:8080/graphql',
       cache: new InMemoryCache(),
     })
     return (
@@ -85,19 +85,19 @@ const App: React.FC = () => {
           <Switch>
             {/* signed out */}
             {!authToken && (
-              <>
-                <NavBar links={publicLinks} />
+              <div className='cotainer'>
+                <NavBar links={publicLinks} isPublic />
                 <Route path='/signup'>
                   <div className='layout'>
                     <SignUp />
                   </div>
                 </Route>
-                <Route path='/signin'>
+                <Route path='/'>
                   <div className='layout'>
                     <SignIn />
                   </div>
                 </Route>
-              </>
+              </div>
             )}
           </Switch>
         </Router>
@@ -105,7 +105,7 @@ const App: React.FC = () => {
       )
   } else {
     const link = new HttpLink({
-      uri: '/graphql',
+      uri: 'http://localhost:8080/graphql',
       // Additional options
     })
 
