@@ -9,19 +9,15 @@ import AsiGenerator from './components/ability-scores/asi-generator'
 import CharDescription from './components/descript/descript'
 import SpellsSelector from './components/spells/spells'
 import Feats from './components/feats/feats'
-
 import { ApolloProvider } from '@apollo/client'
 import { ApolloClient, InMemoryCache } from '@apollo/client'
-
 import { LinkType } from './lib/types'
 import CharacterSheet from './components/character-sheet/character-sheet'
 import SignUp from './components/sign-up'
 import SignIn from './components/sign-in'
-
 import { setContext } from '@apollo/client/link/context'
 import { HttpLink } from '@apollo/client'
 import SignOut from './components/sign-out'
-const { GRAPHQL_URL } = process.env
 
 const publicLinks: LinkType[] = [
   {
@@ -80,7 +76,7 @@ const App: React.FC = () => {
   
   if (!authToken) {
     const client = new ApolloClient({
-      uri: GRAPHQL_URL,
+      uri: '/graphql',
       cache: new InMemoryCache(),
     })
     return (
@@ -109,7 +105,7 @@ const App: React.FC = () => {
       )
   } else {
     const link = new HttpLink({
-      uri: GRAPHQL_URL,
+      uri: '/graphql',
       // Additional options
     })
 
