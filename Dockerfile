@@ -15,8 +15,7 @@ RUN yarn install --production
 # Copy local codebase into the container image
 COPY . .
 
-CMD [ "cd", "engine"]
-CMD [ "yarn", "migrate:latest"]
+CMD [ "yarn", "migrate"]
 
 # Start the api server
 
