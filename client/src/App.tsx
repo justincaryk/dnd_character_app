@@ -2,7 +2,6 @@ import React from 'react'
 import './scss/App.scss'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { AUTH_TOKEN } from './constants'
-
 import NavBar from './components/nav'
 import Classes from './components/classes/classes'
 import RaceSelectionForm from './components/races/race-form'
@@ -22,6 +21,7 @@ import SignIn from './components/sign-in'
 import { setContext } from '@apollo/client/link/context'
 import { HttpLink } from '@apollo/client'
 import SignOut from './components/sign-out'
+const { GRAPHQL_URL } = process.env
 
 const publicLinks: LinkType[] = [
   {
@@ -80,7 +80,7 @@ const App: React.FC = () => {
   
   if (!authToken) {
     const client = new ApolloClient({
-      uri: 'http://localhost:8080/graphql',
+      uri: GRAPHQL_URL,
       cache: new InMemoryCache(),
     })
     return (
@@ -109,7 +109,7 @@ const App: React.FC = () => {
       )
   } else {
     const link = new HttpLink({
-      uri: process.env.GRAPHQL_URL,
+      uri: GRAPHQL_URL,
       // Additional options
     })
 
