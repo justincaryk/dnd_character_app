@@ -66,7 +66,7 @@ exports.up = knex => (
         VOLATILE
         SECURITY DEFINER;
         
-        GRANT EXECUTE ON FUNCTION public.signup(username varchar(50), PASSWORD varchar(50)) TO role_anonymous;
+        GRANT EXECUTE ON FUNCTION public.signup(username varchar(50), PASSWORD varchar(50)) TO anonymous_user;
 
         CREATE TYPE public.jwt_token AS (
             ROLE text, --db role of the user
@@ -114,7 +114,7 @@ exports.up = knex => (
         VOLATILE
         SECURITY DEFINER;
         
-        GRANT EXECUTE ON FUNCTION public.signin(username text, PASSWORD text) TO role_anonymous;
+        GRANT EXECUTE ON FUNCTION public.signin(username text, PASSWORD text) TO anonymous_user;
     `)
 )
 
