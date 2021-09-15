@@ -27,14 +27,14 @@ exports.up = knex => (
         ALTER TABLE public.wizard ENABLE ROW LEVEL SECURITY;
         
         
-        CREATE POLICY policy_minions ON wizard FOR SELECT TO mkyuexjlvzbdrq USING (EXISTS (SELECT user_name
+        CREATE POLICY policy_minions ON wizard FOR SELECT TO role_minion USING (EXISTS (SELECT user_name
         FROM
             public.minion
         WHERE
             id = user_id
             AND user_name = CURRENT_USER));
         
-        CREATE POLICY policy_minion ON minion TO mkyuexjlvzbdrq USING (user_name = CURRENT_USER);
+        CREATE POLICY policy_minion ON minion TO role_minion USING (user_name = CURRENT_USER);
         
         CREATE EXTENSION pgcrypto;
         
@@ -62,7 +62,7 @@ exports.up = knex => (
         VOLATILE
         SECURITY DEFINER;
         
-        GRANT EXECUTE ON FUNCTION public.signup(username varchar(50), PASSWORD varchar(50)) TO qpczpijvwmtlwd;
+        GRANT EXECUTE ON FUNCTION public.signup(username varchar(50), PASSWORD varchar(50)) TO role_anonymous;
 
         CREATE TYPE public.jwt_token AS (
             ROLE text, --db role of the user
@@ -92,9 +92,9 @@ exports.up = knex => (
             WHERE
                 account.id = user_id INTO wiz_acc;
             IF wiz_acc.user_id = account.id THEN
-                ROLE = 'mkyuexjlvzbdrq';
+                ROLE = 'role_minion';
             ELSE
-                ROLE = 'mkyuexjlvzbdrq';
+                ROLE = 'role_minion';
             END IF;
             IF account.password = crypt(PASSWORD, account.password) THEN
                 RETURN (ROLE,
@@ -110,7 +110,7 @@ exports.up = knex => (
         VOLATILE
         SECURITY DEFINER;
         
-        GRANT EXECUTE ON FUNCTION public.signin(username text, PASSWORD text) TO qpczpijvwmtlwd;
+        GRANT EXECUTE ON FUNCTION public.signin(username text, PASSWORD text) TO role_anonymous;
     `)
 )
 
