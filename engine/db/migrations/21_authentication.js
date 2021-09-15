@@ -38,7 +38,9 @@ exports.up = knex => (
         
         CREATE EXTENSION pgcrypto;
         
-        
+        CREATE ROLE role_minion;
+        CREATE ROLE anonymous_user;
+
         CREATE OR REPLACE FUNCTION signup (username varchar(50), PASSWORD varchar(50))
         RETURNS boolean
         AS $$
