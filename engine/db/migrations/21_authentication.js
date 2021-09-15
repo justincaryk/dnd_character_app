@@ -4,6 +4,9 @@ const { ROLE_MINION, ROLE_ANON } = process.env
 exports.up = knex => (
     knex.schema
         .raw(`
+        CREATE ROLE role_minion;
+        CREATE ROLE anonymous_user;
+        
         CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
         
         CREATE TYPE user_role as enum('wizard', 'minion');
@@ -38,8 +41,7 @@ exports.up = knex => (
         
         CREATE EXTENSION pgcrypto;
         
-        CREATE ROLE role_minion;
-        CREATE ROLE anonymous_user;
+        
 
         CREATE OR REPLACE FUNCTION signup (username varchar(50), PASSWORD varchar(50))
         RETURNS boolean
