@@ -7,7 +7,7 @@
     "seed": "cd engine && yarn seed:run",
     "server": "nodemon",
     "build": "cd client && yarn && craco build",
-    "heroku-postbuild": "cd engine && yarn migrate:latest && yarn seed:run",
+    "heroku-postbuild": "cd engine && yarn && yarn migrate:latest && yarn seed:run",
     "start": "nodemon",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
