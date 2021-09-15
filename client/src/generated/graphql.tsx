@@ -4817,8 +4817,8 @@ export type SigninInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars['String']>;
-  username: Scalars['String'];
-  password: Scalars['String'];
+  username?: Maybe<Scalars['String']>;
+  password?: Maybe<Scalars['String']>;
 };
 
 /** The output of our `signin` mutation. */
@@ -4841,8 +4841,8 @@ export type SignupInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars['String']>;
-  username: Scalars['String'];
-  password: Scalars['String'];
+  username?: Maybe<Scalars['String']>;
+  password?: Maybe<Scalars['String']>;
 };
 
 /** The output of our `signup` mutation. */

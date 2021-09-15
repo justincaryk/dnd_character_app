@@ -57,9 +57,7 @@ exports.up = knex => (
                 minion
             WHERE
                 $1 = user_name INTO result;
-            raise notice '%', result;
             IF NOT found THEN
-                raise notice 'logic works';
                 INSERT INTO minion (user_name, PASSWORD)
                     values($1, crypt($2, gen_salt('bf')));
             END IF;
@@ -67,7 +65,7 @@ exports.up = knex => (
         END
         $$
         LANGUAGE plpgsql
-        STRICT
+        VOLATILE
         SECURITY DEFINER;
         
         GRANT EXECUTE ON FUNCTION public.signup(username varchar(50), PASSWORD varchar(50)) TO no_access_role;
@@ -115,11 +113,11 @@ exports.up = knex => (
         END;
         $$
         LANGUAGE plpgsql
-        STRICT
+        VOLATILE
         SECURITY DEFINER;
         
         GRANT EXECUTE ON FUNCTION public.signin(username text, PASSWORD text) TO no_access_role;
-        `)
+    `)
 )
 
 exports.down = knex => (
