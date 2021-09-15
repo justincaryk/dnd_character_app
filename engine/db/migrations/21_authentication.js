@@ -27,9 +27,6 @@ exports.up = knex => (
         ALTER TABLE public.wizard ENABLE ROW LEVEL SECURITY;
         
         
-        
-        CREATE ROLE mkyuexjlvzbdrq;
-        
         CREATE POLICY policy_minions ON wizard FOR SELECT TO mkyuexjlvzbdrq USING (EXISTS (SELECT user_name
         FROM
             public.minion
@@ -40,8 +37,6 @@ exports.up = knex => (
         CREATE POLICY policy_minion ON minion TO mkyuexjlvzbdrq USING (user_name = CURRENT_USER);
         
         CREATE EXTENSION pgcrypto;
-        
-        CREATE ROLE dthloxycycmlsu;
         
         
         CREATE OR REPLACE FUNCTION signup (username varchar(50), PASSWORD varchar(50))
