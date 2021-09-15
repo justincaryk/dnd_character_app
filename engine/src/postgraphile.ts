@@ -1,6 +1,13 @@
 import { postgraphile } from 'postgraphile'
 
-const { DATABASE, PG_USER, PG_PASSWORD, DB_HOST, PG_PORT, OWNER_CONNECTION_STRING } = process.env
+const { 
+    DATABASE, 
+    PG_USER, 
+    PG_PASSWORD, 
+    DB_HOST, 
+    PG_PORT, 
+    OWNER_CONNECTION_STRING, 
+    JWT_SECRET } = process.env
 
 export default postgraphile(
     {
@@ -12,7 +19,7 @@ export default postgraphile(
     },
     'public',
     {
-        jwtSecret: 'kB1wo%5nrhlTFT@IH5SX01u2DL$TpCVSBxcMSxxitd37!PNZqWyacNXkM$TJNX2do&lJjM',
+        jwtSecret: JWT_SECRET,
         jwtPgTypeIdentifier: 'public.jwt_token',
         watchPg: true,
         graphiql: true,
