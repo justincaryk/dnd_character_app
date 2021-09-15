@@ -126,7 +126,18 @@ const App: React.FC = () => {
     const client = new ApolloClient({
       link: authLink.concat(link),
       cache: new InMemoryCache(),
+      defaultOptions: {
+          watchQuery: {
+            fetchPolicy: 'no-cache',
+            errorPolicy: 'ignore',
+          },
+          query: {
+            fetchPolicy: 'no-cache',
+            errorPolicy: 'all',
+          }
+      }
     })
+    
     return (
       <ApolloProvider client={client}>
         <Router>

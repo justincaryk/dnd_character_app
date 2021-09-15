@@ -12,11 +12,12 @@ export default postgraphile(
     },
     'public',
     {
-        jwtSecret: 'REMOVE_ME',
+        jwtSecret: 'kB1wo%5nrhlTFT@IH5SX01u2DL$TpCVSBxcMSxxitd37!PNZqWyacNXkM$TJNX2do&lJjM',
         jwtPgTypeIdentifier: 'public.jwt_token',
         watchPg: true,
         graphiql: true,
         enhanceGraphiql: true,
-        // ignoreRBAC: true, // Role Based Access Control (RBAC)
+        pgDefaultRole: 'no_access_role',
+        ignoreRBAC: false, // Role Based Access Control (RBAC)
     }
 )
