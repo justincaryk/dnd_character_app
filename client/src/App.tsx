@@ -109,7 +109,7 @@ const App: React.FC = () => {
       )
   } else {
     const link = new HttpLink({
-      uri: 'http://localhost:8080/graphql',
+      uri: process.env.GRAPHQL_URL,
       // Additional options
     })
 
