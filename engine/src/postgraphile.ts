@@ -17,7 +17,7 @@ export default postgraphile(
         watchPg: true,
         graphiql: true,
         enhanceGraphiql: true,
-        pgDefaultRole: 'role_anonymous',
+        pgDefaultRole: 'fsokytosgzyqtl',
         ignoreRBAC: true, // Role Based Access Control (RBAC),
         ownerConnectionString: ''
     }
