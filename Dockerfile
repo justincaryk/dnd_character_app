@@ -5,7 +5,7 @@ FROM node:12-slim
 WORKDIR /
 
 COPY package.json .
-COPY yarn.lock .
+# COPY yarn.lock .
 
 # Install production dependencies.
 RUN yarn install --production
