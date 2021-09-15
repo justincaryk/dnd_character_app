@@ -1,3 +1,6 @@
+require('dotenv').config()
+const { ROLE_MINION, ROLE_ANON } = process.env
+
 exports.up = knex => (
     knex.schema
         .raw(`
@@ -23,26 +26,22 @@ exports.up = knex => (
         
         ALTER TABLE public.wizard ENABLE ROW LEVEL SECURITY;
         
-        CREATE ROLE role_wizard;
         
-        CREATE ROLE role_minion;
         
-        CREATE POLICY policy_minions ON wizard FOR SELECT TO role_minion USING (EXISTS (SELECT user_name
+        CREATE ROLE mkyuexjlvzbdrq;
+        
+        CREATE POLICY policy_minions ON wizard FOR SELECT TO mkyuexjlvzbdrq USING (EXISTS (SELECT user_name
         FROM
             public.minion
         WHERE
             id = user_id
             AND user_name = CURRENT_USER));
         
-        CREATE POLICY policy_wizard ON minion TO role_wizard USING (TRUE);
-        
-        CREATE POLICY policy_minion ON minion TO role_minion USING (user_name = CURRENT_USER);
-        
-        CREATE POLICY policy_wizard ON wizard TO role_wizard USING (TRUE);
+        CREATE POLICY policy_minion ON minion TO mkyuexjlvzbdrq USING (user_name = CURRENT_USER);
         
         CREATE EXTENSION pgcrypto;
         
-        CREATE ROLE no_access_role;
+        CREATE ROLE dthloxycycmlsu;
         
         
         CREATE OR REPLACE FUNCTION signup (username varchar(50), PASSWORD varchar(50))
@@ -68,7 +67,7 @@ exports.up = knex => (
         VOLATILE
         SECURITY DEFINER;
         
-        GRANT EXECUTE ON FUNCTION public.signup(username varchar(50), PASSWORD varchar(50)) TO no_access_role;
+        GRANT EXECUTE ON FUNCTION public.signup(username varchar(50), PASSWORD varchar(50)) TO dthloxycycmlsu;
 
         CREATE TYPE public.jwt_token AS (
             ROLE text, --db role of the user
@@ -98,9 +97,9 @@ exports.up = knex => (
             WHERE
                 account.id = user_id INTO wiz_acc;
             IF wiz_acc.user_id = account.id THEN
-                ROLE = 'role_wizard';
+                ROLE = 'mkyuexjlvzbdrq';
             ELSE
-                ROLE = 'role_minion';
+                ROLE = 'mkyuexjlvzbdrq';
             END IF;
             IF account.password = crypt(PASSWORD, account.password) THEN
                 RETURN (ROLE,
@@ -116,7 +115,7 @@ exports.up = knex => (
         VOLATILE
         SECURITY DEFINER;
         
-        GRANT EXECUTE ON FUNCTION public.signin(username text, PASSWORD text) TO no_access_role;
+        GRANT EXECUTE ON FUNCTION public.signin(username text, PASSWORD text) TO dthloxycycmlsu;
     `)
 )
 

@@ -1,6 +1,6 @@
 import { postgraphile } from 'postgraphile'
 
-const { DATABASE, PG_USER, PG_PASSWORD, DB_HOST, PG_PORT } = process.env
+const { DATABASE, PG_USER, PG_PASSWORD, DB_HOST, PG_PORT, ROLE_ANON } = process.env
 
 export default postgraphile(
     {
@@ -17,7 +17,7 @@ export default postgraphile(
         watchPg: true,
         graphiql: true,
         enhanceGraphiql: true,
-        pgDefaultRole: 'no_access_role',
+        pgDefaultRole: 'dthloxycycmlsu',
         ignoreRBAC: false, // Role Based Access Control (RBAC)
     }
 )
