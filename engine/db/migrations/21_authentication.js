@@ -40,8 +40,8 @@ exports.up = knex => (
         
         
         CREATE OR REPLACE FUNCTION signup (username varchar(50), PASSWORD varchar(50))
-                    RETURNS boolean
-                    AS $$
+        RETURNS boolean
+        AS $$
         DECLARE
             result varchar DEFAULT NULL;
         BEGIN
