@@ -13,8 +13,8 @@ const getItemFromArrayWithId = (someId: string, someArray: any) => {
 }
 
 const buildRacialFeatureHtmlBlocks = (features: any) => {
-  const racialFeatureHtmlArray = features.map((feat: any) => (
-    <div className='bg-white rounded px-2 py-3 text-sm border border-2'>
+  const racialFeatureHtmlArray = features.map((feat: any, i:number) => (
+    <div className='bg-white rounded px-2 py-3 text-sm border border-2' key={i}>
       <div className='font-bold'>{feat.racialFeatureByRacialFeatureId.name}</div>
       <div>{feat.racialFeatureByRacialFeatureId.description}</div>
     </div>
@@ -194,7 +194,7 @@ const RaceSelectionForm: React.FC = () => {
       </div>
     )
   }
-
+  
   return (
     <div>
       <div>
