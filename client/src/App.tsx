@@ -77,7 +77,7 @@ const App: React.FC = () => {
 
   if (!authToken) {
     const client = new ApolloClient({
-      uri: 'http://localhost:8080/graphql',
+      uri: '/graphql',
       cache: new InMemoryCache(),
     })
     return (
@@ -113,7 +113,7 @@ const App: React.FC = () => {
     )
   } else {
     const link = new HttpLink({
-      uri: 'http://localhost:8080/graphql',
+      uri: '/graphql',
       // Additional options
     })
 
