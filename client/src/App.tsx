@@ -89,6 +89,11 @@ const App: React.FC = () => {
               {!authToken && (
                 <div className='cotainer'>
                   <NavBar links={publicLinks} isPublic />
+                  <Route exact path='/'>
+                    <div className='layout'>
+                      <div className='font-roboto uppercase text-3xl text-center'>Public landing page</div>
+                    </div>
+                  </Route>
                   <Route path='/signin'>
                     <div className='layout'>
                       <SignIn />
