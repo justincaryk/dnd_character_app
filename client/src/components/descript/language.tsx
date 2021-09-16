@@ -1,5 +1,4 @@
 import React from 'react'
-import './../../scss/descript/LanguageSelections.scss'
 import { LanguageType } from './../../lib/types'
 
 interface LanguageOptionConstraints {
@@ -14,28 +13,27 @@ interface Props {
 }
 
 const getKeyReferenceForLanguage = (
-    languageOptionConstraints: LanguageOptionConstraints[]
-  ) => {
-    if (languageOptionConstraints[0].name == 'ANY') {
-      return 'ALL'
-    }
-    if (languageOptionConstraints[0].name == 'EXOTIC') {
-      return 'EXOTIC'
-    }
-    return 'STANDARD'
+  languageOptionConstraints: LanguageOptionConstraints[]
+) => {
+  if (languageOptionConstraints[0].name == 'ANY') {
+    return 'ALL'
   }
-  
-  const areLanguageOptionChoicesRequired = (
-    languageOptsArray: LanguageOptionConstraints[]
-  ) => {
-    for (const language of languageOptsArray) {
-      if (!language.isAutoGranted) {
-        return true
-      }
-    }
-    return false
+  if (languageOptionConstraints[0].name == 'EXOTIC') {
+    return 'EXOTIC'
   }
-  
+  return 'STANDARD'
+}
+
+const areLanguageOptionChoicesRequired = (
+  languageOptsArray: LanguageOptionConstraints[]
+) => {
+  for (const language of languageOptsArray) {
+    if (!language.isAutoGranted) {
+      return true
+    }
+  }
+  return false
+}
 
 const LanguageSelector: React.FC<Props> = ({
   numberOfLanguagesGranted,
@@ -89,12 +87,12 @@ const LanguageSelector: React.FC<Props> = ({
     buildDummyArrayOfCorrectLength()
 
   return (
-    <div className="space-sequence-20">
+    <div className='space-y-4'>
       {dummy_array_to_generate_correct_num_of_select_elems.map((x) => {
         return (
           <div key={x * 25}>
-            <select className="form-control">
-              <option value="" selected>
+            <select className='w-full border rounded-b text-xl p-2'>
+              <option value='' selected>
                 - Choose a Language -
               </option>
               {validLanguageOptions.map((language) => {

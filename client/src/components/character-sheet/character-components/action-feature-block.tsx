@@ -12,7 +12,7 @@ const ActionFeatureBlock: React.FC = () => {
     'font-roboto text-xs text-gray-400 uppercase hover:text-black hover:bold cursor-pointer'
   const activeClasses = 'border-b-4'
   return (
-    <div className='p-4'>
+    <div className='p-4 bg-white'>
       <div className='flex justify-between w-full'>
         <div
           className={classnames({

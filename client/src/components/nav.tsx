@@ -7,7 +7,7 @@ interface Props {
 }
 
 const NavBar: React.FC<Props> = ({ links, isPublic }) => (
-  <div className='h-22 w-full px-5 py-8 fixed top-0 bg-stone'>
+  <div className='h-22 w-full px-5 py-8 fixed top-0 bg-stone z-10'>
     <div className='relative'>
       <div className='flex w-full justify-between text-sm'>
         {links.map((x) => (

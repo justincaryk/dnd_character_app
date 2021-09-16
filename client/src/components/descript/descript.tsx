@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import "./../../scss/descript/CharDescription.scss";
+import React, { useState } from 'react'
 
 import {
   useGetAllLanguagesQuery,
@@ -7,18 +6,18 @@ import {
   useAllBgFeaturesQuery,
   useAllSkillsQuery,
   useAllBgsQuery,
-} from "../../generated/graphql";
+} from '../../generated/graphql'
 
-import SkillProficienciesSelector from "./skill";
-import ToolProficienciesSelector from "./tool";
-import LanguageSelector from "./language";
-import CustomBgSelector from "./custom-bg";
+import SkillProficienciesSelector from './skill'
+import ToolProficienciesSelector from './tool'
+import LanguageSelector from './language'
+import CustomBgSelector from './custom-bg'
 
-import { BackgroundDataType, BgOptionGenericType } from "./../../lib/types";
+import { BgOptionGenericType } from './../../lib/types'
 
 const PhysicalCharacteristicsChunk = () => {
   return (
-    <div className="space-sequence-20">
+    <div className='space-y-4'>
       <div>
         <strong>Physical Characteristics:</strong>
       </div>
@@ -27,7 +26,7 @@ const PhysicalCharacteristicsChunk = () => {
           <strong>Hair</strong>
         </div>
         <div>
-          <input className="form-control"></input>
+          <input className='w-full border rounded-b text-xl p-2'></input>
         </div>
       </div>
       <div>
@@ -35,7 +34,7 @@ const PhysicalCharacteristicsChunk = () => {
           <strong>Skin</strong>
         </div>
         <div>
-          <input className="form-control"></input>
+          <input className='w-full border rounded-b text-xl p-2'></input>
         </div>
       </div>
       <div>
@@ -43,7 +42,7 @@ const PhysicalCharacteristicsChunk = () => {
           <strong>Eyes</strong>
         </div>
         <div>
-          <input className="form-control"></input>
+          <input className='w-full border rounded-b text-xl p-2'></input>
         </div>
       </div>
       <div>
@@ -51,7 +50,7 @@ const PhysicalCharacteristicsChunk = () => {
           <strong>Height</strong>
         </div>
         <div>
-          <input className="form-control"></input>
+          <input className='w-full border rounded-b text-xl p-2'></input>
         </div>
       </div>
       <div>
@@ -59,7 +58,7 @@ const PhysicalCharacteristicsChunk = () => {
           <strong>Weight</strong>
         </div>
         <div>
-          <input className="form-control"></input>
+          <input className='w-full border rounded-b text-xl p-2'></input>
         </div>
       </div>
       <div>
@@ -67,7 +66,7 @@ const PhysicalCharacteristicsChunk = () => {
           <strong>Age</strong>
         </div>
         <div>
-          <input className="form-control"></input>
+          <input className='w-full border rounded-b text-xl p-2'></input>
         </div>
       </div>
       <div>
@@ -75,31 +74,31 @@ const PhysicalCharacteristicsChunk = () => {
           <strong>Gender</strong>
         </div>
         <div>
-          <input className="form-control"></input>
+          <input className='w-full border rounded-b text-xl p-2'></input>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 interface ISelectedBackgroundProps {
-  selectedBg: any;
-  equipment: any;
-  languages: any;
-  bgFeatures: any;
-  skills: any;
-  children?: React.ReactNode;
+  selectedBg: any
+  equipment: any
+  languages: any
+  bgFeatures: any
+  skills: any
+  children?: React.ReactNode
 }
 
 const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
   props: ISelectedBackgroundProps
 ) => {
-  if (!props.selectedBg) return null;
+  if (!props.selectedBg) return null
 
-  const { selectedBg, equipment, languages, skills, bgFeatures } = props;
+  const { selectedBg, equipment, languages, skills, bgFeatures } = props
   // make sure to return early in this condition state since the bg will no longer
   // be null, but rather the full object
-  if (selectedBg.name == "Custom Background") {
+  if (selectedBg.name == 'Custom Background') {
     return (
       <CustomBgSelector
         skillsData={skills.allSkills.skills}
@@ -107,12 +106,12 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
         equipment={equipment.allEquipment.items}
         bgFeatures={bgFeatures.allBgFeatures.bgFeatures}
       ></CustomBgSelector>
-    );
+    )
   }
 
   const skillsChunk = () => {
     return (
-      <div className="space-sequence-20">
+      <div className='space-y-4'>
         <div>
           <div>{selectedBg.description}</div>
         </div>
@@ -122,11 +121,11 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
             //@ts-ignore
             JSON.parse(selectedBg.skillOptions).options.map((skill, index) => {
               const isLast =
-                index == selectedBg.skillOptions.length - 1 ? true : false;
+                index == selectedBg.skillOptions.length - 1 ? true : false
 
               if (skill.isAutoGranted) {
-                const strChunk = isLast ? `${skill.name}` : `${skill.name}, `;
-                return strChunk;
+                const strChunk = isLast ? `${skill.name}` : `${skill.name}, `
+                return strChunk
               }
             })
           }
@@ -138,22 +137,22 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
           ></SkillProficienciesSelector>
         </div>
       </div>
-    );
-  };
+    )
+  }
 
   const languagesChunk = () => (
-    <div className="space-sequence-20">
+    <div className='space-y-4'>
       <div>
         <strong>Languages: </strong>
         {JSON.parse(selectedBg.languageOptions).options.map(
           (language: BgOptionGenericType, index: number) => {
             const isLast =
-              index == selectedBg.languageOptions.length - 1 ? true : false;
+              index == selectedBg.languageOptions.length - 1 ? true : false
             if (language.isAutoGranted) {
               const strChunk = isLast
                 ? `${language.name}`
-                : `${language.name}, `;
-              return strChunk;
+                : `${language.name}, `
+              return strChunk
             }
           }
         )}
@@ -168,20 +167,20 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
         />
       </div>
     </div>
-  );
+  )
 
   const toolsChunk = () => (
-    <div className="space-sequence-20">
+    <div className='space-y-4'>
       <div>
         <strong>Tool Proficiencies: </strong>
         {JSON.parse(selectedBg.toolOptions).options.map(
           (tool: BgOptionGenericType, index: number) => {
             const isLast =
-              index == selectedBg.toolOptions.length - 1 ? true : false;
+              index == selectedBg.toolOptions.length - 1 ? true : false
 
             if (tool.isAutoGranted) {
-              const strChunk = isLast ? `${tool.name}` : `${tool.name}, `;
-              return strChunk;
+              const strChunk = isLast ? `${tool.name}` : `${tool.name}, `
+              return strChunk
             }
           }
         )}
@@ -194,20 +193,20 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
         ></ToolProficienciesSelector>
       </div>
     </div>
-  );
+  )
 
   const bgFeatureChunk = () => (
-    <div className="space-sequence-20">
+    <div className='space-y-4'>
       <div>
         <strong>Background Feature:</strong>
       </div>
       <div>{selectedBg.bgFeatureByBackgroundFeature.name}</div>
       <div>{selectedBg.bgFeatureByBackgroundFeature.description}</div>
     </div>
-  );
+  )
 
   const alternateBgFeatureChunk = () => (
-    <div className="space-sequence-20">
+    <div className='space-y-4'>
       <div>
         <strong>Alternate Background Feature:</strong>
       </div>
@@ -218,10 +217,10 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
         </div>
       </div>
     </div>
-  );
+  )
 
   return (
-    <div className="space-sequence-20">
+    <div className='space-y-4'>
       {skillsChunk()}
       {toolsChunk()}
       {selectedBg.languageOptions.length ? languagesChunk() : null}
@@ -230,42 +229,42 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
         ? alternateBgFeatureChunk()
         : null}
     </div>
-  );
-};
+  )
+}
 
 const CharDescript: React.FC = () => {
-  const [selectedBg, setSelectedBg] = useState<any>(null);
-  const { data: backgrounds, loading: bgsLoading } = useAllBgsQuery();
-  const { data: languages, loading: langLoading } = useGetAllLanguagesQuery();
-  const { data: equipment, loading: equipLoading } = useAllEquipmentQuery();
-  const { data: bgFeatures, loading: bgFeatLoading } = useAllBgFeaturesQuery();
-  const { data: skills, loading: skillLoading } = useAllSkillsQuery();
+  const [selectedBg, setSelectedBg] = useState<any>(null)
+  const { data: backgrounds, loading: bgsLoading } = useAllBgsQuery()
+  const { data: languages, loading: langLoading } = useGetAllLanguagesQuery()
+  const { data: equipment, loading: equipLoading } = useAllEquipmentQuery()
+  const { data: bgFeatures, loading: bgFeatLoading } = useAllBgFeaturesQuery()
+  const { data: skills, loading: skillLoading } = useAllSkillsQuery()
 
   const handleBgSelection = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const chosenBgName = event.target.value;
+    const chosenBgName = event.target.value
 
     if (!chosenBgName) {
-      setSelectedBg(null);
+      setSelectedBg(null)
     }
     if (!backgrounds?.allBgs) {
-      return;
+      return
     }
     for (const bg of backgrounds.allBgs?.nodes) {
       if (chosenBgName == bg?.name) {
-        setSelectedBg(bg);
-        return;
+        setSelectedBg(bg)
+        return
       }
     }
-  };
+  }
 
   return (
-    <div className="space-sequence-20">
+    <div className='space-y-4'>
       <div>
         <div>
           <div>
             <strong>Character Name:</strong>
           </div>
-          <input className="form-control"></input>
+          <input className='w-full border rounded-b text-xl p-2'></input>
         </div>
       </div>
       <div>
@@ -273,8 +272,8 @@ const CharDescript: React.FC = () => {
           <strong>Background:</strong>
         </div>
         <div>
-          <select className="form-control" onChange={handleBgSelection}>
-            <option value="" selected>
+          <select className='w-full border rounded-b text-xl p-2' onChange={handleBgSelection}>
+            <option value='' selected>
               -- Choose a Background ---
             </option>
             {backgrounds?.allBgs?.nodes.map((bg) => {
@@ -293,7 +292,7 @@ const CharDescript: React.FC = () => {
       />
       <PhysicalCharacteristicsChunk />
     </div>
-  );
-};
+  )
+}
 
-export default CharDescript;
+export default CharDescript

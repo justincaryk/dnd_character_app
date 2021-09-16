@@ -39,7 +39,7 @@ const CharacterCoreStats: React.FC = () => {
   return (
     <div className='pb-2'>
       <div className='grid grid-cols-2 space-x-8'>
-        <div className='grid grid-cols-6 space-x-4'>
+        <div className='grid grid-cols-6 space-x-4 p'>
           {coreStats.map((stat) => (
             <CoreStatBlock
               attribute={stat.attribute}
@@ -51,14 +51,14 @@ const CharacterCoreStats: React.FC = () => {
         {/* right col split into 2 */}
         <div className='grid grid-cols-3 space-x-4'>
           <div className='grid grid-cols-2 space-x-4'>
-            <div className='border-2 border-red-400 rounded flex items-center justify-center text-center'>
+            <div className='border-2 border-red-400 rounded flex items-center justify-center text-center bg-white'>
               <div>
                 <div className='font-roboto text-xs'>PROFICIENCY</div>
                 <div className='font-roboto text-xl bold'>+3</div>
                 <div className='font-roboto text-xs'>BONUS</div>
               </div>
             </div>
-            <div className='border-2 border-red-400 rounded flex items-center justify-center text-center'>
+            <div className='border-2 border-red-400 rounded flex items-center justify-center text-center bg-white'>
               <div>
                 <div className='font-roboto text-xs'>WALKING</div>
                 <div className='font-roboto text-xl bold'>30 ft</div>
@@ -66,7 +66,7 @@ const CharacterCoreStats: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className='col-span-2 border-2 border-red-400 rounded'>
+          <div className='col-span-2 border-2 border-red-400 rounded bg-white'>
             <HealthBlock maxHealth={67} />
           </div>
         </div>

@@ -1,5 +1,4 @@
-import React, { useState } from "react"
-import "./../../scss/descript/SkillProficiencies.scss"
+import React, { useState } from 'react'
 
 interface Props {
   skillOptions: SkillType[]
@@ -31,12 +30,12 @@ const SkillProficienciesSelector: React.FC<Props> = ({
     _buildArrayWithThisManyItems(numOfSelectElemsToGenerate)
 
   return (
-    <div className="space-sequence-20">
+    <div className='space-y-4'>
       {dummy_array_to_help_generate_correct_num_of_select_elems.map((x) => {
         return (
           <div key={x * 25}>
-            <select className="form-control">
-              <option value="" selected>
+            <select className='w-full border rounded-b text-xl p-2'>
+              <option value='' selected>
                 - Choose a Skill -
               </option>
               {validSkillOptions.map((skill) => {

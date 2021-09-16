@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
-import './../../scss/AbilityScore.scss'
 import { AttributeInterface } from '../../lib/types'
 import PointBuy from './options/point-buy'
 import StandardArray from './options/standard'
 import ManualOption from './options/manual'
 
-
 type BonusesType = {
-    [key: string]: number
+  [key: string]: number
 }
 
 type ActiveMethodType = 'PointBuy' | 'StandardArray' | 'Manual'
@@ -98,10 +96,10 @@ const AsiGenerator: React.FC = () => {
   }
 
   return (
-    <div className="space-sequence-20">
+    <div className='space-y-4'>
       <div>
         <div>
-          <select className="form-control" onChange={handleMethodChange}>
+          <select className='w-full border rounded text-xl p-2' onChange={handleMethodChange}>
             {methods.map((method) => {
               return (
                 <option value={method.id} key={method.id}>
@@ -132,27 +130,27 @@ const AsiGenerator: React.FC = () => {
         />
       )}
 
-      <div className="space-sequence-20">
+      <div className='space-y-4 pt-12'>
         <div>
-          <div className="row">
+          <div className='grid grid-cols-3 gap-x-6 gap-4'>
             {attributes.map((attr) => {
               return (
-                <div className="col-xs-12 col-md-4 form-group" key={attr.id}>
-                  <div className="attr-block">
-                    <div className="attr-title-bar asi-heading">
-                      {attr.name}
-                    </div>
-                    <div className="attr-content">
-                      <div className="attr-row">
-                        <div className="label-left">Base</div>
-                        <div className="score">{attr.currentAssignedScore}</div>
-                      </div>
-                      <div className="attr-row">
-                        <div className="label-left">Modifer</div>
-                        <div className="score">
-                          {_getBonusDisplayVal(bonuses[attr.currentAssignedScore]
-                          )}
-                        </div>
+                <div
+                  className='attr-block border rounded bg-white'
+                  key={attr.id}
+                >
+                  <div className='rounded-t bg-dark border-black p-2 text-white font-roboto text-sm text-center font-bold uppercase'>
+                    {attr.name}
+                  </div>
+                  <div>
+                    <div className='grid grid-cols-2 font-roboto'>
+                      <div className='border-b p-4 text-left'>Base</div>
+                      <div className='border-b p-4 border-l-4 bg-gray-100 text-xl text-center font-roboto font-bold'>{attr.currentAssignedScore}</div>
+                      <div className='border-b p-4 text-left'>Modifer</div>
+                      <div className='border-b p-4 border-l-4 bg-gray-100 text-xl text-center font-roboto font-bold'>
+                        {_getBonusDisplayVal(
+                          bonuses[attr.currentAssignedScore]
+                        )}
                       </div>
                     </div>
                   </div>

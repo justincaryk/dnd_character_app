@@ -1,6 +1,4 @@
 import React from "react";
-// import "./Races.scss";
-// import { appDictionary } from "../../lib/dictionary";
 
 interface Props {
   races: any
@@ -9,8 +7,8 @@ const Races: React.FC<Props> = ({races}) => {
 
   return (
     <>
-      <label>Choose a Race</label>
-      <select className="form-control">
+      <label className='text-white font-bold font-roboto text-lg'>Choose a Race</label>
+      <select className="w-full border rounded text-lg p-2">
         <option value="" key="0000000" selected disabled>
           Make a selection
         </option>

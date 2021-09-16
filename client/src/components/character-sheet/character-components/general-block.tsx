@@ -12,7 +12,7 @@ const GeneralBlock: React.FC = () => {
           <div className='font-roboto text-xs uppercase text-center mb-2'>
             Initiative
           </div>
-          <div className='border-2 border-red-400 rounded py-1 px-4 text-2xl text-center'>
+          <div className='border-2 border-red-400 rounded py-1 px-4 text-2xl text-center bg-white'>
             +2
           </div>
         </div>
@@ -70,7 +70,7 @@ const GeneralBlock: React.FC = () => {
         </div>
       </div>
       {/* hit dice / death save fail/pass */}
-      <div className='col-span-3 border-red-400 border-2 ml-4 p-2 rounded'>
+      <div className='col-span-3 border-red-400 border-2 ml-4 p-2 rounded bg-white'>
         <div className='grid grid-cols-2 h-full'>
           {/* hit die */}
           <div className='p-1'>

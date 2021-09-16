@@ -50,13 +50,13 @@ form label {
 }
 
 /* these should be converted into a utility func when scss gets integrated */
-.space-sequence-20 > * + * {
-  margin-top: 20px;
-}
-.space-sequence-20 > *:first-child {
-  margin-top: 0;
-}
+// .space-y-4 > * + * {
+//   margin-top: 20px;
+// }
+// .space-y-4 > *:first-child {
+//   margin-top: 0;
+// }
 
-.layout {
-  padding: 20px 0 80px 0;
-}
+// .layout {
+  // padding: 20px 0 80px 0;
+// }

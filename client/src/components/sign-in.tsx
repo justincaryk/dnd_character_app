@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 import { useSigninMutation } from '../generated/graphql'
-import { useHistory } from 'react-router-dom'
 import { AUTH_TOKEN } from '../constants'
 
 const SignIn: React.FC = () => {
-  const history = useHistory()
   const [formHasErrors, setFormHasErrors] = useState(false)
   const [user, setUser] = useState('')
   const [pass, setPass] = useState('')
@@ -15,14 +13,14 @@ const SignIn: React.FC = () => {
     if (!user || !pass) {
       return
     }
-    debugger
+    
     const { data } = await performSignup({
       variables: {
         username: user,
         password: pass,
       },
     })
-    debugger
+    
     if (data?.signin?.jwtToken) {
       localStorage.setItem(AUTH_TOKEN, data.signin.jwtToken)
       window.location.href = '/'

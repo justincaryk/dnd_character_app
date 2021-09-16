@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
-import './../../scss/RaceForm.scss'
 import { useGetAllRacesQuery } from '../../generated/graphql'
 
 import Races from './races'
 import Subraces from './subraces'
-
 
 const getItemFromArrayWithId = (someId: string, someArray: any) => {
   for (const oneItem of someArray) {
@@ -16,8 +14,8 @@ const getItemFromArrayWithId = (someId: string, someArray: any) => {
 
 const buildRacialFeatureHtmlBlocks = (features: any) => {
   const racialFeatureHtmlArray = features.map((feat: any) => (
-    <div className="content-block">
-      <div>{feat.racialFeatureByRacialFeatureId.name}</div>
+    <div className='bg-white rounded px-2 py-3 text-sm border border-2'>
+      <div className='font-bold'>{feat.racialFeatureByRacialFeatureId.name}</div>
       <div>{feat.racialFeatureByRacialFeatureId.description}</div>
     </div>
   ))
@@ -92,11 +90,11 @@ const buildAsiString = (asis: any) => {
   return asiArr.join(', ')
 }
 
-
 const RaceSelectionForm: React.FC = () => {
   const [selectedRaceId, setSelectedRaceId] = useState<string | null>(null)
-  const [selectedSubraceId, setSelectedSubraceId] =
-    useState<string | null>(null)
+  const [selectedSubraceId, setSelectedSubraceId] = useState<string | null>(
+    null
+  )
   const { data, loading } = useGetAllRacesQuery()
 
   const handleRaceSelection = (event: React.ChangeEvent<any>) => {
@@ -137,33 +135,33 @@ const RaceSelectionForm: React.FC = () => {
     const racialTraitsStr = buildRacialTraitsString(activeRace)
 
     raceDetailHtml = (
-      <div>
-        <div className="content-block">
-          <div>Race:</div>
+      <div className='space-y-4'>
+        <div className='bg-white rounded px-2 py-3 text-sm border border-2'>
+          <div className='font-bold'>Race:</div>
           <div>{activeRace.name}</div>
         </div>
-        <div className="content-block">
-          <div>Racial Traits:</div>
+        <div className='bg-white rounded px-2 py-3 text-sm border border-2 text-sm'>
+          <div className='font-bold'>Racial Traits:</div>
           <div>{racialTraitsStr}</div>
         </div>
-        <div className="content-block">
-          <div>Summary:</div>
+        <div className='bg-white rounded px-2 py-3 text-sm border border-2'>
+          <div className='font-bold'>Summary:</div>
           <div>{activeRace.summary}</div>
         </div>
-        <div className="content-block">
-          <div>Movement:</div>
+        <div className='bg-white rounded px-2 py-3 text-sm border border-2'>
+          <div className='font-bold'>Movement:</div>
           <div>{activeRace.movement} feet</div>
         </div>
-        <div className="content-block">
-          <div>Languages:</div>
+        <div className='bg-white rounded px-2 py-3 text-sm border border-2'>
+          <div className='font-bold'>Languages:</div>
           <div>{languagesString}</div>
         </div>
-        <div className="content-block">
-          <div>Lifespan:</div>
+        <div className='bg-white rounded px-2 py-3 text-sm border border-2'>
+          <div className='font-bold'>Lifespan:</div>
           <div>{activeRace.lifespan}</div>
         </div>
-        <div className="content-block">
-          <div>Alignment:</div>
+        <div className='bg-white rounded px-2 py-3 text-sm border border-2'>
+          <div className='font-bold'>Alignment:</div>
           <div>{activeRace.alignment}</div>
         </div>
 
@@ -183,12 +181,12 @@ const RaceSelectionForm: React.FC = () => {
 
     subraceDetailHtml = (
       <div>
-        <div className="content-block">
-          <div>Subrace Name:</div>
+        <div className='bg-white rounded px-2 py-3 text-sm border border-2'>
+          <div className='font-bold'>Subrace Name:</div>
           <div>{activeSubrace.name}</div>
         </div>
-        <div className="content-block">
-          <div>Ability Score Increase:</div>
+        <div className='bg-white rounded px-2 py-3 text-sm border border-2'>
+          <div className='font-bold'>Ability Score Increase:</div>
           <div>{asiString}</div>
         </div>
 
@@ -200,10 +198,10 @@ const RaceSelectionForm: React.FC = () => {
   return (
     <div>
       <div>
-        <form onChange={handleRaceSelection} key="raceForm">
+        <form onChange={handleRaceSelection} key='raceForm'>
           <Races races={data.allRaces?.nodes}></Races>
         </form>
-        <form onChange={handleSubRaceSelection} key="subraceForm">
+        <form onChange={handleSubRaceSelection} key='subraceForm'>
           <Subraces subraces={activeRace?.subracesByRaceId?.nodes}></Subraces>
         </form>
       </div>
@@ -216,4 +214,3 @@ const RaceSelectionForm: React.FC = () => {
 }
 
 export default RaceSelectionForm
-
