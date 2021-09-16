@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './../../../scss/StandardArray.scss'
 import { AttributeInterface } from '../../../lib/types'
 interface Props {
   attributes: AttributeInterface[]
@@ -46,7 +45,7 @@ const StandardArray: React.FC<Props> = ({
 
             //make sure it doesn't have the val somehow
             const indexOfValToPutBack =
-            localHashTable[attrId].availOptions.indexOf(valToPutBack)
+              localHashTable[attrId].availOptions.indexOf(valToPutBack)
             // as long as it doesn't already have it
             if (indexOfValToPutBack == -1) {
               const whereToPutItBack = _getIndexOfCorrectOptForThisPool(
@@ -95,7 +94,7 @@ const StandardArray: React.FC<Props> = ({
 
     // set the damned state
     setHashTable(localHashTable)
-    
+
     // update the attribute prop for export
     for (const attr of localAttributes) {
       if (attr.id == updatedAttrId) {
@@ -115,38 +114,34 @@ const StandardArray: React.FC<Props> = ({
   }
 
   return (
-    <div className="content-wrap space-sequence-20">
+    <div className='space-y-4'>
       <div>
         <form>
-          <div className="big-ole-table-outer">
-            <div className="tbl-row">
-              {attributes.map((attr) => {
-                return (
-                  <div className="tbl-cell" key={attr.name}>
-                    <div className="asi-heading">{attr.name}</div>
-                    <div className="asi-val-select-outer">
-                      <select
-                        className="form-control"
-                        onChange={handleSelection}
-                      >
-                        {hashTable[attr.id].availOptions.map(
-                          (opt: string) => {
-                            return (
-                              <option
-                                value={opt + '_' + attr.id}
-                                key={opt + '_' + attr.id}
-                              >
-                                {opt}
-                              </option>
-                            )
-                          }
-                        )}
-                      </select>
-                    </div>
+          <div className='grid grid-cols-6 gap-x-2'>
+            {attributes.map((attr) => {
+              return (
+                <div key={attr.name}>
+                  <div className='text-md text-center uppercase font-roboto font-bold rounded-t bg-dark text-white p-1'>
+                    {attr.name}
                   </div>
-                )
-              })}
-            </div>
+                  <select
+                    className='w-full border rounded-b text-xl p-2'
+                    onChange={handleSelection}
+                  >
+                    {hashTable[attr.id].availOptions.map((opt: string) => {
+                      return (
+                        <option
+                          value={opt + '_' + attr.id}
+                          key={opt + '_' + attr.id}
+                        >
+                          {opt}
+                        </option>
+                      )
+                    })}
+                  </select>
+                </div>
+              )
+            })}
           </div>
         </form>
       </div>

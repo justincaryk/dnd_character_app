@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './../../../scss/AttributeInput.scss'
 import { AttributeInterface } from '../../../lib/types'
 
 interface Props {
@@ -170,7 +169,7 @@ const AttributeInputBlock: React.FC<Props> = (props) => {
 
   return (
     <div>
-      <select className="form-control" onChange={handleChange}>
+      <select className='w-full border rounded-b text-xl p-2' onChange={handleChange}>
         {options}
       </select>
     </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './../../scss/descript/CustomBg.scss'
+
 import {
   SkillDataType,
   EquipmentDataType,
@@ -25,15 +25,15 @@ const buildSkillsBlock = (
   const dummy_array = buildDummyArrayToMapOver(numOfSelectElems)
 
   return (
-    <div className="space-sequence-20">
+    <div className='space-y-4'>
       <div>
         <strong>Skill Proficiencies:</strong>
       </div>
       {dummy_array.map((x) => {
         return (
           <div key={'skills-dropdown-' + x}>
-            <select className="form-control">
-              <option value="">- Choose a Skill -</option>
+            <select className='w-full border rounded-b text-xl p-2'>
+              <option value=''>- Choose a Skill -</option>
               {skillsData.map((skill) => {
                 return (
                   <option key={skill.skill} value={skill.skill}>
@@ -57,15 +57,15 @@ const buildToolsBlock = (
   const sortedTools = [...equipment].sort()
 
   return (
-    <div className="space-sequence-20">
+    <div className='space-y-4'>
       <div>
         <strong>Tools Proficiencies:</strong>
       </div>
       {dummy_array.map((x) => {
         return (
           <div key={'tool-dropdown-' + x}>
-            <select className="form-control">
-              <option value="">- Choose a Tool -</option>
+            <select className='w-full border rounded-b text-xl p-2'>
+              <option value=''>- Choose a Tool -</option>
               {sortedTools.map((tool) => {
                 return (
                   <option key={tool.name} value={tool.name}>
@@ -88,15 +88,15 @@ const buildLanguagesBlock = (
   const dummy_array = buildDummyArrayToMapOver(numOfSelectElems)
 
   return (
-    <div className="space-sequence-20">
+    <div className='space-y-4'>
       <div>
         <strong>Languages:</strong>
       </div>
       {dummy_array.map((x) => {
         return (
           <div key={'language-dropdown-' + x}>
-            <select className="form-control">
-              <option value="">- Choose a Language -</option>
+            <select className='w-full border rounded-b text-xl p-2'>
+              <option value=''>- Choose a Language -</option>
               {languages.map((language) => {
                 return (
                   <option key={language.name} value={language.name}>
@@ -121,8 +121,8 @@ const buildBgFeatureBlock = (
       <div>
         <strong>Background Features:</strong>
       </div>
-      <select className="form-control" onChange={displayBgFeatureDetailClosure}>
-        <option value="">- Choose a Background Feature -</option>
+      <select className='w-full border rounded-b text-xl p-2' onChange={displayBgFeatureDetailClosure}>
+        <option value=''>- Choose a Background Feature -</option>
         {bgFeatures.map((feat) => {
           return <option value={feat.name}>{feat.name}</option>
         })}
@@ -176,7 +176,9 @@ const CustomBgSelector: React.FC<Props> = ({
   })
 
   const [customOptionIsSelected, setCustomOptionIsSelected] = useState(false)
-  const [selectedCustomRuleOption, setSelectedCustomRuleOption] = useState<any>({})
+  const [selectedCustomRuleOption, setSelectedCustomRuleOption] = useState<any>(
+    {}
+  )
   const [backgroundFeatureIsSelected, setBackgroundFeatureIsSelected] =
     useState(false)
   const [selectedBgFeature, setSelectedBgFeature] = useState<any>({})
@@ -225,7 +227,7 @@ const CustomBgSelector: React.FC<Props> = ({
       const toolsBlock = buildToolsBlock(2, equipment)
 
       fullBlockToReturn = (
-        <div className="space-sequence-20">
+        <div className='space-y-4'>
           {skills_block}
           {toolsBlock}
           {bg_feature_block}
@@ -240,7 +242,7 @@ const CustomBgSelector: React.FC<Props> = ({
       const languagesBlock = buildLanguagesBlock(2, languageData)
 
       fullBlockToReturn = (
-        <div className="space-sequence-20">
+        <div className='space-y-4'>
           {skills_block}
           {languagesBlock}
           {bg_feature_block}
@@ -255,7 +257,7 @@ const CustomBgSelector: React.FC<Props> = ({
       const languagesBlock = buildLanguagesBlock(1, languageData)
 
       fullBlockToReturn = (
-        <div className="space-sequence-20">
+        <div className='space-y-4'>
           {skills_block}
           {toolsBlock}
           {languagesBlock}
@@ -277,10 +279,8 @@ const CustomBgSelector: React.FC<Props> = ({
         <div>
           <div>{selectedBgFeature.name}</div>
           <div>
-            <span className="text-muted">Background Feature | </span>
-            <span className="text-muted">
-              {selectedBgFeature.conferringBg}
-            </span>
+            <span className='text-muted'>Background Feature | </span>
+            <span className='text-muted'>{selectedBgFeature.conferringBg}</span>
           </div>
         </div>
         <div>
@@ -294,10 +294,10 @@ const CustomBgSelector: React.FC<Props> = ({
   const backgroundFeatureInfoBlock = buildBackgroundFeatureInfoBlock()
 
   return (
-    <div className="space-sequence-20">
+    <div className='space-y-4'>
       <div>
-        <select className="form-control" onChange={handleSelection}>
-          <option value="">Choose an Option</option>
+        <select className='w-full border rounded-b text-xl p-2' onChange={handleSelection}>
+          <option value=''>Choose an Option</option>
           {customOptions.map((opt) => {
             return (
               <option key={opt.id} value={opt.id}>

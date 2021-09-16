@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './../../scss/descript/ToolProficiencies.scss'
 import { EquipmentDataType } from './../../lib/types'
 interface ToolType {
   name: string
@@ -119,12 +118,15 @@ const ToolProficienciesSelector: React.FC<Props> = ({
   )
 
   return (
-    <div className="space-sequence-20">
+    <div className='space-y-4'>
       {emptyArrayOfCorrectLen.map((x) => {
         return (
           <div key={x * 25}>
-            <select className="form-control" defaultValue={''}>
-              <option value="">- Choose a tool -</option>
+            <select
+              className='w-full border rounded-b text-xl p-2'
+              defaultValue={''}
+            >
+              <option value=''>- Choose a tool -</option>
               {validToolOptions.map((tool) => {
                 return <option key={tool}>{tool}</option>
               })}

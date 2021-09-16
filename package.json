@@ -21,11 +21,11 @@
     "typescript": "^4.2.2"
   },
   "devDependencies": {
-    "stylelint-config-recommended": "^5.0.0"
+    
   },
   "private": true,
   "engines": {
-    "yarn": "1.19.1",
+    "yarn": "1.22.11",
     "node": ">=12"
   },
   "engineStrict": true

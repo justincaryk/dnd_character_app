@@ -42,7 +42,7 @@ const SavingThrowBlock: React.FC = () => {
   )
 
   return (
-    <div className='p-6 border-2 border-red-400 rounded'>
+    <div className='p-6 border-2 border-red-400 rounded bg-white'>
       <div className='space-y-2'>
         {saves.map((save) => (
           <div className='grid grid-cols-6'>

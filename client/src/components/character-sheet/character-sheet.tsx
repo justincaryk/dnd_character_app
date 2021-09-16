@@ -23,13 +23,13 @@ const CharacterSheet: React.FC = () => {
       {/* 3 columns */}
       <div className='mt-6 grid grid-cols-4 space-x-6'>
         {/* left column */}
-        <div className='space-y-6 border-2 border-2 border-red-400 rounded p-2'>
+        <div className='space-y-6 border-2 border-red-400 rounded p-2'>
           <SavingThrowBlock />
           <PassiveBlock />
         </div>
         
         {/* mid column */}
-        <div className='border-2 border-red-400 rounded'><SkillsBlock/></div>
+        <div className='border-2 border-red-400 rounded bg-white'><SkillsBlock/></div>
 
         {/* right column (main beef) */}
         <div className='col-span-2 space-y-10'>

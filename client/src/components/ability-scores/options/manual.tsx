@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './../../../scss/Manual.scss'
 import { AttributeInterface } from '../../../lib/types'
 import { tryParseInt } from '../../../lib/utils'
 
@@ -12,9 +11,12 @@ const ManualOption: React.FC<Props> = ({
   attributesImmutable,
   callbackToSetAttributes,
 }) => {
-  const [attributes, setAttributes ] = useState<AttributeInterface[]>(attributesImmutable)
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>, attrId: number) => {
-    
+  const [attributes, setAttributes] =
+    useState<AttributeInterface[]>(attributesImmutable)
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    attrId: number
+  ) => {
     const newAttributeScore = getValidScore(event.target.value)
 
     if (!newAttributeScore) {
@@ -23,7 +25,7 @@ const ManualOption: React.FC<Props> = ({
       return
     }
 
-    const tempAttrs = attributes.map(a => {
+    const tempAttrs = attributes.map((a) => {
       if (a.id === attrId) {
         a.previousAssignedScore = a.currentAssignedScore || newAttributeScore
         a.currentAssignedScore = newAttributeScore
@@ -32,34 +34,31 @@ const ManualOption: React.FC<Props> = ({
     })
     callbackToSetAttributes(tempAttrs) // callback handler
     setAttributes(tempAttrs)
-    
   }
 
   return (
-    <div className="content-wrap">
-      <form>
-        <div className="big-ole-table-outer">
-          <div className="tbl-row">
-            {attributes.map((attr) => {
-              return (
-                <div key={attr.id} className="tbl-cell">
-                  <div className="asi-heading">{attr.name}</div>
-                  <div className="asi-val-select-outer">
-                    <input
-                      className="form-control"
-                      onBlur={(event) => {
-                        handleChange(event, attr.id)
-                        event.target.value = getValidScore(event.target.value).toString()
-                      }}
-                    />
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </form>
-    </div>
+    <form>
+      <div className='grid grid-cols-6 gap-x-2'>
+        {attributes.map((attr) => {
+          return (
+            <div key={attr.id}>
+              <div className='text-md text-center uppercase font-roboto font-bold rounded-t bg-dark text-white p-1'>
+                {attr.name}
+              </div>
+              <input
+                className='w-full border rounded-b text-xl p-2'
+                onBlur={(event) => {
+                  handleChange(event, attr.id)
+                  event.target.value = getValidScore(
+                    event.target.value
+                  ).toString()
+                }}
+              />
+            </div>
+          )
+        })}
+      </div>
+    </form>
   )
 }
 

@@ -18,6 +18,7 @@ import SignIn from './components/sign-in'
 import { setContext } from '@apollo/client/link/context'
 import { HttpLink } from '@apollo/client'
 import SignOut from './components/sign-out'
+import Layout from './components/layout'
 
 const publicLinks: LinkType[] = [
   {
@@ -69,43 +70,45 @@ const privateLinks: LinkType[] = [
   },
 ]
 
-const Home = () => <div className='layout container'>Home.</div>
+const Home = () => <div className='layout container text-white text-3xl'>Home.</div>
 
 const App: React.FC = () => {
   const authToken = localStorage.getItem(AUTH_TOKEN)
-  
+
   if (!authToken) {
     const client = new ApolloClient({
-      uri: '/graphql',
+      uri: 'http://localhost:8080/graphql',
       cache: new InMemoryCache(),
     })
     return (
       <ApolloProvider client={client}>
         <Router>
-          <Switch>
-            {/* signed out */}
-            {!authToken && (
-              <>
-                <NavBar links={publicLinks} />
-                <Route path='/signup'>
-                  <div className='layout'>
-                    <SignUp />
-                  </div>
-                </Route>
-                <Route path='/signin'>
-                  <div className='layout'>
-                    <SignIn />
-                  </div>
-                </Route>
-              </>
-            )}
-          </Switch>
+          <Layout>
+            <Switch>
+              {/* signed out */}
+              {!authToken && (
+                <div className='cotainer'>
+                  <NavBar links={publicLinks} isPublic />
+                  <Route path='/signin'>
+                    <div className='layout'>
+                      <SignIn />
+                    </div>
+                  </Route>
+                  <Route path='/signup'>
+                    <div className='layout'>
+                      <SignUp />
+                    </div>
+                  </Route>
+                </div>
+              )}
+            </Switch>
+          </Layout>
         </Router>
       </ApolloProvider>
-      )
+    )
   } else {
     const link = new HttpLink({
-      uri: '/graphql',
+      uri: 'http://localhost:8080/graphql',
       // Additional options
     })
 
@@ -123,82 +126,80 @@ const App: React.FC = () => {
       link: authLink.concat(link),
       cache: new InMemoryCache(),
       defaultOptions: {
-          watchQuery: {
-            fetchPolicy: 'no-cache',
-            errorPolicy: 'ignore',
-          },
-          query: {
-            fetchPolicy: 'no-cache',
-            errorPolicy: 'all',
-          }
-      }
+        watchQuery: {
+          fetchPolicy: 'no-cache',
+          errorPolicy: 'ignore',
+        },
+        query: {
+          fetchPolicy: 'no-cache',
+          errorPolicy: 'all',
+        },
+      },
     })
-    
+
     return (
       <ApolloProvider client={client}>
         <Router>
           <Switch>
-            {authToken && (
-              <>
-                <NavBar links={privateLinks} />
-    
-                <Route exact path='/'>
-                  <Home />
-                </Route>
-    
-                <Route path='/races'>
-                  <div className='layout container setup'>
-                    <RaceSelectionForm />
-                  </div>
-                </Route>
-    
-                <Route path='/asi'>
-                  <div className='layout container asi'>
-                    <AsiGenerator />
-                  </div>
-                </Route>
-    
-                <Route path='/classes'>
-                  <div className='layout container'>
-                    <Classes />
-                  </div>
-                </Route>
-    
-                <Route path='/description'>
-                  <div className='layout container descript'>
-                    <CharDescription />
-                  </div>
-                </Route>
-    
-                <Route path='/spells'>
-                  <div className='layout container spells'>
-                    <SpellsSelector />
-                  </div>
-                </Route>
-    
-                <Route path='/feats'>
-                  <div className='layout container'>
-                    <Feats />
-                  </div>
-                </Route>
-    
-                <Route path='/sheet'>
-                  <div className='layout'>
-                    <CharacterSheet />
-                  </div>
-                </Route>
+            <Layout>
+              <NavBar links={privateLinks} />
 
-                <Route path='/signout'>
-                  <div className='layout'>
-                    <SignOut />
-                  </div>
-                </Route>
-              </>
-            )}
+              <Route exact path='/'>
+                <Home />
+              </Route>
+
+              <Route path='/races'>
+                <div className='container'>
+                  <RaceSelectionForm />
+                </div>
+              </Route>
+
+              <Route path='/asi'>
+                <div className='container'>
+                  <AsiGenerator />
+                </div>
+              </Route>
+
+              <Route path='/classes'>
+                <div className='container'>
+                  <Classes />
+                </div>
+              </Route>
+
+              <Route path='/description'>
+                <div className='container'>
+                  <CharDescription />
+                </div>
+              </Route>
+
+              <Route path='/spells'>
+                <div className='container spells'>
+                  <SpellsSelector />
+                </div>
+              </Route>
+
+              <Route path='/feats'>
+                <div className='container'>
+                  <Feats />
+                </div>
+              </Route>
+
+              <Route path='/sheet'>
+                <div className=''>
+                  <CharacterSheet />
+                </div>
+              </Route>
+
+              <Route path='/signout'>
+                <div className=''>
+                  <SignOut />
+                </div>
+              </Route>
+            </Layout>
           </Switch>
         </Router>
       </ApolloProvider>
-      )
+    )
   }
 }
 

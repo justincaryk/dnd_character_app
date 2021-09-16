@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
-import './../../../scss/PointBuy.scss'
 import { AttributeInterface } from '../../../lib/types'
 import AttributeInputBlock from './attribute-input'
 
 interface Props {
-    attributesImmutable: AttributeInterface[]
-    callbackToSetAttributes: (args: AttributeInterface[]) => void
+  attributesImmutable: AttributeInterface[]
+  callbackToSetAttributes: (args: AttributeInterface[]) => void
 }
 
-const PointBuy: React.FC<Props> = ({ attributesImmutable, callbackToSetAttributes }) => {
-  const [attributes, setAttributes ] = useState<AttributeInterface[]>(attributesImmutable) 
+const PointBuy: React.FC<Props> = ({
+  attributesImmutable,
+  callbackToSetAttributes,
+}) => {
+  const [attributes, setAttributes] =
+    useState<AttributeInterface[]>(attributesImmutable)
   const [pointsRemaining, setPointsRemaining] = useState<number>(27)
   const [standardPointsPool] = useState<number>(27)
   const [standardPointCost] = useState<any>({
@@ -35,12 +38,11 @@ const PointBuy: React.FC<Props> = ({ attributesImmutable, callbackToSetAttribute
     attr: AttributeInterface,
     newAttributeScore: number
   ) => {
-    
-    const updatedAttributes = attributes.map(a => {
-        if (attr.id === a.id) {
-            a.previousAssignedScore = newAttributeScore
-        }
-        return a
+    const updatedAttributes = attributes.map((a) => {
+      if (attr.id === a.id) {
+        a.previousAssignedScore = newAttributeScore
+      }
+      return a
     })
     setAttributes(updatedAttributes)
     callbackToSetAttributes(updatedAttributes) // callback handler;
@@ -62,7 +64,8 @@ const PointBuy: React.FC<Props> = ({ attributesImmutable, callbackToSetAttribute
         const prevAttributeScore = parseInt(attr.previousAssignedScore)
 
         // if the previous score was 8, then it can be treated as a brand new selection
-        const userMadeBrandNewSelection = prevAttributeScore === 8 ? true : false
+        const userMadeBrandNewSelection =
+          prevAttributeScore === 8 ? true : false
         // therefore, we assign the new choice as the previousScore for next time
         if (userMadeBrandNewSelection) {
           // and simply decrease the remaining points
@@ -97,7 +100,8 @@ const PointBuy: React.FC<Props> = ({ attributesImmutable, callbackToSetAttribute
         }
 
         // previous higher price - new lower price = real cost decrease
-        const credit = pointCost[prevAttributeScore] - pointCost[newAttributeScore]
+        const credit =
+          pointCost[prevAttributeScore] - pointCost[newAttributeScore]
         // add the credit back to pointsRemaining
         setPointsRemaining(pointsRemaining + credit)
         //update previous with current
@@ -108,33 +112,31 @@ const PointBuy: React.FC<Props> = ({ attributesImmutable, callbackToSetAttribute
   }
 
   return (
-    <div className="content-wrap space-sequence-20">
-      <div className="text-center">
-        <div className="asi-heading">Points Remaining</div>
-        <div className="asi-points-val-total">
+    <div className='space-y-4'>
+      <div className='text-center'>
+        <div className='text-sm font-roboto font-bold uppercase'>
+          Points Remaining
+        </div>
+        <div className='text-2xl font-roboto font-bold uppercase'>
           {pointsRemaining} / {standardPointsPool}
         </div>
       </div>
       <div>
         <form onChange={handleChanges}>
-          <div className="big-ole-table-outer">
-            <div className="tbl-row">
-              {attributes.map((attr) => {
-                return (
-                  <div className="tbl-cell" key={attr.id}>
-                    <div className="asi-heading">{attr.name}</div>
-                    <div className="asi-val-select-outer">
-                      <AttributeInputBlock
-                        attribute={attr}
-                        key={attr.id}
-                        availablePoints={pointsRemaining}
-                        pointCosts={standardPointCost}
-                      ></AttributeInputBlock>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
+          <div className='grid grid-cols-6 gap-x-2'>
+            {attributes.map((attr) => {
+              return (
+                <div key={attr.id}>
+                  <div className='text-md text-center uppercase font-roboto font-bold rounded-t bg-dark text-white p-1'>{attr.name}</div>
+                    <AttributeInputBlock
+                      attribute={attr}
+                      key={attr.id}
+                      availablePoints={pointsRemaining}
+                      pointCosts={standardPointCost}
+                    ></AttributeInputBlock>
+                </div>
+              )
+            })}
           </div>
         </form>
       </div>
