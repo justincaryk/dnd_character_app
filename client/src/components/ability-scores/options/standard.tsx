@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import React, { Dispatch, SetStateAction, useState } from 'react'
 import { AttributeInterface } from '../../../lib/types'
+
 interface Props {
   attributes: AttributeInterface[]
-  callbackToSetAttributes: (attr: AttributeInterface[]) => void
+  callbackToSetAttributes: Dispatch<SetStateAction<AttributeInterface[]>>
 }
 
-interface State<T> {
-  hashTable: {
-    [key: string]: T
-  }
-}
+// interface State<T> {
+//   hashTable: {
+//     [key: string]: T
+//   }
+// }
 
 const StandardArray: React.FC<Props> = ({
   attributes,

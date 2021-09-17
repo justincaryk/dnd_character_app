@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { Dispatch, SetStateAction, useState } from 'react'
 import { AttributeInterface } from '../../../lib/types'
 import AttributeInputBlock from './attribute-input'
 
+
 interface Props {
   attributesImmutable: AttributeInterface[]
-  callbackToSetAttributes: (args: AttributeInterface[]) => void
+  callbackToSetAttributes: Dispatch<SetStateAction<AttributeInterface[]>>
 }
 
 const PointBuy: React.FC<Props> = ({

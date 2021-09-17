@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React, { Dispatch, SetStateAction, useState } from 'react'
 import { AttributeInterface } from '../../../lib/types'
 import { tryParseInt } from '../../../lib/utils'
-
 interface Props {
   attributesImmutable: AttributeInterface[]
-  callbackToSetAttributes: (args: AttributeInterface[]) => void
+  callbackToSetAttributes: Dispatch<SetStateAction<AttributeInterface[]>>
 }
 
 const ManualOption: React.FC<Props> = ({
@@ -32,6 +31,7 @@ const ManualOption: React.FC<Props> = ({
       }
       return a
     })
+    
     callbackToSetAttributes(tempAttrs) // callback handler
     setAttributes(tempAttrs)
   }
