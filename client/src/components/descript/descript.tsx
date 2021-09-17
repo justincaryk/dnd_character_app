@@ -19,62 +19,62 @@ const PhysicalCharacteristicsChunk = () => {
   return (
     <div className='space-y-4'>
       <div>
-        <strong>Physical Characteristics:</strong>
+        <strong className='text-gray-700'>Physical Characteristics:</strong>
       </div>
       <div>
         <div>
-          <strong>Hair</strong>
+          <strong className='text-gray-700'>Hair</strong>
         </div>
         <div>
-          <input className='w-full border rounded-b text-xl p-2'></input>
-        </div>
-      </div>
-      <div>
-        <div>
-          <strong>Skin</strong>
-        </div>
-        <div>
-          <input className='w-full border rounded-b text-xl p-2'></input>
+          <input className='w-full border rounded text-xl p-2'></input>
         </div>
       </div>
       <div>
         <div>
-          <strong>Eyes</strong>
+          <strong className='text-gray-700'>Skin</strong>
         </div>
         <div>
-          <input className='w-full border rounded-b text-xl p-2'></input>
-        </div>
-      </div>
-      <div>
-        <div>
-          <strong>Height</strong>
-        </div>
-        <div>
-          <input className='w-full border rounded-b text-xl p-2'></input>
+          <input className='w-full border rounded text-xl p-2'></input>
         </div>
       </div>
       <div>
         <div>
-          <strong>Weight</strong>
+          <strong className='text-gray-700'>Eyes</strong>
         </div>
         <div>
-          <input className='w-full border rounded-b text-xl p-2'></input>
-        </div>
-      </div>
-      <div>
-        <div>
-          <strong>Age</strong>
-        </div>
-        <div>
-          <input className='w-full border rounded-b text-xl p-2'></input>
+          <input className='w-full border rounded text-xl p-2'></input>
         </div>
       </div>
       <div>
         <div>
-          <strong>Gender</strong>
+          <strong className='text-gray-700'>Height</strong>
         </div>
         <div>
-          <input className='w-full border rounded-b text-xl p-2'></input>
+          <input className='w-full border rounded text-xl p-2'></input>
+        </div>
+      </div>
+      <div>
+        <div>
+          <strong className='text-gray-700'>Weight</strong>
+        </div>
+        <div>
+          <input className='w-full border rounded text-xl p-2'></input>
+        </div>
+      </div>
+      <div>
+        <div>
+          <strong className='text-gray-700'>Age</strong>
+        </div>
+        <div>
+          <input className='w-full border rounded text-xl p-2'></input>
+        </div>
+      </div>
+      <div>
+        <div>
+          <strong className='text-gray-700'>Gender</strong>
+        </div>
+        <div>
+          <input className='w-full border rounded text-xl p-2'></input>
         </div>
       </div>
     </div>
@@ -116,7 +116,7 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
           <div>{selectedBg.description}</div>
         </div>
         <div>
-          <strong>Skill Proficiencies: </strong>
+          <strong className='text-gray-700'>Skill Proficiencies: </strong>
           {
             //@ts-ignore
             JSON.parse(selectedBg.skillOptions).options.map((skill, index) => {
@@ -143,7 +143,7 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
   const languagesChunk = () => (
     <div className='space-y-4'>
       <div>
-        <strong>Languages: </strong>
+        <strong className='text-gray-700'>Languages: </strong>
         {JSON.parse(selectedBg.languageOptions).options.map(
           (language: BgOptionGenericType, index: number) => {
             const isLast =
@@ -172,7 +172,9 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
   const toolsChunk = () => (
     <div className='space-y-4'>
       <div>
-        <strong>Tool Proficiencies: </strong>
+        {JSON.parse(selectedBg.toolOptions).options.length ? (
+          <strong className='text-gray-700'>Tool Proficiencies: </strong>
+        ) : null}
         {JSON.parse(selectedBg.toolOptions).options.map(
           (tool: BgOptionGenericType, index: number) => {
             const isLast =
@@ -198,7 +200,7 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
   const bgFeatureChunk = () => (
     <div className='space-y-4'>
       <div>
-        <strong>Background Feature:</strong>
+        <strong className='text-gray-700'>Background Feature:</strong>
       </div>
       <div>{selectedBg.bgFeatureByBackgroundFeature.name}</div>
       <div>{selectedBg.bgFeatureByBackgroundFeature.description}</div>
@@ -208,7 +210,7 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
   const alternateBgFeatureChunk = () => (
     <div className='space-y-4'>
       <div>
-        <strong>Alternate Background Feature:</strong>
+        <strong className='text-gray-700'>Alternate Background Feature:</strong>
       </div>
       <div>
         <div>{selectedBg.bgFeatureByAlternateBackgroundFeature?.name}</div>
@@ -258,21 +260,21 @@ const CharDescript: React.FC = () => {
   }
 
   return (
-    <div className='space-y-4'>
+    <div className='space-y-4 max-w-screen-sm m-auto m-0'>
       <div>
         <div>
           <div>
-            <strong>Character Name:</strong>
+            <strong className='text-gray-700'>Character Name:</strong>
           </div>
-          <input className='w-full border rounded-b text-xl p-2'></input>
+          <input className='w-full border rounded text-xl p-2'></input>
         </div>
       </div>
       <div>
         <div>
-          <strong>Background:</strong>
+          <strong className='text-gray-700'>Background:</strong>
         </div>
         <div>
-          <select className='w-full border rounded-b text-xl p-2' onChange={handleBgSelection}>
+          <select className='w-full border rounded text-xl p-2' onChange={handleBgSelection}>
             <option value='' selected>
               -- Choose a Background ---
             </option>

@@ -20,6 +20,7 @@ import { HttpLink } from '@apollo/client'
 import SignOut from './components/sign-out'
 import Layout from './components/layout'
 import Home from './components/home'
+import ClassCreation from './components/class-creation/class-creation'
 
 const publicLinks: LinkType[] = [
   {
@@ -34,20 +35,20 @@ const publicLinks: LinkType[] = [
 
 const privateLinks: LinkType[] = [
   {
+    link: '/description',
+    text: '1. Description',
+  },
+  {
     link: '/races',
-    text: '1. Race',
+    text: '2. Race',
   },
   {
     link: '/asi',
-    text: '2. Abilities',
+    text: '3. Abilities',
   },
   {
-    link: '/',
-    text: '3. Class (TODO)',
-  },
-  {
-    link: '/description',
-    text: '4. Description',
+    link: '/class-creation',
+    text: '4. Class (TODO)',
   },
   {
     link: '/sheet',
@@ -166,6 +167,12 @@ const App: React.FC = () => {
                 </div>
               </Route>
 
+              <Route path='/class-creation'>
+                <div className='container'>
+                  <ClassCreation />
+                </div>
+              </Route>
+              
               <Route path='/classes'>
                 <div className='container'>
                   <Classes />

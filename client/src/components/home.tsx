@@ -4,10 +4,10 @@ const Home: React.FC = () => (
   <div className='space-y-10 mt-10'>
     <div className='flex justify-center gap-x-10 max-w-full w-full'>
       <div className='self-end relative'>
-        <a className='hover:no-underline' href='/races'>
+        <a className='hover:no-underline' href='/description'>
           <img src='/assets/strip-1.png' alt='' />
           <div className='absolute top-1/2 left-7 -translate-x-1/2 -translate-y-1/2 text-2xl font-roboto font-bold text-blue-500'>
-            Create a character
+            Create a Character
           </div>
         </a>
       </div>

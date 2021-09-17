@@ -6785,6 +6785,20 @@ export type AllBgsQuery = (
   )> }
 );
 
+export type AllClassNamesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AllClassNamesQuery = (
+  { __typename?: 'Query' }
+  & { allClasses?: Maybe<(
+    { __typename?: 'ClassesConnection' }
+    & { nodes: Array<Maybe<(
+      { __typename?: 'Class' }
+      & Pick<Class, 'name' | 'id'>
+    )>> }
+  )> }
+);
+
 export type AllClassesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -7131,6 +7145,43 @@ export function useAllBgsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<All
 export type AllBgsQueryHookResult = ReturnType<typeof useAllBgsQuery>;
 export type AllBgsLazyQueryHookResult = ReturnType<typeof useAllBgsLazyQuery>;
 export type AllBgsQueryResult = Apollo.QueryResult<AllBgsQuery, AllBgsQueryVariables>;
+export const AllClassNamesDocument = gql`
+    query AllClassNames {
+  allClasses(orderBy: NAME_ASC) {
+    nodes {
+      name
+      id
+    }
+  }
+}
+    `;
+
+/**
+ * __useAllClassNamesQuery__
+ *
+ * To run a query within a React component, call `useAllClassNamesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAllClassNamesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAllClassNamesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useAllClassNamesQuery(baseOptions?: Apollo.QueryHookOptions<AllClassNamesQuery, AllClassNamesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AllClassNamesQuery, AllClassNamesQueryVariables>(AllClassNamesDocument, options);
+      }
+export function useAllClassNamesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllClassNamesQuery, AllClassNamesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AllClassNamesQuery, AllClassNamesQueryVariables>(AllClassNamesDocument, options);
+        }
+export type AllClassNamesQueryHookResult = ReturnType<typeof useAllClassNamesQuery>;
+export type AllClassNamesLazyQueryHookResult = ReturnType<typeof useAllClassNamesLazyQuery>;
+export type AllClassNamesQueryResult = Apollo.QueryResult<AllClassNamesQuery, AllClassNamesQueryVariables>;
 export const AllClassesDocument = gql`
     query AllClasses {
   allClasses(orderBy: NAME_ASC) {
