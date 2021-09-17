@@ -95,7 +95,7 @@ const Subtable: React.FC<ISubtableProps> = ({ features, tableGroups, subclassTab
   ]
   const showSpellSlotsHeader = (tableGroups && tableGroups?.classTableGroups?.find((x: any)=> x.title)) || (subclassTableGroups && subclassTableGroups.find((x: any)=> x.title))
   return (
-    <div className='text-sm'>
+    <div className='text-sm bg-white border rounded'>
       {showSpellSlotsHeader &&
         <div className='pt-2 pr-2 font-semibold w-full text-right'>
           Spell Slots Per Spell Level

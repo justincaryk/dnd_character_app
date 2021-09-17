@@ -29,7 +29,7 @@ const ClassSummary: React.FC<Props> = ({gen}) => {
   }
 
   return (
-    <div className='border text-sm shadow-sm space-y-3 max-w-sm mr-4 p-3'>
+    <div className='border rounded bg-white text-sm shadow-sm space-y-3 max-w-sm mr-4 p-3'>
       <div>
         <div className='text-base mb-1'>Hit Points</div>
         <div>

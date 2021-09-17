@@ -34,33 +34,49 @@ const ListType: React.FC<IListType> = ({ entry }) => (
 )
 
 interface IEntryType {
-  entry: {
-    name: string
-    entries: any[]
-  }
+  entry: any // worst data model ever
 }
 
-const EntryType: React.FC<IEntryType> = ({ entry }) => (
-  <div className='space-y-1'>
-    <div className='font-bold'>{entry.name}.</div>
-    {entry.entries.map((e, i) => {
-      if (typeof e == 'string') {
-        return <div key={e}>{e}</div>
-      }
+const EntryType: React.FC<IEntryType> = ({ entry }) => {
+  if (typeof entry === 'string') {
+    return <div>{entry}</div>
+  } else if (entry.entries) {
+    return (
+      <div className='space-y-1'>
+        <div className='font-bold'>{entry.name}.</div>
+        {entry.entries.map((e: any, i: number) => {
+          if (typeof e == 'string') {
+            return <div key={e}>{e}</div>
+          }
 
-      const predicate = e.type.toLowerCase() === 'abilitydc' ? 'save DC' : 'attack modifier'
+          const predicate =
+            e.type.toLowerCase() === 'abilitydc' ? 'save DC' : 'attack modifier'
 
-        return (
-          <div key={i} className='font-bold text-center'>
-            <strong>
-              {e.name} {predicate} = 8 + your proficiency bonus + your{' '}
-              <span className='capitalize'>{e.attributes[0]}</span> modifier
-            </strong>
-          </div>
-        ) 
-    })}
-  </div>
-)
+          return (
+            <div key={i} className='font-bold text-center'>
+              <strong>
+                {e.name} {predicate} = 8 + your proficiency bonus + your{' '}
+                <span className='capitalize'>{e.attributes[0]}</span> modifier
+              </strong>
+            </div>
+          )
+        })}
+      </div>
+    )
+  } else {
+    const predicate =
+      entry.type.toLowerCase() === 'abilitydc' ? 'save DC' : 'attack modifier'
+
+    return (
+      <div className='font-bold text-center'>
+        <strong>
+          {entry.name} {predicate} = 8 + your proficiency bonus + your{' '}
+          <span className='capitalize'>{entry.attributes[0]}</span> modifier
+        </strong>
+      </div>
+    )
+  }
+}
 
 interface ITableType {
   entry: {
@@ -110,7 +126,7 @@ const Features: React.FC<IFeatureProps> = ({ features }) => {
   return (
     <div className='space-y-2'>
       {features2.map((x) => (
-        <div className='border p-2 text-sm shadow-sm' key={x.id}>
+        <div className='border p-2 text-sm shadow-sm rounded bg-white' key={x.id}>
           <div
             className={
               x.subclassShortName
