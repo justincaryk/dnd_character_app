@@ -35,42 +35,42 @@ const publicLinks: LinkType[] = [
 
 const privateLinks: LinkType[] = [
   {
-    link: '/description',
+    link: '/create/description',
     text: '1. Description',
   },
   {
-    link: '/races',
+    link: '/create/races',
     text: '2. Race',
   },
   {
-    link: '/asi',
+    link: '/create/asi',
     text: '3. Abilities',
   },
   {
-    link: '/class-creation',
+    link: '/create/class',
     text: '4. Class (TODO)',
   },
   {
-    link: '/sheet',
+    link: '/create/sheet',
     text: '5. Character Sheet',
   },
   {
-    link: '/spells',
+    link: '/view/spells',
     text: 'View Spells',
   },
   {
-    link: '/feats',
+    link: '/view/feats',
     text: 'View Feats',
   },
   {
-    link: '/classes',
+    link: '/view/classes',
     text: 'View Classes',
   },
-  {
-    link: '/signout',
-    text: 'Signout',
-  },
 ]
+const signout = {
+  link: '/signout',
+  text: 'Signout',
+}
 
 const App: React.FC = () => {
   const authToken = localStorage.getItem(AUTH_TOKEN)
@@ -147,7 +147,7 @@ const App: React.FC = () => {
         <Router>
           <Switch>
             <Layout>
-              <NavBar links={privateLinks} />
+              <NavBar links={privateLinks} signout={signout} />
 
               <Route exact path='/'>
                 <div className='container'>
@@ -155,53 +155,54 @@ const App: React.FC = () => {
                 </div>
               </Route>
 
-              <Route path='/races'>
+              <Route path='/create/races'>
                 <div className='container'>
                   <RaceSelectionForm />
                 </div>
               </Route>
 
-              <Route path='/asi'>
+              <Route path='/create/asi'>
                 <div className='container'>
                   <AsiGenerator />
                 </div>
               </Route>
 
-              <Route path='/class-creation'>
+              <Route path='/create/class'>
                 <div className='container'>
                   <ClassCreation />
                 </div>
               </Route>
               
-              <Route path='/classes'>
-                <div className='container'>
-                  <Classes />
-                </div>
-              </Route>
-
-              <Route path='/description'>
+              <Route path='/create/description'>
                 <div className='container'>
                   <CharDescription />
                 </div>
               </Route>
 
-              <Route path='/spells'>
+              <Route path='/create/sheet'>
+                <div className=''>
+                  <CharacterSheet />
+                </div>
+              </Route>
+
+              <Route path='/view/classes'>
+                <div className='container'>
+                  <Classes />
+                </div>
+              </Route>
+
+              <Route path='/view/spells'>
                 <div className='container spells'>
                   <SpellsSelector />
                 </div>
               </Route>
 
-              <Route path='/feats'>
+              <Route path='/view/feats'>
                 <div className='container'>
                   <Feats />
                 </div>
               </Route>
 
-              <Route path='/sheet'>
-                <div className=''>
-                  <CharacterSheet />
-                </div>
-              </Route>
 
               <Route path='/signout'>
                 <div className=''>
