@@ -19,6 +19,7 @@ import { setContext } from '@apollo/client/link/context'
 import { HttpLink } from '@apollo/client'
 import SignOut from './components/sign-out'
 import Layout from './components/layout'
+import Home from './components/home'
 
 const publicLinks: LinkType[] = [
   {
@@ -70,14 +71,12 @@ const privateLinks: LinkType[] = [
   },
 ]
 
-const Home = () => <div className='layout container text-white text-3xl'>Home.</div>
-
 const App: React.FC = () => {
   const authToken = localStorage.getItem(AUTH_TOKEN)
 
   if (!authToken) {
     const client = new ApolloClient({
-      uri: '/graphql',
+      uri: process.env.NODE_ENV === 'development' ? 'http://localhost:8080/graphql' :'/graphql',
       cache: new InMemoryCache(),
     })
     return (
@@ -113,7 +112,7 @@ const App: React.FC = () => {
     )
   } else {
     const link = new HttpLink({
-      uri: '/graphql',
+      uri: process.env.NODE_ENV === 'development' ? 'http://localhost:8080/graphql' :'/graphql',
       // Additional options
     })
 
@@ -150,7 +149,9 @@ const App: React.FC = () => {
               <NavBar links={privateLinks} />
 
               <Route exact path='/'>
-                <Home />
+                <div className='container'>
+                  <Home />
+                </div>
               </Route>
 
               <Route path='/races'>
