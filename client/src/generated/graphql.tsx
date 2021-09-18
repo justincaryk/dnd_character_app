@@ -458,6 +458,7 @@ export type ClassFeature = Node & {
   classSource?: Maybe<Scalars['String']>;
   level?: Maybe<Scalars['Int']>;
   entries?: Maybe<Scalars['JSON']>;
+  hasOptions?: Maybe<Scalars['Boolean']>;
   /** Reads a single `Class` that is related to this `ClassFeature`. */
   classByClassId?: Maybe<Class>;
 };
@@ -485,6 +486,8 @@ export type ClassFeatureCondition = {
   level?: Maybe<Scalars['Int']>;
   /** Checks for equality with the object’s `entries` field. */
   entries?: Maybe<Scalars['JSON']>;
+  /** Checks for equality with the object’s `hasOptions` field. */
+  hasOptions?: Maybe<Scalars['Boolean']>;
 };
 
 /** An input for mutations affecting `ClassFeature` */
@@ -498,6 +501,7 @@ export type ClassFeatureInput = {
   classSource?: Maybe<Scalars['String']>;
   level?: Maybe<Scalars['Int']>;
   entries?: Maybe<Scalars['JSON']>;
+  hasOptions?: Maybe<Scalars['Boolean']>;
 };
 
 /** Represents an update to a `ClassFeature`. Fields that are set will be updated. */
@@ -511,6 +515,7 @@ export type ClassFeaturePatch = {
   classSource?: Maybe<Scalars['String']>;
   level?: Maybe<Scalars['Int']>;
   entries?: Maybe<Scalars['JSON']>;
+  hasOptions?: Maybe<Scalars['Boolean']>;
 };
 
 /** A connection to a list of `ClassFeature` values. */
@@ -556,6 +561,8 @@ export enum ClassFeaturesOrderBy {
   LevelDesc = 'LEVEL_DESC',
   EntriesAsc = 'ENTRIES_ASC',
   EntriesDesc = 'ENTRIES_DESC',
+  HasOptionsAsc = 'HAS_OPTIONS_ASC',
+  HasOptionsDesc = 'HAS_OPTIONS_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -1082,6 +1089,39 @@ export type CreateFeatPayload = {
 /** The output of our create `Feat` mutation. */
 export type CreateFeatPayloadFeatEdgeArgs = {
   orderBy?: Maybe<Array<FeatsOrderBy>>;
+};
+
+/** All input for the create `FightingStyle` mutation. */
+export type CreateFightingStyleInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `FightingStyle` to be created by this mutation. */
+  fightingStyle: FightingStyleInput;
+};
+
+/** The output of our create `FightingStyle` mutation. */
+export type CreateFightingStylePayload = {
+  __typename?: 'CreateFightingStylePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `FightingStyle` that was created by this mutation. */
+  fightingStyle?: Maybe<FightingStyle>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `FightingStyle`. May be used by Relay 1. */
+  fightingStyleEdge?: Maybe<FightingStylesEdge>;
+};
+
+
+/** The output of our create `FightingStyle` mutation. */
+export type CreateFightingStylePayloadFightingStyleEdgeArgs = {
+  orderBy?: Maybe<Array<FightingStylesOrderBy>>;
 };
 
 /** All input for the create `KnexMigration` mutation. */
@@ -2701,6 +2741,7 @@ export type Feat = {
   desc: Scalars['String'];
   points?: Maybe<Array<Maybe<Scalars['String']>>>;
   prereq?: Maybe<Scalars['String']>;
+  scores?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 /** A condition to be used against `Feat` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -2715,6 +2756,8 @@ export type FeatCondition = {
   points?: Maybe<Array<Maybe<Scalars['String']>>>;
   /** Checks for equality with the object’s `prereq` field. */
   prereq?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `scores` field. */
+  scores?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 /** An input for mutations affecting `Feat` */
@@ -2724,6 +2767,7 @@ export type FeatInput = {
   desc: Scalars['String'];
   points?: Maybe<Array<Maybe<Scalars['String']>>>;
   prereq?: Maybe<Scalars['String']>;
+  scores?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 /** Represents an update to a `Feat`. Fields that are set will be updated. */
@@ -2733,6 +2777,7 @@ export type FeatPatch = {
   desc?: Maybe<Scalars['String']>;
   points?: Maybe<Array<Maybe<Scalars['String']>>>;
   prereq?: Maybe<Scalars['String']>;
+  scores?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 /** A connection to a list of `Feat` values. */
@@ -2769,7 +2814,87 @@ export enum FeatsOrderBy {
   PointsAsc = 'POINTS_ASC',
   PointsDesc = 'POINTS_DESC',
   PrereqAsc = 'PREREQ_ASC',
-  PrereqDesc = 'PREREQ_DESC'
+  PrereqDesc = 'PREREQ_DESC',
+  ScoresAsc = 'SCORES_ASC',
+  ScoresDesc = 'SCORES_DESC'
+}
+
+export type FightingStyle = {
+  __typename?: 'FightingStyle';
+  fightingStyleId?: Maybe<Scalars['UUID']>;
+  name?: Maybe<Scalars['String']>;
+  source?: Maybe<Scalars['String']>;
+  page?: Maybe<Scalars['Int']>;
+  entries?: Maybe<Scalars['JSON']>;
+  options?: Maybe<Scalars['JSON']>;
+};
+
+/**
+ * A condition to be used against `FightingStyle` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type FightingStyleCondition = {
+  /** Checks for equality with the object’s `fightingStyleId` field. */
+  fightingStyleId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `name` field. */
+  name?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `source` field. */
+  source?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `page` field. */
+  page?: Maybe<Scalars['Int']>;
+  /** Checks for equality with the object’s `entries` field. */
+  entries?: Maybe<Scalars['JSON']>;
+  /** Checks for equality with the object’s `options` field. */
+  options?: Maybe<Scalars['JSON']>;
+};
+
+/** An input for mutations affecting `FightingStyle` */
+export type FightingStyleInput = {
+  fightingStyleId?: Maybe<Scalars['UUID']>;
+  name?: Maybe<Scalars['String']>;
+  source?: Maybe<Scalars['String']>;
+  page?: Maybe<Scalars['Int']>;
+  entries?: Maybe<Scalars['JSON']>;
+  options?: Maybe<Scalars['JSON']>;
+};
+
+/** A connection to a list of `FightingStyle` values. */
+export type FightingStylesConnection = {
+  __typename?: 'FightingStylesConnection';
+  /** A list of `FightingStyle` objects. */
+  nodes: Array<Maybe<FightingStyle>>;
+  /** A list of edges which contains the `FightingStyle` and cursor to aid in pagination. */
+  edges: Array<FightingStylesEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `FightingStyle` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `FightingStyle` edge in the connection. */
+export type FightingStylesEdge = {
+  __typename?: 'FightingStylesEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `FightingStyle` at the end of the edge. */
+  node?: Maybe<FightingStyle>;
+};
+
+/** Methods to use when ordering `FightingStyle`. */
+export enum FightingStylesOrderBy {
+  Natural = 'NATURAL',
+  FightingStyleIdAsc = 'FIGHTING_STYLE_ID_ASC',
+  FightingStyleIdDesc = 'FIGHTING_STYLE_ID_DESC',
+  NameAsc = 'NAME_ASC',
+  NameDesc = 'NAME_DESC',
+  SourceAsc = 'SOURCE_ASC',
+  SourceDesc = 'SOURCE_DESC',
+  PageAsc = 'PAGE_ASC',
+  PageDesc = 'PAGE_DESC',
+  EntriesAsc = 'ENTRIES_ASC',
+  EntriesDesc = 'ENTRIES_DESC',
+  OptionsAsc = 'OPTIONS_ASC',
+  OptionsDesc = 'OPTIONS_DESC'
 }
 
 
@@ -3111,6 +3236,8 @@ export type Mutation = {
   createEquipment?: Maybe<CreateEquipmentPayload>;
   /** Creates a single `Feat`. */
   createFeat?: Maybe<CreateFeatPayload>;
+  /** Creates a single `FightingStyle`. */
+  createFightingStyle?: Maybe<CreateFightingStylePayload>;
   /** Creates a single `KnexMigration`. */
   createKnexMigration?: Maybe<CreateKnexMigrationPayload>;
   /** Creates a single `KnexMigrationsLock`. */
@@ -3341,6 +3468,12 @@ export type MutationCreateEquipmentArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateFeatArgs = {
   input: CreateFeatInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateFightingStyleArgs = {
+  input: CreateFightingStyleInput;
 };
 
 
@@ -3926,6 +4059,8 @@ export type Query = Node & {
   allEquipment?: Maybe<EquipmentConnection>;
   /** Reads and enables pagination through a set of `Feat`. */
   allFeats?: Maybe<FeatsConnection>;
+  /** Reads and enables pagination through a set of `FightingStyle`. */
+  allFightingStyles?: Maybe<FightingStylesConnection>;
   /** Reads and enables pagination through a set of `KnexMigration`. */
   allKnexMigrations?: Maybe<KnexMigrationsConnection>;
   /** Reads and enables pagination through a set of `KnexMigrationsLock`. */
@@ -4116,6 +4251,18 @@ export type QueryAllFeatsArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<FeatsOrderBy>>;
   condition?: Maybe<FeatCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAllFightingStylesArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<FightingStylesOrderBy>>;
+  condition?: Maybe<FightingStyleCondition>;
 };
 
 
@@ -6855,7 +7002,7 @@ export type AllFeatsQuery = (
     { __typename?: 'FeatsConnection' }
     & { feats: Array<Maybe<(
       { __typename?: 'Feat' }
-      & Pick<Feat, 'id' | 'name' | 'desc' | 'points' | 'prereq'>
+      & Pick<Feat, 'id' | 'name' | 'desc' | 'points' | 'prereq' | 'scores'>
     )>> }
   )> }
 );
@@ -6942,6 +7089,54 @@ export type GetAllSpellsQuery = (
     & { spells: Array<Maybe<(
       { __typename?: 'Spell' }
       & Pick<Spell, 'archetype' | 'castingTime' | 'circles' | 'components' | 'concentration' | 'desc' | 'dndClass' | 'duration' | 'higherLevel' | 'levelInt' | 'level' | 'material' | 'name' | 'page' | 'range' | 'ritual' | 'school' | 'slug'>
+    )>> }
+  )> }
+);
+
+export type ClassByIdQueryVariables = Exact<{
+  id: Scalars['UUID'];
+}>;
+
+
+export type ClassByIdQuery = (
+  { __typename?: 'Query' }
+  & { classById?: Maybe<(
+    { __typename?: 'Class' }
+    & Pick<Class, 'name' | 'id' | 'cantripProgression' | 'casterProgression' | 'classFeatures' | 'hdFaces' | 'hdNumber' | 'meta' | 'multiclassing' | 'optionalFeatureProgression' | 'page' | 'preparedSpells' | 'proficiency' | 'source' | 'spellcastingAbility' | 'spellsKnownProgression' | 'spellsKnownProgressionFixed' | 'spellsKnownProgressionFixedAllowLowerLevel' | 'spellsKnownProgressionFixedByLevel' | 'srd' | 'startingEquipment' | 'startingProficiencies' | 'subclassTitle'>
+    & { subclassesByClassId: (
+      { __typename?: 'SubclassesConnection' }
+      & { nodes: Array<Maybe<(
+        { __typename?: 'Subclass' }
+        & Pick<Subclass, 'additionalSpells' | 'cantripProgression' | 'casterProgression' | 'name' | 'page' | 'shortName' | 'source' | 'spellcastingAbility' | 'spellsKnownProgression' | 'subclassFeatures' | 'subclassTableGroups' | 'id' | 'preparedSpells'>
+      )>> }
+    ), subclassFeaturesByClassId: (
+      { __typename?: 'SubclassFeaturesConnection' }
+      & { nodes: Array<Maybe<(
+        { __typename?: 'SubclassFeature' }
+        & Pick<SubclassFeature, 'entries' | 'id' | 'level' | 'isClassFeatureVariant' | 'nodeId' | 'name' | 'page' | 'subclassShortName' | 'subclassSource' | 'source'>
+      )>> }
+    ), classFeaturesByClassId: (
+      { __typename?: 'ClassFeaturesConnection' }
+      & { nodes: Array<Maybe<(
+        { __typename?: 'ClassFeature' }
+        & Pick<ClassFeature, 'id' | 'entries' | 'classSource' | 'isClassFeatureVariant' | 'level' | 'name' | 'page' | 'source' | 'hasOptions'>
+      )>> }
+    ) }
+  )> }
+);
+
+export type FightingStyleByNameQueryVariables = Exact<{
+  name: Scalars['String'];
+}>;
+
+
+export type FightingStyleByNameQuery = (
+  { __typename?: 'Query' }
+  & { allFightingStyles?: Maybe<(
+    { __typename?: 'FightingStylesConnection' }
+    & { nodes: Array<Maybe<(
+      { __typename?: 'FightingStyle' }
+      & Pick<FightingStyle, 'fightingStyleId' | 'name' | 'entries' | 'options'>
     )>> }
   )> }
 );
@@ -7329,6 +7524,7 @@ export const AllFeatsDocument = gql`
       desc
       points
       prereq
+      scores
     }
   }
 }
@@ -7559,3 +7755,144 @@ export function useGetAllSpellsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptio
 export type GetAllSpellsQueryHookResult = ReturnType<typeof useGetAllSpellsQuery>;
 export type GetAllSpellsLazyQueryHookResult = ReturnType<typeof useGetAllSpellsLazyQuery>;
 export type GetAllSpellsQueryResult = Apollo.QueryResult<GetAllSpellsQuery, GetAllSpellsQueryVariables>;
+export const ClassByIdDocument = gql`
+    query ClassById($id: UUID!) {
+  classById(id: $id) {
+    name
+    id
+    cantripProgression
+    casterProgression
+    classFeatures
+    hdFaces
+    hdNumber
+    meta
+    multiclassing
+    optionalFeatureProgression
+    page
+    preparedSpells
+    proficiency
+    source
+    spellcastingAbility
+    spellsKnownProgression
+    spellsKnownProgressionFixed
+    spellsKnownProgressionFixedAllowLowerLevel
+    spellsKnownProgressionFixedByLevel
+    srd
+    startingEquipment
+    startingProficiencies
+    subclassTitle
+    subclassesByClassId {
+      nodes {
+        additionalSpells
+        cantripProgression
+        casterProgression
+        name
+        page
+        shortName
+        source
+        spellcastingAbility
+        spellsKnownProgression
+        subclassFeatures
+        subclassTableGroups
+        id
+        preparedSpells
+      }
+    }
+    subclassFeaturesByClassId(orderBy: NAME_ASC) {
+      nodes {
+        entries
+        id
+        level
+        isClassFeatureVariant
+        nodeId
+        name
+        page
+        subclassShortName
+        subclassSource
+        source
+      }
+    }
+    classFeaturesByClassId(orderBy: LEVEL_ASC) {
+      nodes {
+        id
+        entries
+        classSource
+        isClassFeatureVariant
+        level
+        name
+        page
+        source
+        hasOptions
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useClassByIdQuery__
+ *
+ * To run a query within a React component, call `useClassByIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useClassByIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useClassByIdQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useClassByIdQuery(baseOptions: Apollo.QueryHookOptions<ClassByIdQuery, ClassByIdQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ClassByIdQuery, ClassByIdQueryVariables>(ClassByIdDocument, options);
+      }
+export function useClassByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ClassByIdQuery, ClassByIdQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ClassByIdQuery, ClassByIdQueryVariables>(ClassByIdDocument, options);
+        }
+export type ClassByIdQueryHookResult = ReturnType<typeof useClassByIdQuery>;
+export type ClassByIdLazyQueryHookResult = ReturnType<typeof useClassByIdLazyQuery>;
+export type ClassByIdQueryResult = Apollo.QueryResult<ClassByIdQuery, ClassByIdQueryVariables>;
+export const FightingStyleByNameDocument = gql`
+    query FightingStyleByName($name: String!) {
+  allFightingStyles(condition: {name: $name}) {
+    nodes {
+      fightingStyleId
+      name
+      entries
+      options
+    }
+  }
+}
+    `;
+
+/**
+ * __useFightingStyleByNameQuery__
+ *
+ * To run a query within a React component, call `useFightingStyleByNameQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFightingStyleByNameQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFightingStyleByNameQuery({
+ *   variables: {
+ *      name: // value for 'name'
+ *   },
+ * });
+ */
+export function useFightingStyleByNameQuery(baseOptions: Apollo.QueryHookOptions<FightingStyleByNameQuery, FightingStyleByNameQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<FightingStyleByNameQuery, FightingStyleByNameQueryVariables>(FightingStyleByNameDocument, options);
+      }
+export function useFightingStyleByNameLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<FightingStyleByNameQuery, FightingStyleByNameQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<FightingStyleByNameQuery, FightingStyleByNameQueryVariables>(FightingStyleByNameDocument, options);
+        }
+export type FightingStyleByNameQueryHookResult = ReturnType<typeof useFightingStyleByNameQuery>;
+export type FightingStyleByNameLazyQueryHookResult = ReturnType<typeof useFightingStyleByNameLazyQuery>;
+export type FightingStyleByNameQueryResult = Apollo.QueryResult<FightingStyleByNameQuery, FightingStyleByNameQueryVariables>;

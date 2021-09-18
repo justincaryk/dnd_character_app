@@ -48,7 +48,7 @@ const privateLinks: LinkType[] = [
   },
   {
     link: '/create/class',
-    text: '4. Class (TODO)',
+    text: '4. Class',
   },
   {
     link: '/create/sheet',

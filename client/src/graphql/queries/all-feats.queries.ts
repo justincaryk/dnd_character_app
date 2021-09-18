@@ -9,6 +9,7 @@ export default gql`
                 desc
                 points
                 prereq
+                scores
             }
         }
     }

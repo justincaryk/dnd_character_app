@@ -1,6 +1,7 @@
 import React from 'react'
 import { LinkType } from './../lib/types'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useHistory } from 'react-router-dom'
+import classnames from 'classnames'
 
 interface Props {
   links: LinkType[]
@@ -11,57 +12,69 @@ interface Props {
 const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
   const location = useLocation()
   const subpath = location.pathname.split(new RegExp('/(?<name>[^>]+)/'))[1]
+  const history = useHistory()
 
   return (
-    <div className='h-38 w-full bg-stone z-10'>
-      {!isPublic && (
-        <div className='px-6 pb-3 pt-24 -mt-20 bg-black w-full '>
-          <div className='flex justify-between items-center'>
-            <a className='hover:no-underline' href={'/'}>
-              <img
-                className='w-20'
-                src='/DD-Logo-1024x487.png'
-                alt='broken logo'
-              />
-            </a>
-            {signout && (
-              <a
-                className='text-off-white font-roboto uppercase hover:text-hover-white hover:no-underline'
-                href={signout.link}
+    <div className={classnames({'mb-12': location.pathname !== '/create/sheet'})}>
+      <div className='h-38 w-full bg-stone z-10'>
+        {!isPublic && (
+          <div
+            className={classnames({
+              'px-6 pt-3 bg-black w-full': true,
+              'pb-5': location.pathname == '/create/sheet',
+              'pb-3': location.pathname !== '/create/sheet',
+            })}
+          >
+            <div className='flex justify-between items-center'>
+              <button
+                className='hover:no-underline outline-none'
+                onClick={() => history.push('/')}
               >
-                {signout.text}
-              </a>
+                <img
+                  className='w-20'
+                  src='/DD-Logo-1024x487.png'
+                  alt='broken logo'
+                />
+              </button>
+              {signout && (
+                <button
+                  className='text-off-white font-roboto uppercase hover:text-hover-white hover:no-underline cursor-pointer outline-none'
+                  onClick={() => history.push(signout.link)}
+                >
+                  {signout.text}
+                </button>
+              )}
+            </div>
+          </div>
+        )}
+        {subpath && location.pathname !== '/create/sheet' && (
+          <div className='relative px-5 py-6'>
+            <div className='flex w-full justify-between items-center text-sm'>
+              {links
+                .filter((x) => x.link.indexOf(subpath) > -1)
+                .map((x) => (
+                  <div key={x.text}>
+                    <button
+                      className='text-off-white font-roboto uppercase hover:text-hover-white hover:no-underline cursor-pointer outline-none'
+                      onClick={() => history.push(x.link)}
+                    >
+                      {x.text}
+                    </button>
+                  </div>
+                ))}
+            </div>
+            {isPublic && (
+              <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+                <img
+                  className='w-24'
+                  src='DD-Logo-1024x487.png'
+                  alt='broken logo'
+                />
+              </div>
             )}
           </div>
-        </div>
-      )}
-      {subpath && (
-        <div className='relative px-5 py-6 mb-12'>
-          <div className='flex w-full justify-between items-center text-sm'>
-            {links
-              .filter((x) => x.link.indexOf(subpath) > -1)
-              .map((x) => (
-                <div key={x.text}>
-                  <a
-                    className='text-off-white font-roboto uppercase hover:text-hover-white hover:no-underline'
-                    href={x.link}
-                  >
-                    {x.text}
-                  </a>
-                </div>
-              ))}
-          </div>
-          {isPublic && (
-            <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
-              <img
-                className='w-24'
-                src='DD-Logo-1024x487.png'
-                alt='broken logo'
-              />
-            </div>
-          )}
-        </div>
-      )}
+        )}
+      </div>
     </div>
   )
 }

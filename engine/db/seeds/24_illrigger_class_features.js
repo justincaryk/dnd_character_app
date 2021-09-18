@@ -40,95 +40,27 @@ exports.seed = knex => (
                 },
                 {
                     name: 'Fighting Style',
-                    source: 'PHB',
+                    source: 'MCDM',
                     page: 82,
-                    class_source: 'PHB',
+                    class_source: 'MCDM',
                     level: 2,
                     entries: {
                         e: [
                             "At 2nd level, you choose an illrigger fighting style:",
                             {
-                                type: 'options',
-                                count: 1,
-                                entries: [
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Treachery',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Bravado',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Schemes',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Lies',
-                                    },
-                                ],
+                                type: 'fightStyleOptions',
+                                options: {
+                                    choose: {
+                                        count: 1,
+                                        from: ['Treachery', 'Bravado', 'Schemes', 'Lies']
+                                    }
+                                },
                             },
                         ],
                     },
                     id: uuidv4(),
-                    class_id: 'cf3cd010-8db3-4956-9f4f-0f3da3739e22'
-                },
-                {
-                    name: 'Fighting Style||Treachery',
-                    source: 'MDCDM',
-                    page: 8,
-                    class_source: 'MCDM',
-                    level: 2,
-                    entries: {
-                        e: [
-                            'When you attack an enemy who has none of your allies adjacent to it, you gain a +3 bonus to damage rolls.'
-                        ],
-                    },
-                    id: uuidv4(),
-                    class_id: '4e5a19eb-13d0-4925-a4f3-0a9733707329',
-                },
-                {
-                    name: 'Fighting Style||Bravado',
-                    source: 'MDCDM',
-                    page: 8,
-                    class_source: 'MCDM',
-                    level: 2,
-                    entries: {
-                        e: [
-                            'When you attack an enemy who has none of your allies adjacent to it, you gain a +3 bonus to damage rolls.'
-                        ],
-                    },
-                    id: uuidv4(),
-                    class_id: '4e5a19eb-13d0-4925-a4f3-0a9733707329',
-                },
-                {
-                    name: 'Fighting Style||Schemes',
-                    source: 'MDCDM',
-                    page: 8,
-                    class_source: 'MCDM',
-                    level: 2,
-                    entries: {
-                        e: [
-                            'While you wield a melee weapon in one hand and no other weapons, you can use your reaction after an adjacent enemy attacks you to move into any other unoccupied space within five feet of the attacking enemy. This movement does not provoke an opportunity attack.'
-                        ],
-                    },
-                    id: uuidv4(),
-                    class_id: '4e5a19eb-13d0-4925-a4f3-0a9733707329',
-                },
-                {
-                    name: 'Fighting Style||Lies',
-                    source: 'MDCDM',
-                    page: 8,
-                    class_source: 'MCDM',
-                    level: 2,
-                    entries: {
-                        e: [
-                            'When you attack with a two-handed melee weapon, you can use your Charisma modifier, instead of your Strength modifier, for both the attack and damage rolls.'
-                        ],
-                    },
-                    id: uuidv4(),
-                    class_id: '4e5a19eb-13d0-4925-a4f3-0a9733707329',
+                    has_options: true,
+                    class_id: '4e5a19eb-13d0-4925-a4f3-0a9733707329'
                 },
                 {
                     name: 'Baleful Interdict',

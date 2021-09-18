@@ -532,8 +532,18 @@ exports.seed = knex => (
                         e: [
                             'At 3rd level, choose two of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.',
                             'At 10th level, you can choose another two skill proficiencies to gain this benefit.',
+                            {
+                                type: 'skillOptions',
+                                options: {
+                                    choose: {
+                                        count: 2,
+                                        from: 'known'
+                                    }
+                                }
+                            }
                         ],
                     },
+                    has_options: true,
                     id: uuidv4(),
                     class_id: '29861b2c-0473-4171-84b0-cdc430a134ef',
                 },
@@ -677,8 +687,18 @@ exports.seed = knex => (
                     entries: {
                         e: [
                             'At 10th level, you can choose another two skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.',
+                            {
+                                type: 'skillOptions',
+                                options: {
+                                    choose: {
+                                        count: 2,
+                                        from: 'known'
+                                    }
+                                }
+                            }
                         ],
                     },
+                    has_options: true,
                     id: uuidv4(),
                     class_id: '29861b2c-0473-4171-84b0-cdc430a134ef',
                 },
@@ -693,8 +713,18 @@ exports.seed = knex => (
                             'By 10th level, you have plundered magical knowledge from a wide spectrum of disciplines. Choose two spells from any classes, including this one. A spell you choose must be of a level you can cast, as shown on the Bard table, or a cantrip.',
                             'The chosen spells count as bard spells for you and are included in the number in the Spells Known column of the Bard table.',
                             'You learn two additional spells from any classes at 14th level and again at 18th level.',
+                            {
+                                type: 'magicalSecretOptions',
+                                options: {
+                                    choose: {
+                                        count: 2,
+                                        from: 'any'
+                                    }
+                                }
+                            }
                         ],
                     },
+                    has_options: true,
                     id: uuidv4(),
                     class_id: '29861b2c-0473-4171-84b0-cdc430a134ef',
                 },
@@ -749,8 +779,18 @@ exports.seed = knex => (
                         e: [
                             'At 14th level, choose two additional spells from any classes, including this one. A spell you choose must be of a level you can cast, as shown on the Bard table, or a cantrip.',
                             'The chosen spells count as bard spells for you and are included in the number in the Spells Known column of the Bard table.',
+                            {
+                                type: 'magicalSecretOptions',
+                                options: {
+                                    choose: {
+                                        count: 2,
+                                        from: 'any'
+                                    }
+                                }
+                            }
                         ],
                     },
+                    has_options: true,
                     id: uuidv4(),
                     class_id: '29861b2c-0473-4171-84b0-cdc430a134ef',
                 },
@@ -805,9 +845,19 @@ exports.seed = knex => (
                         e: [
                             'At 18th level, choose two additional spells from any class, including this one. A spell you choose must be of a level you can cast, as shown on the Bard table, or a cantrip.',
                             'The chosen spells count as bard spells for you and are included in the number in the Spells Known column of the Bard table.',
+                            {
+                                type: 'magicalSecretOptions',
+                                options: {
+                                    choose: {
+                                        count: 2,
+                                        from: 'any'
+                                    }
+                                }
+                            }
                         ],
                     },
                     id: uuidv4(),
+                    has_options: true,
                     class_id: '29861b2c-0473-4171-84b0-cdc430a134ef',
                 },
                 {
@@ -1604,89 +1654,17 @@ exports.seed = knex => (
                         e: [
                             "You adopt a particular style of fighting as your specialty. Choose one of the following options. You can't take the same Fighting Style option more than once, even if you get to choose again.",
                             {
-                                type: 'options',
-                                count: 1,
-                                entries: [
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Archery',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Close Quarters Shooter|UALightDarkUnderdark',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Defense',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Dueling',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Great Weapon Fighting',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Mariner|UAWaterborneAdventures',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Protection',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Tunnel Fighter|UALightDarkUnderdark',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Two-Weapon Fighting',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Superior Technique|UAClassFeatureVariants',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Blind Fighting|UAClassFeatureVariants',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Interception|UAClassFeatureVariants',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Thrown Weapon Fighting|UAClassFeatureVariants',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Unarmed Fighting|UAClassFeatureVariants',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Blind Fighting|TCE',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Interception|TCE',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Superior Technique|TCE',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Thrown Weapon Fighting|TCE',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Unarmed Fighting|TCE',
-                                    },
-                                ],
+                                type: 'fightStyleOptions',
+                                options: {
+                                    choose: {
+                                        count: 1,
+                                        from: ['Archery', 'Defense', 'Dueling', 'Great Weapon Fighting', 'Protection', 'Two-Weapon Fighting', 'Blind Fighting', 'Interception','Superior Technique','Thrown Weapon Fighting','Unarmed Fighting']
+                                    }
+                                },
                             },
                         ],
                     },
+                    has_options: true,
                     id: uuidv4(),
                     class_id: '38d52f93-07f5-443f-81de-88cfe30dd2d8',
                 },
@@ -2571,53 +2549,17 @@ exports.seed = knex => (
                         e: [
                             "At 2nd level, you adopt a particular style of fighting as your specialty. Choose one of the following options. You can't take the same Fighting Style option more than once, even if you get to choose again.",
                             {
-                                type: 'options',
-                                count: 1,
-                                entries: [
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Close Quarters Shooter|UALightDarkUnderdark',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Defense',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Dueling',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Great Weapon Fighting',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Mariner|UAWaterborneAdventures',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Protection',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Tunnel Fighter|UALightDarkUnderdark',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Blessed Warrior|TCE',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Blind Fighting|TCE',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Interception|TCE',
-                                    },
-                                ],
+                                type: 'fightStyleOptions',
+                                options: {
+                                    choose: {
+                                        count: 1,
+                                        from: ['Defense','Dueling','Great Weapon Fighting','Protection','Blessed Warrior', 'Blind Fighting','Interception']
+                                    }
+                                },
                             },
                         ],
                     },
+                    has_options: true,
                     id: uuidv4(),
                     class_id: 'cf3cd010-8db3-4956-9f4f-0f3da3739e22'
                 },
@@ -3062,73 +3004,17 @@ exports.seed = knex => (
                         e: [
                             "At 2nd level, you adopt a particular style of fighting as your specialty. Choose one of the following options. You can't take a Fighting Style option more than once, even if you later get to choose again.",
                             {
-                                type: 'options',
-                                count: 1,
-                                entries: [
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Archery',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Close Quarters Shooter|UALightDarkUnderdark',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Defense',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Dueling',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Mariner|UAWaterborneAdventures',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Tunnel Fighter|UALightDarkUnderdark',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Two-Weapon Fighting',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Blind Fighting|UAClassFeatureVariants',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Interception|UAClassFeatureVariants',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Thrown Weapon Fighting|UAClassFeatureVariants',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Unarmed Fighting|UAClassFeatureVariants',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Druidic Warrior|UAClassFeatureVariants',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Blind Fighting|TCE',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Druidic Warrior|TCE',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Thrown Weapon Fighting|TCE',
-                                    },
-                                ],
+                                type: 'fightStyleOptions',
+                                options: {
+                                    choose: {
+                                        count: 1,
+                                        from: ['Archery','Defense','Dueling', 'Two-Weapon Fighting','Blind Fighting','Druidic Warrior','Thrown Weapon Fighting']
+                                    }
+                                },
                             },
                         ],
                     },
+                    has_options: true,
                     id: uuidv4(),
                     class_id: '5116d376-344c-4c22-82a0-b4d32c58147e',
                 },
@@ -3586,8 +3472,18 @@ exports.seed = knex => (
                         e: [
                             "At 1st level, choose two of your skill proficiencies, or one of your skill proficiencies and your proficiency with thieves' tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.",
                             "At 6th level, you can choose two more of your proficiencies (in skills or with thieves' tools) to gain this benefit.",
+                            {
+                                type: 'skillOptions',
+                                options: {
+                                    choose: {
+                                        count: 2,
+                                        from: 'known'
+                                    }
+                                }
+                            }
                         ],
                     },
+                    has_options: true,
                     id: uuidv4(),
                     class_id: '429ccb89-62a8-4d1f-8c82-9549a988de3e',
                 },
@@ -3704,8 +3600,18 @@ exports.seed = knex => (
                     entries: {
                         e: [
                             "At 6th level, you can choose two more of your proficiencies (in skills or with thieves' tools) to gain the benefit of Expertise.",
+                            {
+                                type: 'skillOptions',
+                                options: {
+                                    choose: {
+                                        count: 2,
+                                        from: 'known'
+                                    }
+                                }
+                            }
                         ],
                     },
+                    has_options: true,
                     id: uuidv4(),
                     class_id: '429ccb89-62a8-4d1f-8c82-9549a988de3e',
                 },
@@ -4066,73 +3972,16 @@ exports.seed = knex => (
                             'You can use only one Metamagic option on a spell when you cast it, unless otherwise noted.',
                             {
                                 type: 'options',
-                                count: 2,
-                                entries: [
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Careful Spell',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Distant Spell',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Empowered Spell',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Extended Spell',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Heightened Spell',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Quickened Spell',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Subtle Spell',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Twinned Spell',
-                                    },
-                                ],
+                                options: {
+                                    choose: {
+                                        count: 1,
+                                        from: ['Careful Spell','Distant Spell','Empowered Spell','Extended Spell','Heightened Spell','Quickened Spell','Subtle Spell','Twinned Spell','Seeking Spell','Transmuted Spell']
+                                    }
+                                },
                             },
                         ],
                     },
-                    id: uuidv4(),
-                    class_id: 'e1068650-2673-4835-af88-adddd16d5095',
-                },
-                {
-                    name: 'Metamagic Options',
-                    source: 'TCE',
-                    page: 65,
-                    class_source: 'PHB',
-                    level: 3,
-                    is_class_feature_variant: true,
-                    entries: {
-                        e: [
-                            '3rd-level sorcerer optional class feature',
-                            'When you choose Metamagic options, you have access to the following additional options.',
-                            {
-                                type: 'options',
-                                entries: [
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Seeking Spell|TCE',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Transmuted Spell|TCE',
-                                    },
-                                ],
-                            },
-                        ],
-                    },
+                    has_options: true,
                     id: uuidv4(),
                     class_id: 'e1068650-2673-4835-af88-adddd16d5095',
                 },
@@ -4483,73 +4332,16 @@ exports.seed = knex => (
                             'You can use only one Metamagic option on a spell when you cast it, unless otherwise noted.',
                             {
                                 type: 'options',
-                                count: 2,
-                                entries: [
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Careful Spell',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Distant Spell',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Empowered Spell',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Extended Spell',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Heightened Spell',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Quickened Spell',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Subtle Spell',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Twinned Spell',
-                                    },
-                                ],
+                                options: {
+                                    choose: {
+                                        count: 2,
+                                        from: ['Careful Spell','Distant Spell','Empowered Spell','Extended Spell','Heightened Spell','Quickened Spell','Subtle Spell','Twinned Spell','Seeking Spell','Transmuted Spell']
+                                    }
+                                },
                             },
                         ],
                     },
-                    id: uuidv4(),
-                    class_id: 'e1068650-2673-4835-af88-adddd16d5095',
-                },
-                {
-                    name: 'Metamagic Options',
-                    source: 'TCE',
-                    page: 65,
-                    class_source: 'PHB',
-                    level: 3,
-                    is_class_feature_variant: true,
-                    entries: {
-                        e: [
-                            '3rd-level sorcerer optional class feature',
-                            'When you choose Metamagic options, you have access to the following additional options.',
-                            {
-                                type: 'options',
-                                entries: [
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Seeking Spell|TCE',
-                                    },
-                                    {
-                                        type: 'refOptionalfeature',
-                                        optionalfeature: 'Transmuted Spell|TCE',
-                                    },
-                                ],
-                            },
-                        ],
-                    },
+                    has_options: true,
                     id: uuidv4(),
                     class_id: 'e1068650-2673-4835-af88-adddd16d5095',
                 },
