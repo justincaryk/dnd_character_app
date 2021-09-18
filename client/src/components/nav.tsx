@@ -13,9 +13,9 @@ const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
   const subpath = location.pathname.split(new RegExp('/(?<name>[^>]+)/'))[1]
 
   return (
-    <div className='h-38 w-full fixed top-0 bg-stone z-10'>
+    <div className='h-38 w-full bg-stone z-10'>
       {!isPublic && (
-        <div className='bg-black w-full px-6 py-3'>
+        <div className='px-6 pb-3 pt-24 -mt-20 bg-black w-full '>
           <div className='flex justify-between items-center'>
             <a className='hover:no-underline' href={'/'}>
               <img
@@ -36,7 +36,7 @@ const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
         </div>
       )}
       {subpath && (
-        <div className='relative px-5 py-6'>
+        <div className='relative px-5 py-6 mb-12'>
           <div className='flex w-full justify-between items-center text-sm'>
             {links
               .filter((x) => x.link.indexOf(subpath) > -1)

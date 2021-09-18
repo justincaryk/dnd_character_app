@@ -51,19 +51,21 @@ const Feats: React.FC = () => {
           </select>
         </div>
 
-        <div>{focusedFeat.desc}</div>
+        <div className='bg-white p-2 rounded border'>
+          <div>{focusedFeat.desc}</div>
 
-        {focusedFeat.prereq ? (
-          <div>Prerequisite: {focusedFeat.prereq}</div>
-        ) : null}
+          {focusedFeat.prereq ? (
+            <div>Prerequisite: {focusedFeat.prereq}</div>
+          ) : null}
 
-        {focusedFeat.points && focusedFeat.points.length > 0 && (
-          <ul>
-            {focusedFeat.points.map((p: string, i: number) => {
-              return <li key={i}>{p}</li>
-            })}
-          </ul>
-        )}
+          {focusedFeat.points && focusedFeat.points.length > 0 && (
+            <ul className='list-inside list-disc'>
+              {focusedFeat.points.map((p: string, i: number) => {
+                return <li key={i}>{p}</li>
+              })}
+            </ul>
+          )}
+        </div>
       </div>
     )
   }
