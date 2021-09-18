@@ -59,7 +59,7 @@ const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected }) => {
   return (
     <div className='space-y-4'>
       {/* row 1 - PAGE HEADER */}
-      <div className='flex items-center justify-between border-b py-5'>
+      <div className='flex items-center justify-between border-b pb-5'>
         <div className='text-xl font-bold'>Character Level: {currentLevel}</div>
         <div className='border rounded p-2 bg-white'>
           <div>

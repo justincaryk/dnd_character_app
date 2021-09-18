@@ -13,7 +13,7 @@ exports.seed = knex => (
                     name: "Actor",
                     desc: "Skilled at mimicry and dramatics, you gain the following benefits:",
                     points: ["Increase your Charisma score by 1, to a maximum of 20.", "You have advantage on Charisma (Deception) and Charisma (Performance) checks when trying to pass yourself off as a different person.", "You can mimic the speech of another person or the sounds made by other creatures. You must have heard the person speaking, or heard the creature make the sound, for at least 1 minute. A successful Wisdom (Insight) check contested by your Charisma (Deception) check allows a listener to determine that the effect is faked."],
-                    score: ['Charisma']
+                    scores: ['Charisma']
                 },
                 {
                     id: uuidv4(),
@@ -26,7 +26,7 @@ exports.seed = knex => (
                     name: "Athlete",
                     desc: "You have undergone extensive physical training to gain the following benefits:",
                     points: ["Increase your Strength or Dexterity score by 1, to a maximum of 20.", "When you are prone, standing up uses only 5 feet of your movement.", "Climbing doesn’t halve your speed.", "You can make a running long jump or a running high jump after moving only 5 feet on foot, rather than 10 feet."],
-                    score: ['Strength', 'Dexterity']
+                    scores: ['Strength', 'Dexterity']
                 },
                 {
                     id: uuidv4(),
@@ -56,7 +56,7 @@ exports.seed = knex => (
                     desc: "When angered, you radiate menace. You gain the following benefits:",
                     points: ["Increase your Strength, Constitution or Charisma score by 1, up to a maximum of 20.", "Instead of exhaling destructive energy, you can expend a use of your Breath Weapon trait to roar, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). A target automatically succeeds if it can’t hear or see you. On a failed save, a target becomes frightened of you for 1 minute. If the frightened target takes any damage, it can repeat the saving throw, ending the effect on itself on a success."],
                     prereq: "Dragonborn",
-                    score: ['Strength', 'Constitution', 'Charisma']
+                    scores: ['Strength', 'Constitution', 'Charisma']
                 },
                 {
                     id: uuidv4(),
@@ -90,7 +90,7 @@ exports.seed = knex => (
                     desc: "You have the blood of dwarf heroes flowing through your veins. You gain the following benefits:",
                     points: ["Increase your Constitution score by 1, up to a maximum of 20.", "Whenever you take the Dodge action in combat, you can spend one Hit Die to heal yourself. Roll the die, add your Constitution modifier, and regain a number of hit points equal to the total (minimum of 1)."],
                     prereq: "Dwarf",
-                    score: ['Constitution']
+                    scores: ['Constitution']
                 },
                 {
                     id: uuidv4(),
@@ -104,7 +104,7 @@ exports.seed = knex => (
                     desc: "The accuracy of elves is legendary, especially that of elf archers and spellcasters. You have uncanny aim with attacks that rely on precision rather than brute force. You gain the following benefits:",
                     points: ["Increase your Dexterity, Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.", "Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once."],
                     prereq: "Elf or half-elf",
-                    score: ['Dexterity', 'Intelligence', 'Wisdom', 'Charisma']
+                    scores: ['Dexterity', 'Intelligence', 'Wisdom', 'Charisma']
                 },
                 {
                     id: uuidv4(),
@@ -112,7 +112,7 @@ exports.seed = knex => (
                     desc: "Your people are Clever, with a knack for illusion magic. You have learned a magical trick for fading away when you suffer harm. You gain the following benefits:",
                     points: ["Increase your Dexterity or Intelligence score by 1, to a maximum of 20.", "Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can’t do so again until you finish a short or long rest."],
                     prereq: "Gnome",
-                    score: ['Dexterity', 'Intelligence']
+                    scores: ['Dexterity', 'Intelligence']
                 },
                 {
                     id: uuidv4(),
@@ -120,7 +120,7 @@ exports.seed = knex => (
                     desc: "Your study of high elven lore has unlocked fey power that few other elves possess, except your eladrin cousins. Drawing on your fey ancestry, you can momentarily stride through the Feywild to shorten your path from one place to another. You gain the following benefits:",
                     points: ["Increase your Intelligence or Charisma score by 1, to a maximum of 20.", "You learn to speak, read, and write Sylvan.", "You learn the misty step spell and can cast it once without expending a spell slot. You regain the ability to cast it in this way when you finish a short or long rest. Intelligence is your spellcasting ability for this spell."],
                     prereq: "Elf (high)",
-                    score: ['Charisma', 'Intelligence']
+                    scores: ['Charisma', 'Intelligence']
                 },
                 {
                     id: uuidv4(),
@@ -128,7 +128,7 @@ exports.seed = knex => (
                     desc: "You learn to call on hellfire to serve your commands. You gain the following benefits:",
                     points: ["Increase your Intelligence or Charisma score by 1, to a maximum of 20.", "When you roll fire damage for a spell you cast, you can reroll any roll of 1 on the fire damage dice, but you must use the new roll, even if it is another 1.", "Whenever you cast a spell that deals fire damage, you can cause flames to wreathe you until the end of your next turn. The flames don’t harm you or your possessions, and they shed bright light out to 30 feet and dim light for an additional 30 feet. While the flames are present, any creature within 5 feet of you that hits you with a melee attack takes 1d4 fire damage."],
                     prereq: "Tiefling",
-                    score: ['Charisma', 'Intelligence']
+                    scores: ['Charisma', 'Intelligence']
                 },
                 {
                     id: uuidv4(),
@@ -155,7 +155,7 @@ exports.seed = knex => (
                     desc: "You have trained to master the use of heavy armor, gaining the following benefits:",
                     points: ["Increase your Strength score by 1, to a maximum of 20.", "You gain proficiency with heavy armor."],
                     prereq: "Proficiency with medium armor",
-                    score: ['Strength']
+                    scores: ['Strength']
                 },
                 {
                     id: uuidv4(),
@@ -163,7 +163,7 @@ exports.seed = knex => (
                     desc: "You can use your armor to deflect strikes that would kill others. You gain the following benefits:",
                     points: ["Increase your Strength score by 1, to a maximum of 20.", "While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from non magical weapons is reduced by 3."],
                     prereq: "Proficiency with heavy armor",
-                    score: ['Strength']
+                    scores: ['Strength']
                 },
                 {
                     id: uuidv4(),
@@ -171,7 +171,7 @@ exports.seed = knex => (
                     desc: "Fiendish blood runs strong in you, unlocking a resilience akin to that possessed by some fiends. You gain the following benefits:",
                     points: ["Increase your Constitution score by 1, to a maximum of 20.", "You have resistance to cold damage and poison damage.", "You have advantage on saving throws against being poisoned."],
                     prereq: "Tiefling",
-                    score: ['Constitution']
+                    scores: ['Constitution']
                 },
                 {
                     id: uuidv4(),
@@ -184,21 +184,21 @@ exports.seed = knex => (
                     name: "Keen Mind",
                     desc: "You have a mind that can track time, direction, and detail with uncanny precision. You gain the following benefits:",
                     points: ["Increase your Intelligence score by 1, to a maximum of 20.", "You always know which way is north.", "You always know the number of hours left before the next sunrise or sunset.", "You can accurately recall anything you have seen or heard within the past month."],
-                    score: ['Intelligence']
+                    scores: ['Intelligence']
                 },
                 {
                     id: uuidv4(),
                     name: "Lightly Armored",
                     desc: "You have trained to master the use of light armor, gaining the following benefits:",
                     points: ["Increase your Strength or Dexterity score by 1, to a maximum of 20.", "You gain proficiency with light armor."],
-                    score: ['Strength', 'Dexterity']
+                    scores: ['Strength', 'Dexterity']
                 },
                 {
                     id: uuidv4(),
                     name: "Linguist",
                     desc: "You have studied languages and codes, gaining the following benefits:",
                     points: ["Increase your Intelligence score by 1, to a maximum of 20.", "You learn three languages of your choice.", "You can ably create written ciphers. Others can’t decipher a code you create unless you teach them, they succeed on an Intelligence check (DC equal to your Intelligence score + your proficiency bonus), or they use magic to decipher it."],
-                    score: ['Intelligence']
+                    scores: ['Intelligence']
                 },
                 {
                     id: uuidv4(),
@@ -241,7 +241,7 @@ exports.seed = knex => (
                     desc: "You have trained to master the use of medium armor and shields, gaining the following benefits:",
                     points: ["Increase your Strength or Dexterity score by 1, to a maximum of 20.", "You gain proficiency with medium armor and shields."],
                     prereq: "Proficiency with light armor",
-                    score: ['Strength', 'Dexterity']
+                    scores: ['Strength', 'Dexterity']
                 },
                 {
                     id: uuidv4(),
@@ -261,7 +261,7 @@ exports.seed = knex => (
                     desc: "Your inner fury burns tirelessly. You gain the following benefits:",
                     points: ["Increase your Strength or Constitution score by 1, to a maximum of 20.", "When you hit with an attack using a simple or martial weapon, you can roll one of the weapon’s damage dice an additional time and add it as extra damage of the weapon’s damage type. Once you use this ability, you can’t use it again until you finish a short or long rest.", "Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack."],
                     prereq: "Half-orc",
-                    score: ['Strength', 'Constitution']
+                    scores: ['Strength', 'Constitution']
                 },
                 {
                     id: uuidv4(),
@@ -274,7 +274,7 @@ exports.seed = knex => (
                     name: "Resilient",
                     desc: "Choose one ability score. You gain the following benefits:",
                     points: ["Increase the chosen ability score by 1, to a maximum of 20.", "You gain proficiency in saving throws using the chosen ability."],
-                    score: ['Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma']
+                    scores: ['Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma']
                 },
                 {
                     id: uuidv4(),
@@ -293,7 +293,7 @@ exports.seed = knex => (
                     desc: "Fortune favors you when someone tries to strike you. You gain the following benefits:",
                     points: ["Increase your Dexterity, Constitution or Charisma score by 1, to a maximum of 20.", "When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can’t use it again until you roll initiative at the start of combat or until you finish a short or long rest."],
                     prereq: "Halfling",
-                    score: ['Constitution', 'Dexterity', 'Charisma']
+                    scores: ['Constitution', 'Dexterity', 'Charisma']
                 },
                 {
                     id: uuidv4(),
@@ -338,14 +338,14 @@ exports.seed = knex => (
                     desc: "You are uncommonly nimble for your race. You gain the following benefits:",
                     points: ["Increase your Strength or Dexterity score by 1, to a maximum of 20.", "Increase your walking speed by 5 feet.", "You gain proficiency in the Acrobatics or Athletics skill (your choice).", "You have advantage on any Strength (Athletics) or Dexterity (Acrobatics) check you make to escape from being grappled."],
                     prereq: "Dwarf or a Small race",
-                    score: ['Strength', 'Dexterity']
+                    scores: ['Strength', 'Dexterity']
                 },
                 {
                     id: uuidv4(),
                     name: "Tavern Brawler",
                     desc: "Accustomed to rough-and-tumble fighting using whatever weapons happen to be at hand, you gain the following benefits:",
                     points: ["Increase your Strength or Constitution score by 1, to a maximum of 20.", "You are proficient with improvised weapons and unarmed strikes.", "Your unarmed strike uses a d4 for damage.", " When you hit a creature with an unarmed strike or an improvised weapon on your turn, you can use a bonus action to attempt to grapple the target."],
-                    score: ['Strength', 'Constitution']
+                    scores: ['Strength', 'Constitution']
                 },
                 {
                     id: uuidv4(),
@@ -364,7 +364,7 @@ exports.seed = knex => (
                     name: "Weapon Master",
                     desc: "You have practiced extensively with a variety of weapons, gaining the following benefits:",
                     points: ["Increase your Strength or Dexterity score by 1, to a maximum of 20.", "You gain proficiency with four weapons of your choice."],
-                    score: ['Strength', 'Dexterity']
+                    scores: ['Strength', 'Dexterity']
                 },
                 {
                     id: uuidv4(),

@@ -1091,6 +1091,39 @@ export type CreateFeatPayloadFeatEdgeArgs = {
   orderBy?: Maybe<Array<FeatsOrderBy>>;
 };
 
+/** All input for the create `FightingStyle` mutation. */
+export type CreateFightingStyleInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `FightingStyle` to be created by this mutation. */
+  fightingStyle: FightingStyleInput;
+};
+
+/** The output of our create `FightingStyle` mutation. */
+export type CreateFightingStylePayload = {
+  __typename?: 'CreateFightingStylePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `FightingStyle` that was created by this mutation. */
+  fightingStyle?: Maybe<FightingStyle>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `FightingStyle`. May be used by Relay 1. */
+  fightingStyleEdge?: Maybe<FightingStylesEdge>;
+};
+
+
+/** The output of our create `FightingStyle` mutation. */
+export type CreateFightingStylePayloadFightingStyleEdgeArgs = {
+  orderBy?: Maybe<Array<FightingStylesOrderBy>>;
+};
+
 /** All input for the create `KnexMigration` mutation. */
 export type CreateKnexMigrationInput = {
   /**
@@ -2786,6 +2819,84 @@ export enum FeatsOrderBy {
   ScoresDesc = 'SCORES_DESC'
 }
 
+export type FightingStyle = {
+  __typename?: 'FightingStyle';
+  fightingStyleId?: Maybe<Scalars['UUID']>;
+  name?: Maybe<Scalars['String']>;
+  source?: Maybe<Scalars['String']>;
+  page?: Maybe<Scalars['Int']>;
+  entries?: Maybe<Scalars['JSON']>;
+  options?: Maybe<Scalars['JSON']>;
+};
+
+/**
+ * A condition to be used against `FightingStyle` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type FightingStyleCondition = {
+  /** Checks for equality with the object’s `fightingStyleId` field. */
+  fightingStyleId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `name` field. */
+  name?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `source` field. */
+  source?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `page` field. */
+  page?: Maybe<Scalars['Int']>;
+  /** Checks for equality with the object’s `entries` field. */
+  entries?: Maybe<Scalars['JSON']>;
+  /** Checks for equality with the object’s `options` field. */
+  options?: Maybe<Scalars['JSON']>;
+};
+
+/** An input for mutations affecting `FightingStyle` */
+export type FightingStyleInput = {
+  fightingStyleId?: Maybe<Scalars['UUID']>;
+  name?: Maybe<Scalars['String']>;
+  source?: Maybe<Scalars['String']>;
+  page?: Maybe<Scalars['Int']>;
+  entries?: Maybe<Scalars['JSON']>;
+  options?: Maybe<Scalars['JSON']>;
+};
+
+/** A connection to a list of `FightingStyle` values. */
+export type FightingStylesConnection = {
+  __typename?: 'FightingStylesConnection';
+  /** A list of `FightingStyle` objects. */
+  nodes: Array<Maybe<FightingStyle>>;
+  /** A list of edges which contains the `FightingStyle` and cursor to aid in pagination. */
+  edges: Array<FightingStylesEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `FightingStyle` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `FightingStyle` edge in the connection. */
+export type FightingStylesEdge = {
+  __typename?: 'FightingStylesEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `FightingStyle` at the end of the edge. */
+  node?: Maybe<FightingStyle>;
+};
+
+/** Methods to use when ordering `FightingStyle`. */
+export enum FightingStylesOrderBy {
+  Natural = 'NATURAL',
+  FightingStyleIdAsc = 'FIGHTING_STYLE_ID_ASC',
+  FightingStyleIdDesc = 'FIGHTING_STYLE_ID_DESC',
+  NameAsc = 'NAME_ASC',
+  NameDesc = 'NAME_DESC',
+  SourceAsc = 'SOURCE_ASC',
+  SourceDesc = 'SOURCE_DESC',
+  PageAsc = 'PAGE_ASC',
+  PageDesc = 'PAGE_DESC',
+  EntriesAsc = 'ENTRIES_ASC',
+  EntriesDesc = 'ENTRIES_DESC',
+  OptionsAsc = 'OPTIONS_ASC',
+  OptionsDesc = 'OPTIONS_DESC'
+}
+
 
 
 export type KnexMigration = Node & {
@@ -3125,6 +3236,8 @@ export type Mutation = {
   createEquipment?: Maybe<CreateEquipmentPayload>;
   /** Creates a single `Feat`. */
   createFeat?: Maybe<CreateFeatPayload>;
+  /** Creates a single `FightingStyle`. */
+  createFightingStyle?: Maybe<CreateFightingStylePayload>;
   /** Creates a single `KnexMigration`. */
   createKnexMigration?: Maybe<CreateKnexMigrationPayload>;
   /** Creates a single `KnexMigrationsLock`. */
@@ -3355,6 +3468,12 @@ export type MutationCreateEquipmentArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateFeatArgs = {
   input: CreateFeatInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateFightingStyleArgs = {
+  input: CreateFightingStyleInput;
 };
 
 
@@ -3940,6 +4059,8 @@ export type Query = Node & {
   allEquipment?: Maybe<EquipmentConnection>;
   /** Reads and enables pagination through a set of `Feat`. */
   allFeats?: Maybe<FeatsConnection>;
+  /** Reads and enables pagination through a set of `FightingStyle`. */
+  allFightingStyles?: Maybe<FightingStylesConnection>;
   /** Reads and enables pagination through a set of `KnexMigration`. */
   allKnexMigrations?: Maybe<KnexMigrationsConnection>;
   /** Reads and enables pagination through a set of `KnexMigrationsLock`. */
@@ -4130,6 +4251,18 @@ export type QueryAllFeatsArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<FeatsOrderBy>>;
   condition?: Maybe<FeatCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAllFightingStylesArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<FightingStylesOrderBy>>;
+  condition?: Maybe<FightingStyleCondition>;
 };
 
 
@@ -6992,6 +7125,22 @@ export type ClassByIdQuery = (
   )> }
 );
 
+export type FightingStyleByNameQueryVariables = Exact<{
+  name: Scalars['String'];
+}>;
+
+
+export type FightingStyleByNameQuery = (
+  { __typename?: 'Query' }
+  & { allFightingStyles?: Maybe<(
+    { __typename?: 'FightingStylesConnection' }
+    & { nodes: Array<Maybe<(
+      { __typename?: 'FightingStyle' }
+      & Pick<FightingStyle, 'fightingStyleId' | 'name' | 'entries' | 'options'>
+    )>> }
+  )> }
+);
+
 
 export const SigninDocument = gql`
     mutation Signin($username: String!, $password: String!) {
@@ -7707,3 +7856,43 @@ export function useClassByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<
 export type ClassByIdQueryHookResult = ReturnType<typeof useClassByIdQuery>;
 export type ClassByIdLazyQueryHookResult = ReturnType<typeof useClassByIdLazyQuery>;
 export type ClassByIdQueryResult = Apollo.QueryResult<ClassByIdQuery, ClassByIdQueryVariables>;
+export const FightingStyleByNameDocument = gql`
+    query FightingStyleByName($name: String!) {
+  allFightingStyles(condition: {name: $name}) {
+    nodes {
+      fightingStyleId
+      name
+      entries
+      options
+    }
+  }
+}
+    `;
+
+/**
+ * __useFightingStyleByNameQuery__
+ *
+ * To run a query within a React component, call `useFightingStyleByNameQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFightingStyleByNameQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFightingStyleByNameQuery({
+ *   variables: {
+ *      name: // value for 'name'
+ *   },
+ * });
+ */
+export function useFightingStyleByNameQuery(baseOptions: Apollo.QueryHookOptions<FightingStyleByNameQuery, FightingStyleByNameQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<FightingStyleByNameQuery, FightingStyleByNameQueryVariables>(FightingStyleByNameDocument, options);
+      }
+export function useFightingStyleByNameLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<FightingStyleByNameQuery, FightingStyleByNameQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<FightingStyleByNameQuery, FightingStyleByNameQueryVariables>(FightingStyleByNameDocument, options);
+        }
+export type FightingStyleByNameQueryHookResult = ReturnType<typeof useFightingStyleByNameQuery>;
+export type FightingStyleByNameLazyQueryHookResult = ReturnType<typeof useFightingStyleByNameLazyQuery>;
+export type FightingStyleByNameQueryResult = Apollo.QueryResult<FightingStyleByNameQuery, FightingStyleByNameQueryVariables>;

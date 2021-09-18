@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import classnames from 'classnames'
 import { numberToSpeakable } from '../../lib/utils'
+import { useFightingStyleByNameQuery } from './../../generated/graphql'
 interface Props {
   feature: {
     id: string
@@ -47,7 +48,24 @@ const SkillOptionType: React.FC<OptionsTypeProps> = ({ options }) => {
 }
 const FightOptionType: React.FC<OptionsTypeProps> = ({ options }) => {
   const arrayToIterate = Array(options.choose.count).fill('x', 0)
+  const [styleName, setStyleName] = useState('')
+  const [styleObj, setStyleObj] = useState<any>(null)
+
+  const { data } = useFightingStyleByNameQuery({
+    variables: {
+      name: styleName,
+    },
+  })
+
+  useEffect(() => {
+    if (data?.allFightingStyles?.nodes.length) {
+      const tempObj = Object.assign({}, data.allFightingStyles.nodes[0])
+      tempObj.entries = JSON.parse(tempObj.entries)
+      setStyleObj(tempObj)
+    }
+  }, [data?.allFightingStyles?.nodes])
   
+
   return (
     <>
       {arrayToIterate.map((x, i) => {
@@ -56,14 +74,24 @@ const FightOptionType: React.FC<OptionsTypeProps> = ({ options }) => {
             className='w-full border rounded text-sm p-2'
             defaultValue={''}
             key={i}
+            onChange={(e) => setStyleName(e.currentTarget.value)}
           >
             <option value=''>- Choose a Fighting Style -</option>
             {options.choose.from.map((x: any) => (
-                <option value={x}>{x}</option>
+              <option value={x}>{x}</option>
             ))}
           </select>
         )
       })}
+      {styleObj && (
+        <>
+          {styleObj.entries.e.map((x: any) => {
+            if (typeof x == 'string') {
+              return <div>{x}</div>
+            }
+          })}
+        </>
+      )}
     </>
   )
 }
@@ -73,8 +101,6 @@ interface StringTypeProps {
 }
 const StringType: React.FC<StringTypeProps> = ({ entry }) => <div>{entry}</div>
 
-
-
 const FeatureGeneral: React.FC<Props> = ({ feature, viewOnly }) => {
   const [detailsActive, toggleDetailActive] = useState(false)
   const [entries, setEntries] = useState([])
@@ -83,7 +109,7 @@ const FeatureGeneral: React.FC<Props> = ({ feature, viewOnly }) => {
     const parsed = JSON.parse(feature.entries).e
     setEntries(parsed)
   }, [feature.entries])
-  
+
   return (
     <div className='space-y-3'>
       <div className='border bg-white'>
@@ -91,7 +117,8 @@ const FeatureGeneral: React.FC<Props> = ({ feature, viewOnly }) => {
           className={classnames({
             'p-2 hover:bg-cream cursor-pointer': true,
             'bg-cream': detailsActive,
-            'border-1 border-sky-blue': feature.hasOptions && !viewOnly ? true : false
+            'border-1 border-sky-blue':
+              feature.hasOptions && !viewOnly ? true : false,
           })}
           onClick={() => toggleDetailActive(!detailsActive)}
         >
