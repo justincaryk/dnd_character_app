@@ -15,13 +15,13 @@ const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
   const history = useHistory()
 
   return (
-    <div className='mb-12'>
+    <div className={classnames({'mb-12': location.pathname !== '/create/sheet'})}>
       <div className='h-38 w-full bg-stone z-10'>
         {!isPublic && (
           <div
             className={classnames({
-              'px-6 pt-24 -mt-20 bg-black w-full': true,
-              'pb-12': location.pathname == '/create/sheet',
+              'px-6 pt-3 bg-black w-full': true,
+              'pb-5': location.pathname == '/create/sheet',
               'pb-3': location.pathname !== '/create/sheet',
             })}
           >
