@@ -1,6 +1,6 @@
 import React from 'react'
 import { LinkType } from './../lib/types'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useHistory } from 'react-router-dom'
 
 interface Props {
   links: LinkType[]
@@ -11,26 +11,27 @@ interface Props {
 const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
   const location = useLocation()
   const subpath = location.pathname.split(new RegExp('/(?<name>[^>]+)/'))[1]
+  const history = useHistory()
 
   return (
     <div className='h-38 w-full fixed top-0 bg-stone z-30'>
       {!isPublic && (
         <div className='bg-black w-full px-6 py-3'>
           <div className='flex justify-between items-center'>
-            <a className='hover:no-underline' href={'/'}>
+            <button className='hover:no-underline outline-none' onClick={() => history.push(signout?.link || '/')}>
               <img
                 className='w-20'
                 src='/DD-Logo-1024x487.png'
                 alt='broken logo'
               />
-            </a>
+            </button>
             {signout && (
-              <a
-                className='text-off-white font-roboto uppercase hover:text-hover-white hover:no-underline'
-                href={signout.link}
+              <button
+                className='text-off-white font-roboto uppercase hover:text-hover-white hover:no-underline cursor-pointer outline-none'
+                onClick={() => history.push(signout.link)}
               >
                 {signout.text}
-              </a>
+              </button>
             )}
           </div>
         </div>
@@ -43,8 +44,8 @@ const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
               .map((x) => (
                 <div key={x.text}>
                   <a
-                    className='text-off-white font-roboto uppercase hover:text-hover-white hover:no-underline'
-                    href={x.link}
+                    className='text-off-white font-roboto uppercase hover:text-hover-white hover:no-underline cursor-pointer'
+                    onClick={() => history.push(x.link)}
                   >
                     {x.text}
                   </a>
