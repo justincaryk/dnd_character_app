@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import classnames from 'classnames'
 import { numberToSpeakable } from '../../lib/utils'
-import { useFightingStyleByNameQuery } from './../../generated/graphql'
+import { useFightingStyleByNameQuery, useSubclassNamesByClassIdQuery } from './../../generated/graphql'
+import { EntryListType, EntryTableType } from '../shared/entries'
 interface Props {
   feature: {
     id: string
@@ -13,6 +14,7 @@ interface Props {
     page: number
     source: string
     hasOptions?: boolean
+    classId: string
   }
   viewOnly?: boolean
 }
@@ -64,7 +66,6 @@ const FightOptionType: React.FC<OptionsTypeProps> = ({ options }) => {
       setStyleObj(tempObj)
     }
   }, [data?.allFightingStyles?.nodes])
-  
 
   return (
     <>
@@ -96,6 +97,31 @@ const FightOptionType: React.FC<OptionsTypeProps> = ({ options }) => {
   )
 }
 
+interface SubclassProps {
+  classId: string
+  subclassIdent: string
+}
+const SubclassOptionType: React.FC<SubclassProps> = ({ classId, subclassIdent }) => {
+  const { data, loading } = useSubclassNamesByClassIdQuery({
+    variables: { classId: classId },
+  })
+
+  if (loading) {
+    return null
+  }
+
+  return (
+    <select
+      className='w-full border rounded text-sm p-2'
+      defaultValue={''}
+    >
+      <option>- Choose a {subclassIdent}</option>
+      {data?.query.allSubclasses?.nodes.map(sc => (
+        <option value={sc?.id}>{sc?.name}</option>
+      ))}
+    </select>
+  )
+}
 interface StringTypeProps {
   entry: string
 }
@@ -138,6 +164,18 @@ const FeatureGeneral: React.FC<Props> = ({ feature, viewOnly }) => {
               }
               if (entry.type === 'fightStyleOptions' && !viewOnly) {
                 return <FightOptionType options={entry.options} />
+              }
+
+              if (entry.type === 'subclass' && !viewOnly) {
+                return <SubclassOptionType classId={feature.classId} subclassIdent={feature.name} />
+              }
+
+              if (entry.type === 'list') {
+                return <EntryListType entry={entry} />
+              }
+
+              if (entry.type === 'table') {
+                return <EntryTableType entry={entry} />
               }
             })}
           </div>

@@ -68,6 +68,7 @@ query ClassById($id: UUID!) {
         page
         source
         hasOptions
+        classId
       }
     }
   }

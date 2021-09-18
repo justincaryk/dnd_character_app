@@ -101,8 +101,12 @@ exports.seed = knex => (
                     entries: {
                         e: [
                             'At 3rd level, you choose a path that shapes the nature of your rage from the list of available paths. Your choice grants you features at 3rd level and again at 6th, 10th, and 14th levels.',
+                            {
+                                type: 'subclass'
+                            }
                         ],
                     },
+                    has_options: true,
                     id: uuidv4(),
                     class_id: '8be354f0-4707-41a5-be97-127d1218c446',
                 },
@@ -517,8 +521,12 @@ exports.seed = knex => (
                     entries: {
                         e: [
                             'At 3rd level, you delve into the advanced techniques of a bard college of your choice from the list of available colleges. Your choice grants you features at 3rd level and again at 6th and 14th level.',
+                            {
+                                type: 'subclass'
+                            }
                         ],
                     },
+                    has_options: true,
                     id: uuidv4(),
                     class_id: '29861b2c-0473-4171-84b0-cdc430a134ef',
                 },
@@ -906,8 +914,12 @@ exports.seed = knex => (
                                     "If you have a domain spell that doesn't appear on the cleric spell list, the spell is nonetheless a cleric spell for you.",
                                 ],
                             },
+                            {
+                                type: 'subclass'
+                            }
                         ],
                     },
+                    has_options: true,
                     id: uuidv4(),
                     class_id: '7e5e677d-59d2-484e-8e96-0dd940a2c25e'
                 },
@@ -1377,8 +1389,12 @@ exports.seed = knex => (
                     entries: {
                         e: [
                             'At 2nd level, you choose to identify with a circle of druids from the list of available circles. Your choice grants you features at 2nd level and again at 6th, 10th, and 14th level.',
+                            {
+                                type: 'subclass'
+                            }
                         ],
                     },
+                    has_options: true,
                     id: uuidv4(),
                     class_id: '83880f9d-5125-4b0a-a774-af5cc36413ea',
                 },
@@ -1707,9 +1723,13 @@ exports.seed = knex => (
                     entries: {
                         e: [
                             'At 3rd level, you choose an archetype from the list available that you strive to emulate in your combat styles and techniques. The archetype you choose grants you features at 3rd level and again at 7th, 10th, 15th, and 18th level.',
+                            {
+                                type: 'subclass'
+                            }
                         ],
                     },
                     id: uuidv4(),
+                    has_options: true,
                     class_id: '38d52f93-07f5-443f-81de-88cfe30dd2d8',
                 },
                 {
@@ -2155,8 +2175,12 @@ exports.seed = knex => (
                     entries: {
                         e: [
                             'When you reach 3rd level, you commit yourself to a monastic tradition, chosen from the list of available traditions. Your tradition grants you features at 3rd level and again at 6th, 11th, and 17th level.',
+                            {
+                                type: 'subclass'
+                            }
                         ],
                     },
+                    has_options: true,
                     id: uuidv4(),
                     class_id: '3cef1591-b577-4c0f-9dc7-02b846c63d52',
                 },
@@ -2681,8 +2705,12 @@ exports.seed = knex => (
                                     "If a paladin willfully violates his or her oath and shows no sign of repentance, the consequences can be more serious. At the DM's discretion, an impenitent paladin might be forced to abandon this class and adopt another, or perhaps to take the Oathbreaker paladin option that appears in the Dungeon Master's Guide.",
                                 ],
                             },
+                            {
+                                type: 'subclass'
+                            }
                         ],
                     },
+                    has_options: true,
                     id: uuidv4(),
                     class_id: 'cf3cd010-8db3-4956-9f4f-0f3da3739e22'
                 },
@@ -3135,9 +3163,13 @@ exports.seed = knex => (
                     entries: {
                         e: [
                             'At 3rd level, you choose an archetype that you strive to emulate from the list of available archetypes. Your choice grants features at 3rd level, and again at 7th, 11th, and 15th level.',
+                            {
+                                type: 'subclass'
+                            },
                         ],
                     },
                     id: uuidv4(),
+                    has_options: true,
                     class_id: '5116d376-344c-4c22-82a0-b4d32c58147e',
                 },
                 {
@@ -3541,8 +3573,12 @@ exports.seed = knex => (
                     entries: {
                         e: [
                             'At 3rd level, you choose an archetype that you emulate in the exercise of your rogue abilities from the list of available archetypes. Your archetype choice grants you features at 3rd level and then again at 9th, 13th, and 17th level.',
+                            {
+                                type: 'subclass'
+                            }
                         ],
                     },
+                    has_options: true,
                     id: uuidv4(),
                     class_id: '429ccb89-62a8-4d1f-8c82-9549a988de3e',
                 },
@@ -3827,8 +3863,12 @@ exports.seed = knex => (
                         e: [
                             'Choose a sorcerous origin, which describes the source of your innate magical power, from the list of available origins.',
                             'Your choice grants you features when you choose it at 1st level and again at 6th, 14th, and 18th level.',
+                            {
+                                type: 'subclass'
+                            }
                         ],
                     },
+                    has_options: true,
                     id: uuidv4(),
                     class_id: 'e1068650-2673-4835-af88-adddd16d5095',
                 },
@@ -3929,31 +3969,6 @@ exports.seed = knex => (
                                 entries: [
                                     "As a bonus action on your turn, you can expend one spell slot and gain a number of sorcery points equal to the slot's level.",
                                 ],
-                            },
-                        ],
-                    },
-                    id: uuidv4(),
-                    class_id: 'e1068650-2673-4835-af88-adddd16d5095',
-                },
-                {
-                    name: 'Font of Magic',
-                    source: 'PHB',
-                    page: 99,
-                    class_source: 'PHB',
-                    level: 2,
-                    entries: {
-                        e: [
-                            'At 2nd level, you tap into a deep wellspring of magic within yourself. This wellspring is represented by sorcery points, which allow you to create a variety of magical effects.',
-                            {
-                                type: 'entries',
-                                name: 'Sorcery Points',
-                                entries: [
-                                    'You have 2 sorcery points, and you gain one additional point every time you level up, to a maximum of 20 at level 20. You can never have more sorcery points than shown on the table for your level. You regain all spent sorcery points when you finish a long rest.',
-                                ],
-                            },
-                            {
-                                type: 'refClassFeature',
-                                classFeature: 'Flexible Casting|Sorcerer||2',
                             },
                         ],
                     },
@@ -4052,21 +4067,6 @@ exports.seed = knex => (
                     class_id: 'e1068650-2673-4835-af88-adddd16d5095',
                 },
                 {
-                    name: 'Ability Score Improvement',
-                    source: 'PHB',
-                    page: 99,
-                    class_source: 'PHB',
-                    level: 8,
-                    entries: {
-                        e: [
-                            "When you reach 8th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
-                            'If your DM allows the use of feats, you may instead take a feat.',
-                        ],
-                    },
-                    id: uuidv4(),
-                    class_id: 'e1068650-2673-4835-af88-adddd16d5095',
-                },
-                {
                     name: 'Metamagic',
                     source: 'PHB',
                     page: 99,
@@ -4074,21 +4074,6 @@ exports.seed = knex => (
                     level: 10,
                     entries: {
                         e: ['At 10th level, you learn an additional metamagic option.'],
-                    },
-                    id: uuidv4(),
-                    class_id: 'e1068650-2673-4835-af88-adddd16d5095',
-                },
-                {
-                    name: 'Ability Score Improvement',
-                    source: 'PHB',
-                    page: 99,
-                    class_source: 'PHB',
-                    level: 12,
-                    entries: {
-                        e: [
-                            "When you reach 12th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
-                            'If your DM allows the use of feats, you may instead take a feat.',
-                        ],
                     },
                     id: uuidv4(),
                     class_id: 'e1068650-2673-4835-af88-adddd16d5095',
@@ -4102,21 +4087,6 @@ exports.seed = knex => (
                     entries: {
                         e: [
                             'At 14th level, you gain a feature granted by your Sorcerous Origin.',
-                        ],
-                    },
-                    id: uuidv4(),
-                    class_id: 'e1068650-2673-4835-af88-adddd16d5095',
-                },
-                {
-                    name: 'Ability Score Improvement',
-                    source: 'PHB',
-                    page: 99,
-                    class_source: 'PHB',
-                    level: 16,
-                    entries: {
-                        e: [
-                            "When you reach 16th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
-                            'If your DM allows the use of feats, you may instead take a feat.',
                         ],
                     },
                     id: uuidv4(),
@@ -4149,21 +4119,6 @@ exports.seed = knex => (
                     class_id: 'e1068650-2673-4835-af88-adddd16d5095',
                 },
                 {
-                    name: 'Ability Score Improvement',
-                    source: 'PHB',
-                    page: 99,
-                    class_source: 'PHB',
-                    level: 19,
-                    entries: {
-                        e: [
-                            "When you reach 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
-                            'If your DM allows the use of feats, you may instead take a feat.',
-                        ],
-                    },
-                    id: uuidv4(),
-                    class_id: 'e1068650-2673-4835-af88-adddd16d5095',
-                },
-                {
                     name: 'Sorcerous Restoration',
                     source: 'PHB',
                     page: 99,
@@ -4172,124 +4127,6 @@ exports.seed = knex => (
                     entries: {
                         e: [
                             'At 20th level, you regain 4 expended sorcery points whenever you finish a short rest.',
-                        ],
-                    },
-                    id: uuidv4(),
-                    class_id: 'e1068650-2673-4835-af88-adddd16d5095',
-                },
-                {
-                    name: 'Sorcerous Origin',
-                    source: 'PHB',
-                    page: 99,
-                    class_source: 'PHB',
-                    level: 1,
-                    entries: {
-                        e: [
-                            'Choose a sorcerous origin, which describes the source of your innate magical power, from the list of available origins.',
-                            'Your choice grants you features when you choose it at 1st level and again at 6th, 14th, and 18th level.',
-                        ],
-                    },
-                    id: uuidv4(),
-                    class_id: 'e1068650-2673-4835-af88-adddd16d5095',
-                },
-                {
-                    name: 'Spellcasting',
-                    source: 'PHB',
-                    page: 99,
-                    class_source: 'PHB',
-                    level: 1,
-                    entries: {
-                        e: [
-                            'An event in your past, or in the life of a parent or ancestor, left an indelible mark on you, infusing you with arcane magic. This font of magic, whatever its origin, fuels your spells. See chapter 10 for the general rules of spellcasting and chapter 11 for the sorcerer spell list.',
-                            {
-                                type: 'entries',
-                                name: 'Cantrips',
-                                entries: [
-                                    'At 1st level, you know four cantrips of your choice from the sorcerer spell list. You learn an additional sorcerer cantrip of your choice at 4th level and another at 10th level.',
-                                ],
-                            },
-                            {
-                                type: 'entries',
-                                name: 'Spell Slots',
-                                entries: [
-                                    "The Sorcerer table shows how many spell slots you have to cast your sorcerer spells of 1st level and higher. To cast one of these sorcerer spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest.",
-                                    'For example, if you know the 1st-level spell burning hands and have a 1st-level and a 2nd-level spell slot available, you can cast burning hands using either slot.',
-                                ],
-                            },
-                            {
-                                type: 'entries',
-                                name: 'Spells Known of 1st Level and Higher',
-                                entries: [
-                                    'You know two 1st-level spells of your choice from the sorcerer spell list.',
-                                    'You learn an additional sorcerer spell of your choice at each level except 12th, 14th, 16th, 18th, 19th, and 20th. Each of these spells must be of a level for which you have spell slots. For instance, when you reach 3rd level in this class, you can learn one new spell of 1st or 2nd level.',
-                                    'Additionally, when you gain a level in this class, you can choose one of the sorcerer spells you know and replace it with another spell from the sorcerer spell list, which also must be of a level for which you have spell slots.',
-                                ],
-                            },
-                            {
-                                type: 'entries',
-                                name: 'Spellcasting Ability',
-                                entries: [
-                                    'Charisma is your spellcasting ability for your sorcerer spells, since the power of your magic relies on your ability to project your will into the world. You use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a sorcerer spell you cast and when making an attack roll with one.',
-                                    {
-                                        type: 'abilityDc',
-                                        name: 'Spell',
-                                        attributes: ['cha'],
-                                    },
-                                    {
-                                        type: 'abilityAttackMod',
-                                        name: 'Spell',
-                                        attributes: ['cha'],
-                                    },
-                                ],
-                            },
-                            {
-                                type: 'entries',
-                                name: 'Spellcasting Focus',
-                                entries: [
-                                    'You can use an arcane focus as a spellcasting focus for your sorcerer spells.',
-                                ],
-                            },
-                        ],
-                    },
-                    id: uuidv4(),
-                    class_id: 'e1068650-2673-4835-af88-adddd16d5095',
-                },
-                {
-                    name: 'Flexible Casting',
-                    source: 'PHB',
-                    page: 99,
-                    class_source: 'PHB',
-                    level: 2,
-                    entries: {
-                        e: [
-                            'You can use your sorcery points to gain additional spell slots, or sacrifice spell slots to gain additional sorcery points. You learn other ways to use your sorcery points as you reach higher levels.',
-                            {
-                                type: 'entries',
-                                name: 'Creating Spell Slots',
-                                entries: [
-                                    'You can transform unexpended sorcery points into one spell slot as a bonus action on your turn. The created spell slots vanish at the end of a long rest. The Creating Spell Slots table shows the cost of creating a spell slot of a given level. You can create spell slots no higher in level than 5th.',
-                                    {
-                                        type: 'table',
-                                        caption: 'Creating Spell Slots',
-                                        colLabels: ['Spell Slot Level', 'Sorcery Point Cost'],
-                                        colStyles: ['col-6 text-center', 'col-6 text-center'],
-                                        rows: [
-                                            ['1st', '2'],
-                                            ['2nd', '3'],
-                                            ['3rd', '5'],
-                                            ['4th', '6'],
-                                            ['5th', '7'],
-                                        ],
-                                    },
-                                ],
-                            },
-                            {
-                                type: 'entries',
-                                name: 'Converting a Spell Slot to Sorcery Points',
-                                entries: [
-                                    "As a bonus action on your turn, you can expend one spell slot and gain a number of sorcery points equal to the slot's level.",
-                                ],
-                            },
                         ],
                     },
                     id: uuidv4(),
@@ -4321,31 +4158,6 @@ exports.seed = knex => (
                     class_id: 'e1068650-2673-4835-af88-adddd16d5095',
                 },
                 {
-                    name: 'Metamagic',
-                    source: 'PHB',
-                    page: 99,
-                    class_source: 'PHB',
-                    level: 3,
-                    entries: {
-                        e: [
-                            'At 3rd level, you gain the ability to twist your spells to suit your needs. You gain two of the following Metamagic options of your choice. You gain another one at 10th and 17th level.',
-                            'You can use only one Metamagic option on a spell when you cast it, unless otherwise noted.',
-                            {
-                                type: 'options',
-                                options: {
-                                    choose: {
-                                        count: 2,
-                                        from: ['Careful Spell','Distant Spell','Empowered Spell','Extended Spell','Heightened Spell','Quickened Spell','Subtle Spell','Twinned Spell','Seeking Spell','Transmuted Spell']
-                                    }
-                                },
-                            },
-                        ],
-                    },
-                    has_options: true,
-                    id: uuidv4(),
-                    class_id: 'e1068650-2673-4835-af88-adddd16d5095',
-                },
-                {
                     name: 'Ability Score Improvement',
                     source: 'PHB',
                     page: 99,
@@ -4356,57 +4168,6 @@ exports.seed = knex => (
                             "When you reach 4th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
                             'If your DM allows the use of feats, you may instead take a feat.',
                         ],
-                    },
-                    id: uuidv4(),
-                    class_id: 'e1068650-2673-4835-af88-adddd16d5095',
-                },
-                {
-                    name: 'Sorcerous Versatility',
-                    source: 'TCE',
-                    page: 65,
-                    class_source: 'PHB',
-                    level: 4,
-                    is_class_feature_variant: true,
-                    entries: {
-                        e: [
-                            '4th-level sorcerer optional class features',
-                            'Whenever you reach a level in this class that grants the Ability Score Improvement feature, you can do one of the following, representing the magic within you flowing in new ways:',
-                            {
-                                type: 'list',
-                                items: [
-                                    'Replace one of the options you chose for the Metamagic feature with a different Metamagic option available to you.',
-                                    "Replace one cantrip you learned from this class's Spellcasting feature with another cantrip from the sorcerer spell list.",
-                                ],
-                            },
-                        ],
-                    },
-                    id: uuidv4(),
-                    class_id: 'e1068650-2673-4835-af88-adddd16d5095',
-                },
-                {
-                    name: 'Magical Guidance',
-                    source: 'TCE',
-                    page: 65,
-                    class_source: 'PHB',
-                    level: 5,
-                    is_class_feature_variant: true,
-                    entries: {
-                        e: [
-                            '5th-level sorcerer optional class features',
-                            'You can tap into your inner wellspring of magic to try to conjure success from failure. When you make an ability check that fails, you can spend 1 sorcery point to reroll the d20, and you must use the new roll, potentially turning the failure into a success.',
-                        ],
-                    },
-                    id: uuidv4(),
-                    class_id: 'e1068650-2673-4835-af88-adddd16d5095',
-                },
-                {
-                    name: 'Sorcerous Origin feature',
-                    source: 'PHB',
-                    page: 99,
-                    class_source: 'PHB',
-                    level: 6,
-                    entries: {
-                        e: ['At 6th level, you gain a feature granted by your Sorcerous Origin.'],
                     },
                     id: uuidv4(),
                     class_id: 'e1068650-2673-4835-af88-adddd16d5095',
@@ -4427,18 +4188,6 @@ exports.seed = knex => (
                     class_id: 'e1068650-2673-4835-af88-adddd16d5095',
                 },
                 {
-                    name: 'Metamagic',
-                    source: 'PHB',
-                    page: 99,
-                    class_source: 'PHB',
-                    level: 10,
-                    entries: {
-                        e: ['At 10th level, you learn an additional metamagic option.'],
-                    },
-                    id: uuidv4(),
-                    class_id: 'e1068650-2673-4835-af88-adddd16d5095',
-                },
-                {
                     name: 'Ability Score Improvement',
                     source: 'PHB',
                     page: 99,
@@ -4448,20 +4197,6 @@ exports.seed = knex => (
                         e: [
                             "When you reach 12th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
                             'If your DM allows the use of feats, you may instead take a feat.',
-                        ],
-                    },
-                    id: uuidv4(),
-                    class_id: 'e1068650-2673-4835-af88-adddd16d5095',
-                },
-                {
-                    name: 'Sorcerous Origin feature',
-                    source: 'PHB',
-                    page: 99,
-                    class_source: 'PHB',
-                    level: 14,
-                    entries: {
-                        e: [
-                            'At 14th level, you gain a feature granted by your Sorcerous Origin.',
                         ],
                     },
                     id: uuidv4(),
@@ -4483,32 +4218,6 @@ exports.seed = knex => (
                     class_id: 'e1068650-2673-4835-af88-adddd16d5095',
                 },
                 {
-                    name: 'Metamagic',
-                    source: 'PHB',
-                    page: 99,
-                    class_source: 'PHB',
-                    level: 17,
-                    entries: {
-                        e: ['At 17th level, you learn an additional metamagic option.'],
-                    },
-                    id: uuidv4(),
-                    class_id: 'e1068650-2673-4835-af88-adddd16d5095',
-                },
-                {
-                    name: 'Sorcerous Origin feature',
-                    source: 'PHB',
-                    page: 99,
-                    class_source: 'PHB',
-                    level: 18,
-                    entries: {
-                        e: [
-                            'At 18th level, you gain a feature granted by your Sorcerous Origin.',
-                        ],
-                    },
-                    id: uuidv4(),
-                    class_id: 'e1068650-2673-4835-af88-adddd16d5095',
-                },
-                {
                     name: 'Ability Score Improvement',
                     source: 'PHB',
                     page: 99,
@@ -4524,20 +4233,6 @@ exports.seed = knex => (
                     class_id: 'e1068650-2673-4835-af88-adddd16d5095',
                 },
                 {
-                    name: 'Sorcerous Restoration',
-                    source: 'PHB',
-                    page: 99,
-                    class_source: 'PHB',
-                    level: 20,
-                    entries: {
-                        e: [
-                            'At 20th level, you regain 4 expended sorcery points whenever you finish a short rest.',
-                        ],
-                    },
-                    id: uuidv4(),
-                    class_id: 'e1068650-2673-4835-af88-adddd16d5095',
-                },
-                {
                     name: 'Otherworldly Patron',
                     source: 'PHB',
                     page: 105,
@@ -4546,8 +4241,12 @@ exports.seed = knex => (
                     entries: {
                         e: [
                             'At 1st level, you have struck a bargain with an otherworldly being chosen from the list of available patrons. Your choice grants you features at 1st level and again at 6th, 10th, and 14th level.',
+                            {
+                                type: 'subclass'
+                            }
                         ],
                     },
+                    has_options: true,
                     id: uuidv4(),
                     class_id: '468deff3-41eb-4ddb-a635-a39d251eaf62',
                 },
@@ -5040,8 +4739,12 @@ exports.seed = knex => (
                     entries: {
                         e: [
                             'When you reach 2nd level, you choose an arcane tradition from the list of available traditions, shaping your practice of magic. Your choice grants you features at 2nd level and again at 6th, 10th, and 14th level.',
+                            {
+                                type: 'subclass'
+                            }
                         ],
                     },
+                    has_options: true,
                     id: uuidv4(),
                     class_id: '8ae9927f-fd72-42a3-a5ab-c1c2b57a40b4',
                 },

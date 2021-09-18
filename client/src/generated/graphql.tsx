@@ -30,6 +30,68 @@ export type Scalars = {
   UUID: any;
 };
 
+export enum AppStatus {
+  Applied = 'APPLIED',
+  Active = 'ACTIVE'
+}
+
+export type Asi = {
+  __typename?: 'Asi';
+  asiId?: Maybe<Scalars['UUID']>;
+  long?: Maybe<Scalars['String']>;
+  short?: Maybe<Scalars['String']>;
+};
+
+/** A condition to be used against `Asi` object types. All fields are tested for equality and combined with a logical ‘and.’ */
+export type AsiCondition = {
+  /** Checks for equality with the object’s `asiId` field. */
+  asiId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `long` field. */
+  long?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `short` field. */
+  short?: Maybe<Scalars['String']>;
+};
+
+/** An input for mutations affecting `Asi` */
+export type AsiInput = {
+  asiId?: Maybe<Scalars['UUID']>;
+  long?: Maybe<Scalars['String']>;
+  short?: Maybe<Scalars['String']>;
+};
+
+/** A connection to a list of `Asi` values. */
+export type AsisConnection = {
+  __typename?: 'AsisConnection';
+  /** A list of `Asi` objects. */
+  nodes: Array<Maybe<Asi>>;
+  /** A list of edges which contains the `Asi` and cursor to aid in pagination. */
+  edges: Array<AsisEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `Asi` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `Asi` edge in the connection. */
+export type AsisEdge = {
+  __typename?: 'AsisEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `Asi` at the end of the edge. */
+  node?: Maybe<Asi>;
+};
+
+/** Methods to use when ordering `Asi`. */
+export enum AsisOrderBy {
+  Natural = 'NATURAL',
+  AsiIdAsc = 'ASI_ID_ASC',
+  AsiIdDesc = 'ASI_ID_DESC',
+  LongAsc = 'LONG_ASC',
+  LongDesc = 'LONG_DESC',
+  ShortAsc = 'SHORT_ASC',
+  ShortDesc = 'SHORT_DESC'
+}
+
 export type Attribute = {
   __typename?: 'Attribute';
   id?: Maybe<Scalars['UUID']>;
@@ -787,6 +849,39 @@ export enum ConditionsOrderBy {
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
+
+/** All input for the create `Asi` mutation. */
+export type CreateAsiInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Asi` to be created by this mutation. */
+  asi: AsiInput;
+};
+
+/** The output of our create `Asi` mutation. */
+export type CreateAsiPayload = {
+  __typename?: 'CreateAsiPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Asi` that was created by this mutation. */
+  asi?: Maybe<Asi>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Asi`. May be used by Relay 1. */
+  asiEdge?: Maybe<AsisEdge>;
+};
+
+
+/** The output of our create `Asi` mutation. */
+export type CreateAsiPayloadAsiEdgeArgs = {
+  orderBy?: Maybe<Array<AsisOrderBy>>;
+};
 
 /** All input for the create `Attribute` mutation. */
 export type CreateAttributeInput = {
@@ -3130,6 +3225,7 @@ export type Minion = Node & {
   password?: Maybe<Scalars['String']>;
   userName: Scalars['String'];
   role?: Maybe<UserRole>;
+  status?: Maybe<AppStatus>;
   /** Reads a single `Wizard` that is related to this `Minion`. */
   wizardByUserId?: Maybe<Wizard>;
   /**
@@ -3160,6 +3256,8 @@ export type MinionCondition = {
   userName?: Maybe<Scalars['String']>;
   /** Checks for equality with the object’s `role` field. */
   role?: Maybe<UserRole>;
+  /** Checks for equality with the object’s `status` field. */
+  status?: Maybe<AppStatus>;
 };
 
 /** An input for mutations affecting `Minion` */
@@ -3168,6 +3266,7 @@ export type MinionInput = {
   password?: Maybe<Scalars['String']>;
   userName: Scalars['String'];
   role?: Maybe<UserRole>;
+  status?: Maybe<AppStatus>;
 };
 
 /** Represents an update to a `Minion`. Fields that are set will be updated. */
@@ -3176,6 +3275,7 @@ export type MinionPatch = {
   password?: Maybe<Scalars['String']>;
   userName?: Maybe<Scalars['String']>;
   role?: Maybe<UserRole>;
+  status?: Maybe<AppStatus>;
 };
 
 /** A connection to a list of `Minion` values. */
@@ -3211,6 +3311,8 @@ export enum MinionsOrderBy {
   UserNameDesc = 'USER_NAME_DESC',
   RoleAsc = 'ROLE_ASC',
   RoleDesc = 'ROLE_DESC',
+  StatusAsc = 'STATUS_ASC',
+  StatusDesc = 'STATUS_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -3218,6 +3320,8 @@ export enum MinionsOrderBy {
 /** The root mutation type which contains root level fields which mutate data. */
 export type Mutation = {
   __typename?: 'Mutation';
+  /** Creates a single `Asi`. */
+  createAsi?: Maybe<CreateAsiPayload>;
   /** Creates a single `Attribute`. */
   createAttribute?: Maybe<CreateAttributePayload>;
   /** Creates a single `BgFeature`. */
@@ -3414,6 +3518,12 @@ export type Mutation = {
   deleteWizardByUserId?: Maybe<DeleteWizardPayload>;
   signin?: Maybe<SigninPayload>;
   signup?: Maybe<SignupPayload>;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateAsiArgs = {
+  input: CreateAsiInput;
 };
 
 
@@ -4041,6 +4151,8 @@ export type Query = Node & {
   nodeId: Scalars['ID'];
   /** Fetches an object given its globally unique `ID`. */
   node?: Maybe<Node>;
+  /** Reads and enables pagination through a set of `Asi`. */
+  allAsis?: Maybe<AsisConnection>;
   /** Reads and enables pagination through a set of `Attribute`. */
   allAttributes?: Maybe<AttributesConnection>;
   /** Reads and enables pagination through a set of `BgFeature`. */
@@ -4143,6 +4255,18 @@ export type Query = Node & {
 /** The root query type which gives access points into the data universe. */
 export type QueryNodeArgs = {
   nodeId: Scalars['ID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAllAsisArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<AsisOrderBy>>;
+  condition?: Maybe<AsiCondition>;
 };
 
 
@@ -7119,7 +7243,7 @@ export type ClassByIdQuery = (
       { __typename?: 'ClassFeaturesConnection' }
       & { nodes: Array<Maybe<(
         { __typename?: 'ClassFeature' }
-        & Pick<ClassFeature, 'id' | 'entries' | 'classSource' | 'isClassFeatureVariant' | 'level' | 'name' | 'page' | 'source' | 'hasOptions'>
+        & Pick<ClassFeature, 'id' | 'entries' | 'classSource' | 'isClassFeatureVariant' | 'level' | 'name' | 'page' | 'source' | 'hasOptions' | 'classId'>
       )>> }
     ) }
   )> }
@@ -7139,6 +7263,25 @@ export type FightingStyleByNameQuery = (
       & Pick<FightingStyle, 'fightingStyleId' | 'name' | 'entries' | 'options'>
     )>> }
   )> }
+);
+
+export type SubclassNamesByClassIdQueryVariables = Exact<{
+  classId: Scalars['UUID'];
+}>;
+
+
+export type SubclassNamesByClassIdQuery = (
+  { __typename?: 'Query' }
+  & { query: (
+    { __typename?: 'Query' }
+    & { allSubclasses?: Maybe<(
+      { __typename?: 'SubclassesConnection' }
+      & { nodes: Array<Maybe<(
+        { __typename?: 'Subclass' }
+        & Pick<Subclass, 'id' | 'name'>
+      )>> }
+    )> }
+  ) }
 );
 
 
@@ -7823,6 +7966,7 @@ export const ClassByIdDocument = gql`
         page
         source
         hasOptions
+        classId
       }
     }
   }
@@ -7896,3 +8040,43 @@ export function useFightingStyleByNameLazyQuery(baseOptions?: Apollo.LazyQueryHo
 export type FightingStyleByNameQueryHookResult = ReturnType<typeof useFightingStyleByNameQuery>;
 export type FightingStyleByNameLazyQueryHookResult = ReturnType<typeof useFightingStyleByNameLazyQuery>;
 export type FightingStyleByNameQueryResult = Apollo.QueryResult<FightingStyleByNameQuery, FightingStyleByNameQueryVariables>;
+export const SubclassNamesByClassIdDocument = gql`
+    query SubclassNamesByClassId($classId: UUID!) {
+  query {
+    allSubclasses(condition: {classId: $classId}, orderBy: NAME_ASC) {
+      nodes {
+        id
+        name
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useSubclassNamesByClassIdQuery__
+ *
+ * To run a query within a React component, call `useSubclassNamesByClassIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useSubclassNamesByClassIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSubclassNamesByClassIdQuery({
+ *   variables: {
+ *      classId: // value for 'classId'
+ *   },
+ * });
+ */
+export function useSubclassNamesByClassIdQuery(baseOptions: Apollo.QueryHookOptions<SubclassNamesByClassIdQuery, SubclassNamesByClassIdQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<SubclassNamesByClassIdQuery, SubclassNamesByClassIdQueryVariables>(SubclassNamesByClassIdDocument, options);
+      }
+export function useSubclassNamesByClassIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<SubclassNamesByClassIdQuery, SubclassNamesByClassIdQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<SubclassNamesByClassIdQuery, SubclassNamesByClassIdQueryVariables>(SubclassNamesByClassIdDocument, options);
+        }
+export type SubclassNamesByClassIdQueryHookResult = ReturnType<typeof useSubclassNamesByClassIdQuery>;
+export type SubclassNamesByClassIdLazyQueryHookResult = ReturnType<typeof useSubclassNamesByClassIdLazyQuery>;
+export type SubclassNamesByClassIdQueryResult = Apollo.QueryResult<SubclassNamesByClassIdQuery, SubclassNamesByClassIdQueryVariables>;
