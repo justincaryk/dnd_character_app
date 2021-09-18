@@ -13,9 +13,11 @@ const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
   const location = useLocation()
   const subpath = location.pathname.split(new RegExp('/(?<name>[^>]+)/'))[1]
   const history = useHistory()
-
+  debugger
   return (
-    <div className={classnames({'mb-12': location.pathname !== '/create/sheet'})}>
+    <div
+      className={classnames({ 'mb-12': location.pathname !== '/create/sheet' })}
+    >
       <div className='h-38 w-full bg-stone z-10'>
         {!isPublic && (
           <div
@@ -63,7 +65,22 @@ const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
                   </div>
                 ))}
             </div>
-            {isPublic && (
+          </div>
+        )}
+        {isPublic && (
+          <div className='h-38 w-full bg-black p-4 z-10 relative'>
+            <div className='flex items-center justify-between'>
+              {links
+                .map((x) => (
+                  <div key={x.text}>
+                    <button
+                      className='text-off-white font-roboto uppercase hover:text-hover-white hover:no-underline cursor-pointer outline-none'
+                      onClick={() => history.push(x.link)}
+                    >
+                      {x.text}
+                    </button>
+                  </div>
+                ))}
               <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
                 <img
                   className='w-24'
@@ -71,7 +88,7 @@ const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
                   alt='broken logo'
                 />
               </div>
-            )}
+            </div>
           </div>
         )}
       </div>
