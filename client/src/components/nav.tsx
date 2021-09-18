@@ -14,9 +14,9 @@ const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
   const history = useHistory()
 
   return (
-    <div className='h-38 w-full fixed top-0 bg-stone z-30'>
+    <div className='h-38 w-full bg-stone z-10'>
       {!isPublic && (
-        <div className='bg-black w-full px-6 py-3'>
+        <div className='px-6 pb-3 pt-24 -mt-20 bg-black w-full '>
           <div className='flex justify-between items-center'>
             <button className='hover:no-underline outline-none' onClick={() => history.push(signout?.link || '/')}>
               <img
@@ -43,12 +43,12 @@ const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
               .filter((x) => x.link.indexOf(subpath) > -1)
               .map((x) => (
                 <div key={x.text}>
-                  <a
-                    className='text-off-white font-roboto uppercase hover:text-hover-white hover:no-underline cursor-pointer'
+                  <button 
+                    className='text-off-white font-roboto uppercase hover:text-hover-white hover:no-underline cursor-pointer outline-none'
                     onClick={() => history.push(x.link)}
                   >
                     {x.text}
-                  </a>
+                  </button>
                 </div>
               ))}
           </div>

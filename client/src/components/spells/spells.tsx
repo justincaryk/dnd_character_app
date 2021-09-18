@@ -196,7 +196,7 @@ const SpellsSelector: React.FC = () => {
           ? filteredSpells.map((spell: any) => {
               return (
                 <div
-                  className='rounded bg-white p-2 border-2 border-indigo-500'
+                  className='rounded bg-white p-2 border-1 border-indigo-500'
                   key={spell.slug}
                 >
                   <Spell rawSpell={spell}></Spell>
