@@ -196,7 +196,7 @@ const RaceSelectionForm: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className='max-w-screen-sm m-auto m-0'>
       <div>
         <form onChange={handleRaceSelection} key='raceForm'>
           <Races races={data.allRaces?.nodes}></Races>

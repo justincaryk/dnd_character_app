@@ -458,6 +458,7 @@ export type ClassFeature = Node & {
   classSource?: Maybe<Scalars['String']>;
   level?: Maybe<Scalars['Int']>;
   entries?: Maybe<Scalars['JSON']>;
+  hasOptions?: Maybe<Scalars['Boolean']>;
   /** Reads a single `Class` that is related to this `ClassFeature`. */
   classByClassId?: Maybe<Class>;
 };
@@ -485,6 +486,8 @@ export type ClassFeatureCondition = {
   level?: Maybe<Scalars['Int']>;
   /** Checks for equality with the object’s `entries` field. */
   entries?: Maybe<Scalars['JSON']>;
+  /** Checks for equality with the object’s `hasOptions` field. */
+  hasOptions?: Maybe<Scalars['Boolean']>;
 };
 
 /** An input for mutations affecting `ClassFeature` */
@@ -498,6 +501,7 @@ export type ClassFeatureInput = {
   classSource?: Maybe<Scalars['String']>;
   level?: Maybe<Scalars['Int']>;
   entries?: Maybe<Scalars['JSON']>;
+  hasOptions?: Maybe<Scalars['Boolean']>;
 };
 
 /** Represents an update to a `ClassFeature`. Fields that are set will be updated. */
@@ -511,6 +515,7 @@ export type ClassFeaturePatch = {
   classSource?: Maybe<Scalars['String']>;
   level?: Maybe<Scalars['Int']>;
   entries?: Maybe<Scalars['JSON']>;
+  hasOptions?: Maybe<Scalars['Boolean']>;
 };
 
 /** A connection to a list of `ClassFeature` values. */
@@ -556,6 +561,8 @@ export enum ClassFeaturesOrderBy {
   LevelDesc = 'LEVEL_DESC',
   EntriesAsc = 'ENTRIES_ASC',
   EntriesDesc = 'ENTRIES_DESC',
+  HasOptionsAsc = 'HAS_OPTIONS_ASC',
+  HasOptionsDesc = 'HAS_OPTIONS_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -2701,6 +2708,7 @@ export type Feat = {
   desc: Scalars['String'];
   points?: Maybe<Array<Maybe<Scalars['String']>>>;
   prereq?: Maybe<Scalars['String']>;
+  scores?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 /** A condition to be used against `Feat` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -2715,6 +2723,8 @@ export type FeatCondition = {
   points?: Maybe<Array<Maybe<Scalars['String']>>>;
   /** Checks for equality with the object’s `prereq` field. */
   prereq?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `scores` field. */
+  scores?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 /** An input for mutations affecting `Feat` */
@@ -2724,6 +2734,7 @@ export type FeatInput = {
   desc: Scalars['String'];
   points?: Maybe<Array<Maybe<Scalars['String']>>>;
   prereq?: Maybe<Scalars['String']>;
+  scores?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 /** Represents an update to a `Feat`. Fields that are set will be updated. */
@@ -2733,6 +2744,7 @@ export type FeatPatch = {
   desc?: Maybe<Scalars['String']>;
   points?: Maybe<Array<Maybe<Scalars['String']>>>;
   prereq?: Maybe<Scalars['String']>;
+  scores?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 /** A connection to a list of `Feat` values. */
@@ -2769,7 +2781,9 @@ export enum FeatsOrderBy {
   PointsAsc = 'POINTS_ASC',
   PointsDesc = 'POINTS_DESC',
   PrereqAsc = 'PREREQ_ASC',
-  PrereqDesc = 'PREREQ_DESC'
+  PrereqDesc = 'PREREQ_DESC',
+  ScoresAsc = 'SCORES_ASC',
+  ScoresDesc = 'SCORES_DESC'
 }
 
 
@@ -6855,7 +6869,7 @@ export type AllFeatsQuery = (
     { __typename?: 'FeatsConnection' }
     & { feats: Array<Maybe<(
       { __typename?: 'Feat' }
-      & Pick<Feat, 'id' | 'name' | 'desc' | 'points' | 'prereq'>
+      & Pick<Feat, 'id' | 'name' | 'desc' | 'points' | 'prereq' | 'scores'>
     )>> }
   )> }
 );
@@ -6943,6 +6957,38 @@ export type GetAllSpellsQuery = (
       { __typename?: 'Spell' }
       & Pick<Spell, 'archetype' | 'castingTime' | 'circles' | 'components' | 'concentration' | 'desc' | 'dndClass' | 'duration' | 'higherLevel' | 'levelInt' | 'level' | 'material' | 'name' | 'page' | 'range' | 'ritual' | 'school' | 'slug'>
     )>> }
+  )> }
+);
+
+export type ClassByIdQueryVariables = Exact<{
+  id: Scalars['UUID'];
+}>;
+
+
+export type ClassByIdQuery = (
+  { __typename?: 'Query' }
+  & { classById?: Maybe<(
+    { __typename?: 'Class' }
+    & Pick<Class, 'name' | 'id' | 'cantripProgression' | 'casterProgression' | 'classFeatures' | 'hdFaces' | 'hdNumber' | 'meta' | 'multiclassing' | 'optionalFeatureProgression' | 'page' | 'preparedSpells' | 'proficiency' | 'source' | 'spellcastingAbility' | 'spellsKnownProgression' | 'spellsKnownProgressionFixed' | 'spellsKnownProgressionFixedAllowLowerLevel' | 'spellsKnownProgressionFixedByLevel' | 'srd' | 'startingEquipment' | 'startingProficiencies' | 'subclassTitle'>
+    & { subclassesByClassId: (
+      { __typename?: 'SubclassesConnection' }
+      & { nodes: Array<Maybe<(
+        { __typename?: 'Subclass' }
+        & Pick<Subclass, 'additionalSpells' | 'cantripProgression' | 'casterProgression' | 'name' | 'page' | 'shortName' | 'source' | 'spellcastingAbility' | 'spellsKnownProgression' | 'subclassFeatures' | 'subclassTableGroups' | 'id' | 'preparedSpells'>
+      )>> }
+    ), subclassFeaturesByClassId: (
+      { __typename?: 'SubclassFeaturesConnection' }
+      & { nodes: Array<Maybe<(
+        { __typename?: 'SubclassFeature' }
+        & Pick<SubclassFeature, 'entries' | 'id' | 'level' | 'isClassFeatureVariant' | 'nodeId' | 'name' | 'page' | 'subclassShortName' | 'subclassSource' | 'source'>
+      )>> }
+    ), classFeaturesByClassId: (
+      { __typename?: 'ClassFeaturesConnection' }
+      & { nodes: Array<Maybe<(
+        { __typename?: 'ClassFeature' }
+        & Pick<ClassFeature, 'id' | 'entries' | 'classSource' | 'isClassFeatureVariant' | 'level' | 'name' | 'page' | 'source' | 'hasOptions'>
+      )>> }
+    ) }
   )> }
 );
 
@@ -7329,6 +7375,7 @@ export const AllFeatsDocument = gql`
       desc
       points
       prereq
+      scores
     }
   }
 }
@@ -7559,3 +7606,104 @@ export function useGetAllSpellsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptio
 export type GetAllSpellsQueryHookResult = ReturnType<typeof useGetAllSpellsQuery>;
 export type GetAllSpellsLazyQueryHookResult = ReturnType<typeof useGetAllSpellsLazyQuery>;
 export type GetAllSpellsQueryResult = Apollo.QueryResult<GetAllSpellsQuery, GetAllSpellsQueryVariables>;
+export const ClassByIdDocument = gql`
+    query ClassById($id: UUID!) {
+  classById(id: $id) {
+    name
+    id
+    cantripProgression
+    casterProgression
+    classFeatures
+    hdFaces
+    hdNumber
+    meta
+    multiclassing
+    optionalFeatureProgression
+    page
+    preparedSpells
+    proficiency
+    source
+    spellcastingAbility
+    spellsKnownProgression
+    spellsKnownProgressionFixed
+    spellsKnownProgressionFixedAllowLowerLevel
+    spellsKnownProgressionFixedByLevel
+    srd
+    startingEquipment
+    startingProficiencies
+    subclassTitle
+    subclassesByClassId {
+      nodes {
+        additionalSpells
+        cantripProgression
+        casterProgression
+        name
+        page
+        shortName
+        source
+        spellcastingAbility
+        spellsKnownProgression
+        subclassFeatures
+        subclassTableGroups
+        id
+        preparedSpells
+      }
+    }
+    subclassFeaturesByClassId(orderBy: NAME_ASC) {
+      nodes {
+        entries
+        id
+        level
+        isClassFeatureVariant
+        nodeId
+        name
+        page
+        subclassShortName
+        subclassSource
+        source
+      }
+    }
+    classFeaturesByClassId(orderBy: LEVEL_ASC) {
+      nodes {
+        id
+        entries
+        classSource
+        isClassFeatureVariant
+        level
+        name
+        page
+        source
+        hasOptions
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useClassByIdQuery__
+ *
+ * To run a query within a React component, call `useClassByIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useClassByIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useClassByIdQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useClassByIdQuery(baseOptions: Apollo.QueryHookOptions<ClassByIdQuery, ClassByIdQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ClassByIdQuery, ClassByIdQueryVariables>(ClassByIdDocument, options);
+      }
+export function useClassByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ClassByIdQuery, ClassByIdQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ClassByIdQuery, ClassByIdQueryVariables>(ClassByIdDocument, options);
+        }
+export type ClassByIdQueryHookResult = ReturnType<typeof useClassByIdQuery>;
+export type ClassByIdLazyQueryHookResult = ReturnType<typeof useClassByIdLazyQuery>;
+export type ClassByIdQueryResult = Apollo.QueryResult<ClassByIdQuery, ClassByIdQueryVariables>;

@@ -13,7 +13,7 @@ const Races: React.FC<Props> = ({races}) => {
           Make a selection
         </option>
         {races.map((x: any) => (
-          <option value={x.id} key={+x.id}>
+          <option value={x.id} key={x.id}>
             {x.name}
           </option>
         ))}

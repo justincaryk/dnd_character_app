@@ -134,3 +134,17 @@ export const parsedFeatures = (classFeatures: any) => {
 
   return hashFeatures
 }
+
+export const numberToSpeakable = (num: number) => {
+  if (num === 1) {
+    return '1st'
+  } 
+  if (num === 2) {
+    return '2nd'
+  }
+  if (num === 3) {
+    return '3rd'
+  }
+
+  return `${num}th`
+}

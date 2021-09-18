@@ -128,7 +128,7 @@ const PointBuy: React.FC<Props> = ({
             {attributes.map((attr) => {
               return (
                 <div key={attr.id}>
-                  <div className='text-md text-center uppercase font-roboto font-bold rounded-t bg-dark text-white p-1'>{attr.name}</div>
+                  <div className='text-sm text-center uppercase font-roboto font-bold rounded-t bg-dark text-white p-1'>{attr.name}</div>
                     <AttributeInputBlock
                       attribute={attr}
                       key={attr.id}

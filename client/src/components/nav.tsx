@@ -13,7 +13,7 @@ const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
   const subpath = location.pathname.split(new RegExp('/(?<name>[^>]+)/'))[1]
 
   return (
-    <div className='h-38 w-full fixed top-0 bg-stone z-10'>
+    <div className='h-38 w-full fixed top-0 bg-stone z-30'>
       {!isPublic && (
         <div className='bg-black w-full px-6 py-3'>
           <div className='flex justify-between items-center'>
@@ -35,7 +35,7 @@ const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
           </div>
         </div>
       )}
-      {subpath && (
+      {subpath && location.pathname !== '/create/sheet' && (
         <div className='relative px-5 py-6'>
           <div className='flex w-full justify-between items-center text-sm'>
             {links

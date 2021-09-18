@@ -12,7 +12,8 @@ exports.seed = knex => (
                     id: uuidv4(),
                     name: "Actor",
                     desc: "Skilled at mimicry and dramatics, you gain the following benefits:",
-                    points: ["Increase your Charisma score by 1, to a maximum of 20.", "You have advantage on Charisma (Deception) and Charisma (Performance) checks when trying to pass yourself off as a different person.", "You can mimic the speech of another person or the sounds made by other creatures. You must have heard the person speaking, or heard the creature make the sound, for at least 1 minute. A successful Wisdom (Insight) check contested by your Charisma (Deception) check allows a listener to determine that the effect is faked."]
+                    points: ["Increase your Charisma score by 1, to a maximum of 20.", "You have advantage on Charisma (Deception) and Charisma (Performance) checks when trying to pass yourself off as a different person.", "You can mimic the speech of another person or the sounds made by other creatures. You must have heard the person speaking, or heard the creature make the sound, for at least 1 minute. A successful Wisdom (Insight) check contested by your Charisma (Deception) check allows a listener to determine that the effect is faked."],
+                    score: ['Charisma']
                 },
                 {
                     id: uuidv4(),
@@ -24,20 +25,8 @@ exports.seed = knex => (
                     id: uuidv4(),
                     name: "Athlete",
                     desc: "You have undergone extensive physical training to gain the following benefits:",
-                    points: ["Increase your Strength or Dexterity score by 1, to a maximum of 20.", "When you are prone, standing up uses only 5 feet of your movement.", "Climbing doesn’t halve your speed.", "You can make a running long jump or a running high jump after moving only 5 feet on foot, rather than 10 feet."]
-                },
-                {
-                    id: uuidv4(),
-                    name: "Barbed Hide (UA: Feats for Races)",
-                    desc: "One of your ancestors was a barbed devil or other spiky fiend. Barbs protrude from your head. You gain the following benefits:",
-                    points: ["Increase your Constitution or Charisma score by 1, up to a maximum of 20.", "As a bonus action, you can cause small barbs to protrude all over your body or cause them to retract. At the start of each of your turns while the barbs are out, you deal 1d6 piercing damage to any creature grappling you or any creature grappled by you.", "You gain proficiency in the Intimidation skill. If you’re already proficient in it, your proficiency bonus is doubled for any check you make with it."],
-                    prereq: "Tiefling"
-                },
-                {
-                    id: uuidv4(),
-                    name: "Bountiful Luck (UA: Feats for Races)",
-                    desc: "Whenever an ally you can see within 30 feet of you rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, you can use your reaction to let the ally reroll the die. The ally must use the new roll.",
-                    prereq: "Halfling"
+                    points: ["Increase your Strength or Dexterity score by 1, to a maximum of 20.", "When you are prone, standing up uses only 5 feet of your movement.", "Climbing doesn’t halve your speed.", "You can make a running long jump or a running high jump after moving only 5 feet on foot, rather than 10 feet."],
+                    score: ['Strength', 'Dexterity']
                 },
                 {
                     id: uuidv4(),
@@ -52,13 +41,6 @@ exports.seed = knex => (
                 },
                 {
                     id: uuidv4(),
-                    name: "Critter Friend (UA: Feats for Races)",
-                    desc: "Your friendship with animals mystically deepens. You gain the following benefits:",
-                    points: ["You gain proficiency in the Animal Handling skill. If you’re already proficient in it, your proficiency bonus is doubled for any check you make with it.", "You learn the speak with animals spell and can cast it at will, without expending a spell slot. You also learn the animal friendship spell, and you can cast it once with this feat, without expending a spell slot. You regain the ability to cast it in this way when you finish a long rest. Intelligence is your spellcasting ability for these spells."],
-                    prereq: "Gnome (Forest)"
-                },
-                {
-                    id: uuidv4(),
                     name: "Crossbow Expert",
                     desc: "Thanks to extensive practice with the crossbow, you gain the following benefits:",
                     points: ["You ignore the loading quality of crossbows with which you are proficient.", "Being within 5 feet of a hostile creature doesn’t impose disadvantage on your ranged attack rolls.", "When you use the Attack action and attack with a one-handed weapon, you can use a bonus action to attack with a loaded hand crossbow you are holding."]
@@ -70,33 +52,16 @@ exports.seed = knex => (
                 },
                 {
                     id: uuidv4(),
-                    name: "Dragon Fear (UA: Feats for Races)",
-                    desc: "When angered, you radiate menace. You gain the following benefits:",
-                    points: ["Increase your Strength, Constitution or Charisma score by 1, up to a maximum of 20.", "Instead of exhaling destructive energy, you can expend a use of your Breath Weapon trait to roar, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). A target automatically succeeds if it can’t hear or see you. On a failed save, a target becomes frightened of you for 1 minute. If the frightened target takes any damage, it can repeat the saving throw, ending the effect on itself on a success."],
-                    prereq: "Dragonborn"
-                },
-                {
-                    id: uuidv4(),
                     name: "Dragon Fear (XGE)",
                     desc: "When angered, you radiate menace. You gain the following benefits:",
                     points: ["Increase your Strength, Constitution or Charisma score by 1, up to a maximum of 20.", "Instead of exhaling destructive energy, you can expend a use of your Breath Weapon trait to roar, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). A target automatically succeeds if it can’t hear or see you. On a failed save, a target becomes frightened of you for 1 minute. If the frightened target takes any damage, it can repeat the saving throw, ending the effect on itself on a success."],
-                    prereq: "Dragonborn"
-                },
-                {
-                    id: uuidv4(),
-                    name: "Dragon Wings (UA: Feats for Races)",
-                    desc: "You sprout draconic wings. With your wings, you have a flying speed of 20 feet if you aren’t wearing heavy armor and aren’t exceeding your carrying capacity."
+                    prereq: "Dragonborn",
+                    score: ['Strength', 'Constitution', 'Charisma']
                 },
                 {
                     id: uuidv4(),
                     name: "Drow Hide Magic (XGE)",
                     desc: "You learn more of the magic typical of dark elves. You learn the detect magic spell and can cast it at will, without expending a spell slot. You also learn levitate and dispel magic, each of which you can cast once without expending a spell slot. You regain the ability to cast those two spells in this way when you finish a long rest. Charisma is your spellcasting ability for all three spells. ",
-                    prereq: "Prerequisite: Elf (drow)"
-                },
-                {
-                    id: uuidv4(),
-                    name: "Drow High Magic (UA: Feats for Races)",
-                    desc: "You learn more of the spells typical for your people. You learn detect magic and can cast it at will, without expending a spell slot. You also learn levitate and dispel magic, each of which you can cast once without expending a spell slot. You regain the ability to cast the spell in this way when you finish a long rest. Charisma is your spellcasting ability for these spells.",
                     prereq: "Prerequisite: Elf (drow)"
                 },
                 {
@@ -121,17 +86,11 @@ exports.seed = knex => (
                 },
                 {
                     id: uuidv4(),
-                    name: "Dwarf Resilience (UA: Feats for Races)",
-                    desc: "You inherited the might and majesty of your dragon ancestors. You gain the following benefits:",
-                    points: ["Increase your Constitution score by 1, up to a maximum of 20.", "Whenever you take the Dodge action in combat, you can spend one Hit Die to heal yourself. Roll the die, add your Constitution modifier, and regain a number of hit points equal to the total (minimum of 1). "],
-                    prereq: "Dwarf"
-                },
-                {
-                    id: uuidv4(),
                     name: "Dwarven Fortitude (XGE)",
                     desc: "You have the blood of dwarf heroes flowing through your veins. You gain the following benefits:",
                     points: ["Increase your Constitution score by 1, up to a maximum of 20.", "Whenever you take the Dodge action in combat, you can spend one Hit Die to heal yourself. Roll the die, add your Constitution modifier, and regain a number of hit points equal to the total (minimum of 1)."],
-                    prereq: "Dwarf"
+                    prereq: "Dwarf",
+                    score: ['Constitution']
                 },
                 {
                     id: uuidv4(),
@@ -141,67 +100,35 @@ exports.seed = knex => (
                 },
                 {
                     id: uuidv4(),
-                    name: "Elven Accuracy (UA: Feats for Races)",
-                    desc: "You have uncanny aim. You gain the following benefits:",
-                    points: ["Increase your Dexterity score by 1, up to a maximum of 20.", "Whenever you have advantage on an attack roll, you can reroll one of the dice once."],
-                    prereq: "Elf or half-elf"
-                },
-                {
-                    id: uuidv4(),
                     name: "Elven Accuracy (XGE)",
                     desc: "The accuracy of elves is legendary, especially that of elf archers and spellcasters. You have uncanny aim with attacks that rely on precision rather than brute force. You gain the following benefits:",
                     points: ["Increase your Dexterity, Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.", "Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once."],
-                    prereq: "Elf or half-elf"
-                },
-                {
-                    id: uuidv4(),
-                    name: "Everybody's Friend (UA: Feats for Races)",
-                    desc: "You develop your magnetic personality to ease your way through the world. You gain the following benefits:",
-                    points: ["Increase your Charisma score by 1, up to a maximum of 20.", "You gain proficiency in the Deception and Persuasion skills. If you’re already proficient in either skill, your proficiency bonus is doubled for any check you make with that skill."],
-                    prereq: "Half-elf"
-                },
-                {
-                    id: uuidv4(),
-                    name: "Fade Away (UA: Feats for Races)",
-                    desc: "You can draw on your magical heritage to escape danger. You gain the following benefits:",
-                    points: ["Increase your Intelligence score by 1, up to a maximum of 20.", "When you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can’t do so again until you finish a short or long rest."],
-                    prereq: "Gnome"
+                    prereq: "Elf or half-elf",
+                    score: ['Dexterity', 'Intelligence', 'Wisdom', 'Charisma']
                 },
                 {
                     id: uuidv4(),
                     name: "Fade Away (XGE)",
                     desc: "Your people are Clever, with a knack for illusion magic. You have learned a magical trick for fading away when you suffer harm. You gain the following benefits:",
                     points: ["Increase your Dexterity or Intelligence score by 1, to a maximum of 20.", "Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can’t do so again until you finish a short or long rest."],
-                    prereq: "Gnome"
-                },
-                {
-                    id: uuidv4(),
-                    name: "Fey Teleportation (UA: Feats for Races)",
-                    desc: "Drawing on your fey ancestry, you have learned how to teleport. You gain the following benefits:",
-                    points: ["Increase your Intelligence score by 1, to a maximum of 20.", "You learn the misty step spell and can cast it once without expending a spell slot. You regain the ability to cast it in this way when you finish a short or long rest. Intelligence is your spellcasting ability for this spell."],
-                    prereq: "Elf (high)"
+                    prereq: "Gnome",
+                    score: ['Dexterity', 'Intelligence']
                 },
                 {
                     id: uuidv4(),
                     name: "Fey Teleportation (XGE)",
                     desc: "Your study of high elven lore has unlocked fey power that few other elves possess, except your eladrin cousins. Drawing on your fey ancestry, you can momentarily stride through the Feywild to shorten your path from one place to another. You gain the following benefits:",
                     points: ["Increase your Intelligence or Charisma score by 1, to a maximum of 20.", "You learn to speak, read, and write Sylvan.", "You learn the misty step spell and can cast it once without expending a spell slot. You regain the ability to cast it in this way when you finish a short or long rest. Intelligence is your spellcasting ability for this spell."],
-                    prereq: "Elf (high)"
-                },
-                {
-                    id: uuidv4(),
-                    name: "Flames of Phlegethos (UA: Feats for Races)",
-                    desc: "You learn to call on hellfire to serve your commands. You gain the following benefits:",
-                    points: ["Increase your Intelligence or Charisma score by 1, to a maximum of 20.", "When you roll fire damage for a spell you cast, you can reroll any roll of 1 on the fire damage dice, but you must use the new roll, even if it is another 1.", "Whenever you cast a spell that deals fire damage, you can cause flames to wreathe you until the end of your next turn. The flames don’t harm you or your possessions, and they shed bright light out to 30 feet and dim light for an additional 30 feet. While the flames are present, any creature within 5 feet of you that hits you with a melee attack takes 1d4 fire damage."],
-                    prereq: "Tiefling"
+                    prereq: "Elf (high)",
+                    score: ['Charisma', 'Intelligence']
                 },
                 {
                     id: uuidv4(),
                     name: "Flames of Phlegethos (XGE)",
                     desc: "You learn to call on hellfire to serve your commands. You gain the following benefits:",
                     points: ["Increase your Intelligence or Charisma score by 1, to a maximum of 20.", "When you roll fire damage for a spell you cast, you can reroll any roll of 1 on the fire damage dice, but you must use the new roll, even if it is another 1.", "Whenever you cast a spell that deals fire damage, you can cause flames to wreathe you until the end of your next turn. The flames don’t harm you or your possessions, and they shed bright light out to 30 feet and dim light for an additional 30 feet. While the flames are present, any creature within 5 feet of you that hits you with a melee attack takes 1d4 fire damage."],
-                    prereq: "Tiefling"
-
+                    prereq: "Tiefling",
+                    score: ['Charisma', 'Intelligence']
                 },
                 {
                     id: uuidv4(),
@@ -218,13 +145,6 @@ exports.seed = knex => (
                 },
                 {
                     id: uuidv4(),
-                    name: "Grudge-Bearer (UA: Feats for Races)",
-                    desc: "You have a deep hatred for a particular kind of creature. Choose your foes, a type of creature to bear the burden of your wrath: aberrations, beasts, celestials, constructs, dragons, elementals, fey, fiends, giants, monstrosities, oozes, plants, or undead. Alternatively, you can choose two races of humanoid (such as gnolls and orcs). You gain the following benefits:",
-                    points: ["Increase your Strength, Constitution, or Wisdom score by 1, to a maximum of 20.", "During the first round of any combat against your chosen foes, your attack rolls against any of them have advantage.", "When any of your chosen foes makes an opportunity attack against you, it makes the attack roll with disadvantage.", "Whenever you make an Intelligence (Arcana, History, Nature, or Religion) check to recall information about your chosen foes, you add double your proficiency bonus to the check, even if you’re not normally proficient."],
-                    prereq: "Dwarf"
-                },
-                {
-                    id: uuidv4(),
                     name: "Healer",
                     desc: "You are an able physician, allowing you to mend wounds quickly and get your allies back in the fight. You gain the following benefits:",
                     points: ["When you use a healer’s kit to stabilize a dying creature, that creature also regains 1 hit point.", "As an action, you can spend one use of a healer’s kit to tend to a creature and restore 1d6 + 4 hit points to it, plus additional hit points equal to the creature’s maximum number of Hit Dice. The creature can’t regain hit points from this feat again until it finishes a short or long rest."]
@@ -234,41 +154,24 @@ exports.seed = knex => (
                     name: "Heavily Armored",
                     desc: "You have trained to master the use of heavy armor, gaining the following benefits:",
                     points: ["Increase your Strength score by 1, to a maximum of 20.", "You gain proficiency with heavy armor."],
-                    prereq: "Proficiency with medium armor"
+                    prereq: "Proficiency with medium armor",
+                    score: ['Strength']
                 },
                 {
                     id: uuidv4(),
                     name: "Heavy Armor Master",
                     desc: "You can use your armor to deflect strikes that would kill others. You gain the following benefits:",
                     points: ["Increase your Strength score by 1, to a maximum of 20.", "While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from non magical weapons is reduced by 3."],
-                    prereq: "Proficiency with heavy armor"
-                },
-                {
-                    id: uuidv4(),
-                    name: "Human Determination (UA: Feats for Races)",
-                    desc: "You are filled with a determination that can draw the unreachable within your reach. You gain the following benefits:",
-                    points: ["Increase one ability score of your choice by 1, to a maximum of 20.", "When you make an attack roll, an ability check, or a saving throw, you can do so with advantage. Once you use this ability, you can’t use it again until you finish a short or long rest."]
-                },
-                {
-                    id: uuidv4(),
-                    name: "Infernal Constitution (UA: Feats for Races)",
-                    desc: "Fiendish blood runs strong in you. You gain the following benefits:",
-                    points: ["Increase your Constitution score by 1, up to a maximum of 20.", "You have resistance to cold and poison damage.", "You have advantage on saving throws against being poisoned."],
-                    prereq: "Tiefling"
-                },
-                {
-                    id: uuidv4(),
-                    name: "Infernal Constitution (UA: Feats for Races)",
-                    desc: "Fiendish blood runs strong in you. You gain the following benefits:",
-                    points: ["Increase your Constitution score by 1, up to a maximum of 20.", "You have resistance to cold and poison damage.", "You have advantage on saving throws against being poisoned."],
-                    prereq: "Tiefling"
+                    prereq: "Proficiency with heavy armor",
+                    score: ['Strength']
                 },
                 {
                     id: uuidv4(),
                     name: "Infernal Constitution (XGE)",
                     desc: "Fiendish blood runs strong in you, unlocking a resilience akin to that possessed by some fiends. You gain the following benefits:",
                     points: ["Increase your Constitution score by 1, to a maximum of 20.", "You have resistance to cold damage and poison damage.", "You have advantage on saving throws against being poisoned."],
-                    prereq: "Tiefling"
+                    prereq: "Tiefling",
+                    score: ['Constitution']
                 },
                 {
                     id: uuidv4(),
@@ -280,19 +183,22 @@ exports.seed = knex => (
                     id: uuidv4(),
                     name: "Keen Mind",
                     desc: "You have a mind that can track time, direction, and detail with uncanny precision. You gain the following benefits:",
-                    points: ["Increase your Intelligence score by 1, to a maximum of 20.", "You always know which way is north.", "You always know the number of hours left before the next sunrise or sunset.", "You can accurately recall anything you have seen or heard within the past month."]
+                    points: ["Increase your Intelligence score by 1, to a maximum of 20.", "You always know which way is north.", "You always know the number of hours left before the next sunrise or sunset.", "You can accurately recall anything you have seen or heard within the past month."],
+                    score: ['Intelligence']
                 },
                 {
                     id: uuidv4(),
                     name: "Lightly Armored",
                     desc: "You have trained to master the use of light armor, gaining the following benefits:",
-                    points: ["Increase your Strength or Dexterity score by 1, to a maximum of 20.", "You gain proficiency with light armor."]
+                    points: ["Increase your Strength or Dexterity score by 1, to a maximum of 20.", "You gain proficiency with light armor."],
+                    score: ['Strength', 'Dexterity']
                 },
                 {
                     id: uuidv4(),
                     name: "Linguist",
                     desc: "You have studied languages and codes, gaining the following benefits:",
-                    points: ["Increase your Intelligence score by 1, to a maximum of 20.", "You learn three languages of your choice.", "You can ably create written ciphers. Others can’t decipher a code you create unless you teach them, they succeed on an Intelligence check (DC equal to your Intelligence score + your proficiency bonus), or they use magic to decipher it."]
+                    points: ["Increase your Intelligence score by 1, to a maximum of 20.", "You learn three languages of your choice.", "You can ably create written ciphers. Others can’t decipher a code you create unless you teach them, they succeed on an Intelligence check (DC equal to your Intelligence score + your proficiency bonus), or they use magic to decipher it."],
+                    score: ['Intelligence']
                 },
                 {
                     id: uuidv4(),
@@ -334,7 +240,8 @@ exports.seed = knex => (
                     name: "Moderately Armored",
                     desc: "You have trained to master the use of medium armor and shields, gaining the following benefits:",
                     points: ["Increase your Strength or Dexterity score by 1, to a maximum of 20.", "You gain proficiency with medium armor and shields."],
-                    prereq: "Proficiency with light armor"
+                    prereq: "Proficiency with light armor",
+                    score: ['Strength', 'Dexterity']
                 },
                 {
                     id: uuidv4(),
@@ -353,20 +260,8 @@ exports.seed = knex => (
                     name: "Orchish Fury (XGE)",
                     desc: "Your inner fury burns tirelessly. You gain the following benefits:",
                     points: ["Increase your Strength or Constitution score by 1, to a maximum of 20.", "When you hit with an attack using a simple or martial weapon, you can roll one of the weapon’s damage dice an additional time and add it as extra damage of the weapon’s damage type. Once you use this ability, you can’t use it again until you finish a short or long rest.", "Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack."],
-                    prereq: "Half-orc"
-                },
-                {
-                    id: uuidv4(),
-                    name: "Orcish Aggression (UA: Feats for Races)",
-                    desc: "As a bonus action, you can move up to your speed toward an enemy of your choice that you can see or hear. You must end this move closer to the enemy than you started.",
-                    prereq: "Half-orc"
-                },
-                {
-                    id: uuidv4(),
-                    name: "Orcish Fury (UA: Feats for Races)",
-                    desc: "Your fury burns tirelessly. You gain the following benefits:",
-                    points: ["Increase your Strength or Constitution score by 1, up to a maximum of 20.", "When you hit with an attack made with a simple or martial weapon, you can roll one of the weapon’s damage dice an additional time and add it as extra damage of the weapon’s damage type. Once you use this ability, you can’t use it again until you finish a short or long rest.", "Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack."],
-                    prereq: "Half-orc"
+                    prereq: "Half-orc",
+                    score: ['Strength', 'Constitution']
                 },
                 {
                     id: uuidv4(),
@@ -376,16 +271,10 @@ exports.seed = knex => (
                 },
                 {
                     id: uuidv4(),
-                    name: "Prodigy (UA: Feats for Races)",
-                    desc: "You have a knack for learning new things. You gain the following benefits:",
-                    points: ["You gain one skill proficiency of your choice, one tool proficiency of your choice, and fluency in one language of your choice.", "Choose one skill in which you have proficiency. You gain expertise with that skill, which means your proficiency bonus is doubled for any ability check you make with it. The skill you choose must be one that isn’t already benefiting from a feature, such as Expertise, that doubles your proficiency bonus."],
-                    prereq: "Half-elf, half-orc, or human"
-                },
-                {
-                    id: uuidv4(),
                     name: "Resilient",
                     desc: "Choose one ability score. You gain the following benefits:",
-                    points: ["Increase the chosen ability score by 1, to a maximum of 20.", "You gain proficiency in saving throws using the chosen ability."]
+                    points: ["Increase the chosen ability score by 1, to a maximum of 20.", "You gain proficiency in saving throws using the chosen ability."],
+                    score: ['Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma']
                 },
                 {
                     id: uuidv4(),
@@ -400,17 +289,11 @@ exports.seed = knex => (
                 },
                 {
                     id: uuidv4(),
-                    name: "Second Chance (UA: Feats for Races)",
-                    desc: "Fortune favors you. You gain the following benefits:",
-                    points: ["Increase your Dexterity, Constitution, or Charisma score by 1, to a maximum of 20.", "When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can’t do so again until you finish a short or long rest."],
-                    prereq: "Halfling"
-                },
-                {
-                    id: uuidv4(),
                     name: "Second Chance (XGE)",
                     desc: "Fortune favors you when someone tries to strike you. You gain the following benefits:",
                     points: ["Increase your Dexterity, Constitution or Charisma score by 1, to a maximum of 20.", "When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can’t use it again until you roll initiative at the start of combat or until you finish a short or long rest."],
-                    prereq: "Halfling"
+                    prereq: "Halfling",
+                    score: ['Constitution', 'Dexterity', 'Charisma']
                 },
                 {
                     id: uuidv4(),
@@ -451,23 +334,18 @@ exports.seed = knex => (
                 },
                 {
                     id: uuidv4(),
-                    name: "Squat Nimbleness (UA: Feats for Races)",
-                    desc: "You are uncommonly nimble for your race. You gain the following benefits:",
-                    points: ["Increase your Strength or Dexterity score by 1, to a maximum of 20.", "Increase your walking speed by 5 feet.", "You gain proficiency in the Acrobatics or Athletics skill. If you’re already proficient in the skill, your proficiency bonus is doubled for any check you make with it."],
-                    prereq: "Dwarf, gnome, or halfling"
-                },
-                {
-                    id: uuidv4(),
                     name: "Squat Nimbleness (XGE)",
                     desc: "You are uncommonly nimble for your race. You gain the following benefits:",
                     points: ["Increase your Strength or Dexterity score by 1, to a maximum of 20.", "Increase your walking speed by 5 feet.", "You gain proficiency in the Acrobatics or Athletics skill (your choice).", "You have advantage on any Strength (Athletics) or Dexterity (Acrobatics) check you make to escape from being grappled."],
-                    prereq: "Dwarf or a Small race"
+                    prereq: "Dwarf or a Small race",
+                    score: ['Strength', 'Dexterity']
                 },
                 {
                     id: uuidv4(),
                     name: "Tavern Brawler",
                     desc: "Accustomed to rough-and-tumble fighting using whatever weapons happen to be at hand, you gain the following benefits:",
-                    points: ["Increase your Strength or Constitution score by 1, to a maximum of 20.", "You are proficient with improvised weapons and unarmed strikes.", "Your unarmed strike uses a d4 for damage.", " When you hit a creature with an unarmed strike or an improvised weapon on your turn, you can use a bonus action to attempt to grapple the target."]
+                    points: ["Increase your Strength or Constitution score by 1, to a maximum of 20.", "You are proficient with improvised weapons and unarmed strikes.", "Your unarmed strike uses a d4 for damage.", " When you hit a creature with an unarmed strike or an improvised weapon on your turn, you can use a bonus action to attempt to grapple the target."],
+                    score: ['Strength', 'Constitution']
                 },
                 {
                     id: uuidv4(),
@@ -485,13 +363,8 @@ exports.seed = knex => (
                     id: uuidv4(),
                     name: "Weapon Master",
                     desc: "You have practiced extensively with a variety of weapons, gaining the following benefits:",
-                    points: ["Increase your Strength or Dexterity score by 1, to a maximum of 20.", "You gain proficiency with four weapons of your choice."]
-                },
-                {
-                    id: uuidv4(),
-                    name: "Wood Elf Magic (UA: Feats for Races)",
-                    desc: "You learn the magic of the primeval woods. You learn one druid cantrip of your choice. You also learn longstrider and pass without trace, each of which you can cast once without expending a spell slot. You regain the ability to cast the spell in this way when you finish a long rest. Wisdom is your spellcasting ability for these spells.",
-                    prereq: "Elf (wood)"
+                    points: ["Increase your Strength or Dexterity score by 1, to a maximum of 20.", "You gain proficiency with four weapons of your choice."],
+                    score: ['Strength', 'Dexterity']
                 },
                 {
                     id: uuidv4(),
