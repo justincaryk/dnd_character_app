@@ -82,6 +82,25 @@ exports.seed = knex => (
                     class_id: '4e5a19eb-13d0-4925-a4f3-0a9733707329',
                 },
                 {
+                    name: 'Diabolic Contract',
+                    source: 'MDCDM',
+                    page: 9,
+                    class_source: 'MCDM',
+                    level: 3,
+                    entries: {
+                        e: [
+                            'When you reach 3rd level, you sign a diabolic con- tract with your archdevil who welcomes you into the Order of Desolation. You gain the Invoke Authority ability and choose either Painkiller (Dispater), Shad- owmaster (Moloch), or Architect of Ruin (Asmodeus) as your archdevil.',
+                            'Furthermore, you are a noble knight in the lists of Hell and will be accorded fine treatment and hospitality anywhere in Hell you travel, even to cities ruled by enemy archdevils. More cosmopol- itan cities in the timescape—like Alloy, the City of Brass—will also respect your noble rank.',
+                            {
+                                type: 'subclass'
+                            }
+                        ],
+                    },
+                    has_options: true,
+                    id: uuidv4(),
+                    class_id: '4e5a19eb-13d0-4925-a4f3-0a9733707329',
+                },
+                {
                     name: 'Hellsight',
                     source: 'MDCDM',
                     page: 7,
