@@ -19,7 +19,7 @@ export default postgraphile(
     host: DB_HOST,
     port: parseInt(PG_PORT),
   },
-  'public',
+  ['public', 'app_character'],
   {
     jwtSecret: JWT_SECRET,
     jwtPgTypeIdentifier: 'public.jwt_token',

@@ -86,7 +86,7 @@ const buildLanguagesBlock = (
   languages: LanguageType[]
 ) => {
   const dummy_array = buildDummyArrayToMapOver(numOfSelectElems)
-
+  
   return (
     <div className='space-y-4'>
       <div>
@@ -147,6 +147,7 @@ const CustomBgSelector: React.FC<Props> = ({
   equipment,
   bgFeatures,
 }) => {
+  
   const customOptionReferenceConstants = {
     two_tools: 1,
     two_languages: 2,
@@ -170,7 +171,7 @@ const CustomBgSelector: React.FC<Props> = ({
 
   const [data] = useState<any>({
     skillsData: skillsData,
-    languageData: languageData.ALL,
+    languageData: languageData,
     equipment: equipment,
     bgFeatures: bgFeatures,
   })
@@ -239,6 +240,7 @@ const CustomBgSelector: React.FC<Props> = ({
       selectedCustomRuleOption ==
       customOptionReferenceConstants['two_languages']
     ) {
+      
       const languagesBlock = buildLanguagesBlock(2, languageData)
 
       fullBlockToReturn = (
