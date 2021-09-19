@@ -4,18 +4,25 @@ import { useCreateCharacterMutation } from '../generated/graphql'
 import { AuthContext } from '../global-state'
 
 const Home: React.FC = () => {
-  const [authState ] = useContext(AuthContext)
+  const [authState, setAuthState ] = useContext(AuthContext)
   const [performSignup, { data, loading }] = useCreateCharacterMutation()
   const history = useHistory()
 
   const handleCreateNewCharacter = async () => {
-    await performSignup({
+    const {data } = await performSignup({
       variables: {
         name: authState.username
       }
     })
-
-    // history.push('/create/description')
+    const newAuthState = Object.assign(
+      {
+        currentCharacterId: data?.createCharacter?.character?.characterId
+      }, 
+      authState
+    )
+    setAuthState(newAuthState)
+    
+    history.push(`/create/description`)
     
   }
   

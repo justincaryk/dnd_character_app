@@ -4,6 +4,7 @@ export default gql`
     query AllBgs {
         allBgs {
             nodes {
+                id
                 name
                 description
                 numberOfExtraLanguages

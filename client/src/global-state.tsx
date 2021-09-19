@@ -8,7 +8,8 @@ interface Props {
 export const AuthProvider: React.FC<Props> = ({children}) => {
     const [authState, setAuthState] = useState({
         userId: '',
-        username: ''
+        username: '',
+        currentCharacterId: ''
     })
 
     return (

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import {
   useGetAllLanguagesQuery,
@@ -6,6 +6,7 @@ import {
   useAllBgFeaturesQuery,
   useAllSkillsQuery,
   useAllBgsQuery,
+  useGetCharacterByIdQuery,
 } from '../../generated/graphql'
 
 import SkillProficienciesSelector from './skill'
@@ -14,6 +15,7 @@ import LanguageSelector from './language'
 import CustomBgSelector from './custom-bg'
 
 import { BgOptionGenericType } from './../../lib/types'
+import { AuthContext } from '../../global-state'
 
 const PhysicalCharacteristicsChunk = () => {
   return (
@@ -236,11 +238,26 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
 
 const CharDescript: React.FC = () => {
   const [selectedBg, setSelectedBg] = useState<any>(null)
+  const [authState ] = useContext(AuthContext)
+  debugger
   const { data: backgrounds, loading: bgsLoading } = useAllBgsQuery()
   const { data: languages, loading: langLoading } = useGetAllLanguagesQuery()
   const { data: equipment, loading: equipLoading } = useAllEquipmentQuery()
   const { data: bgFeatures, loading: bgFeatLoading } = useAllBgFeaturesQuery()
   const { data: skills, loading: skillLoading } = useAllSkillsQuery()
+  const { data: char, loading: charLoading } = useGetCharacterByIdQuery({variables: {
+    characterId: authState.currentCharacterId}})
+  
+  const [name, setName ] = useState('')
+  const [bgId, setBgId] = useState('')
+
+  useEffect(() => {
+    
+    if (char?.characterByCharacterId) {
+      setBgId(char?.characterByCharacterId?.bgId || '')
+      setName(char?.characterByCharacterId?.name || '')
+    }
+  },[char?.characterByCharacterId])
 
   const handleBgSelection = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const chosenBgName = event.target.value
@@ -266,7 +283,7 @@ const CharDescript: React.FC = () => {
           <div>
             <strong className='text-gray-700'>Character Name:</strong>
           </div>
-          <input className='w-full border rounded text-xl p-2'></input>
+          <input className='w-full border rounded text-xl p-2' value={name}/>
         </div>
       </div>
       <div>
@@ -274,12 +291,12 @@ const CharDescript: React.FC = () => {
           <strong className='text-gray-700'>Background:</strong>
         </div>
         <div>
-          <select className='w-full border rounded text-xl p-2' onChange={handleBgSelection}>
+          <select className='w-full border rounded text-xl p-2' value={bgId} onChange={handleBgSelection}>
             <option value='' selected>
               -- Choose a Background ---
             </option>
             {backgrounds?.allBgs?.nodes.map((bg) => {
-              return bg && <option key={bg.name}>{bg.name}</option>
+              return bg && <option key={bg.name} value={bg.id}>{bg.name}</option>
             })}
           </select>
         </div>

@@ -8,11 +8,12 @@ interface Props {
 }
 const Layout: React.FC<Props> = ({ children }) => {
   const authToken = localStorage.getItem(AUTH_TOKEN)
-  const [authState, setauthState] = useContext(AuthContext)
+  const [authState, setAuthState] = useContext(AuthContext)
   const parsed = authToken ? parseJwt(authToken) : null
 
   if (!authState.userId && parsed) {
-    setauthState({
+    debugger
+    setAuthState({
       userId: parsed.user_id,
       username: parsed.username,
     })

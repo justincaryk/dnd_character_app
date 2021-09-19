@@ -4,9 +4,10 @@ export default gql`
   query AllBgFeatures {
     allBgFeatures {
         bgFeatures: nodes {
-            conferringBg
-            description
-            name
+          id
+          conferringBg
+          description
+          name
         }
     }
   }
