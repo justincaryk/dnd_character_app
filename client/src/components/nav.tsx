@@ -70,6 +70,56 @@ const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
       </div>
     )
   }
+
+  if (location.pathname.indexOf('sheet') > -1) {
+    return (
+      <>
+        <div className='px-6 pt-3 bg-black w-full pb-3'>
+          <div className='flex justify-between items-center'>
+            <button
+              className='hover:no-underline outline-none'
+              onClick={() => history.push('/')}
+            >
+              <img
+                className='w-20'
+                src='/DD-Logo-1024x487.png'
+                alt='broken logo'
+              />
+            </button>
+            {signout && (
+              <button
+                className='text-off-white font-roboto uppercase hover:text-hover-white hover:no-underline cursor-pointer outline-none'
+                onClick={() => history.push(signout.link)}
+              >
+                {signout.text}
+              </button>
+            )}
+          </div>
+        </div>
+        <div className='h-38 w-full bg-stone mb-7'>
+          <div className='relative px-5 py-6'>
+            <div className='flex w-full justify-between items-center text-sm'>
+              {links
+                .filter((x) => x.link.indexOf('create') > -1)
+                .map((x) => (
+                  <div key={x.text}>
+                    <Link
+                      to={x.link.replace(':id', authState.currentCharacterId)}
+                    >
+                      <div className='text-off-white font-roboto uppercase hover:text-hover-white hover:no-underline cursor-pointer outline-none'>
+                        {' '}
+                        {x.text}
+                      </div>
+                    </Link>
+                  </div>
+                ))}
+            </div>
+          </div>
+        </div>
+      </>
+    )
+  }
+  
   // create character
   if (location.pathname.indexOf('create') > -1) {
     return (

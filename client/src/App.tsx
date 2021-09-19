@@ -3,12 +3,12 @@ import './scss/App.scss'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { AUTH_TOKEN } from './constants'
 import NavBar from './components/nav'
-import Classes from './components/classes/classes'
-import RaceSelectionForm from './components/races/race-form'
-import AsiGenerator from './components/ability-scores/asi-generator'
-import CharDescription from './components/descript/descript'
-import SpellsSelector from './components/spells/spells'
-import Feats from './components/feats/feats'
+import Classes from './components/view/classes/classes'
+import RaceSelectionForm from './components/view/races/race-form'
+import AsiGenerator from './components/create/ability-scores/asi-generator'
+import CharDescription from './components/create/descript/descript'
+import SpellsSelector from './components/view/spells/spells'
+import Feats from './components/view/feats/feats'
 import { ApolloProvider } from '@apollo/client'
 import { ApolloClient, InMemoryCache } from '@apollo/client'
 import { LinkType } from './lib/types'
@@ -20,7 +20,7 @@ import { HttpLink } from '@apollo/client'
 import SignOut from './components/sign-out'
 import Layout from './components/layout'
 import Home from './components/home'
-import ClassCreation from './components/class-creation/class-creation'
+import ClassCreation from './components/create/class-creation/class-creation'
 import { AuthProvider, AuthContext } from './global-state'
 import { parseJwt } from './lib/utils'
 
@@ -63,6 +63,10 @@ const privateLinks: LinkType[] = [
   {
     link: '/view/feats',
     text: 'View Feats',
+  },
+  {
+    link: '/view/races',
+    text: 'View Races',
   },
   {
     link: '/view/classes',
@@ -202,6 +206,12 @@ const App: React.FC = () => {
                 <Route path='/view/classes'>
                   <div className='container'>
                     <Classes />
+                  </div>
+                </Route>
+
+                <Route path='/view/races'>
+                  <div className='container'>
+                    <RaceSelectionForm />
                   </div>
                 </Route>
 
