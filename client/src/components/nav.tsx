@@ -13,7 +13,7 @@ const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
   const location = useLocation()
   const subpath = location.pathname.split(new RegExp('/(?<name>[^>]+)/'))[1]
   const history = useHistory()
-  debugger
+  
   return (
     <div
       className={classnames({ 'mb-12': location.pathname !== '/create/sheet' })}

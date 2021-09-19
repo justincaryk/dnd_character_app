@@ -73,45 +73,37 @@ exports.up = knex => (
         );
         
         CREATE OR REPLACE FUNCTION public.signin (username text, PASSWORD text)
-            RETURNS public.jwt_token
-            AS $$
+        RETURNS public.jwt_token AS $$
         DECLARE
-            account public.minion;
-            wiz_acc public.wizard;
-            ROLE text;
+        account public.minion;
+        wiz_acc public.wizard;
+        ROLE text;
         BEGIN
-            SELECT
-                *
-            FROM
-                public.minion AS a
-            WHERE
-                a.user_name = $1 INTO account;
-            SELECT
-                *
-            FROM
-                public.wizard AS b
-            WHERE
-                account.id = user_id INTO wiz_acc;
-            IF wiz_acc.user_id = account.id THEN
-                ROLE = 'role_minion';
-            ELSE
-                ROLE = 'role_minion';
-            END IF;
-            IF account.password = crypt(PASSWORD, account.password) THEN
-                RETURN (ROLE,
-                    extract(epoch FROM now() + interval '365 days'),
-                    account.id,
-                    account.user_name)::public.jwt_token;
-            ELSE
-                RETURN NULL;
-            END IF;
+        SELECT * FROM public.minion AS a
+            WHERE a.user_name = $1 INTO account;
+        SELECT * FROM public.wizard AS b
+            WHERE account.id = user_id INTO wiz_acc;
+        
+        IF wiz_acc.user_id = account.id THEN 
+            ROLE = 'role_minion';
+        ELSE
+            ROLE = 'role_minion';
+        END IF;
+        
+        IF account.password = crypt($2, account.password) THEN
+            raise notice 'were here';
+            RETURN (ROLE, extract(epoch FROM now() + interval '365 days'),
+            account.id,
+            account.user_name)::public.jwt_token;
+        ELSE
+            RETURN NULL;
+        END IF;
         END;
         $$
-        LANGUAGE plpgsql
-        VOLATILE
-        SECURITY DEFINER;
-        
-        GRANT EXECUTE ON FUNCTION public.signin(username text, PASSWORD text) TO anonymous_user;
+        LANGUAGE plpgsql VOLATILE SECURITY DEFINER;
+                
+        GRANT EXECUTE ON FUNCTION public.signin (username text, PASSWORD text)
+        TO anonymous_user;
     `)
 )
 
