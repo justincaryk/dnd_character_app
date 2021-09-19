@@ -4,8 +4,8 @@ export default gql`
     query AllClassNames {
         allClasses(orderBy: NAME_ASC) {
             nodes {
-            name
-            id
+                name
+                id
             }
         }
     }
