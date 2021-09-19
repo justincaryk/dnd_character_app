@@ -237,9 +237,10 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
 }
 
 const CharDescript: React.FC = () => {
+  
   const [selectedBg, setSelectedBg] = useState<any>(null)
   const [authState ] = useContext(AuthContext)
-  debugger
+
   const { data: backgrounds, loading: bgsLoading } = useAllBgsQuery()
   const { data: languages, loading: langLoading } = useGetAllLanguagesQuery()
   const { data: equipment, loading: equipLoading } = useAllEquipmentQuery()

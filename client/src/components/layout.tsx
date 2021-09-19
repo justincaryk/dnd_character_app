@@ -12,7 +12,6 @@ const Layout: React.FC<Props> = ({ children }) => {
   const parsed = authToken ? parseJwt(authToken) : null
 
   if (!authState.userId && parsed) {
-    debugger
     setAuthState({
       userId: parsed.user_id,
       username: parsed.username,

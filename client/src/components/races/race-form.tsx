@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useParams } from 'react-router'
 import { useGetAllRacesQuery } from '../../generated/graphql'
 
 import Races from './races'
@@ -91,6 +92,8 @@ const buildAsiString = (asis: any) => {
 }
 
 const RaceSelectionForm: React.FC = () => {
+  // const { id }: any = useParams()
+  
   const [selectedRaceId, setSelectedRaceId] = useState<string | null>(null)
   const [selectedSubraceId, setSelectedSubraceId] = useState<string | null>(
     null

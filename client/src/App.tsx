@@ -37,23 +37,23 @@ const publicLinks: LinkType[] = [
 
 const privateLinks: LinkType[] = [
   {
-    link: '/create/description',
+    link: '/create/:id/description',
     text: '1. Description',
   },
   {
-    link: '/create/races',
+    link: '/create/:id/races',
     text: '2. Race',
   },
   {
-    link: '/create/asi',
+    link: '/create/:id/asi',
     text: '3. Abilities',
   },
   {
-    link: '/create/class',
+    link: '/create/:id/class',
     text: '4. Class',
   },
   {
-    link: '/create/sheet',
+    link: '/create/:id/sheet',
     text: '5. Character Sheet',
   },
   {
@@ -169,31 +169,31 @@ const App: React.FC = () => {
                   </div>
                 </Route>
 
-                <Route path='/create/races'>
+                <Route path='/create/:id/races'>
                   <div className='container'>
                     <RaceSelectionForm />
                   </div>
                 </Route>
 
-                <Route path='/create/asi'>
+                <Route path='/create/:id/asi'>
                   <div className='container'>
                     <AsiGenerator />
                   </div>
                 </Route>
 
-                <Route path='/create/class'>
+                <Route path='/create/:id/class'>
                   <div className='container'>
                     <ClassCreation />
                   </div>
                 </Route>
 
-                <Route path='/create/description'>
+                <Route path='/create/:id/description'>
                   <div className='container'>
                     <CharDescription />
                   </div>
                 </Route>
 
-                <Route path='/create/sheet'>
+                <Route path='/create/:id/sheet'>
                   <div className=''>
                     <CharacterSheet />
                   </div>

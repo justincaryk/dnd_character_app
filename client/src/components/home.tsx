@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { useHistory } from 'react-router'
 import { useCreateCharacterMutation } from '../generated/graphql'
 import { AuthContext } from '../global-state'
+import { isEqual } from 'lodash'
 
 const Home: React.FC = () => {
   const [authState, setAuthState ] = useContext(AuthContext)
@@ -15,14 +16,13 @@ const Home: React.FC = () => {
       }
     })
     const newAuthState = Object.assign(
-      {
-        currentCharacterId: data?.createCharacter?.character?.characterId
-      }, 
+      { currentCharacterId: data?.createCharacter?.character?.characterId }, 
       authState
     )
+    
     setAuthState(newAuthState)
     
-    history.push(`/create/description`)
+    history.push(`/create/${data?.createCharacter?.character?.characterId}/description`)
     
   }
   
