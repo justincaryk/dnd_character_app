@@ -2,27 +2,29 @@ import React, { useContext } from 'react'
 import './scss/App.scss'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { AUTH_TOKEN } from './constants'
+import { ApolloProvider } from '@apollo/client'
+import { ApolloClient, InMemoryCache } from '@apollo/client'
+import { LinkType } from './lib/types'
+import { setContext } from '@apollo/client/link/context'
+import { HttpLink } from '@apollo/client'
+import { AuthProvider } from './global-state'
+
 import NavBar from './components/nav'
 import Classes from './components/view/classes/classes'
 import RaceSelectionForm from './components/view/races/race-form'
+import CreateRaceSelectionForm from './components/create/race-form/race-form'
 import AsiGenerator from './components/create/ability-scores/asi-generator'
 import CharDescription from './components/create/descript/descript'
 import SpellsSelector from './components/view/spells/spells'
 import Feats from './components/view/feats/feats'
-import { ApolloProvider } from '@apollo/client'
-import { ApolloClient, InMemoryCache } from '@apollo/client'
-import { LinkType } from './lib/types'
 import CharacterSheet from './components/character-sheet/character-sheet'
 import SignUp from './components/sign-up'
 import SignIn from './components/sign-in'
-import { setContext } from '@apollo/client/link/context'
-import { HttpLink } from '@apollo/client'
 import SignOut from './components/sign-out'
 import Layout from './components/layout'
 import Home from './components/home'
 import ClassCreation from './components/create/class-creation/class-creation'
-import { AuthProvider, AuthContext } from './global-state'
-import { parseJwt } from './lib/utils'
+
 
 const publicLinks: LinkType[] = [
   {
@@ -175,7 +177,7 @@ const App: React.FC = () => {
 
                 <Route path='/create/:id/races'>
                   <div className='container'>
-                    <RaceSelectionForm />
+                    <CreateRaceSelectionForm />
                   </div>
                 </Route>
 

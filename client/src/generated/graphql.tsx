@@ -67,6 +67,25 @@ export type AsiCondition = {
   short?: Maybe<Scalars['String']>;
 };
 
+export enum AsiFromType {
+  Race = 'RACE',
+  Points = 'POINTS',
+  Asi4_1 = 'ASI4_1',
+  Asi4_2 = 'ASI4_2',
+  Asi6_1 = 'ASI6_1',
+  Asi6_2 = 'ASI6_2',
+  Asi8_1 = 'ASI8_1',
+  Asi8_2 = 'ASI8_2',
+  Asi12_1 = 'ASI12_1',
+  Asi12_2 = 'ASI12_2',
+  Asi14_1 = 'ASI14_1',
+  Asi14_2 = 'ASI14_2',
+  Asi16_1 = 'ASI16_1',
+  Asi16_2 = 'ASI16_2',
+  Asi19_1 = 'ASI19_1',
+  Asi19_2 = 'ASI19_2'
+}
+
 /** An input for mutations affecting `Asi` */
 export type AsiInput = {
   asiId?: Maybe<Scalars['UUID']>;
@@ -87,10 +106,14 @@ export type AsiSelected = Node & {
   nodeId: Scalars['ID'];
   asiSelId: Scalars['UUID'];
   characterId?: Maybe<Scalars['UUID']>;
+  userId?: Maybe<Scalars['UUID']>;
+  asiFrom: AsiFromType;
   asiId?: Maybe<Scalars['UUID']>;
   count?: Maybe<Scalars['Int']>;
   /** Reads a single `Character` that is related to this `AsiSelected`. */
   characterByCharacterId?: Maybe<Character>;
+  /** Reads a single `Minion` that is related to this `AsiSelected`. */
+  minionByUserId?: Maybe<Minion>;
   /** Reads a single `Asi` that is related to this `AsiSelected`. */
   asiByAsiId?: Maybe<Asi>;
 };
@@ -104,6 +127,10 @@ export type AsiSelectedCondition = {
   asiSelId?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `characterId` field. */
   characterId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `userId` field. */
+  userId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `asiFrom` field. */
+  asiFrom?: Maybe<AsiFromType>;
   /** Checks for equality with the object’s `asiId` field. */
   asiId?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `count` field. */
@@ -114,6 +141,8 @@ export type AsiSelectedCondition = {
 export type AsiSelectedInput = {
   asiSelId?: Maybe<Scalars['UUID']>;
   characterId?: Maybe<Scalars['UUID']>;
+  userId?: Maybe<Scalars['UUID']>;
+  asiFrom: AsiFromType;
   asiId?: Maybe<Scalars['UUID']>;
   count?: Maybe<Scalars['Int']>;
 };
@@ -122,6 +151,8 @@ export type AsiSelectedInput = {
 export type AsiSelectedPatch = {
   asiSelId?: Maybe<Scalars['UUID']>;
   characterId?: Maybe<Scalars['UUID']>;
+  userId?: Maybe<Scalars['UUID']>;
+  asiFrom?: Maybe<AsiFromType>;
   asiId?: Maybe<Scalars['UUID']>;
   count?: Maybe<Scalars['Int']>;
 };
@@ -155,6 +186,10 @@ export enum AsiSelectedsOrderBy {
   AsiSelIdDesc = 'ASI_SEL_ID_DESC',
   CharacterIdAsc = 'CHARACTER_ID_ASC',
   CharacterIdDesc = 'CHARACTER_ID_DESC',
+  UserIdAsc = 'USER_ID_ASC',
+  UserIdDesc = 'USER_ID_DESC',
+  AsiFromAsc = 'ASI_FROM_ASC',
+  AsiFromDesc = 'ASI_FROM_DESC',
   AsiIdAsc = 'ASI_ID_ASC',
   AsiIdDesc = 'ASI_ID_DESC',
   CountAsc = 'COUNT_ASC',
@@ -521,6 +556,7 @@ export type Character = Node & {
   subraceId?: Maybe<Scalars['UUID']>;
   description?: Maybe<Scalars['JSON']>;
   bgId?: Maybe<Scalars['UUID']>;
+  currentLevel?: Maybe<Scalars['Int']>;
   /** Reads a single `Minion` that is related to this `Character`. */
   minionByUserId?: Maybe<Minion>;
   /** Reads a single `Class` that is related to this `Character`. */
@@ -533,23 +569,12 @@ export type Character = Node & {
   subraceBySubraceId?: Maybe<Subrace>;
   /** Reads a single `Bg` that is related to this `Character`. */
   bgByBgId?: Maybe<Bg>;
-  /** Reads and enables pagination through a set of `AsiSelected`. */
-  asiSelectedsByCharacterId: AsiSelectedsConnection;
   /** Reads and enables pagination through a set of `SkillsSelected`. */
   skillsSelectedsByCharacterId: SkillsSelectedsConnection;
   /** Reads and enables pagination through a set of `FightStyleSelected`. */
   fightStyleSelectedsByCharacterId: FightStyleSelectedsConnection;
-};
-
-
-export type CharacterAsiSelectedsByCharacterIdArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<AsiSelectedsOrderBy>>;
-  condition?: Maybe<AsiSelectedCondition>;
+  /** Reads and enables pagination through a set of `AsiSelected`. */
+  asiSelectedsByCharacterId: AsiSelectedsConnection;
 };
 
 
@@ -572,6 +597,17 @@ export type CharacterFightStyleSelectedsByCharacterIdArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<FightStyleSelectedsOrderBy>>;
   condition?: Maybe<FightStyleSelectedCondition>;
+};
+
+
+export type CharacterAsiSelectedsByCharacterIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<AsiSelectedsOrderBy>>;
+  condition?: Maybe<AsiSelectedCondition>;
 };
 
 /**
@@ -597,6 +633,8 @@ export type CharacterCondition = {
   description?: Maybe<Scalars['JSON']>;
   /** Checks for equality with the object’s `bgId` field. */
   bgId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `currentLevel` field. */
+  currentLevel?: Maybe<Scalars['Int']>;
 };
 
 /** An input for mutations affecting `Character` */
@@ -610,6 +648,7 @@ export type CharacterInput = {
   subraceId?: Maybe<Scalars['UUID']>;
   description?: Maybe<Scalars['JSON']>;
   bgId?: Maybe<Scalars['UUID']>;
+  currentLevel?: Maybe<Scalars['Int']>;
 };
 
 /** Represents an update to a `Character`. Fields that are set will be updated. */
@@ -623,6 +662,7 @@ export type CharacterPatch = {
   subraceId?: Maybe<Scalars['UUID']>;
   description?: Maybe<Scalars['JSON']>;
   bgId?: Maybe<Scalars['UUID']>;
+  currentLevel?: Maybe<Scalars['Int']>;
 };
 
 /** A connection to a list of `Character` values. */
@@ -668,6 +708,8 @@ export enum CharactersOrderBy {
   DescriptionDesc = 'DESCRIPTION_DESC',
   BgIdAsc = 'BG_ID_ASC',
   BgIdDesc = 'BG_ID_DESC',
+  CurrentLevelAsc = 'CURRENT_LEVEL_ASC',
+  CurrentLevelDesc = 'CURRENT_LEVEL_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -1204,6 +1246,8 @@ export type CreateAsiSelectedPayload = {
   query?: Maybe<Query>;
   /** Reads a single `Character` that is related to this `AsiSelected`. */
   characterByCharacterId?: Maybe<Character>;
+  /** Reads a single `Minion` that is related to this `AsiSelected`. */
+  minionByUserId?: Maybe<Minion>;
   /** Reads a single `Asi` that is related to this `AsiSelected`. */
   asiByAsiId?: Maybe<Asi>;
   /** An edge for our `AsiSelected`. May be used by Relay 1. */
@@ -2266,6 +2310,8 @@ export type DeleteAsiSelectedPayload = {
   query?: Maybe<Query>;
   /** Reads a single `Character` that is related to this `AsiSelected`. */
   characterByCharacterId?: Maybe<Character>;
+  /** Reads a single `Minion` that is related to this `AsiSelected`. */
+  minionByUserId?: Maybe<Minion>;
   /** Reads a single `Asi` that is related to this `AsiSelected`. */
   asiByAsiId?: Maybe<Asi>;
   /** An edge for our `AsiSelected`. May be used by Relay 1. */
@@ -4077,6 +4123,8 @@ export type Minion = Node & {
   wizardsByUserId: WizardsConnection;
   /** Reads and enables pagination through a set of `Character`. */
   charactersByUserId: CharactersConnection;
+  /** Reads and enables pagination through a set of `AsiSelected`. */
+  asiSelectedsByUserId: AsiSelectedsConnection;
 };
 
 
@@ -4099,6 +4147,17 @@ export type MinionCharactersByUserIdArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<CharactersOrderBy>>;
   condition?: Maybe<CharacterCondition>;
+};
+
+
+export type MinionAsiSelectedsByUserIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<AsiSelectedsOrderBy>>;
+  condition?: Maybe<AsiSelectedCondition>;
 };
 
 /** A condition to be used against `Minion` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -7360,6 +7419,8 @@ export type UpdateAsiSelectedPayload = {
   query?: Maybe<Query>;
   /** Reads a single `Character` that is related to this `AsiSelected`. */
   characterByCharacterId?: Maybe<Character>;
+  /** Reads a single `Minion` that is related to this `AsiSelected`. */
+  minionByUserId?: Maybe<Minion>;
   /** Reads a single `Asi` that is related to this `AsiSelected`. */
   asiByAsiId?: Maybe<Asi>;
   /** An edge for our `AsiSelected`. May be used by Relay 1. */
@@ -8642,6 +8703,25 @@ export enum WizardsOrderBy {
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
 
+export type CreateAsiSelectedMutationVariables = Exact<{
+  characterId: Scalars['UUID'];
+  from: AsiFromType;
+  asiId?: Maybe<Scalars['UUID']>;
+  count: Scalars['Int'];
+}>;
+
+
+export type CreateAsiSelectedMutation = (
+  { __typename?: 'Mutation' }
+  & { createAsiSelected?: Maybe<(
+    { __typename?: 'CreateAsiSelectedPayload' }
+    & { asiSelected?: Maybe<(
+      { __typename?: 'AsiSelected' }
+      & Pick<AsiSelected, 'asiSelId'>
+    )> }
+  )> }
+);
+
 export type CreateCharacterMutationVariables = Exact<{
   name: Scalars['String'];
 }>;
@@ -8654,6 +8734,22 @@ export type CreateCharacterMutation = (
     & { character?: Maybe<(
       { __typename?: 'Character' }
       & Pick<Character, 'characterId' | 'name'>
+    )> }
+  )> }
+);
+
+export type DeleteAsiSelectedMutationVariables = Exact<{
+  asiSelId: Scalars['UUID'];
+}>;
+
+
+export type DeleteAsiSelectedMutation = (
+  { __typename?: 'Mutation' }
+  & { deleteAsiSelectedByAsiSelId?: Maybe<(
+    { __typename?: 'DeleteAsiSelectedPayload' }
+    & { asiSelected?: Maybe<(
+      { __typename?: 'AsiSelected' }
+      & Pick<AsiSelected, 'asiSelId'>
     )> }
   )> }
 );
@@ -8686,6 +8782,23 @@ export type SignUpMutation = (
   )> }
 );
 
+export type UpdateAsiSelectMutationVariables = Exact<{
+  asiSelId: Scalars['UUID'];
+  asiId: Scalars['UUID'];
+}>;
+
+
+export type UpdateAsiSelectMutation = (
+  { __typename?: 'Mutation' }
+  & { updateAsiSelectedByAsiSelId?: Maybe<(
+    { __typename?: 'UpdateAsiSelectedPayload' }
+    & { asiSelected?: Maybe<(
+      { __typename?: 'AsiSelected' }
+      & Pick<AsiSelected, 'asiId'>
+    )> }
+  )> }
+);
+
 export type UpdateCharacterMutationVariables = Exact<{
   subclassId?: Maybe<Scalars['UUID']>;
   bgId?: Maybe<Scalars['UUID']>;
@@ -8695,6 +8808,7 @@ export type UpdateCharacterMutationVariables = Exact<{
   name?: Maybe<Scalars['String']>;
   subraceId?: Maybe<Scalars['UUID']>;
   characterId: Scalars['UUID'];
+  currentLevel?: Maybe<Scalars['Int']>;
 }>;
 
 
@@ -8706,6 +8820,20 @@ export type UpdateCharacterMutation = (
       { __typename?: 'Character' }
       & Pick<Character, 'characterId'>
     )> }
+  )> }
+);
+
+export type AllAsisQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AllAsisQuery = (
+  { __typename?: 'Query' }
+  & { allAsis?: Maybe<(
+    { __typename?: 'AsisConnection' }
+    & { nodes: Array<Maybe<(
+      { __typename?: 'Asi' }
+      & Pick<Asi, 'asiId' | 'short' | 'long'>
+    )>> }
   )> }
 );
 
@@ -8760,6 +8888,26 @@ export type AllBgsQuery = (
       )>, bgFeatureByBackgroundFeature?: Maybe<(
         { __typename?: 'BgFeature' }
         & Pick<BgFeature, 'name' | 'description'>
+      )> }
+    )>> }
+  )> }
+);
+
+export type GetAllAsiSelectionsQueryVariables = Exact<{
+  characterId: Scalars['UUID'];
+}>;
+
+
+export type GetAllAsiSelectionsQuery = (
+  { __typename?: 'Query' }
+  & { allAsiSelecteds?: Maybe<(
+    { __typename?: 'AsiSelectedsConnection' }
+    & { nodes: Array<Maybe<(
+      { __typename?: 'AsiSelected' }
+      & Pick<AsiSelected, 'asiSelId' | 'count' | 'asiFrom' | 'asiId'>
+      & { asiByAsiId?: Maybe<(
+        { __typename?: 'Asi' }
+        & Pick<Asi, 'asiId' | 'long' | 'short'>
       )> }
     )>> }
   )> }
@@ -9025,6 +9173,46 @@ export type SubclassNamesByClassIdQuery = (
 );
 
 
+export const CreateAsiSelectedDocument = gql`
+    mutation CreateAsiSelected($characterId: UUID!, $from: AsiFromType!, $asiId: UUID, $count: Int!) {
+  createAsiSelected(
+    input: {asiSelected: {characterId: $characterId, asiFrom: $from, asiId: $asiId, count: $count}}
+  ) {
+    asiSelected {
+      asiSelId
+    }
+  }
+}
+    `;
+export type CreateAsiSelectedMutationFn = Apollo.MutationFunction<CreateAsiSelectedMutation, CreateAsiSelectedMutationVariables>;
+
+/**
+ * __useCreateAsiSelectedMutation__
+ *
+ * To run a mutation, you first call `useCreateAsiSelectedMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateAsiSelectedMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createAsiSelectedMutation, { data, loading, error }] = useCreateAsiSelectedMutation({
+ *   variables: {
+ *      characterId: // value for 'characterId'
+ *      from: // value for 'from'
+ *      asiId: // value for 'asiId'
+ *      count: // value for 'count'
+ *   },
+ * });
+ */
+export function useCreateAsiSelectedMutation(baseOptions?: Apollo.MutationHookOptions<CreateAsiSelectedMutation, CreateAsiSelectedMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreateAsiSelectedMutation, CreateAsiSelectedMutationVariables>(CreateAsiSelectedDocument, options);
+      }
+export type CreateAsiSelectedMutationHookResult = ReturnType<typeof useCreateAsiSelectedMutation>;
+export type CreateAsiSelectedMutationResult = Apollo.MutationResult<CreateAsiSelectedMutation>;
+export type CreateAsiSelectedMutationOptions = Apollo.BaseMutationOptions<CreateAsiSelectedMutation, CreateAsiSelectedMutationVariables>;
 export const CreateCharacterDocument = gql`
     mutation CreateCharacter($name: String!) {
   createCharacter(input: {character: {name: $name}}) {
@@ -9061,6 +9249,41 @@ export function useCreateCharacterMutation(baseOptions?: Apollo.MutationHookOpti
 export type CreateCharacterMutationHookResult = ReturnType<typeof useCreateCharacterMutation>;
 export type CreateCharacterMutationResult = Apollo.MutationResult<CreateCharacterMutation>;
 export type CreateCharacterMutationOptions = Apollo.BaseMutationOptions<CreateCharacterMutation, CreateCharacterMutationVariables>;
+export const DeleteAsiSelectedDocument = gql`
+    mutation DeleteAsiSelected($asiSelId: UUID!) {
+  deleteAsiSelectedByAsiSelId(input: {asiSelId: $asiSelId}) {
+    asiSelected {
+      asiSelId
+    }
+  }
+}
+    `;
+export type DeleteAsiSelectedMutationFn = Apollo.MutationFunction<DeleteAsiSelectedMutation, DeleteAsiSelectedMutationVariables>;
+
+/**
+ * __useDeleteAsiSelectedMutation__
+ *
+ * To run a mutation, you first call `useDeleteAsiSelectedMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteAsiSelectedMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteAsiSelectedMutation, { data, loading, error }] = useDeleteAsiSelectedMutation({
+ *   variables: {
+ *      asiSelId: // value for 'asiSelId'
+ *   },
+ * });
+ */
+export function useDeleteAsiSelectedMutation(baseOptions?: Apollo.MutationHookOptions<DeleteAsiSelectedMutation, DeleteAsiSelectedMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<DeleteAsiSelectedMutation, DeleteAsiSelectedMutationVariables>(DeleteAsiSelectedDocument, options);
+      }
+export type DeleteAsiSelectedMutationHookResult = ReturnType<typeof useDeleteAsiSelectedMutation>;
+export type DeleteAsiSelectedMutationResult = Apollo.MutationResult<DeleteAsiSelectedMutation>;
+export type DeleteAsiSelectedMutationOptions = Apollo.BaseMutationOptions<DeleteAsiSelectedMutation, DeleteAsiSelectedMutationVariables>;
 export const SigninDocument = gql`
     mutation Signin($username: String!, $password: String!) {
   signin(input: {username: $username, password: $password}) {
@@ -9129,10 +9352,48 @@ export function useSignUpMutation(baseOptions?: Apollo.MutationHookOptions<SignU
 export type SignUpMutationHookResult = ReturnType<typeof useSignUpMutation>;
 export type SignUpMutationResult = Apollo.MutationResult<SignUpMutation>;
 export type SignUpMutationOptions = Apollo.BaseMutationOptions<SignUpMutation, SignUpMutationVariables>;
+export const UpdateAsiSelectDocument = gql`
+    mutation UpdateAsiSelect($asiSelId: UUID!, $asiId: UUID!) {
+  updateAsiSelectedByAsiSelId(
+    input: {asiSelId: $asiSelId, asiSelectedPatch: {asiId: $asiId}}
+  ) {
+    asiSelected {
+      asiId
+    }
+  }
+}
+    `;
+export type UpdateAsiSelectMutationFn = Apollo.MutationFunction<UpdateAsiSelectMutation, UpdateAsiSelectMutationVariables>;
+
+/**
+ * __useUpdateAsiSelectMutation__
+ *
+ * To run a mutation, you first call `useUpdateAsiSelectMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateAsiSelectMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateAsiSelectMutation, { data, loading, error }] = useUpdateAsiSelectMutation({
+ *   variables: {
+ *      asiSelId: // value for 'asiSelId'
+ *      asiId: // value for 'asiId'
+ *   },
+ * });
+ */
+export function useUpdateAsiSelectMutation(baseOptions?: Apollo.MutationHookOptions<UpdateAsiSelectMutation, UpdateAsiSelectMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<UpdateAsiSelectMutation, UpdateAsiSelectMutationVariables>(UpdateAsiSelectDocument, options);
+      }
+export type UpdateAsiSelectMutationHookResult = ReturnType<typeof useUpdateAsiSelectMutation>;
+export type UpdateAsiSelectMutationResult = Apollo.MutationResult<UpdateAsiSelectMutation>;
+export type UpdateAsiSelectMutationOptions = Apollo.BaseMutationOptions<UpdateAsiSelectMutation, UpdateAsiSelectMutationVariables>;
 export const UpdateCharacterDocument = gql`
-    mutation UpdateCharacter($subclassId: UUID, $bgId: UUID, $classId: UUID, $description: JSON, $raceId: UUID, $name: String, $subraceId: UUID, $characterId: UUID!) {
+    mutation UpdateCharacter($subclassId: UUID, $bgId: UUID, $classId: UUID, $description: JSON, $raceId: UUID, $name: String, $subraceId: UUID, $characterId: UUID!, $currentLevel: Int) {
   updateCharacterByCharacterId(
-    input: {characterId: $characterId, characterPatch: {subclassId: $subclassId, bgId: $bgId, classId: $classId, description: $description, name: $name, raceId: $raceId, subraceId: $subraceId}}
+    input: {characterId: $characterId, characterPatch: {subclassId: $subclassId, bgId: $bgId, classId: $classId, description: $description, name: $name, raceId: $raceId, subraceId: $subraceId, currentLevel: $currentLevel}}
   ) {
     character {
       characterId
@@ -9163,6 +9424,7 @@ export type UpdateCharacterMutationFn = Apollo.MutationFunction<UpdateCharacterM
  *      name: // value for 'name'
  *      subraceId: // value for 'subraceId'
  *      characterId: // value for 'characterId'
+ *      currentLevel: // value for 'currentLevel'
  *   },
  * });
  */
@@ -9173,6 +9435,44 @@ export function useUpdateCharacterMutation(baseOptions?: Apollo.MutationHookOpti
 export type UpdateCharacterMutationHookResult = ReturnType<typeof useUpdateCharacterMutation>;
 export type UpdateCharacterMutationResult = Apollo.MutationResult<UpdateCharacterMutation>;
 export type UpdateCharacterMutationOptions = Apollo.BaseMutationOptions<UpdateCharacterMutation, UpdateCharacterMutationVariables>;
+export const AllAsisDocument = gql`
+    query AllAsis {
+  allAsis {
+    nodes {
+      asiId
+      short
+      long
+    }
+  }
+}
+    `;
+
+/**
+ * __useAllAsisQuery__
+ *
+ * To run a query within a React component, call `useAllAsisQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAllAsisQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAllAsisQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useAllAsisQuery(baseOptions?: Apollo.QueryHookOptions<AllAsisQuery, AllAsisQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<AllAsisQuery, AllAsisQueryVariables>(AllAsisDocument, options);
+      }
+export function useAllAsisLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllAsisQuery, AllAsisQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<AllAsisQuery, AllAsisQueryVariables>(AllAsisDocument, options);
+        }
+export type AllAsisQueryHookResult = ReturnType<typeof useAllAsisQuery>;
+export type AllAsisLazyQueryHookResult = ReturnType<typeof useAllAsisLazyQuery>;
+export type AllAsisQueryResult = Apollo.QueryResult<AllAsisQuery, AllAsisQueryVariables>;
 export const AllAttributesDocument = gql`
     query AllAttributes {
   allAttributes {
@@ -9305,6 +9605,51 @@ export function useAllBgsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<All
 export type AllBgsQueryHookResult = ReturnType<typeof useAllBgsQuery>;
 export type AllBgsLazyQueryHookResult = ReturnType<typeof useAllBgsLazyQuery>;
 export type AllBgsQueryResult = Apollo.QueryResult<AllBgsQuery, AllBgsQueryVariables>;
+export const GetAllAsiSelectionsDocument = gql`
+    query GetAllAsiSelections($characterId: UUID!) {
+  allAsiSelecteds(condition: {characterId: $characterId}) {
+    nodes {
+      asiSelId
+      count
+      asiFrom
+      asiId
+      asiByAsiId {
+        asiId
+        long
+        short
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetAllAsiSelectionsQuery__
+ *
+ * To run a query within a React component, call `useGetAllAsiSelectionsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllAsiSelectionsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllAsiSelectionsQuery({
+ *   variables: {
+ *      characterId: // value for 'characterId'
+ *   },
+ * });
+ */
+export function useGetAllAsiSelectionsQuery(baseOptions: Apollo.QueryHookOptions<GetAllAsiSelectionsQuery, GetAllAsiSelectionsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllAsiSelectionsQuery, GetAllAsiSelectionsQueryVariables>(GetAllAsiSelectionsDocument, options);
+      }
+export function useGetAllAsiSelectionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllAsiSelectionsQuery, GetAllAsiSelectionsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllAsiSelectionsQuery, GetAllAsiSelectionsQueryVariables>(GetAllAsiSelectionsDocument, options);
+        }
+export type GetAllAsiSelectionsQueryHookResult = ReturnType<typeof useGetAllAsiSelectionsQuery>;
+export type GetAllAsiSelectionsLazyQueryHookResult = ReturnType<typeof useGetAllAsiSelectionsLazyQuery>;
+export type GetAllAsiSelectionsQueryResult = Apollo.QueryResult<GetAllAsiSelectionsQuery, GetAllAsiSelectionsQueryVariables>;
 export const AllCharactersDocument = gql`
     query AllCharacters {
   allCharacters {
