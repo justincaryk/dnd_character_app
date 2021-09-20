@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { LinkType } from './../lib/types'
-import { useLocation, useHistory, Link } from 'react-router-dom'
+import { useLocation, useHistory, Link, useParams } from 'react-router-dom'
 import classnames from 'classnames'
 import { AuthContext } from '../global-state'
 
@@ -11,12 +11,16 @@ interface Props {
 }
 
 const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
+  const history = useHistory()
+  
   const location = useLocation()
   const subpaths = location.pathname.split(new RegExp('/(?<name>[^>]+)/'))
-  const subpathsSplit = subpaths.length > 1 ? subpaths[1].split('/') : []
-  const [authState] = useContext(AuthContext)
-  const history = useHistory()
-
+  let { id }: any = useParams()
+  
+  if (subpaths.length > 1 && subpaths[1].indexOf('create') > -1 && !id) {
+    id = subpaths[1].split('/')[1]
+  }
+  
   // public
   if (isPublic) {
     return (
@@ -70,7 +74,7 @@ const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
       </div>
     )
   }
-
+  // character sheet
   if (location.pathname.indexOf('sheet') > -1) {
     return (
       <>
@@ -104,7 +108,7 @@ const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
                 .map((x) => (
                   <div key={x.text}>
                     <Link
-                      to={x.link.replace(':id', authState.currentCharacterId)}
+                      to={x.link.replace(':id', id)}
                     >
                       <div className='text-off-white font-roboto uppercase hover:text-hover-white hover:no-underline cursor-pointer outline-none'>
                         {' '}
@@ -154,7 +158,7 @@ const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
                 .map((x) => (
                   <div key={x.text}>
                     <Link
-                      to={x.link.replace(':id', authState.currentCharacterId)}
+                      to={x.link.replace(':id', id)}
                     >
                       <div className='text-off-white font-roboto uppercase hover:text-hover-white hover:no-underline cursor-pointer outline-none'>
                         {' '}
