@@ -169,7 +169,10 @@ const AttributeInputBlock: React.FC<Props> = (props) => {
 
   return (
     <div>
-      <select className='w-full border rounded-b text-xl p-2' onChange={handleChange}>
+      <select 
+        className='w-full border rounded-b text-xl p-2' 
+        onChange={handleChange}
+        defaultValue={`${props.attribute.currentAssignedScore}-${props.attribute.id}`}>
         {options}
       </select>
     </div>

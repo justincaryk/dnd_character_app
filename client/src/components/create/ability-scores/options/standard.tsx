@@ -4,6 +4,7 @@ import { AttributeInterface } from '../../../../lib/types'
 interface Props {
   attributes: AttributeInterface[]
   callbackToSetAttributes: Dispatch<SetStateAction<AttributeInterface[]>>
+  dbAttrs: any
 }
 
 // interface State<T> {
@@ -15,6 +16,7 @@ interface Props {
 const StandardArray: React.FC<Props> = ({
   attributes,
   callbackToSetAttributes,
+  dbAttrs
 }) => {
   const [hashTable, setHashTable] = useState<any>(_buildHashMap(attributes))
 
@@ -113,13 +115,14 @@ const StandardArray: React.FC<Props> = ({
       }
     }
   }
-
+  
   return (
     <div className='space-y-4'>
       <div>
         <form>
           <div className='grid grid-cols-6 gap-x-2'>
             {attributes.map((attr) => {
+              const defaultValue = dbAttrs[attr.name.toLowerCase()] != null ? `${dbAttrs[attr.name.toLowerCase()]}_${attr.id}` : ''
               return (
                 <div key={attr.name}>
                   <div className='text-sm text-center uppercase font-roboto font-bold rounded-t bg-dark text-white p-1'>
@@ -128,6 +131,7 @@ const StandardArray: React.FC<Props> = ({
                   <select
                     className='w-full border rounded-b text-xl p-2'
                     onChange={handleSelection}
+                    defaultValue={defaultValue}
                   >
                     {hashTable[attr.id].availOptions.map((opt: string) => {
                       return (

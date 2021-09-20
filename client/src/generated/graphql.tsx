@@ -67,6 +67,12 @@ export type AsiCondition = {
   short?: Maybe<Scalars['String']>;
 };
 
+export enum AsiCoreMethod {
+  PointBuy = 'POINT_BUY',
+  Standard = 'STANDARD',
+  Manual = 'MANUAL'
+}
+
 export enum AsiFromType {
   Race = 'RACE',
   Points = 'POINTS',
@@ -136,6 +142,130 @@ export type AsiSelectedCondition = {
   /** Checks for equality with the object’s `count` field. */
   count?: Maybe<Scalars['Int']>;
 };
+
+export type AsiSelectedCore = Node & {
+  __typename?: 'AsiSelectedCore';
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID'];
+  asiSelBaseId: Scalars['UUID'];
+  characterId?: Maybe<Scalars['UUID']>;
+  userId?: Maybe<Scalars['UUID']>;
+  method: AsiCoreMethod;
+  strength?: Maybe<Scalars['Int']>;
+  dexterity?: Maybe<Scalars['Int']>;
+  constitution?: Maybe<Scalars['Int']>;
+  intelligence?: Maybe<Scalars['Int']>;
+  wisdom?: Maybe<Scalars['Int']>;
+  charisma?: Maybe<Scalars['Int']>;
+  /** Reads a single `Character` that is related to this `AsiSelectedCore`. */
+  characterByCharacterId?: Maybe<Character>;
+  /** Reads a single `Minion` that is related to this `AsiSelectedCore`. */
+  minionByUserId?: Maybe<Minion>;
+};
+
+/**
+ * A condition to be used against `AsiSelectedCore` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type AsiSelectedCoreCondition = {
+  /** Checks for equality with the object’s `asiSelBaseId` field. */
+  asiSelBaseId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `characterId` field. */
+  characterId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `userId` field. */
+  userId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `method` field. */
+  method?: Maybe<AsiCoreMethod>;
+  /** Checks for equality with the object’s `strength` field. */
+  strength?: Maybe<Scalars['Int']>;
+  /** Checks for equality with the object’s `dexterity` field. */
+  dexterity?: Maybe<Scalars['Int']>;
+  /** Checks for equality with the object’s `constitution` field. */
+  constitution?: Maybe<Scalars['Int']>;
+  /** Checks for equality with the object’s `intelligence` field. */
+  intelligence?: Maybe<Scalars['Int']>;
+  /** Checks for equality with the object’s `wisdom` field. */
+  wisdom?: Maybe<Scalars['Int']>;
+  /** Checks for equality with the object’s `charisma` field. */
+  charisma?: Maybe<Scalars['Int']>;
+};
+
+/** An input for mutations affecting `AsiSelectedCore` */
+export type AsiSelectedCoreInput = {
+  asiSelBaseId?: Maybe<Scalars['UUID']>;
+  characterId?: Maybe<Scalars['UUID']>;
+  userId?: Maybe<Scalars['UUID']>;
+  method: AsiCoreMethod;
+  strength?: Maybe<Scalars['Int']>;
+  dexterity?: Maybe<Scalars['Int']>;
+  constitution?: Maybe<Scalars['Int']>;
+  intelligence?: Maybe<Scalars['Int']>;
+  wisdom?: Maybe<Scalars['Int']>;
+  charisma?: Maybe<Scalars['Int']>;
+};
+
+/** Represents an update to a `AsiSelectedCore`. Fields that are set will be updated. */
+export type AsiSelectedCorePatch = {
+  asiSelBaseId?: Maybe<Scalars['UUID']>;
+  characterId?: Maybe<Scalars['UUID']>;
+  userId?: Maybe<Scalars['UUID']>;
+  method?: Maybe<AsiCoreMethod>;
+  strength?: Maybe<Scalars['Int']>;
+  dexterity?: Maybe<Scalars['Int']>;
+  constitution?: Maybe<Scalars['Int']>;
+  intelligence?: Maybe<Scalars['Int']>;
+  wisdom?: Maybe<Scalars['Int']>;
+  charisma?: Maybe<Scalars['Int']>;
+};
+
+/** A connection to a list of `AsiSelectedCore` values. */
+export type AsiSelectedCoresConnection = {
+  __typename?: 'AsiSelectedCoresConnection';
+  /** A list of `AsiSelectedCore` objects. */
+  nodes: Array<Maybe<AsiSelectedCore>>;
+  /** A list of edges which contains the `AsiSelectedCore` and cursor to aid in pagination. */
+  edges: Array<AsiSelectedCoresEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `AsiSelectedCore` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `AsiSelectedCore` edge in the connection. */
+export type AsiSelectedCoresEdge = {
+  __typename?: 'AsiSelectedCoresEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `AsiSelectedCore` at the end of the edge. */
+  node?: Maybe<AsiSelectedCore>;
+};
+
+/** Methods to use when ordering `AsiSelectedCore`. */
+export enum AsiSelectedCoresOrderBy {
+  Natural = 'NATURAL',
+  AsiSelBaseIdAsc = 'ASI_SEL_BASE_ID_ASC',
+  AsiSelBaseIdDesc = 'ASI_SEL_BASE_ID_DESC',
+  CharacterIdAsc = 'CHARACTER_ID_ASC',
+  CharacterIdDesc = 'CHARACTER_ID_DESC',
+  UserIdAsc = 'USER_ID_ASC',
+  UserIdDesc = 'USER_ID_DESC',
+  MethodAsc = 'METHOD_ASC',
+  MethodDesc = 'METHOD_DESC',
+  StrengthAsc = 'STRENGTH_ASC',
+  StrengthDesc = 'STRENGTH_DESC',
+  DexterityAsc = 'DEXTERITY_ASC',
+  DexterityDesc = 'DEXTERITY_DESC',
+  ConstitutionAsc = 'CONSTITUTION_ASC',
+  ConstitutionDesc = 'CONSTITUTION_DESC',
+  IntelligenceAsc = 'INTELLIGENCE_ASC',
+  IntelligenceDesc = 'INTELLIGENCE_DESC',
+  WisdomAsc = 'WISDOM_ASC',
+  WisdomDesc = 'WISDOM_DESC',
+  CharismaAsc = 'CHARISMA_ASC',
+  CharismaDesc = 'CHARISMA_DESC',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
+}
 
 /** An input for mutations affecting `AsiSelected` */
 export type AsiSelectedInput = {
@@ -575,6 +705,8 @@ export type Character = Node & {
   fightStyleSelectedsByCharacterId: FightStyleSelectedsConnection;
   /** Reads and enables pagination through a set of `AsiSelected`. */
   asiSelectedsByCharacterId: AsiSelectedsConnection;
+  /** Reads and enables pagination through a set of `AsiSelectedCore`. */
+  asiSelectedCoresByCharacterId: AsiSelectedCoresConnection;
 };
 
 
@@ -608,6 +740,17 @@ export type CharacterAsiSelectedsByCharacterIdArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<AsiSelectedsOrderBy>>;
   condition?: Maybe<AsiSelectedCondition>;
+};
+
+
+export type CharacterAsiSelectedCoresByCharacterIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<AsiSelectedCoresOrderBy>>;
+  condition?: Maybe<AsiSelectedCoreCondition>;
 };
 
 /**
@@ -1219,6 +1362,43 @@ export type CreateAsiPayload = {
 /** The output of our create `Asi` mutation. */
 export type CreateAsiPayloadAsiEdgeArgs = {
   orderBy?: Maybe<Array<AsisOrderBy>>;
+};
+
+/** All input for the create `AsiSelectedCore` mutation. */
+export type CreateAsiSelectedCoreInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `AsiSelectedCore` to be created by this mutation. */
+  asiSelectedCore: AsiSelectedCoreInput;
+};
+
+/** The output of our create `AsiSelectedCore` mutation. */
+export type CreateAsiSelectedCorePayload = {
+  __typename?: 'CreateAsiSelectedCorePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `AsiSelectedCore` that was created by this mutation. */
+  asiSelectedCore?: Maybe<AsiSelectedCore>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Character` that is related to this `AsiSelectedCore`. */
+  characterByCharacterId?: Maybe<Character>;
+  /** Reads a single `Minion` that is related to this `AsiSelectedCore`. */
+  minionByUserId?: Maybe<Minion>;
+  /** An edge for our `AsiSelectedCore`. May be used by Relay 1. */
+  asiSelectedCoreEdge?: Maybe<AsiSelectedCoresEdge>;
+};
+
+
+/** The output of our create `AsiSelectedCore` mutation. */
+export type CreateAsiSelectedCorePayloadAsiSelectedCoreEdgeArgs = {
+  orderBy?: Maybe<Array<AsiSelectedCoresOrderBy>>;
 };
 
 /** All input for the create `AsiSelected` mutation. */
@@ -2282,6 +2462,54 @@ export type DeleteAsiSelectedByAsiSelIdInput = {
    */
   clientMutationId?: Maybe<Scalars['String']>;
   asiSelId: Scalars['UUID'];
+};
+
+/** All input for the `deleteAsiSelectedCoreByAsiSelBaseId` mutation. */
+export type DeleteAsiSelectedCoreByAsiSelBaseIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  asiSelBaseId: Scalars['UUID'];
+};
+
+/** All input for the `deleteAsiSelectedCore` mutation. */
+export type DeleteAsiSelectedCoreInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `AsiSelectedCore` to be deleted. */
+  nodeId: Scalars['ID'];
+};
+
+/** The output of our delete `AsiSelectedCore` mutation. */
+export type DeleteAsiSelectedCorePayload = {
+  __typename?: 'DeleteAsiSelectedCorePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `AsiSelectedCore` that was deleted by this mutation. */
+  asiSelectedCore?: Maybe<AsiSelectedCore>;
+  deletedAsiSelectedCoreId?: Maybe<Scalars['ID']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Character` that is related to this `AsiSelectedCore`. */
+  characterByCharacterId?: Maybe<Character>;
+  /** Reads a single `Minion` that is related to this `AsiSelectedCore`. */
+  minionByUserId?: Maybe<Minion>;
+  /** An edge for our `AsiSelectedCore`. May be used by Relay 1. */
+  asiSelectedCoreEdge?: Maybe<AsiSelectedCoresEdge>;
+};
+
+
+/** The output of our delete `AsiSelectedCore` mutation. */
+export type DeleteAsiSelectedCorePayloadAsiSelectedCoreEdgeArgs = {
+  orderBy?: Maybe<Array<AsiSelectedCoresOrderBy>>;
 };
 
 /** All input for the `deleteAsiSelected` mutation. */
@@ -4125,6 +4353,8 @@ export type Minion = Node & {
   charactersByUserId: CharactersConnection;
   /** Reads and enables pagination through a set of `AsiSelected`. */
   asiSelectedsByUserId: AsiSelectedsConnection;
+  /** Reads and enables pagination through a set of `AsiSelectedCore`. */
+  asiSelectedCoresByUserId: AsiSelectedCoresConnection;
 };
 
 
@@ -4158,6 +4388,17 @@ export type MinionAsiSelectedsByUserIdArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<AsiSelectedsOrderBy>>;
   condition?: Maybe<AsiSelectedCondition>;
+};
+
+
+export type MinionAsiSelectedCoresByUserIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<AsiSelectedCoresOrderBy>>;
+  condition?: Maybe<AsiSelectedCoreCondition>;
 };
 
 /** A condition to be used against `Minion` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -4288,6 +4529,8 @@ export type Mutation = {
   createWizard?: Maybe<CreateWizardPayload>;
   /** Creates a single `AsiSelected`. */
   createAsiSelected?: Maybe<CreateAsiSelectedPayload>;
+  /** Creates a single `AsiSelectedCore`. */
+  createAsiSelectedCore?: Maybe<CreateAsiSelectedCorePayload>;
   /** Creates a single `Character`. */
   createCharacter?: Maybe<CreateCharacterPayload>;
   /** Creates a single `FightStyleSelected`. */
@@ -4378,6 +4621,10 @@ export type Mutation = {
   updateAsiSelected?: Maybe<UpdateAsiSelectedPayload>;
   /** Updates a single `AsiSelected` using a unique key and a patch. */
   updateAsiSelectedByAsiSelId?: Maybe<UpdateAsiSelectedPayload>;
+  /** Updates a single `AsiSelectedCore` using its globally unique id and a patch. */
+  updateAsiSelectedCore?: Maybe<UpdateAsiSelectedCorePayload>;
+  /** Updates a single `AsiSelectedCore` using a unique key and a patch. */
+  updateAsiSelectedCoreByAsiSelBaseId?: Maybe<UpdateAsiSelectedCorePayload>;
   /** Updates a single `Character` using its globally unique id and a patch. */
   updateCharacter?: Maybe<UpdateCharacterPayload>;
   /** Updates a single `Character` using a unique key and a patch. */
@@ -4474,6 +4721,10 @@ export type Mutation = {
   deleteAsiSelected?: Maybe<DeleteAsiSelectedPayload>;
   /** Deletes a single `AsiSelected` using a unique key. */
   deleteAsiSelectedByAsiSelId?: Maybe<DeleteAsiSelectedPayload>;
+  /** Deletes a single `AsiSelectedCore` using its globally unique id. */
+  deleteAsiSelectedCore?: Maybe<DeleteAsiSelectedCorePayload>;
+  /** Deletes a single `AsiSelectedCore` using a unique key. */
+  deleteAsiSelectedCoreByAsiSelBaseId?: Maybe<DeleteAsiSelectedCorePayload>;
   /** Deletes a single `Character` using its globally unique id. */
   deleteCharacter?: Maybe<DeleteCharacterPayload>;
   /** Deletes a single `Character` using a unique key. */
@@ -4650,6 +4901,12 @@ export type MutationCreateWizardArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateAsiSelectedArgs = {
   input: CreateAsiSelectedInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateAsiSelectedCoreArgs = {
+  input: CreateAsiSelectedCoreInput;
 };
 
 
@@ -4920,6 +5177,18 @@ export type MutationUpdateAsiSelectedArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateAsiSelectedByAsiSelIdArgs = {
   input: UpdateAsiSelectedByAsiSelIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateAsiSelectedCoreArgs = {
+  input: UpdateAsiSelectedCoreInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateAsiSelectedCoreByAsiSelBaseIdArgs = {
+  input: UpdateAsiSelectedCoreByAsiSelBaseIdInput;
 };
 
 
@@ -5212,6 +5481,18 @@ export type MutationDeleteAsiSelectedByAsiSelIdArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteAsiSelectedCoreArgs = {
+  input: DeleteAsiSelectedCoreInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteAsiSelectedCoreByAsiSelBaseIdArgs = {
+  input: DeleteAsiSelectedCoreByAsiSelBaseIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteCharacterArgs = {
   input: DeleteCharacterInput;
 };
@@ -5343,6 +5624,8 @@ export type Query = Node & {
   allWizards?: Maybe<WizardsConnection>;
   /** Reads and enables pagination through a set of `AsiSelected`. */
   allAsiSelecteds?: Maybe<AsiSelectedsConnection>;
+  /** Reads and enables pagination through a set of `AsiSelectedCore`. */
+  allAsiSelectedCores?: Maybe<AsiSelectedCoresConnection>;
   /** Reads and enables pagination through a set of `Character`. */
   allCharacters?: Maybe<CharactersConnection>;
   /** Reads and enables pagination through a set of `FightStyleSelected`. */
@@ -5378,6 +5661,7 @@ export type Query = Node & {
   wizardById?: Maybe<Wizard>;
   wizardByUserId?: Maybe<Wizard>;
   asiSelectedByAsiSelId?: Maybe<AsiSelected>;
+  asiSelectedCoreByAsiSelBaseId?: Maybe<AsiSelectedCore>;
   characterByCharacterId?: Maybe<Character>;
   fightStyleSelectedByFightStyleSelId?: Maybe<FightStyleSelected>;
   skillsSelectedBySkillSelId?: Maybe<SkillsSelected>;
@@ -5407,6 +5691,8 @@ export type Query = Node & {
   wizard?: Maybe<Wizard>;
   /** Reads a single `AsiSelected` using its globally unique `ID`. */
   asiSelected?: Maybe<AsiSelected>;
+  /** Reads a single `AsiSelectedCore` using its globally unique `ID`. */
+  asiSelectedCore?: Maybe<AsiSelectedCore>;
   /** Reads a single `Character` using its globally unique `ID`. */
   character?: Maybe<Character>;
   /** Reads a single `FightStyleSelected` using its globally unique `ID`. */
@@ -5747,6 +6033,18 @@ export type QueryAllAsiSelectedsArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
+export type QueryAllAsiSelectedCoresArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<AsiSelectedCoresOrderBy>>;
+  condition?: Maybe<AsiSelectedCoreCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
 export type QueryAllCharactersArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
@@ -5957,6 +6255,12 @@ export type QueryAsiSelectedByAsiSelIdArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
+export type QueryAsiSelectedCoreByAsiSelBaseIdArgs = {
+  asiSelBaseId: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
 export type QueryCharacterByCharacterIdArgs = {
   characterId: Scalars['UUID'];
 };
@@ -6048,6 +6352,12 @@ export type QueryWizardArgs = {
 
 /** The root query type which gives access points into the data universe. */
 export type QueryAsiSelectedArgs = {
+  nodeId: Scalars['ID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAsiSelectedCoreArgs = {
   nodeId: Scalars['ID'];
 };
 
@@ -7392,6 +7702,57 @@ export type UpdateAsiSelectedByAsiSelIdInput = {
   asiSelId: Scalars['UUID'];
 };
 
+/** All input for the `updateAsiSelectedCoreByAsiSelBaseId` mutation. */
+export type UpdateAsiSelectedCoreByAsiSelBaseIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `AsiSelectedCore` being updated. */
+  asiSelectedCorePatch: AsiSelectedCorePatch;
+  asiSelBaseId: Scalars['UUID'];
+};
+
+/** All input for the `updateAsiSelectedCore` mutation. */
+export type UpdateAsiSelectedCoreInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `AsiSelectedCore` to be updated. */
+  nodeId: Scalars['ID'];
+  /** An object where the defined keys will be set on the `AsiSelectedCore` being updated. */
+  asiSelectedCorePatch: AsiSelectedCorePatch;
+};
+
+/** The output of our update `AsiSelectedCore` mutation. */
+export type UpdateAsiSelectedCorePayload = {
+  __typename?: 'UpdateAsiSelectedCorePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `AsiSelectedCore` that was updated by this mutation. */
+  asiSelectedCore?: Maybe<AsiSelectedCore>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Character` that is related to this `AsiSelectedCore`. */
+  characterByCharacterId?: Maybe<Character>;
+  /** Reads a single `Minion` that is related to this `AsiSelectedCore`. */
+  minionByUserId?: Maybe<Minion>;
+  /** An edge for our `AsiSelectedCore`. May be used by Relay 1. */
+  asiSelectedCoreEdge?: Maybe<AsiSelectedCoresEdge>;
+};
+
+
+/** The output of our update `AsiSelectedCore` mutation. */
+export type UpdateAsiSelectedCorePayloadAsiSelectedCoreEdgeArgs = {
+  orderBy?: Maybe<Array<AsiSelectedCoresOrderBy>>;
+};
+
 /** All input for the `updateAsiSelected` mutation. */
 export type UpdateAsiSelectedInput = {
   /**
@@ -8703,6 +9064,29 @@ export enum WizardsOrderBy {
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
 
+export type CreateAsiCoreMutationVariables = Exact<{
+  characterId: Scalars['UUID'];
+  strength?: Maybe<Scalars['Int']>;
+  dexterity?: Maybe<Scalars['Int']>;
+  constitution?: Maybe<Scalars['Int']>;
+  intelligence?: Maybe<Scalars['Int']>;
+  wisdom?: Maybe<Scalars['Int']>;
+  charisma?: Maybe<Scalars['Int']>;
+  method: AsiCoreMethod;
+}>;
+
+
+export type CreateAsiCoreMutation = (
+  { __typename?: 'Mutation' }
+  & { createAsiSelectedCore?: Maybe<(
+    { __typename?: 'CreateAsiSelectedCorePayload' }
+    & { asiSelectedCore?: Maybe<(
+      { __typename?: 'AsiSelectedCore' }
+      & Pick<AsiSelectedCore, 'asiSelBaseId'>
+    )> }
+  )> }
+);
+
 export type CreateAsiSelectedMutationVariables = Exact<{
   characterId: Scalars['UUID'];
   from: AsiFromType;
@@ -8779,6 +9163,29 @@ export type SignUpMutation = (
   & { signup?: Maybe<(
     { __typename?: 'SignupPayload' }
     & Pick<SignupPayload, 'boolean'>
+  )> }
+);
+
+export type UpdateAsiCoreByIdMutationVariables = Exact<{
+  asiSelBaseId: Scalars['UUID'];
+  strength?: Maybe<Scalars['Int']>;
+  dexterity?: Maybe<Scalars['Int']>;
+  constitution?: Maybe<Scalars['Int']>;
+  intelligence?: Maybe<Scalars['Int']>;
+  wisdom?: Maybe<Scalars['Int']>;
+  charisma?: Maybe<Scalars['Int']>;
+  method?: Maybe<AsiCoreMethod>;
+}>;
+
+
+export type UpdateAsiCoreByIdMutation = (
+  { __typename?: 'Mutation' }
+  & { updateAsiSelectedCoreByAsiSelBaseId?: Maybe<(
+    { __typename?: 'UpdateAsiSelectedCorePayload' }
+    & { asiSelectedCore?: Maybe<(
+      { __typename?: 'AsiSelectedCore' }
+      & Pick<AsiSelectedCore, 'asiSelBaseId'>
+    )> }
   )> }
 );
 
@@ -9092,6 +9499,22 @@ export type GetAllSpellsQuery = (
   )> }
 );
 
+export type GetAsiCoreByCharacterIdQueryVariables = Exact<{
+  characterId: Scalars['UUID'];
+}>;
+
+
+export type GetAsiCoreByCharacterIdQuery = (
+  { __typename?: 'Query' }
+  & { allAsiSelectedCores?: Maybe<(
+    { __typename?: 'AsiSelectedCoresConnection' }
+    & { nodes: Array<Maybe<(
+      { __typename?: 'AsiSelectedCore' }
+      & Pick<AsiSelectedCore, 'asiSelBaseId' | 'characterId' | 'strength' | 'dexterity' | 'constitution' | 'intelligence' | 'wisdom' | 'charisma' | 'method'>
+    )>> }
+  )> }
+);
+
 export type ClassByIdQueryVariables = Exact<{
   id: Scalars['UUID'];
 }>;
@@ -9173,6 +9596,50 @@ export type SubclassNamesByClassIdQuery = (
 );
 
 
+export const CreateAsiCoreDocument = gql`
+    mutation CreateAsiCore($characterId: UUID!, $strength: Int, $dexterity: Int, $constitution: Int, $intelligence: Int, $wisdom: Int, $charisma: Int, $method: AsiCoreMethod!) {
+  createAsiSelectedCore(
+    input: {asiSelectedCore: {characterId: $characterId, method: $method, strength: $strength, dexterity: $dexterity, constitution: $constitution, intelligence: $intelligence, wisdom: $wisdom, charisma: $charisma}}
+  ) {
+    asiSelectedCore {
+      asiSelBaseId
+    }
+  }
+}
+    `;
+export type CreateAsiCoreMutationFn = Apollo.MutationFunction<CreateAsiCoreMutation, CreateAsiCoreMutationVariables>;
+
+/**
+ * __useCreateAsiCoreMutation__
+ *
+ * To run a mutation, you first call `useCreateAsiCoreMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateAsiCoreMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createAsiCoreMutation, { data, loading, error }] = useCreateAsiCoreMutation({
+ *   variables: {
+ *      characterId: // value for 'characterId'
+ *      strength: // value for 'strength'
+ *      dexterity: // value for 'dexterity'
+ *      constitution: // value for 'constitution'
+ *      intelligence: // value for 'intelligence'
+ *      wisdom: // value for 'wisdom'
+ *      charisma: // value for 'charisma'
+ *      method: // value for 'method'
+ *   },
+ * });
+ */
+export function useCreateAsiCoreMutation(baseOptions?: Apollo.MutationHookOptions<CreateAsiCoreMutation, CreateAsiCoreMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreateAsiCoreMutation, CreateAsiCoreMutationVariables>(CreateAsiCoreDocument, options);
+      }
+export type CreateAsiCoreMutationHookResult = ReturnType<typeof useCreateAsiCoreMutation>;
+export type CreateAsiCoreMutationResult = Apollo.MutationResult<CreateAsiCoreMutation>;
+export type CreateAsiCoreMutationOptions = Apollo.BaseMutationOptions<CreateAsiCoreMutation, CreateAsiCoreMutationVariables>;
 export const CreateAsiSelectedDocument = gql`
     mutation CreateAsiSelected($characterId: UUID!, $from: AsiFromType!, $asiId: UUID, $count: Int!) {
   createAsiSelected(
@@ -9352,6 +9819,50 @@ export function useSignUpMutation(baseOptions?: Apollo.MutationHookOptions<SignU
 export type SignUpMutationHookResult = ReturnType<typeof useSignUpMutation>;
 export type SignUpMutationResult = Apollo.MutationResult<SignUpMutation>;
 export type SignUpMutationOptions = Apollo.BaseMutationOptions<SignUpMutation, SignUpMutationVariables>;
+export const UpdateAsiCoreByIdDocument = gql`
+    mutation UpdateAsiCoreById($asiSelBaseId: UUID!, $strength: Int, $dexterity: Int, $constitution: Int, $intelligence: Int, $wisdom: Int, $charisma: Int, $method: AsiCoreMethod) {
+  updateAsiSelectedCoreByAsiSelBaseId(
+    input: {asiSelBaseId: $asiSelBaseId, asiSelectedCorePatch: {strength: $strength, dexterity: $dexterity, constitution: $constitution, intelligence: $intelligence, wisdom: $wisdom, charisma: $charisma, method: $method}}
+  ) {
+    asiSelectedCore {
+      asiSelBaseId
+    }
+  }
+}
+    `;
+export type UpdateAsiCoreByIdMutationFn = Apollo.MutationFunction<UpdateAsiCoreByIdMutation, UpdateAsiCoreByIdMutationVariables>;
+
+/**
+ * __useUpdateAsiCoreByIdMutation__
+ *
+ * To run a mutation, you first call `useUpdateAsiCoreByIdMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateAsiCoreByIdMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateAsiCoreByIdMutation, { data, loading, error }] = useUpdateAsiCoreByIdMutation({
+ *   variables: {
+ *      asiSelBaseId: // value for 'asiSelBaseId'
+ *      strength: // value for 'strength'
+ *      dexterity: // value for 'dexterity'
+ *      constitution: // value for 'constitution'
+ *      intelligence: // value for 'intelligence'
+ *      wisdom: // value for 'wisdom'
+ *      charisma: // value for 'charisma'
+ *      method: // value for 'method'
+ *   },
+ * });
+ */
+export function useUpdateAsiCoreByIdMutation(baseOptions?: Apollo.MutationHookOptions<UpdateAsiCoreByIdMutation, UpdateAsiCoreByIdMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<UpdateAsiCoreByIdMutation, UpdateAsiCoreByIdMutationVariables>(UpdateAsiCoreByIdDocument, options);
+      }
+export type UpdateAsiCoreByIdMutationHookResult = ReturnType<typeof useUpdateAsiCoreByIdMutation>;
+export type UpdateAsiCoreByIdMutationResult = Apollo.MutationResult<UpdateAsiCoreByIdMutation>;
+export type UpdateAsiCoreByIdMutationOptions = Apollo.BaseMutationOptions<UpdateAsiCoreByIdMutation, UpdateAsiCoreByIdMutationVariables>;
 export const UpdateAsiSelectDocument = gql`
     mutation UpdateAsiSelect($asiSelId: UUID!, $asiId: UUID!) {
   updateAsiSelectedByAsiSelId(
@@ -10105,6 +10616,51 @@ export function useGetAllSpellsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptio
 export type GetAllSpellsQueryHookResult = ReturnType<typeof useGetAllSpellsQuery>;
 export type GetAllSpellsLazyQueryHookResult = ReturnType<typeof useGetAllSpellsLazyQuery>;
 export type GetAllSpellsQueryResult = Apollo.QueryResult<GetAllSpellsQuery, GetAllSpellsQueryVariables>;
+export const GetAsiCoreByCharacterIdDocument = gql`
+    query GetAsiCoreByCharacterId($characterId: UUID!) {
+  allAsiSelectedCores(condition: {characterId: $characterId}) {
+    nodes {
+      asiSelBaseId
+      characterId
+      strength
+      dexterity
+      constitution
+      intelligence
+      wisdom
+      charisma
+      method
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetAsiCoreByCharacterIdQuery__
+ *
+ * To run a query within a React component, call `useGetAsiCoreByCharacterIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAsiCoreByCharacterIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAsiCoreByCharacterIdQuery({
+ *   variables: {
+ *      characterId: // value for 'characterId'
+ *   },
+ * });
+ */
+export function useGetAsiCoreByCharacterIdQuery(baseOptions: Apollo.QueryHookOptions<GetAsiCoreByCharacterIdQuery, GetAsiCoreByCharacterIdQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAsiCoreByCharacterIdQuery, GetAsiCoreByCharacterIdQueryVariables>(GetAsiCoreByCharacterIdDocument, options);
+      }
+export function useGetAsiCoreByCharacterIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAsiCoreByCharacterIdQuery, GetAsiCoreByCharacterIdQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAsiCoreByCharacterIdQuery, GetAsiCoreByCharacterIdQueryVariables>(GetAsiCoreByCharacterIdDocument, options);
+        }
+export type GetAsiCoreByCharacterIdQueryHookResult = ReturnType<typeof useGetAsiCoreByCharacterIdQuery>;
+export type GetAsiCoreByCharacterIdLazyQueryHookResult = ReturnType<typeof useGetAsiCoreByCharacterIdLazyQuery>;
+export type GetAsiCoreByCharacterIdQueryResult = Apollo.QueryResult<GetAsiCoreByCharacterIdQuery, GetAsiCoreByCharacterIdQueryVariables>;
 export const ClassByIdDocument = gql`
     query ClassById($id: UUID!) {
   classById(id: $id) {
