@@ -62,6 +62,10 @@ const AttributeCardBlock = ({ attributesImmutable }: Props) => (
               <div className='border-b p-4 border-l-4 bg-gray-100 text-xl text-center font-roboto font-bold'>
                 {getBonusDisplayVal(bonuses[attr.currentAssignedScore])}
               </div>
+              <div className='border-b p-4 text-left'>Racial Bonus</div>
+              <div className='border-b p-4 border-l-4 bg-gray-100 text-xl text-center font-roboto font-bold'>
+                {getBonusDisplayVal(bonuses[attr.currentAssignedScore])}
+              </div>
             </div>
           </div>
         </div>

@@ -2410,6 +2410,29 @@ export type CreateWizardPayloadWizardEdgeArgs = {
 
 
 
+/** All input for the `deleteAllRaceAsiSelByCharacterId` mutation. */
+export type DeleteAllRaceAsiSelByCharacterIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  characterId: Scalars['UUID'];
+};
+
+/** The output of our `deleteAllRaceAsiSelByCharacterId` mutation. */
+export type DeleteAllRaceAsiSelByCharacterIdPayload = {
+  __typename?: 'DeleteAllRaceAsiSelByCharacterIdPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  boolean?: Maybe<Scalars['Boolean']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
 /** All input for the `deleteAsiByAsiId` mutation. */
 export type DeleteAsiByAsiIdInput = {
   /**
@@ -4739,6 +4762,7 @@ export type Mutation = {
   deleteSkillsSelectedBySkillSelId?: Maybe<DeleteSkillsSelectedPayload>;
   signin?: Maybe<SigninPayload>;
   signup?: Maybe<SignupPayload>;
+  deleteAllRaceAsiSelByCharacterId?: Maybe<DeleteAllRaceAsiSelByCharacterIdPayload>;
 };
 
 
@@ -5537,6 +5561,12 @@ export type MutationSigninArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationSignupArgs = {
   input: SignupInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteAllRaceAsiSelByCharacterIdArgs = {
+  input: DeleteAllRaceAsiSelByCharacterIdInput;
 };
 
 /** An object with a globally unique `ID`. */
@@ -9138,6 +9168,19 @@ export type DeleteAsiSelectedMutation = (
   )> }
 );
 
+export type DeleteAsiSelByCharIdMutationVariables = Exact<{
+  characterId: Scalars['UUID'];
+}>;
+
+
+export type DeleteAsiSelByCharIdMutation = (
+  { __typename?: 'Mutation' }
+  & { deleteAllRaceAsiSelByCharacterId?: Maybe<(
+    { __typename?: 'DeleteAllRaceAsiSelByCharacterIdPayload' }
+    & Pick<DeleteAllRaceAsiSelByCharacterIdPayload, 'boolean'>
+  )> }
+);
+
 export type SigninMutationVariables = Exact<{
   username: Scalars['String'];
   password: Scalars['String'];
@@ -9751,6 +9794,39 @@ export function useDeleteAsiSelectedMutation(baseOptions?: Apollo.MutationHookOp
 export type DeleteAsiSelectedMutationHookResult = ReturnType<typeof useDeleteAsiSelectedMutation>;
 export type DeleteAsiSelectedMutationResult = Apollo.MutationResult<DeleteAsiSelectedMutation>;
 export type DeleteAsiSelectedMutationOptions = Apollo.BaseMutationOptions<DeleteAsiSelectedMutation, DeleteAsiSelectedMutationVariables>;
+export const DeleteAsiSelByCharIdDocument = gql`
+    mutation DeleteAsiSelByCharId($characterId: UUID!) {
+  deleteAllRaceAsiSelByCharacterId(input: {characterId: $characterId}) {
+    boolean
+  }
+}
+    `;
+export type DeleteAsiSelByCharIdMutationFn = Apollo.MutationFunction<DeleteAsiSelByCharIdMutation, DeleteAsiSelByCharIdMutationVariables>;
+
+/**
+ * __useDeleteAsiSelByCharIdMutation__
+ *
+ * To run a mutation, you first call `useDeleteAsiSelByCharIdMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteAsiSelByCharIdMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteAsiSelByCharIdMutation, { data, loading, error }] = useDeleteAsiSelByCharIdMutation({
+ *   variables: {
+ *      characterId: // value for 'characterId'
+ *   },
+ * });
+ */
+export function useDeleteAsiSelByCharIdMutation(baseOptions?: Apollo.MutationHookOptions<DeleteAsiSelByCharIdMutation, DeleteAsiSelByCharIdMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<DeleteAsiSelByCharIdMutation, DeleteAsiSelByCharIdMutationVariables>(DeleteAsiSelByCharIdDocument, options);
+      }
+export type DeleteAsiSelByCharIdMutationHookResult = ReturnType<typeof useDeleteAsiSelByCharIdMutation>;
+export type DeleteAsiSelByCharIdMutationResult = Apollo.MutationResult<DeleteAsiSelByCharIdMutation>;
+export type DeleteAsiSelByCharIdMutationOptions = Apollo.BaseMutationOptions<DeleteAsiSelByCharIdMutation, DeleteAsiSelByCharIdMutationVariables>;
 export const SigninDocument = gql`
     mutation Signin($username: String!, $password: String!) {
   signin(input: {username: $username, password: $password}) {

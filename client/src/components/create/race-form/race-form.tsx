@@ -9,6 +9,7 @@ import {
   useGetCharacterByIdQuery,
   useUpdateAsiSelectMutation,
   useDeleteAsiSelectedMutation,
+  useDeleteAsiSelByCharIdMutation,
   AsiFromType,
 } from '../../../generated/graphql'
 import { RaceCards } from '../../shared/race-cards'
@@ -19,17 +20,29 @@ interface Props {
   characterId: any
 }
 const AsiSelects: React.FC<Props> = ({raceAsis, characterId}: any) => {
-  const { data: asis, loading: asiLoading } = useAllAsisQuery()
+  const [ loading, setLoading ] = useState(false)
+  const [asisSelected, setAsisSelected] = useState<any>([])
   const [performCreate, { data: createD }] = useCreateAsiSelectedMutation()
   const [performUpdate, { data: updateD }] = useUpdateAsiSelectMutation()
   const [performDelete, { data: deleteD }] = useDeleteAsiSelectedMutation()
-  const { data: asisSelected, loading: asiSelsLoading, refetch: refetchAllAsis } = useGetAllAsiSelectionsQuery({
+  const { data: asis, loading: asiLoading, networkStatus } = useAllAsisQuery()
+  const { data: asisSelData, loading: asiSelsLoading, refetch: refetchAllAsis } = useGetAllAsiSelectionsQuery({
     variables: {
       characterId: characterId
     }
   })
 
-  if (asiLoading || asiSelsLoading) {
+  useEffect(() => {
+    setLoading(true)
+    const refetch = async ()=> {
+      const { data } = await refetchAllAsis()
+      setAsisSelected(data.allAsiSelecteds?.nodes)
+      setLoading(false)
+    }
+    refetch()
+  }, [raceAsis, refetchAllAsis, asisSelData, setAsisSelected])
+  
+  if (asiLoading || asiSelsLoading || loading) {
     return null
   }
   
@@ -81,7 +94,7 @@ const AsiSelects: React.FC<Props> = ({raceAsis, characterId}: any) => {
     }
 
   }
-
+  
   return (
     <>
       {
@@ -89,7 +102,7 @@ const AsiSelects: React.FC<Props> = ({raceAsis, characterId}: any) => {
           <select 
             key={i}
             className='w-full border rounded text-lg p-2'
-            defaultValue={asisSelected?.allAsiSelecteds?.nodes[i]?.asiId || ''}
+            defaultValue={asisSelected[i]?.asiId || ''}
             onChange={e => handleSelection(e, i)}
           >
             <option value=''>- Choose an Ability Score -</option>
@@ -122,7 +135,8 @@ const RaceSelectionForm: React.FC = () => {
   })
   const { data: races, loading: racesLoading } = useGetAllRacesQuery()
   const [performUpdate, { data: updateResult, loading: updateLoading }] = useUpdateCharacterMutation()
-
+  const [performDeleteAllRaceAsis, { data: deleteAllComplete}] = useDeleteAsiSelByCharIdMutation()
+  
   useEffect(() => {
     if (!selectedRaceId && char?.characterByCharacterId?.raceId && races?.allRaces?.nodes.length) {
       setSelectedRaceId(char.characterByCharacterId?.raceId)
@@ -138,9 +152,14 @@ const RaceSelectionForm: React.FC = () => {
 
   }, [char?.characterByCharacterId, races?.allRaces?.nodes])
 
-  const handleRaceSelection = (event: React.ChangeEvent<any>) => {
-    // TODO: delete all associated race ids
-
+  const handleRaceSelection = async (event: React.ChangeEvent<any>) => {
+    //delete all associated race ids
+    await performDeleteAllRaceAsis({
+      variables: {
+        characterId: id
+      }
+    })
+  
     setSelectedRaceId(event.target.value)
     setSelectedSubraceId(null)
     const activeRace = races?.allRaces?.nodes.find((x) => x?.id === event.target.value)
@@ -148,7 +167,8 @@ const RaceSelectionForm: React.FC = () => {
     setActiveRace(
       activeRace
     )
-    performUpdate({
+    // tell db there's a new race saved
+    await performUpdate({
         variables: {
             characterId: id,
             raceId: event.target.value
