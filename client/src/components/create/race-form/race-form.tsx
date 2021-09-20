@@ -171,7 +171,7 @@ const RaceSelectionForm: React.FC = () => {
     await performUpdate({
         variables: {
             characterId: id,
-            raceId: event.target.value
+            raceId: event.target.value || null
         }
     })
   }
@@ -237,7 +237,7 @@ const RaceSelectionForm: React.FC = () => {
         )}
       </div>
       <div className='space-y-4 mt-4'>
-        {selectedRaceId && (
+        {selectedRaceId && activeRace && (
           <div className='space-y-4'>
             <RaceCards race={activeRace} />
           </div>

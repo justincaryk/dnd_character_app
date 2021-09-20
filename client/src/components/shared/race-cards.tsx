@@ -71,6 +71,7 @@ interface Props {
   race: any
 }
 export const RaceCards: React.FC<Props> = ({ race }) => {
+
   const racialTraitsStr = buildRacialTraitsString(race)
   const languagesString = buildLanguagesString(race.languages)
   
