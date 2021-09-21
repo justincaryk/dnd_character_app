@@ -25,10 +25,8 @@ const RaceSelectionForm: React.FC = () => {
     },
   })
   const { data: races, loading: racesLoading } = useGetAllRacesQuery()
-  const [performUpdate, { data: updateResult, loading: updateLoading }] =
-    useUpdateCharacterMutation()
-  const [performDeleteAllRaceAsis, { data: deleteAllComplete }] =
-    useDeleteAsiSelByCharIdMutation()
+  const [performUpdate] = useUpdateCharacterMutation()
+  const [performDeleteAllRaceAsis] = useDeleteAsiSelByCharIdMutation()
 
   useEffect(() => {
     if (
@@ -48,7 +46,7 @@ const RaceSelectionForm: React.FC = () => {
     if (!setSelectedRaceId && char && char.characterByCharacterId?.subraceId) {
       setSelectedSubraceId(char.characterByCharacterId.subraceId)
     }
-  }, [char?.characterByCharacterId, races?.allRaces?.nodes])
+  }, [char, races?.allRaces?.nodes, activeRace, selectedRaceId])
 
   const handleRaceSelection = async (event: React.ChangeEvent<any>) => {
     //delete all associated race ids
