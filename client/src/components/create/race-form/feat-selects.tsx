@@ -49,7 +49,7 @@ const FeatSelects: React.FC<Props> = ({ raceAsis, characterId, raceName }) => {
       const id = featSel.allFeatSelecteds?.nodes[0]?.featId
       setSelectedFeat(feats.allFeats?.feats.find(x => x?.id === id))
     }
-  }, [featSel?.allFeatSelecteds?.nodes, feats?.allFeats?.feats])
+  }, [featSel, feats])
 
   if (featsLoading || featSelLoading) {
     return null
