@@ -18,17 +18,18 @@ const buildAsiString = (asis: any) => {
 
 const buildRacialTraitsString = (race: any) => {
   let racialTraitsArr = []
+  
   if (race.asis) {
     const asiString = buildAsiString(race.asis)
     racialTraitsArr.push(asiString)
   }
 
-  if (race.raceFeaturesByRaceId.nodes.length) {
-    for (const feat of race.raceFeaturesByRaceId.nodes) {
-      const featName = feat.racialFeatureByRacialFeatureId.name
-      racialTraitsArr.push(featName)
-    }
-  }
+  // if (race.raceFeaturesByRaceId.nodes.length) {
+  //   for (const feat of race.raceFeaturesByRaceId.nodes) {
+  //     const featName = feat.racialFeatureByRacialFeatureId.name
+  //     racialTraitsArr.push(featName)
+  //   }
+  // }
 
   return racialTraitsArr.join(', ')
 }

@@ -310,10 +310,9 @@ const CharDescript: React.FC = () => {
             className='w-full border rounded text-xl p-2' 
             value={bgId} 
             onChange={handleBgSelection}
+            defaultValue={''}
           >
-            <option value='' selected>
-              -- Choose a Background ---
-            </option>
+            <option value=''>-- Choose a Background ---</option>
             {backgrounds?.allBgs?.nodes.map((bg) => {
               return bg && <option key={bg.name} value={bg.id}>{bg.name}</option>
             })}

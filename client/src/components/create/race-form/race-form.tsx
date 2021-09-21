@@ -3,186 +3,85 @@ import { useParams } from 'react-router'
 import {
   useGetAllRacesQuery,
   useUpdateCharacterMutation,
-  useAllAsisQuery,
-  useCreateAsiSelectedMutation,
-  useGetAllAsiSelectionsQuery,
   useGetCharacterByIdQuery,
-  useUpdateAsiSelectMutation,
-  useDeleteAsiSelectedMutation,
   useDeleteAsiSelByCharIdMutation,
-  AsiFromType,
 } from '../../../generated/graphql'
 import { RaceCards } from '../../shared/race-cards'
 import SubraceCards from '../../shared/subrace-cards'
-
-interface Props {
-  raceAsis: any
-  characterId: any
-}
-const AsiSelects: React.FC<Props> = ({raceAsis, characterId}: any) => {
-  const [ loading, setLoading ] = useState(false)
-  const [asisSelected, setAsisSelected] = useState<any>([])
-  const [performCreate, { data: createD }] = useCreateAsiSelectedMutation()
-  const [performUpdate, { data: updateD }] = useUpdateAsiSelectMutation()
-  const [performDelete, { data: deleteD }] = useDeleteAsiSelectedMutation()
-  const { data: asis, loading: asiLoading, networkStatus } = useAllAsisQuery()
-  const { data: asisSelData, loading: asiSelsLoading, refetch: refetchAllAsis } = useGetAllAsiSelectionsQuery({
-    variables: {
-      characterId: characterId
-    }
-  })
-
-  useEffect(() => {
-    setLoading(true)
-    const refetch = async ()=> {
-      const { data } = await refetchAllAsis()
-      setAsisSelected(data.allAsiSelecteds?.nodes)
-      setLoading(false)
-    }
-    refetch()
-  }, [raceAsis, refetchAllAsis, asisSelData, setAsisSelected])
-  
-  if (asiLoading || asiSelsLoading || loading) {
-    return null
-  }
-  
-  const parsed = JSON.parse(raceAsis).options
-  let dropdowns;
-
-  for (const opt of parsed) {
-    const keys = Object.keys(opt)
-    for (const key of keys) {
-      if (key === 'ANY') {
-        const val = opt[key]
-        dropdowns = Array(
-          val
-        ).fill('x',0)
-      }
-    }
-  }
-
-  const handleSelection = (e: React.ChangeEvent<HTMLSelectElement>, i: number) => {
-    if (!asisSelected?.allAsiSelecteds?.nodes[i]) { 
-      performCreate({
-        variables: {
-          characterId: characterId,
-          from: AsiFromType.Race,
-          count: 1,
-          asiId: e.currentTarget.value
-        }
-      })
-      refetchAllAsis()
-    } else {
-      const id = asisSelected?.allAsiSelecteds?.nodes[i]?.asiSelId
-      // if there is no value, delete the id
-      if (!e.currentTarget.value) {
-        performDelete({
-          variables: {
-            asiSelId: id
-          }
-        })
-        return
-      }
-      
-      // update it to the new vlaue
-      performUpdate({
-        variables: {
-          asiSelId: id,
-          asiId: e.currentTarget.value
-        }
-      })
-    }
-
-  }
-  
-  return (
-    <>
-      {
-        dropdowns?.map((x, i) => (
-          <select 
-            key={i}
-            className='w-full border rounded text-lg p-2'
-            defaultValue={asisSelected[i]?.asiId || ''}
-            onChange={e => handleSelection(e, i)}
-          >
-            <option value=''>- Choose an Ability Score -</option>
-            {
-              asis?.allAsis?.nodes.map(x => {
-                let text = x?.long
-                text = text?.replace(/^\w/, (c) => c.toUpperCase());
-                return (
-                  <option key={x?.asiId} value={x?.asiId}>{text} Score</option>
-                )
-              })
-            }
-          </select>
-        ))
-      }
-    </>
-  )
-}
+import AsiSelects from './asi-selects'
+import FeatSelects from './feat-selects'
 
 const RaceSelectionForm: React.FC = () => {
   const { id }: any = useParams()
-
+  const [showRaceInfo, toggleShowRaceInfo] = useState(false)
   const [selectedRaceId, setSelectedRaceId] = useState<string | null>(null)
-  const [selectedSubraceId, setSelectedSubraceId] = useState<string | null>(null)
+  const [selectedSubraceId, setSelectedSubraceId] = useState<string | null>(
+    null
+  )
   const [activeRace, setActiveRace] = useState<any>(null)
   const { data: char } = useGetCharacterByIdQuery({
     variables: {
-      characterId: id
-    }
+      characterId: id,
+    },
   })
   const { data: races, loading: racesLoading } = useGetAllRacesQuery()
-  const [performUpdate, { data: updateResult, loading: updateLoading }] = useUpdateCharacterMutation()
-  const [performDeleteAllRaceAsis, { data: deleteAllComplete}] = useDeleteAsiSelByCharIdMutation()
-  
+  const [performUpdate, { data: updateResult, loading: updateLoading }] =
+    useUpdateCharacterMutation()
+  const [performDeleteAllRaceAsis, { data: deleteAllComplete }] =
+    useDeleteAsiSelByCharIdMutation()
+
   useEffect(() => {
-    if (!selectedRaceId && char?.characterByCharacterId?.raceId && races?.allRaces?.nodes.length) {
+    if (
+      !selectedRaceId &&
+      char?.characterByCharacterId?.raceId &&
+      races?.allRaces?.nodes.length
+    ) {
       setSelectedRaceId(char.characterByCharacterId?.raceId)
       if (!activeRace) {
         setActiveRace(
-          races?.allRaces?.nodes.find((x) => x?.id === char?.characterByCharacterId?.raceId)
+          races?.allRaces?.nodes.find(
+            (x) => x?.id === char?.characterByCharacterId?.raceId
+          )
         )
-        }
+      }
     }
     if (!setSelectedRaceId && char && char.characterByCharacterId?.subraceId) {
       setSelectedSubraceId(char.characterByCharacterId.subraceId)
     }
-
   }, [char?.characterByCharacterId, races?.allRaces?.nodes])
 
   const handleRaceSelection = async (event: React.ChangeEvent<any>) => {
     //delete all associated race ids
     await performDeleteAllRaceAsis({
       variables: {
-        characterId: id
-      }
+        characterId: id,
+      },
     })
-  
+    // TODO: delete all associated feat sel ids
+
     setSelectedRaceId(event.target.value)
     setSelectedSubraceId(null)
-    const activeRace = races?.allRaces?.nodes.find((x) => x?.id === event.target.value)
-    
-    setActiveRace(
-      activeRace
+    const activeRace = races?.allRaces?.nodes.find(
+      (x) => x?.id === event.target.value
     )
+
+    setActiveRace(activeRace)
     // tell db there's a new race saved
     await performUpdate({
-        variables: {
-            characterId: id,
-            raceId: event.target.value || null
-        }
+      variables: {
+        characterId: id,
+        raceId: event.target.value || null,
+      },
     })
   }
 
   const handleSubRaceSelection = (event: React.ChangeEvent<any>) => {
     setSelectedSubraceId(event.target.value)
     performUpdate({
-        variables: {
-            characterId: id,
-            subraceId: event.target.value
-        }
+      variables: {
+        characterId: id,
+        subraceId: event.target.value,
+      },
     })
   }
 
@@ -212,9 +111,9 @@ const RaceSelectionForm: React.FC = () => {
             <label className='font-bold font-roboto text-lg'>
               Choose a Subrace
             </label>
-            <select 
-                className='w-full border rounded text-lg p-2'
-                defaultValue={char?.characterByCharacterId?.subraceId}
+            <select
+              className='w-full border rounded text-lg p-2'
+              defaultValue={char?.characterByCharacterId?.subraceId}
             >
               <option value='' key='100000000'>
                 Make a selection
@@ -226,28 +125,45 @@ const RaceSelectionForm: React.FC = () => {
               ))}
             </select>
           </form>
-        ): null}
+        ) : null}
       </div>
       <div className='space-y-2'>
-        { activeRace && (
-          <AsiSelects 
-            raceAsis={activeRace.asis} 
+        {activeRace && (
+          <AsiSelects raceAsis={activeRace.asis} characterId={id} />
+        )}
+        {activeRace && (
+          <FeatSelects
+            raceAsis={activeRace.asis}
             characterId={id}
+            raceName={activeRace.name}
           />
         )}
       </div>
-      <div className='space-y-4 mt-4'>
-        {selectedRaceId && activeRace && (
-          <div className='space-y-4'>
-            <RaceCards race={activeRace} />
+
+      {selectedRaceId && (
+        <div className='space-y-4 mt-4'>
+          <div 
+            className='text-md font-roboto cursor-pointer uppercase' 
+            onClick={() => toggleShowRaceInfo(!showRaceInfo)}
+          >
+            {showRaceInfo ? 'Hide Details -' : 'Show Details +'}
           </div>
-        )}
-        {selectedSubraceId && (
-          <>
-            <SubraceCards subrace={activeRace?.subracesByRaceId?.nodes.find((x: any) => x?.id === selectedSubraceId)} />
-          </>
-        )}
-      </div>
+          {showRaceInfo && activeRace && (
+            <div className='space-y-4'>
+              <RaceCards race={activeRace} />
+            </div>
+          )}
+          {showRaceInfo && selectedSubraceId && (
+            <>
+              <SubraceCards
+                subrace={activeRace?.subracesByRaceId?.nodes.find(
+                  (x: any) => x?.id === selectedSubraceId
+                )}
+              />
+            </>
+          )}
+        </div>
+      )}
     </div>
   )
 }

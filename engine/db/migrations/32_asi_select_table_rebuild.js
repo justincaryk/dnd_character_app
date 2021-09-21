@@ -28,6 +28,7 @@ exports.up = knex => (
               user_id uuid references public.minion(id) default current_setting('jwt.claims.user_id')::uuid,
               asi_from asi_from_type not null,
               asi_id uuid references public.asi(asi_id),
+              feat_id uuid references public.feats(id),
               count integer
             );
 
