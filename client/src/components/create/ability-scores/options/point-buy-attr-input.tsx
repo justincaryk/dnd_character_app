@@ -60,10 +60,11 @@ const PointBuyAttrInputBlock: React.FC<Props> = ({
       cost: 9,
     },
   ])
-
+  const [defaultValue, setDefaultValue ] = useState(attribute.currentAssignedScore)
   const [options, setOptions] = useState(defaultOptions)
 
   useEffect(() => {
+    setDefaultValue(attribute.currentAssignedScore)
     if (availablePoints === 27) {
       setOptions(defaultOptions)
     } else {
@@ -76,7 +77,7 @@ const PointBuyAttrInputBlock: React.FC<Props> = ({
       }
       setOptions(opts)
     }
-  }, [availablePoints, attribute.currentAssignedScore])
+  }, [availablePoints, attribute])
 
 
   return (
@@ -84,10 +85,9 @@ const PointBuyAttrInputBlock: React.FC<Props> = ({
       <select
         className='w-full border rounded-b text-lg p-2'
         onChange={(e) => handleChange(e, attribute.id)}
-        defaultValue={`${attribute.currentAssignedScore}`}
       >
         {options.map((opt) => (
-          <option key={opt.value} value={opt.value}>
+          <option key={opt.value} value={opt.value} selected={opt.value === defaultValue}>
             {opt.text}
           </option>
         ))}

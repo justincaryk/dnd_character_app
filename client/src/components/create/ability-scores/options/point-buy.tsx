@@ -36,6 +36,17 @@ const PointBuy: React.FC<Props> = ({
 
   useEffect(() => {
     setAttributes(attributesImmutable)
+    
+    if (attributesImmutable) {
+      let pointsPool = 27
+
+      attributesImmutable.forEach(attr => {
+        pointsPool -= standardPointCost[attr.currentAssignedScore]
+      })
+
+      setPointsRemaining(pointsPool)
+    }
+    
   }, [attributesImmutable])
 
   const handleChange = (event: React.ChangeEvent<HTMLFormElement>, attributeId: any) => {

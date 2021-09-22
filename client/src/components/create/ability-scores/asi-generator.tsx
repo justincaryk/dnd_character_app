@@ -56,7 +56,7 @@ const AsiGenerator: React.FC = () => {
   const [activeMethod, setActiveMethod] = useState<AsiCoreMethod>(
     AsiCoreMethod.PointBuy
   )
-  const [attributes, setAttributes] = useState<AttributeInterface[]>(defaultAttributes)
+  const [attributes, setAttributes] = useState<AttributeInterface[]>([])
   const [performCreate, { data: createD, loading: createLoading }] =
     useCreateAsiCoreMutation()
   const [performUpdate, { data: updateD, loading: updateLoading }] =
@@ -80,7 +80,7 @@ const AsiGenerator: React.FC = () => {
   
 
   useEffect(() => {
-    if (core?.allAsiSelectedCores?.nodes[0] && !attributes.length) {
+    if (core?.allAsiSelectedCores?.nodes[0]) {
     
       const newAttrs = defaultAttributes.map((x: any) => {
         //@ts-ignore
@@ -92,11 +92,13 @@ const AsiGenerator: React.FC = () => {
 
       setActiveMethod(core.allAsiSelectedCores.nodes[0].method)
       setAttributes(newAttrs)
+    } else {
+      setAttributes(defaultAttributes)
     }
   }, [core?.allAsiSelectedCores?.nodes[0]])
 
 
-  if (!attributes.length) {
+  if (!core?.allAsiSelectedCores?.nodes || !attributes || coreLoading) {
     return <div>...Loading</div>
   }
 
