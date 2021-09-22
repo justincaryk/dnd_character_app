@@ -1,26 +1,30 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './scss/App.scss'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { AUTH_TOKEN } from './constants'
-import NavBar from './components/nav'
-import Classes from './components/classes/classes'
-import RaceSelectionForm from './components/races/race-form'
-import AsiGenerator from './components/ability-scores/asi-generator'
-import CharDescription from './components/descript/descript'
-import SpellsSelector from './components/spells/spells'
-import Feats from './components/feats/feats'
 import { ApolloProvider } from '@apollo/client'
 import { ApolloClient, InMemoryCache } from '@apollo/client'
 import { LinkType } from './lib/types'
+import { setContext } from '@apollo/client/link/context'
+import { HttpLink } from '@apollo/client'
+import { AuthProvider } from './global-state'
+
+import NavBar from './components/nav'
+import Classes from './components/view/classes/classes'
+import RaceSelectionForm from './components/view/races/race-form'
+import CreateRaceSelectionForm from './components/create/race-form/race-form'
+import AsiGenerator from './components/create/ability-scores/asi-generator'
+import CharDescription from './components/create/descript/descript'
+import SpellsSelector from './components/view/spells/spells'
+import Feats from './components/view/feats/feats'
 import CharacterSheet from './components/character-sheet/character-sheet'
 import SignUp from './components/sign-up'
 import SignIn from './components/sign-in'
-import { setContext } from '@apollo/client/link/context'
-import { HttpLink } from '@apollo/client'
 import SignOut from './components/sign-out'
 import Layout from './components/layout'
 import Home from './components/home'
-import ClassCreation from './components/class-creation/class-creation'
+import ClassCreation from './components/create/class-creation/class-creation'
+
 
 const publicLinks: LinkType[] = [
   {
@@ -35,23 +39,23 @@ const publicLinks: LinkType[] = [
 
 const privateLinks: LinkType[] = [
   {
-    link: '/create/description',
+    link: '/create/:id/description',
     text: '1. Description',
   },
   {
-    link: '/create/races',
+    link: '/create/:id/races',
     text: '2. Race',
   },
   {
-    link: '/create/asi',
+    link: '/create/:id/asi',
     text: '3. Abilities',
   },
   {
-    link: '/create/class',
+    link: '/create/:id/class',
     text: '4. Class',
   },
   {
-    link: '/create/sheet',
+    link: '/create/:id/sheet',
     text: '5. Character Sheet',
   },
   {
@@ -61,6 +65,10 @@ const privateLinks: LinkType[] = [
   {
     link: '/view/feats',
     text: 'View Feats',
+  },
+  {
+    link: '/view/races',
+    text: 'View Races',
   },
   {
     link: '/view/classes',
@@ -77,43 +85,54 @@ const App: React.FC = () => {
 
   if (!authToken) {
     const client = new ApolloClient({
-      uri: process.env.NODE_ENV === 'development' ? 'http://localhost:8080/graphql' :'/graphql',
+      uri:
+        process.env.NODE_ENV === 'development'
+          ? 'http://localhost:8080/graphql'
+          : '/graphql',
       cache: new InMemoryCache(),
     })
+
     return (
       <ApolloProvider client={client}>
-        <Router>
-          <Layout>
-            <Switch>
-              {/* signed out */}
-              {!authToken && (
-                <div className='cotainer'>
-                  <NavBar links={publicLinks} isPublic />
-                  <Route exact path='/'>
-                    <div className='layout'>
-                      <div className='font-roboto uppercase text-3xl text-center'>Public landing page</div>
-                    </div>
-                  </Route>
-                  <Route path='/signin'>
-                    <div className='layout'>
-                      <SignIn />
-                    </div>
-                  </Route>
-                  <Route path='/signup'>
-                    <div className='layout'>
-                      <SignUp />
-                    </div>
-                  </Route>
-                </div>
-              )}
-            </Switch>
-          </Layout>
-        </Router>
+        <AuthProvider>
+          <Router>
+            <Layout>
+              <Switch>
+                {/* signed out */}
+                {!authToken && (
+                  <div className='cotainer'>
+                    <NavBar links={publicLinks} isPublic />
+                    <Route exact path='/'>
+                      <div className='layout'>
+                        <div className='font-roboto uppercase text-3xl text-center'>
+                          Public landing page
+                        </div>
+                      </div>
+                    </Route>
+                    <Route path='/signin'>
+                      <div className='layout'>
+                        <SignIn />
+                      </div>
+                    </Route>
+                    <Route path='/signup'>
+                      <div className='layout'>
+                        <SignUp />
+                      </div>
+                    </Route>
+                  </div>
+                )}
+              </Switch>
+            </Layout>
+          </Router>
+        </AuthProvider>
       </ApolloProvider>
     )
   } else {
     const link = new HttpLink({
-      uri: process.env.NODE_ENV === 'development' ? 'http://localhost:8080/graphql' :'/graphql',
+      uri:
+        process.env.NODE_ENV === 'development'
+          ? 'http://localhost:8080/graphql'
+          : '/graphql',
       // Additional options
     })
 
@@ -144,74 +163,81 @@ const App: React.FC = () => {
 
     return (
       <ApolloProvider client={client}>
-        <Router>
-          <Switch>
-            <Layout>
-              <NavBar links={privateLinks} signout={signout} />
+        <AuthProvider>
+          <Router>
+            <Switch>
+              <Layout>
+                <NavBar links={privateLinks} signout={signout} />
 
-              <Route exact path='/'>
-                <div className='container'>
-                  <Home />
-                </div>
-              </Route>
+                <Route exact path='/'>
+                  <div className='container'>
+                    <Home />
+                  </div>
+                </Route>
 
-              <Route path='/create/races'>
-                <div className='container'>
-                  <RaceSelectionForm />
-                </div>
-              </Route>
+                <Route path='/create/:id/races'>
+                  <div className='container'>
+                    <CreateRaceSelectionForm />
+                  </div>
+                </Route>
 
-              <Route path='/create/asi'>
-                <div className='container'>
-                  <AsiGenerator />
-                </div>
-              </Route>
+                <Route path='/create/:id/asi'>
+                  <div className='container'>
+                    <AsiGenerator />
+                  </div>
+                </Route>
 
-              <Route path='/create/class'>
-                <div className='container'>
-                  <ClassCreation />
-                </div>
-              </Route>
-              
-              <Route path='/create/description'>
-                <div className='container'>
-                  <CharDescription />
-                </div>
-              </Route>
+                <Route path='/create/:id/class'>
+                  <div className='container'>
+                    <ClassCreation />
+                  </div>
+                </Route>
 
-              <Route path='/create/sheet'>
-                <div className=''>
-                  <CharacterSheet />
-                </div>
-              </Route>
+                <Route path='/create/:id/description'>
+                  <div className='container'>
+                    <CharDescription />
+                  </div>
+                </Route>
 
-              <Route path='/view/classes'>
-                <div className='container'>
-                  <Classes />
-                </div>
-              </Route>
+                <Route path='/create/:id/sheet'>
+                  <div className=''>
+                    <CharacterSheet />
+                  </div>
+                </Route>
 
-              <Route path='/view/spells'>
-                <div className='container spells'>
-                  <SpellsSelector />
-                </div>
-              </Route>
+                <Route path='/view/classes'>
+                  <div className='container'>
+                    <Classes />
+                  </div>
+                </Route>
 
-              <Route path='/view/feats'>
-                <div className='container'>
-                  <Feats />
-                </div>
-              </Route>
+                <Route path='/view/races'>
+                  <div className='container'>
+                    <RaceSelectionForm />
+                  </div>
+                </Route>
 
+                <Route path='/view/spells'>
+                  <div className='container spells'>
+                    <SpellsSelector />
+                  </div>
+                </Route>
 
-              <Route path='/signout'>
-                <div className=''>
-                  <SignOut />
-                </div>
-              </Route>
-            </Layout>
-          </Switch>
-        </Router>
+                <Route path='/view/feats'>
+                  <div className='container'>
+                    <Feats />
+                  </div>
+                </Route>
+
+                <Route path='/signout'>
+                  <div className=''>
+                    <SignOut />
+                  </div>
+                </Route>
+              </Layout>
+            </Switch>
+          </Router>
+        </AuthProvider>
       </ApolloProvider>
     )
   }

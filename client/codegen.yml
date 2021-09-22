@@ -9,5 +9,5 @@ generates:
       - 'typescript'
       - 'typescript-operations'
       - 'typescript-react-apollo'
-    config:
-      withHooks: true
+    # config:
+    #   withHooks: true

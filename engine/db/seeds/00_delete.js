@@ -1,5 +1,6 @@
 //every seed runs every time yarn seed:run is executed, so we need to delete the data in an order that won't throw errors
 exports.seed = async (knex) => {
+    
     await knex('fighting_style')
         .del()
         
@@ -52,6 +53,9 @@ exports.seed = async (knex) => {
         .del()
 
     await knex('skills')
+        .del()
+
+    await knex('asi')
         .del()
 
     await knex('attributes')

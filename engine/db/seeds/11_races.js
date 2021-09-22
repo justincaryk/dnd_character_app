@@ -282,7 +282,7 @@ exports.seed = knex => (
                     "name": "Human Variant",
                     "summary": "Humans are the most adaptable and ambitious people among the common races. Whatever drives them, humans are the innovators, the achievers, and the pioneers of the worlds. If your campaign uses the optional feat rules from the Player’s Handbook, your Dungeon Master might allow these variant traits, all of which replace the human’s Ability Score Increase trait.",
                     "alignment": "Humans tend toward no particular alignment. The best and the worst are found among them.",
-                    "asis": "{\"options\":[{\"ANY\":2}]}",
+                    "asis": "{\"options\":[{\"ANY\":2}, {\"FEAT\":1}]}",
                     "lifespan": "Humans reach adulthood in their late teens and live less than a century.",
                     "movement": 30,
                     "languages": [
