@@ -265,17 +265,18 @@ const CharDescript: React.FC = () => {
     }
   }, [char?.characterByCharacterId])
 
-  const handleBgSelection = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleBgSelection = async (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setBgId(event.currentTarget.value)
+
     const newBgId = event.currentTarget.value ? event.currentTarget.value : null
     
-    performUpdate({
+    await performUpdate({
       variables: {
         characterId: id,
         bgId: newBgId,
       },
     })
 
-    setBgId(event.currentTarget.value)
     updateCharacter()
   }
 
