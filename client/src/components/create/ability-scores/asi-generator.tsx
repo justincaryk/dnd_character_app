@@ -14,31 +14,6 @@ import {
 import { cloneDeep } from 'lodash'
 
 const AsiGenerator: React.FC = () => {
-  const { id }: any = useParams()
-  const [activeMethod, setActiveMethod] = useState<AsiCoreMethod>(
-    AsiCoreMethod.PointBuy
-  )
-  const [attributes, setAttributes] = useState<AttributeInterface[]>([])
-  const [performCreate, { data: createD, loading: createLoading }] =
-    useCreateAsiCoreMutation()
-  const [performUpdate, { data: updateD, loading: updateLoading }] =
-    useUpdateAsiCoreByIdMutation()
-  const {
-    data: core,
-    loading: coreLoading,
-    refetch: refetchAsiCore,
-  } = useGetAsiCoreByCharacterIdQuery({
-    variables: {
-      characterId: id,
-    },
-  })
-
-  const methods = [
-    { id: AsiCoreMethod.PointBuy, name: 'Point Buy' },
-    { id: AsiCoreMethod.Standard, name: 'Standard Array' },
-    { id: AsiCoreMethod.Manual, name: 'Manual' },
-  ]
-
   const defaultAttributes: any = [
     {
       id: 1,
@@ -77,6 +52,32 @@ const AsiGenerator: React.FC = () => {
       previousAssignedScore: 8,
     },
   ]
+  const { id }: any = useParams()
+  const [activeMethod, setActiveMethod] = useState<AsiCoreMethod>(
+    AsiCoreMethod.PointBuy
+  )
+  const [attributes, setAttributes] = useState<AttributeInterface[]>(defaultAttributes)
+  const [performCreate, { data: createD, loading: createLoading }] =
+    useCreateAsiCoreMutation()
+  const [performUpdate, { data: updateD, loading: updateLoading }] =
+    useUpdateAsiCoreByIdMutation()
+  const {
+    data: core,
+    loading: coreLoading,
+    refetch: refetchAsiCore,
+  } = useGetAsiCoreByCharacterIdQuery({
+    variables: {
+      characterId: id,
+    },
+  })
+
+  const methods = [
+    { id: AsiCoreMethod.PointBuy, name: 'Point Buy' },
+    { id: AsiCoreMethod.Standard, name: 'Standard Array' },
+    { id: AsiCoreMethod.Manual, name: 'Manual' },
+  ]
+
+  
 
   useEffect(() => {
     if (core?.allAsiSelectedCores?.nodes[0] && !attributes.length) {
@@ -94,19 +95,6 @@ const AsiGenerator: React.FC = () => {
     }
   }, [core?.allAsiSelectedCores?.nodes[0]])
 
-  if (
-    coreLoading === false &&
-    !core?.allAsiSelectedCores?.nodes[0] &&
-    !createLoading
-  ) {
-    performCreate({
-      variables: {
-        characterId: id,
-        method: activeMethod,
-      },
-    })
-    refetchAsiCore()
-  }
 
   if (!attributes.length) {
     return <div>...Loading</div>
@@ -143,15 +131,23 @@ const AsiGenerator: React.FC = () => {
   }
 
   const handleAttributesChange = async (attributes: any) => {
-    const variables: any = {
-      asiSelBaseId: core?.allAsiSelectedCores?.nodes[0]?.asiSelBaseId,
-    }
+    let variables: any = {}
+    
     attributes.forEach((x: any) => {
       if (x.currentAssignedScore != null) {
         variables[x.name.toLowerCase()] = x.currentAssignedScore
       }
     })
-    performUpdate({ variables })
+
+    if (!core?.allAsiSelectedCores?.nodes[0]) {
+      variables.characterId = id
+      variables.method = activeMethod
+      performCreate({variables})
+
+    } else {
+      variables.asiSelBaseId = core?.allAsiSelectedCores?.nodes[0]?.asiSelBaseId
+      performUpdate({ variables })
+    }
     refetchAsiCore()
     setAttributes(attributes)
   }

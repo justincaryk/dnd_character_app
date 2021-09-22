@@ -54,15 +54,6 @@ const AttributeCardBlock = ({ attributesImmutable }: Props) => {
     },
   })
 
-  console.log(
-    'test',
-    attributesImmutable.map((x) => x.name)
-  )
-  console.log(
-    'test2',
-    data?.allAsiSelecteds?.nodes.map((x) => x?.asiByAsiId?.long)
-  )
-
   const racialHash: any = {
     strength: 0,
     dexterity: 0,
