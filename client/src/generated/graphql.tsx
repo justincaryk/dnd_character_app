@@ -10852,7 +10852,7 @@ export type AllBgFeaturesLazyQueryHookResult = ReturnType<typeof useAllBgFeature
 export type AllBgFeaturesQueryResult = Apollo.QueryResult<AllBgFeaturesQuery, AllBgFeaturesQueryVariables>;
 export const AllBgsDocument = gql`
     query AllBgs {
-  allBgs {
+  allBgs(orderBy: NAME_ASC) {
     nodes {
       id
       name

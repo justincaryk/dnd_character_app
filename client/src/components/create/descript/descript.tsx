@@ -245,26 +245,34 @@ const CharDescript: React.FC = () => {
   const { data: equipment, loading: equipLoading } = useAllEquipmentQuery()
   const { data: bgFeatures, loading: bgFeatLoading } = useAllBgFeaturesQuery()
   const { data: skills, loading: skillLoading } = useAllSkillsQuery()
-  const { data: char, loading: charLoading, refetch: updateCharacter } = useGetCharacterByIdQuery({variables: {
-    characterId: id}})
-  
+  const {
+    data: char,
+    loading: charLoading,
+    refetch: updateCharacter,
+  } = useGetCharacterByIdQuery({
+    variables: {
+      characterId: id,
+    },
+  })
+
   const [name, setName] = useState('')
   const [bgId, setBgId] = useState('')
 
-  useEffect(()=> {
+  useEffect(() => {
     if (char?.characterByCharacterId) {
       setName(char.characterByCharacterId.name || '')
       setBgId(char.characterByCharacterId.bgId || '')
     }
-  },[char?.characterByCharacterId])
+  }, [char?.characterByCharacterId])
 
   const handleBgSelection = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const newBgId = event.currentTarget.value ? event.currentTarget.value : null
     
     performUpdate({
       variables: {
         characterId: id,
-        bgId: event.currentTarget.value
-      }
+        bgId: newBgId,
+      },
     })
 
     setBgId(event.currentTarget.value)
@@ -279,13 +287,12 @@ const CharDescript: React.FC = () => {
     performUpdate({
       variables: {
         characterId: id,
-        name: name
-      }
+        name: name,
+      },
     })
 
     updateCharacter()
   }
-
 
   return (
     <div className='space-y-4 max-w-screen-sm m-auto m-0'>
@@ -294,11 +301,12 @@ const CharDescript: React.FC = () => {
           <div>
             <strong className='text-gray-700'>Character Name:</strong>
           </div>
-          <input 
-            className='w-full border rounded text-xl p-2' 
-            value={name} 
-            onChange={e => setName(e.currentTarget.value)} 
-            onBlur={handleNameUpdate}/>
+          <input
+            className='w-full border rounded text-xl p-2'
+            value={name}
+            onChange={(e) => setName(e.currentTarget.value)}
+            onBlur={handleNameUpdate}
+          />
         </div>
       </div>
       <div>
@@ -306,28 +314,41 @@ const CharDescript: React.FC = () => {
           <strong className='text-gray-700'>Background:</strong>
         </div>
         <div>
-          <select 
-            className='w-full border rounded text-xl p-2' 
-            value={bgId} 
+          <select
+            className='w-full border rounded text-xl p-2'
+            value={bgId}
             onChange={handleBgSelection}
             defaultValue={''}
           >
             <option value=''>-- Choose a Background ---</option>
-            {backgrounds?.allBgs?.nodes.map((bg) => {
-              return bg && <option key={bg.name} value={bg.id}>{bg.name}</option>
-            })}
+            {/* custom bg */}
+            {backgrounds?.allBgs?.nodes
+              .filter((x) => x?.name.toLowerCase() === 'custom background')
+              .map((bg) => (
+                <option key={bg?.id} value={bg?.id}>
+                  {bg?.name}
+                </option>
+              ))}
+            {/* all the rest */}
+            {backgrounds?.allBgs?.nodes
+              .filter((x) => x?.name.toLowerCase() !== 'custom background')
+              .map((bg) => (
+                <option key={bg?.id} value={bg?.id}>
+                  {bg?.name}
+                </option>
+              ))}
           </select>
         </div>
       </div>
 
       <SelectedBgChunks
-        selectedBg={backgrounds?.allBgs?.nodes.find(x => bgId == x?.id)}
+        selectedBg={backgrounds?.allBgs?.nodes.find((x) => bgId == x?.id)}
         equipment={equipment}
         languages={languages}
         bgFeatures={bgFeatures}
         skills={skills}
       />
-      <PhysicalCharacteristicsChunk />
+      {/* <PhysicalCharacteristicsChunk /> */}
     </div>
   )
 }
