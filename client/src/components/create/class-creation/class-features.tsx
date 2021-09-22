@@ -1,9 +1,9 @@
 import React, { useEffect, useState, Dispatch, SetStateAction } from 'react'
 import { useClassByIdQuery, useUpdateCharacterMutation } from '../../../generated/graphql'
-import FeatureAsi from './asi/feature-asi'
-import FeatureGeneral from './asi/feature-general'
+import FeatureAsi from './feature/feature-asi'
+import FeatureGeneral from './feature/feature-general'
 import classnames from 'classnames'
-import FeatureStartProf from './asi/feature-start-prof'
+import FeatureStartProf from './feature/feature-start-prof'
 import { useParams } from 'react-router'
 import HitPoints from './hit-points'
 
@@ -14,9 +14,10 @@ interface Props {
   }
   setClassSelected: Dispatch<SetStateAction<boolean>>
   character: any
+  refetchCharacter: any
 }
 
-const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected, character }) => {
+const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected, character, refetchCharacter }) => {
   const levels = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ]
@@ -64,13 +65,14 @@ const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected, character 
 
   const handleLevelChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCurrentLevel(Number(e.currentTarget.value))
-
+    
     await performUpdate({
       variables: {
         characterId: id,
         currentLevel: Number(e.currentTarget.value)
       }
     })
+    await refetchCharacter()
   }
 
   if (loading) {
@@ -198,7 +200,11 @@ const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected, character 
                     </div>
                   </div>
                 )}
-                <FeatureGeneral feature={feature} />
+                <FeatureGeneral 
+                  feature={feature} 
+                  character={character}
+                  refetchCharacter={refetchCharacter}
+                />
               </div>
             )
           }
@@ -229,7 +235,10 @@ const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected, character 
               } else {
                 return (
                   <div key={i}>
-                    <FeatureGeneral viewOnly feature={feature} />
+                    <FeatureGeneral 
+                      viewOnly 
+                      feature={feature}
+                      character={character} />
                   </div>
                 )
               }
