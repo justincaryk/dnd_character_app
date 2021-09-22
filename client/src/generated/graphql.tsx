@@ -10133,7 +10133,7 @@ export type GetCharacterByIdQuery = (
   { __typename?: 'Query' }
   & { characterByCharacterId?: Maybe<(
     { __typename?: 'Character' }
-    & Pick<Character, 'characterId' | 'name' | 'subraceId' | 'subclassId' | 'classId' | 'raceId' | 'description' | 'bgId'>
+    & Pick<Character, 'characterId' | 'name' | 'subraceId' | 'subclassId' | 'classId' | 'raceId' | 'description' | 'bgId' | 'currentLevel'>
   )> }
 );
 
@@ -11651,6 +11651,7 @@ export const GetCharacterByIdDocument = gql`
     raceId
     description
     bgId
+    currentLevel
   }
 }
     `;

@@ -1,12 +1,39 @@
-import React, { useState } from 'react'
-import { useAllClassNamesQuery } from '../../../generated/graphql'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router'
+import { useAllClassNamesQuery, useGetCharacterByIdQuery, useUpdateCharacterMutation } from '../../../generated/graphql'
 import ClassFeatures from './class-features'
 
 const ClassCreation: React.FC = () => {
   const { data: classes, loading } = useAllClassNamesQuery()
+  const { id }: any = useParams()
   const [classSelected, setClassSelected] = useState<any>(null)
+  const [performUpdate] = useUpdateCharacterMutation()
+  const { data: char, loading: charLoading } = useGetCharacterByIdQuery({
+    variables: {
+      characterId: id,
+    },
+  })
 
-  if (loading) {
+  useEffect(() => {
+    if (char?.characterByCharacterId?.classId && classes?.allClasses?.nodes) {
+      const c = classes?.allClasses?.nodes.find(c => c?.id === char.characterByCharacterId?.classId)
+      setClassSelected(c)
+    }
+    
+  }, [char?.characterByCharacterId?.classId, char?.characterByCharacterId?.classId, classes?.allClasses?.nodes])
+
+  const handleClassSelection = async (c: any) => {
+    setClassSelected(c)
+
+    await performUpdate({
+      variables: {
+        characterId: id,
+        classId: c.id
+      }
+    })
+  }
+
+  if (loading || charLoading || !char) {
     return <div>...Loading</div>
   }
 
@@ -16,7 +43,7 @@ const ClassCreation: React.FC = () => {
         {classes.allClasses?.nodes.map((c) => (
           <div
             className='w-full p-2 border-2 border-gray-200 rounded bg-white cursor-pointer flex justify-between items-center'
-            onClick={() => setClassSelected(c ? c : null)}
+            onClick={() => handleClassSelection(c)}
             key={c?.id}
           >
             <div className='flex items-center space-x-6 cursor:pointer'>
@@ -49,7 +76,10 @@ const ClassCreation: React.FC = () => {
   if (classSelected) {
     return (
       <div className='space-y-2 max-w-screen-sm m-auto m-0'>
-        <ClassFeatures classObj={classSelected} setClassSelected={setClassSelected}/>
+        <ClassFeatures 
+          classObj={classSelected} 
+          setClassSelected={setClassSelected}
+          character={char.characterByCharacterId}/>
       </div>
     )
   }

@@ -12,9 +12,10 @@ interface Props {
     name: string
   }
   setClassSelected: Dispatch<SetStateAction<boolean>>
+  character: any
 }
 
-const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected }) => {
+const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected, character }) => {
   const levels = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ]
@@ -33,6 +34,11 @@ const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected }) => {
   const [performUpdate] = useUpdateCharacterMutation()
 
   useEffect(() => {
+    
+    if (character.currentLevel) {
+      setCurrentLevel(character.currentLevel)
+    }
+
     const filteredEligible =
       data?.classById?.classFeaturesByClassId.nodes.filter((x) =>
         x?.level ? x.level <= currentLevel : false
@@ -50,9 +56,9 @@ const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected }) => {
 
     setStartingProficiencies(parsed)
   }, [
-    data?.classById?.classFeaturesByClassId.nodes,
     currentLevel,
-    data?.classById?.startingProficiencies,
+    data,
+    character
   ])
 
   const handleLevelChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
