@@ -35,7 +35,7 @@ const FeatSelects: React.FC<Props> = ({ raceAsis, characterId, raceName }) => {
     refetch: refetchAllAsis,
   } = useGetAllAsiSelectionsQuery({
     variables: {
-      characterId: characterId
+      characterId: characterId,
     },
   })
 
@@ -49,11 +49,13 @@ const FeatSelects: React.FC<Props> = ({ raceAsis, characterId, raceName }) => {
       featFrom: FeatFromType.Race,
     },
   })
-  
+
   const [performCreate] = useCreateFeatBaseSelMutation()
   const [performUpdate] = useUpdateFeatSelectedByIdMutation()
   const [performDelete] = useDeleteFeatSelByIdMutation()
   const [performCreateAsi] = useCreateAsiSelectedMutation()
+  const [performUpdateAsi] = useUpdateAsiSelectMutation()
+  const [performDeleteAsi] = useDeleteAsiSelectedMutation()
 
   useEffect(() => {
     if (featSel && feats) {
@@ -79,37 +81,10 @@ const FeatSelects: React.FC<Props> = ({ raceAsis, characterId, raceName }) => {
     return null
   }
 
-
-  const handleFeatAsiSelection = async (
-    e: React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    
-    if (!e.currentTarget.value) {
-        // TODO: delete
-    }
-
-    const asi = asis?.allAsis?.nodes.find(x => (
-        x?.long?.toLowerCase() === e.currentTarget.value.toLowerCase()
-    ))
-
-    // if selection id -> update
-    // create
-    performCreateAsi({
-        variables: {
-            characterId: characterId,
-            from: AsiFromType.Race,
-            featId: selectedFeat.id,
-            asiId: asi?.asiId,
-            count: 1
-        }
-    })
-  }
-
   const handleFeatSelection = async (
     e: React.ChangeEvent<HTMLSelectElement>,
     i: number
   ) => {
-
     if (!e.currentTarget.value) {
       performDelete({
         variables: {
@@ -146,6 +121,48 @@ const FeatSelects: React.FC<Props> = ({ raceAsis, characterId, raceName }) => {
     }
   }
 
+  const handleFeatAsiSelection = async (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const asiSel = asisSelData?.allAsiSelecteds?.nodes.find(
+      (x) => x?.featId === selectedFeat.id
+    )
+
+    // delete
+    if (!e.currentTarget.value && asiSel) {
+      performDeleteAsi({
+        variables: {
+          asiSelId: asiSel?.asiSelId,
+        },
+      })
+      return
+    }
+
+    const asi = asis?.allAsis?.nodes.find(
+      (x) => x?.long?.toLowerCase() === e.currentTarget.value.toLowerCase()
+    )
+
+    if (asiSel) {
+      performUpdateAsi({
+        variables: {
+          asiSelId: asiSel.asiSelId,
+          asiId: asi?.asiId,
+        },
+      })
+    } else {
+      // create
+      performCreateAsi({
+        variables: {
+          characterId: characterId,
+          from: AsiFromType.Race,
+          featId: selectedFeat.id,
+          asiId: asi?.asiId,
+          count: 1,
+        },
+      })
+    }
+  }
+
   return (
     <div className='bg-white border'>
       <div className='bg-cream px-3 py-2 text-md font-roboto'>Feat</div>
@@ -176,7 +193,8 @@ const FeatSelects: React.FC<Props> = ({ raceAsis, characterId, raceName }) => {
         {selectedFeat?.scores?.length ? (
           <select
             className='w-full border rounded text-sm p-2'
-            defaultValue={asisSelData?.allAsiSelecteds?.nodes.find(x => x?.featId === selectedFeat.id)?.asiByAsiId?.asiId || ''}
+            defaultValue={asisSelData?.allAsiSelecteds?.nodes.find(
+                (x) => x?.featId === selectedFeat.id)?.asiByAsiId?.long?.toLowerCase() || ''}
             onChange={(e) => handleFeatAsiSelection(e)}
           >
             <option value={''}>- Select an Ability Score -</option>
