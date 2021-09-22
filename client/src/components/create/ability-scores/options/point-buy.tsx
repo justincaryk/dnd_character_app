@@ -56,13 +56,13 @@ const PointBuy: React.FC<Props> = ({
     //after splitting this var will be ['ASI_SCORE', 'ATTRIBUTE_ID']
     const eventValArr = event.target.value.split('-')
 
-    const attributeId = parseInt(eventValArr[1])
+    const attributeId = Number(eventValArr[1])
 
     for (let attr of attributes) {
       if (attributeId === attr.id) {
-        const newAttributeScore = parseInt(eventValArr[0])
+        const newAttributeScore = Number(eventValArr[0])
         //@ts-ignore
-        const prevAttributeScore = parseInt(attr.previousAssignedScore)
+        const prevAttributeScore = Number(attr.previousAssignedScore)
 
         // if the previous score was 8, then it can be treated as a brand new selection
         const userMadeBrandNewSelection =
