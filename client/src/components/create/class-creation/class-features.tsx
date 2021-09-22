@@ -1,9 +1,10 @@
 import React, { useEffect, useState, Dispatch, SetStateAction } from 'react'
-import { useClassByIdQuery } from '../../../generated/graphql'
+import { useClassByIdQuery, useUpdateCharacterMutation } from '../../../generated/graphql'
 import FeatureAsi from './asi/feature-asi'
 import FeatureGeneral from './asi/feature-general'
 import classnames from 'classnames'
 import FeatureStartProf from './asi/feature-start-prof'
+import { useParams } from 'react-router'
 
 interface Props {
   classObj: {
@@ -18,6 +19,7 @@ const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected }) => {
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ]
   const [currentLevel, setCurrentLevel] = useState(1)
+  const { id }: any = useParams()
   const [classFeatures, setClassFeatures] = useState<any[]>([])
   const [classFeaturesHigher, setClassFeaturesHigher] = useState<any[]>([])
   const [startingProficiencies, setStartingProficiencies] = useState<any>(null)
@@ -28,6 +30,7 @@ const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected }) => {
       id: classObj.id,
     },
   })
+  const [performUpdate] = useUpdateCharacterMutation()
 
   useEffect(() => {
     const filteredEligible =
@@ -51,6 +54,17 @@ const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected }) => {
     currentLevel,
     data?.classById?.startingProficiencies,
   ])
+
+  const handleLevelChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setCurrentLevel(Number(e.currentTarget.value))
+
+    await performUpdate({
+      variables: {
+        characterId: id,
+        currentLevel: Number(e.currentTarget.value)
+      }
+    })
+  }
 
   if (loading) {
     return <div>... Loading</div>
@@ -90,10 +104,7 @@ const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected }) => {
           </label>
           <select
             className='w-full border rounded text-md p-1'
-            onChange={(e) => {
-              if (e == null) return
-              setCurrentLevel(Number(e.currentTarget.value))
-            }}
+            onChange={(e) => handleLevelChange(e)}
             name='level'
             value={currentLevel}
           >
