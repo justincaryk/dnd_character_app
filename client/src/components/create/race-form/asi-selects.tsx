@@ -35,15 +35,12 @@ const AsiSelects: React.FC<Props> = ({ raceAsis, characterId }) => {
     setLoading(true)
     const refetch = async () => {
       const { data } = await refetchAllAsis()
-      setAsisSelected(data.allAsiSelecteds?.nodes)
+      setAsisSelected(data.allAsiSelecteds?.nodes.filter(x => !x?.featId))
       setLoading(false)
     }
     refetch()
   }, [raceAsis, refetchAllAsis, asisSelData, setAsisSelected])
 
-  if (asiLoading || asiSelsLoading || loading) {
-    return null
-  }
 
   const parsed = JSON.parse(raceAsis).options
   let dropdowns
@@ -58,37 +55,45 @@ const AsiSelects: React.FC<Props> = ({ raceAsis, characterId }) => {
     }
   }
 
-  const handleSelection = (
+  if (asiLoading || asiSelsLoading || loading || !dropdowns) {
+    return null
+  }
+
+  const handleSelection = async (
     e: React.ChangeEvent<HTMLSelectElement>,
     i: number
   ) => {
-    if (!asisSelected?.allAsiSelecteds?.nodes[i]) {
+    
+    if (!asisSelData?.allAsiSelecteds?.nodes[i]) {
+      console.log('create')
       performCreate({
         variables: {
           characterId: characterId,
           from: AsiFromType.Race,
           count: 1,
-          asiId: e.currentTarget.value,
+          asiId: e.target.value,
         },
       })
-      refetchAllAsis()
+      await refetchAllAsis()
     } else {
-      const id = asisSelected?.allAsiSelecteds?.nodes[i]?.asiSelId
+      // const id = asisSelected?.allAsiSelecteds?.nodes[i]?.asiSelId
+      
       // if there is no value, delete the id
-      if (!e.currentTarget.value) {
+      if (!e.target.value) {
+        console.log('delete')
         performDelete({
           variables: {
-            asiSelId: id,
+            asiSelId: asisSelected[i].asiSelId,
           },
         })
         return
       }
-
+      console.log('update')
       // update it to the new vlaue
       performUpdate({
         variables: {
-          asiSelId: id,
-          asiId: e.currentTarget.value,
+          asiSelId: asisSelected[i].asiSelId,
+          asiId: e.target.value,
         },
       })
     }
@@ -102,7 +107,7 @@ const AsiSelects: React.FC<Props> = ({ raceAsis, characterId }) => {
           <select
             key={i}
             className='w-full border rounded text-sm p-2'
-            defaultValue={asisSelected[i]?.asiId || ''}
+            defaultValue={asisSelected[i]?.asiByAsiId.asiId || ''}
             onChange={(e) => handleSelection(e, i)}
           >
             <option value=''>- Choose an Ability Score -</option>

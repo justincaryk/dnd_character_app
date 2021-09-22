@@ -5,6 +5,7 @@ import {
   useUpdateCharacterMutation,
   useGetCharacterByIdQuery,
   useDeleteAsiSelByCharIdMutation,
+  useDeleteAllRacialFeatsByCharacterIdMutation,
 } from '../../../generated/graphql'
 import { RaceCards } from '../../shared/race-cards'
 import SubraceCards from '../../shared/subrace-cards'
@@ -27,6 +28,7 @@ const RaceSelectionForm: React.FC = () => {
   const { data: races, loading: racesLoading } = useGetAllRacesQuery()
   const [performUpdate] = useUpdateCharacterMutation()
   const [performDeleteAllRaceAsis] = useDeleteAsiSelByCharIdMutation()
+  const [performDeleteAllFeatSels] = useDeleteAllRacialFeatsByCharacterIdMutation()
 
   useEffect(() => {
     if (
@@ -55,7 +57,12 @@ const RaceSelectionForm: React.FC = () => {
         characterId: id,
       },
     })
-    // TODO: delete all associated feat sel ids
+    
+    await performDeleteAllFeatSels({
+      variables: {
+        characterId: id
+      }
+    })
 
     setSelectedRaceId(event.target.value)
     setSelectedSubraceId(null)

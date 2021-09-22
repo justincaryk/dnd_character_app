@@ -714,10 +714,10 @@ export type Character = Node & {
   fightStyleSelectedsByCharacterId: FightStyleSelectedsConnection;
   /** Reads and enables pagination through a set of `AsiSelectedCore`. */
   asiSelectedCoresByCharacterId: AsiSelectedCoresConnection;
-  /** Reads and enables pagination through a set of `FeatSelected`. */
-  featSelectedsByCharacterId: FeatSelectedsConnection;
   /** Reads and enables pagination through a set of `AsiSelected`. */
   asiSelectedsByCharacterId: AsiSelectedsConnection;
+  /** Reads and enables pagination through a set of `FeatSelected`. */
+  featSelectedsByCharacterId: FeatSelectedsConnection;
 };
 
 
@@ -754,17 +754,6 @@ export type CharacterAsiSelectedCoresByCharacterIdArgs = {
 };
 
 
-export type CharacterFeatSelectedsByCharacterIdArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<FeatSelectedsOrderBy>>;
-  condition?: Maybe<FeatSelectedCondition>;
-};
-
-
 export type CharacterAsiSelectedsByCharacterIdArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
@@ -773,6 +762,17 @@ export type CharacterAsiSelectedsByCharacterIdArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<AsiSelectedsOrderBy>>;
   condition?: Maybe<AsiSelectedCondition>;
+};
+
+
+export type CharacterFeatSelectedsByCharacterIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<FeatSelectedsOrderBy>>;
+  condition?: Maybe<FeatSelectedCondition>;
 };
 
 /**
@@ -2496,6 +2496,29 @@ export type DeleteAllRaceAsiSelByCharacterIdPayload = {
   query?: Maybe<Query>;
 };
 
+/** All input for the `deleteAllRaceFeatSelByCharacterId` mutation. */
+export type DeleteAllRaceFeatSelByCharacterIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  characterId: Scalars['UUID'];
+};
+
+/** The output of our `deleteAllRaceFeatSelByCharacterId` mutation. */
+export type DeleteAllRaceFeatSelByCharacterIdPayload = {
+  __typename?: 'DeleteAllRaceFeatSelByCharacterIdPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  boolean?: Maybe<Scalars['Boolean']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
 /** All input for the `deleteAsiByAsiId` mutation. */
 export type DeleteAsiByAsiIdInput = {
   /**
@@ -3989,21 +4012,10 @@ export type Feat = {
   points?: Maybe<Array<Maybe<Scalars['String']>>>;
   prereq?: Maybe<Scalars['String']>;
   scores?: Maybe<Array<Maybe<Scalars['String']>>>;
-  /** Reads and enables pagination through a set of `FeatSelected`. */
-  featSelectedsByFeatId: FeatSelectedsConnection;
   /** Reads and enables pagination through a set of `AsiSelected`. */
   asiSelectedsByFeatId: AsiSelectedsConnection;
-};
-
-
-export type FeatFeatSelectedsByFeatIdArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<FeatSelectedsOrderBy>>;
-  condition?: Maybe<FeatSelectedCondition>;
+  /** Reads and enables pagination through a set of `FeatSelected`. */
+  featSelectedsByFeatId: FeatSelectedsConnection;
 };
 
 
@@ -4015,6 +4027,17 @@ export type FeatAsiSelectedsByFeatIdArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<AsiSelectedsOrderBy>>;
   condition?: Maybe<AsiSelectedCondition>;
+};
+
+
+export type FeatFeatSelectedsByFeatIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<FeatSelectedsOrderBy>>;
+  condition?: Maybe<FeatSelectedCondition>;
 };
 
 /** A condition to be used against `Feat` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -4619,10 +4642,10 @@ export type Minion = Node & {
   charactersByUserId: CharactersConnection;
   /** Reads and enables pagination through a set of `AsiSelectedCore`. */
   asiSelectedCoresByUserId: AsiSelectedCoresConnection;
-  /** Reads and enables pagination through a set of `FeatSelected`. */
-  featSelectedsByUserId: FeatSelectedsConnection;
   /** Reads and enables pagination through a set of `AsiSelected`. */
   asiSelectedsByUserId: AsiSelectedsConnection;
+  /** Reads and enables pagination through a set of `FeatSelected`. */
+  featSelectedsByUserId: FeatSelectedsConnection;
 };
 
 
@@ -4659,17 +4682,6 @@ export type MinionAsiSelectedCoresByUserIdArgs = {
 };
 
 
-export type MinionFeatSelectedsByUserIdArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<FeatSelectedsOrderBy>>;
-  condition?: Maybe<FeatSelectedCondition>;
-};
-
-
 export type MinionAsiSelectedsByUserIdArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
@@ -4678,6 +4690,17 @@ export type MinionAsiSelectedsByUserIdArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<AsiSelectedsOrderBy>>;
   condition?: Maybe<AsiSelectedCondition>;
+};
+
+
+export type MinionFeatSelectedsByUserIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<FeatSelectedsOrderBy>>;
+  condition?: Maybe<FeatSelectedCondition>;
 };
 
 /** A condition to be used against `Minion` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -5029,6 +5052,7 @@ export type Mutation = {
   signin?: Maybe<SigninPayload>;
   signup?: Maybe<SignupPayload>;
   deleteAllRaceAsiSelByCharacterId?: Maybe<DeleteAllRaceAsiSelByCharacterIdPayload>;
+  deleteAllRaceFeatSelByCharacterId?: Maybe<DeleteAllRaceFeatSelByCharacterIdPayload>;
 };
 
 
@@ -5863,6 +5887,12 @@ export type MutationSignupArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteAllRaceAsiSelByCharacterIdArgs = {
   input: DeleteAllRaceAsiSelByCharacterIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteAllRaceFeatSelByCharacterIdArgs = {
+  input: DeleteAllRaceFeatSelByCharacterIdInput;
 };
 
 /** An object with a globally unique `ID`. */
@@ -9567,6 +9597,19 @@ export type DeleteAsiSelectedMutation = (
   )> }
 );
 
+export type DeleteAllRacialFeatsByCharacterIdMutationVariables = Exact<{
+  characterId: Scalars['UUID'];
+}>;
+
+
+export type DeleteAllRacialFeatsByCharacterIdMutation = (
+  { __typename?: 'Mutation' }
+  & { deleteAllRaceFeatSelByCharacterId?: Maybe<(
+    { __typename?: 'DeleteAllRaceFeatSelByCharacterIdPayload' }
+    & Pick<DeleteAllRaceFeatSelByCharacterIdPayload, 'boolean'>
+  )> }
+);
+
 export type DeleteFeatSelByIdMutationVariables = Exact<{
   featSelId: Scalars['UUID'];
 }>;
@@ -9706,6 +9749,26 @@ export type UpdateFeatSelectedByIdMutation = (
   )> }
 );
 
+export type GetAllAsiSelectionsQueryVariables = Exact<{
+  characterId: Scalars['UUID'];
+}>;
+
+
+export type GetAllAsiSelectionsQuery = (
+  { __typename?: 'Query' }
+  & { allAsiSelecteds?: Maybe<(
+    { __typename?: 'AsiSelectedsConnection' }
+    & { nodes: Array<Maybe<(
+      { __typename?: 'AsiSelected' }
+      & Pick<AsiSelected, 'asiSelId' | 'count' | 'asiFrom' | 'featId'>
+      & { asiByAsiId?: Maybe<(
+        { __typename?: 'Asi' }
+        & Pick<Asi, 'asiId' | 'long' | 'short'>
+      )> }
+    )>> }
+  )> }
+);
+
 export type AllAsisQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -9771,26 +9834,6 @@ export type AllBgsQuery = (
       )>, bgFeatureByBackgroundFeature?: Maybe<(
         { __typename?: 'BgFeature' }
         & Pick<BgFeature, 'name' | 'description'>
-      )> }
-    )>> }
-  )> }
-);
-
-export type GetAllAsiSelectionsQueryVariables = Exact<{
-  characterId: Scalars['UUID'];
-}>;
-
-
-export type GetAllAsiSelectionsQuery = (
-  { __typename?: 'Query' }
-  & { allAsiSelecteds?: Maybe<(
-    { __typename?: 'AsiSelectedsConnection' }
-    & { nodes: Array<Maybe<(
-      { __typename?: 'AsiSelected' }
-      & Pick<AsiSelected, 'asiSelId' | 'count' | 'asiFrom' | 'featId'>
-      & { asiByAsiId?: Maybe<(
-        { __typename?: 'Asi' }
-        & Pick<Asi, 'asiId' | 'long' | 'short'>
       )> }
     )>> }
   )> }
@@ -10309,6 +10352,39 @@ export function useDeleteAsiSelectedMutation(baseOptions?: Apollo.MutationHookOp
 export type DeleteAsiSelectedMutationHookResult = ReturnType<typeof useDeleteAsiSelectedMutation>;
 export type DeleteAsiSelectedMutationResult = Apollo.MutationResult<DeleteAsiSelectedMutation>;
 export type DeleteAsiSelectedMutationOptions = Apollo.BaseMutationOptions<DeleteAsiSelectedMutation, DeleteAsiSelectedMutationVariables>;
+export const DeleteAllRacialFeatsByCharacterIdDocument = gql`
+    mutation DeleteAllRacialFeatsByCharacterId($characterId: UUID!) {
+  deleteAllRaceFeatSelByCharacterId(input: {characterId: $characterId}) {
+    boolean
+  }
+}
+    `;
+export type DeleteAllRacialFeatsByCharacterIdMutationFn = Apollo.MutationFunction<DeleteAllRacialFeatsByCharacterIdMutation, DeleteAllRacialFeatsByCharacterIdMutationVariables>;
+
+/**
+ * __useDeleteAllRacialFeatsByCharacterIdMutation__
+ *
+ * To run a mutation, you first call `useDeleteAllRacialFeatsByCharacterIdMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteAllRacialFeatsByCharacterIdMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteAllRacialFeatsByCharacterIdMutation, { data, loading, error }] = useDeleteAllRacialFeatsByCharacterIdMutation({
+ *   variables: {
+ *      characterId: // value for 'characterId'
+ *   },
+ * });
+ */
+export function useDeleteAllRacialFeatsByCharacterIdMutation(baseOptions?: Apollo.MutationHookOptions<DeleteAllRacialFeatsByCharacterIdMutation, DeleteAllRacialFeatsByCharacterIdMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<DeleteAllRacialFeatsByCharacterIdMutation, DeleteAllRacialFeatsByCharacterIdMutationVariables>(DeleteAllRacialFeatsByCharacterIdDocument, options);
+      }
+export type DeleteAllRacialFeatsByCharacterIdMutationHookResult = ReturnType<typeof useDeleteAllRacialFeatsByCharacterIdMutation>;
+export type DeleteAllRacialFeatsByCharacterIdMutationResult = Apollo.MutationResult<DeleteAllRacialFeatsByCharacterIdMutation>;
+export type DeleteAllRacialFeatsByCharacterIdMutationOptions = Apollo.BaseMutationOptions<DeleteAllRacialFeatsByCharacterIdMutation, DeleteAllRacialFeatsByCharacterIdMutationVariables>;
 export const DeleteFeatSelByIdDocument = gql`
     mutation DeleteFeatSelById($featSelId: UUID!) {
   deleteFeatSelectedByFeatSelId(input: {featSelId: $featSelId}) {
@@ -10611,6 +10687,51 @@ export function useUpdateFeatSelectedByIdMutation(baseOptions?: Apollo.MutationH
 export type UpdateFeatSelectedByIdMutationHookResult = ReturnType<typeof useUpdateFeatSelectedByIdMutation>;
 export type UpdateFeatSelectedByIdMutationResult = Apollo.MutationResult<UpdateFeatSelectedByIdMutation>;
 export type UpdateFeatSelectedByIdMutationOptions = Apollo.BaseMutationOptions<UpdateFeatSelectedByIdMutation, UpdateFeatSelectedByIdMutationVariables>;
+export const GetAllAsiSelectionsDocument = gql`
+    query GetAllAsiSelections($characterId: UUID!) {
+  allAsiSelecteds(condition: {characterId: $characterId}) {
+    nodes {
+      asiSelId
+      count
+      asiFrom
+      featId
+      asiByAsiId {
+        asiId
+        long
+        short
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetAllAsiSelectionsQuery__
+ *
+ * To run a query within a React component, call `useGetAllAsiSelectionsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllAsiSelectionsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllAsiSelectionsQuery({
+ *   variables: {
+ *      characterId: // value for 'characterId'
+ *   },
+ * });
+ */
+export function useGetAllAsiSelectionsQuery(baseOptions: Apollo.QueryHookOptions<GetAllAsiSelectionsQuery, GetAllAsiSelectionsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllAsiSelectionsQuery, GetAllAsiSelectionsQueryVariables>(GetAllAsiSelectionsDocument, options);
+      }
+export function useGetAllAsiSelectionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllAsiSelectionsQuery, GetAllAsiSelectionsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllAsiSelectionsQuery, GetAllAsiSelectionsQueryVariables>(GetAllAsiSelectionsDocument, options);
+        }
+export type GetAllAsiSelectionsQueryHookResult = ReturnType<typeof useGetAllAsiSelectionsQuery>;
+export type GetAllAsiSelectionsLazyQueryHookResult = ReturnType<typeof useGetAllAsiSelectionsLazyQuery>;
+export type GetAllAsiSelectionsQueryResult = Apollo.QueryResult<GetAllAsiSelectionsQuery, GetAllAsiSelectionsQueryVariables>;
 export const AllAsisDocument = gql`
     query AllAsis {
   allAsis {
@@ -10781,51 +10902,6 @@ export function useAllBgsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<All
 export type AllBgsQueryHookResult = ReturnType<typeof useAllBgsQuery>;
 export type AllBgsLazyQueryHookResult = ReturnType<typeof useAllBgsLazyQuery>;
 export type AllBgsQueryResult = Apollo.QueryResult<AllBgsQuery, AllBgsQueryVariables>;
-export const GetAllAsiSelectionsDocument = gql`
-    query GetAllAsiSelections($characterId: UUID!) {
-  allAsiSelecteds(condition: {characterId: $characterId}) {
-    nodes {
-      asiSelId
-      count
-      asiFrom
-      featId
-      asiByAsiId {
-        asiId
-        long
-        short
-      }
-    }
-  }
-}
-    `;
-
-/**
- * __useGetAllAsiSelectionsQuery__
- *
- * To run a query within a React component, call `useGetAllAsiSelectionsQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetAllAsiSelectionsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetAllAsiSelectionsQuery({
- *   variables: {
- *      characterId: // value for 'characterId'
- *   },
- * });
- */
-export function useGetAllAsiSelectionsQuery(baseOptions: Apollo.QueryHookOptions<GetAllAsiSelectionsQuery, GetAllAsiSelectionsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetAllAsiSelectionsQuery, GetAllAsiSelectionsQueryVariables>(GetAllAsiSelectionsDocument, options);
-      }
-export function useGetAllAsiSelectionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllAsiSelectionsQuery, GetAllAsiSelectionsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetAllAsiSelectionsQuery, GetAllAsiSelectionsQueryVariables>(GetAllAsiSelectionsDocument, options);
-        }
-export type GetAllAsiSelectionsQueryHookResult = ReturnType<typeof useGetAllAsiSelectionsQuery>;
-export type GetAllAsiSelectionsLazyQueryHookResult = ReturnType<typeof useGetAllAsiSelectionsLazyQuery>;
-export type GetAllAsiSelectionsQueryResult = Apollo.QueryResult<GetAllAsiSelectionsQuery, GetAllAsiSelectionsQueryVariables>;
 export const AllCharactersDocument = gql`
     query AllCharacters {
   allCharacters {
