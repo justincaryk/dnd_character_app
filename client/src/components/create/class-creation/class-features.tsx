@@ -5,6 +5,7 @@ import FeatureGeneral from './asi/feature-general'
 import classnames from 'classnames'
 import FeatureStartProf from './asi/feature-start-prof'
 import { useParams } from 'react-router'
+import HitPoints from './hit-points'
 
 interface Props {
   classObj: {
@@ -82,10 +83,10 @@ const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected, character 
       <div className='flex items-center justify-between border-b pb-5'>
         <div className='text-xl font-bold'>Character Level: {currentLevel}</div>
         <div className='border rounded p-2 bg-white'>
-          <div>
-            <span className='font-bold'>Max Hit Points: &nbsp;</span>
-            <span></span>
-          </div>
+          <HitPoints 
+            characterId={id} 
+            hdFaces={Number(data?.classById?.hdFaces)} 
+            currentLevel={currentLevel}/>
           <div>
             <span className='font-bold'>Hit Dice: &nbsp;</span>
             <span>
