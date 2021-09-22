@@ -1,8 +1,6 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { AttributeInterface } from '../../../../lib/types'
-import AttributeInputBlock from './attribute-input'
 import PointBuyAttrInputBlock from './point-buy-attr-input'
-import { cloneDeep } from 'lodash'
  
 interface Props {
   attributesImmutable: AttributeInterface[]
