@@ -10,7 +10,7 @@ exports.seed = knex => (
             knex('subclasses').insert([
                 {
 
-                    id: uuidv4(),
+                    id: 'f5106f19-6314-4584-a362-81565b7a2ac3',
                     name: 'Path of the Berserker',
                     short_name: 'Berserker',
                     source: 'PHB',
@@ -24,7 +24,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     name: 'Path of the Totem Warrior',
                     short_name: 'Totem Warrior',
                     source: 'PHB',
@@ -46,7 +46,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'f9ec7489-6745-448b-ba7c-c52a693839d1',
                     name: 'Path of the Battlerager',
                     short_name: 'Battlerager',
                     source: 'SCAG',
@@ -60,7 +60,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'b3ded45c-513f-4c06-9547-6cbf4b9cca72',
                     name: 'Path of the Ancestral Guardian',
                     short_name: 'Ancestral Guardian',
                     source: 'XGE',
@@ -82,7 +82,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '237f13ed-86c8-4f42-871d-4fc932f0b30c',
                     name: 'Path of the Storm Herald',
                     short_name: 'Storm Herald',
                     source: 'XGE',
@@ -96,7 +96,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '074ce21c-97e7-4e82-8ed4-6c09def06f9f',
                     name: 'Path of the Zealot',
                     short_name: 'Zealot',
                     source: 'XGE',
@@ -110,7 +110,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'dcb9f92d-5526-496b-a942-c2549cd9c608',
                     name: 'Path of the Beast',
                     short_name: 'Beast',
                     source: 'TCE',
@@ -124,7 +124,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '3f02738a-5b95-4616-bec3-7d43e5ae1cba',
                     name: 'Path of Wild Magic',
                     short_name: 'Wild Magic',
                     source: 'TCE',
@@ -138,7 +138,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '9e2bfb7d-6a86-4d62-a230-3705328b1d18',
                     name: 'College of Lore',
                     short_name: 'Lore',
                     source: 'PHB',
@@ -151,7 +151,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'af87decd-bb31-4319-9246-2b0c983e9313',
                     name: 'College of Valor',
                     short_name: 'Valor',
                     source: 'PHB',
@@ -164,7 +164,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '1c053f0e-4602-4558-a1c3-1f21a019041f',
                     name: 'College of Glamour',
                     short_name: 'Glamour',
                     source: 'XGE',
@@ -184,7 +184,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '89935e49-a48c-4969-ad9a-0b260386c834',
                     name: 'College of Swords',
                     short_name: 'Swords',
                     source: 'XGE',
@@ -197,7 +197,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '48d54aa7-5643-46de-87f7-5018095293f4',
                     name: 'College of Whispers',
                     short_name: 'Whispers',
                     source: 'XGE',
@@ -210,7 +210,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '9f8f7140-5569-44c6-bead-58acaf564246',
                     name: 'College of Creation',
                     short_name: 'Creation',
                     source: 'TCE',
@@ -223,7 +223,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '67dbeac2-7abc-4ed8-8c86-be90c84343e3',
                     name: 'College of Eloquence',
                     short_name: 'Eloquence',
                     source: 'TCE',
@@ -237,7 +237,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '844e85b3-27d7-4acb-9866-a7abdd3d2d8c',
                     name: 'College of Spirits',
                     short_name: 'Spirits',
                     source: 'VRGR',
@@ -294,7 +294,7 @@ exports.seed = knex => (
                         "Blessed Strikes|Cleric||Knowledge||8|TCE",
                         "Visions of the Past|Cleric||Knowledge||17"
                     ],
-                    "id": uuidv4(),
+                    "id": 'e0e15786-094a-46bb-9bed-75bf9d5d3325',
                     "class_id": "7e5e677d-59d2-484e-8e96-0dd940a2c25e"
                 },
                 {
@@ -337,7 +337,7 @@ exports.seed = knex => (
                         "Blessed Strikes|Cleric||Life||8|TCE",
                         "Supreme Healing|Cleric||Life||17"
                     ],
-                    "id": uuidv4(),
+                    "id": '25162155-aec5-45f1-b91d-3d9bcd4ca6e4',
                     "class_id": "7e5e677d-59d2-484e-8e96-0dd940a2c25e"
                 },
                 {
@@ -385,7 +385,7 @@ exports.seed = knex => (
                         "Blessed Strikes|Cleric||Light||8|TCE",
                         "Corona of Light|Cleric||Light||17"
                     ],
-                    "id": uuidv4(),
+                    "id": '3257b2f4-10a4-4175-94e6-cdba18dccc7a',
                     "class_id": "7e5e677d-59d2-484e-8e96-0dd940a2c25e"
                 },
                 {
@@ -437,7 +437,7 @@ exports.seed = knex => (
                         "Blessed Strikes|Cleric||Nature||8|TCE",
                         "Master of Nature|Cleric||Nature||17"
                     ],
-                    "id": uuidv4(),
+                    "id": 'bdb26150-5b48-4b9a-abe3-16300394855c',
                     "class_id": "7e5e677d-59d2-484e-8e96-0dd940a2c25e"
                 },
                 {
@@ -480,7 +480,7 @@ exports.seed = knex => (
                         "Blessed Strikes|Cleric||Tempest||8|TCE",
                         "Stormborn|Cleric||Tempest||17"
                     ],
-                    "id": uuidv4(),
+                    "id": '3bd5cc14-a268-44b6-a590-8fee4910f8ce',
                     "class_id": "7e5e677d-59d2-484e-8e96-0dd940a2c25e"
                 },
                 {
@@ -523,12 +523,12 @@ exports.seed = knex => (
                         "Blessed Strikes|Cleric||Trickery||8|TCE",
                         "Improved Duplicity|Cleric||Trickery||17"
                     ],
-                    "id": uuidv4(),
+                    "id": '55ff6902-2fe2-454e-a496-8c9189a9f7d8',
                     "class_id": "7e5e677d-59d2-484e-8e96-0dd940a2c25e"
                 },
                 {
                     "name": "War Domain",
-                    "short_name": "War",
+                    "short_name": "War Domain",
                     "source": "PHB",
                     "page": 63,
                     "additional_spells": [
@@ -566,7 +566,7 @@ exports.seed = knex => (
                         "Blessed Strikes|Cleric||War||8|TCE",
                         "Avatar of Battle|Cleric||War||17"
                     ],
-                    "id": uuidv4(),
+                    "id": '252d31b3-28e1-4680-b2e9-c948785bc2e9',
                     "class_id": "7e5e677d-59d2-484e-8e96-0dd940a2c25e"
                 },
                 {
@@ -609,7 +609,7 @@ exports.seed = knex => (
                         "Blessed Strikes|Cleric||Death|DMG|8|TCE",
                         "Improved Reaper|Cleric||Death|DMG|17"
                     ],
-                    "id": uuidv4(),
+                    "id": 'cd48025f-06f7-4108-b456-242254671023',
                     "class_id": "7e5e677d-59d2-484e-8e96-0dd940a2c25e"
                 },
                 {
@@ -662,7 +662,7 @@ exports.seed = knex => (
                         "Blessed Strikes|Cleric||Arcana|SCAG|8|TCE",
                         "Arcane Mastery|Cleric||Arcana|SCAG|17"
                     ],
-                    "id": uuidv4(),
+                    "id": 'cdf73810-91e5-42da-809e-6668af2c4f47',
                     "class_id": "7e5e677d-59d2-484e-8e96-0dd940a2c25e"
                 },
                 {
@@ -705,7 +705,7 @@ exports.seed = knex => (
                         "Blessed Strikes|Cleric||Forge|XGE|8|TCE",
                         "Saint of Forge and Fire|Cleric||Forge|XGE|17"
                     ],
-                    "id": uuidv4(),
+                    "id": '8dadf414-ad6c-4f7b-ab6e-f050fc89c1f3',
                     "class_id": "7e5e677d-59d2-484e-8e96-0dd940a2c25e"
                 },
                 {
@@ -753,7 +753,7 @@ exports.seed = knex => (
                         "Blessed Strikes|Cleric||Grave|XGE|8|TCE",
                         "Keeper of Souls|Cleric||Grave|XGE|17"
                     ],
-                    "id": uuidv4(),
+                    "id": 'd0a5477a-a116-4a07-84b7-0c308c8727dd',
                     "class_id": "7e5e677d-59d2-484e-8e96-0dd940a2c25e"
                 },
                 {
@@ -796,7 +796,7 @@ exports.seed = knex => (
                         "Blessed Strikes|Cleric||Order|TCE|8|TCE",
                         "Order's Wrath|Cleric||Order|TCE|17"
                     ],
-                    "id": uuidv4(),
+                    "id": 'e2c4944d-04d9-406a-8dcb-745f91e82200',
                     "class_id": "7e5e677d-59d2-484e-8e96-0dd940a2c25e"
                 },
                 {
@@ -838,7 +838,7 @@ exports.seed = knex => (
                         "Blessed Strikes|Cleric||Peace|TCE|8|TCE",
                         "Expansive Bond|Cleric||Peace|TCE|17"
                     ],
-                    "id": uuidv4(),
+                    "id": '3cc36fe6-dd52-441f-a67e-199767e6bfee',
                     "class_id": "7e5e677d-59d2-484e-8e96-0dd940a2c25e"
                 },
                 {
@@ -880,17 +880,17 @@ exports.seed = knex => (
                         "Blessed Strikes|Cleric||Twilight|TCE|8|TCE",
                         "Twilight Shroud|Cleric||Twilight|TCE|17"
                     ],
-                    "id": uuidv4(),
+                    "id": '8dfd372a-d55c-4a9d-951d-e25a39510194',
                     "class_id": "7e5e677d-59d2-484e-8e96-0dd940a2c25e"
                 },
                 {
-                    id: uuidv4(),
+                    id: 'b995558b-0f05-483c-8242-23b4d08a7f9a',
                     class_id: '83880f9d-5125-4b0a-a774-af5cc36413ea',
                     name: 'Circle of the Land',
                     short_name: 'Land',
                     source: 'PHB',
                     page: 68,
-                    
+
                     additional_spells: [
                         {
                             name: 'Arctic',
@@ -973,7 +973,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'b545b4bb-e33f-424f-a3aa-ce51353221e0',
                     class_id: '83880f9d-5125-4b0a-a774-af5cc36413ea',
                     name: 'Circle of the Moon',
                     short_name: 'Moon',
@@ -994,7 +994,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '684a1dd4-541f-4e8e-ab1a-b51c35bd86e3',
                     class_id: '83880f9d-5125-4b0a-a774-af5cc36413ea',
                     name: 'Circle of Dreams',
                     short_name: 'Dreams',
@@ -1008,7 +1008,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'e00db9f1-b94d-4fdf-a963-6e21f63c265f',
                     class_id: '83880f9d-5125-4b0a-a774-af5cc36413ea',
                     name: 'Circle of the Shepherd',
                     short_name: 'Shepherd',
@@ -1022,7 +1022,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '58eef9f2-ced4-4981-a50c-f3674358f6fe',
                     class_id: '83880f9d-5125-4b0a-a774-af5cc36413ea',
                     name: 'Circle of Spores',
                     short_name: 'Spores',
@@ -1046,7 +1046,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'f198b72a-8dc9-4b5e-94df-e648a25c4ed0',
                     class_id: '83880f9d-5125-4b0a-a774-af5cc36413ea',
                     name: 'Circle of Stars',
                     short_name: 'Stars',
@@ -1060,7 +1060,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'c6f1a6aa-b00b-4ab0-bb68-c738bf2a33bb',
                     class_id: '83880f9d-5125-4b0a-a774-af5cc36413ea',
                     name: 'Circle of Wildfire',
                     short_name: 'Wildfire',
@@ -1085,7 +1085,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '5894cd05-4e4c-4690-af71-0ddd806acc50',
                     class_id: '38d52f93-07f5-443f-81de-88cfe30dd2d8',
                     name: 'Battle Master',
                     short_name: 'Battle Master',
@@ -1105,13 +1105,13 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'c732884f-e52c-41e7-8dd3-c6a3a90f35a7',
                     class_id: '38d52f93-07f5-443f-81de-88cfe30dd2d8',
                     name: 'Champion',
                     short_name: 'Champion',
                     source: 'PHB',
                     page: 72,
-                    
+
                     subclass_features: [
                         'Champion|Fighter||Champion||3',
                         'Remarkable Athlete|Fighter||Champion||7',
@@ -1121,7 +1121,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '5e1ac9aa-baee-4ee5-8be0-a0fd1e7b2aa7',
                     class_id: '38d52f93-07f5-443f-81de-88cfe30dd2d8',
                     name: 'Eldritch Knight',
                     short_name: 'Eldritch Knight',
@@ -1209,7 +1209,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '4c0f028e-6de5-4e2a-9b5a-70ebaa87c616',
                     class_id: '38d52f93-07f5-443f-81de-88cfe30dd2d8',
                     name: 'Purple Dragon Knight (Banneret)',
                     short_name: 'Purple Dragon Knight (Banneret)',
@@ -1224,7 +1224,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '8f541077-245b-4c40-b781-f07fc24e48a7',
                     class_id: '38d52f93-07f5-443f-81de-88cfe30dd2d8',
                     name: 'Arcane Archer',
                     short_name: 'Arcane Archer',
@@ -1254,7 +1254,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'b8c46aab-d984-43e3-b42d-bd619ab6b0cf',
                     class_id: '38d52f93-07f5-443f-81de-88cfe30dd2d8',
                     name: 'Cavalier',
                     short_name: 'Cavalier',
@@ -1269,7 +1269,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '77f53fb4-23d4-4c80-80ca-eaedad90efbf',
                     class_id: '38d52f93-07f5-443f-81de-88cfe30dd2d8',
                     name: 'Samurai',
                     short_name: 'Samurai',
@@ -1284,7 +1284,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '4c72d589-f164-415b-9a4d-063a093465c0',
                     class_id: '38d52f93-07f5-443f-81de-88cfe30dd2d8',
                     name: 'Echo Knight',
                     short_name: 'Echo Knight',
@@ -1299,7 +1299,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '7f9d27bb-79a4-479b-b2ce-c7270b198bba',
                     class_id: '38d52f93-07f5-443f-81de-88cfe30dd2d8',
                     name: 'Psi Warrior',
                     short_name: 'Psi Warrior',
@@ -1314,7 +1314,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'c784b48e-c7bd-41c8-9b6a-c3f725258ae7',
                     class_id: '38d52f93-07f5-443f-81de-88cfe30dd2d8',
                     name: 'Rune Knight',
                     short_name: 'Rune Knight',
@@ -1332,10 +1332,10 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '3f112332-73db-4b0b-abd5-16505cdd473f',
                     class_id: '3cef1591-b577-4c0f-9dc7-02b846c63d52',
                     name: 'Way of Shadow',
-                    short_name: 'Shadow',
+                    short_name: 'Way of Shadow',
                     source: 'PHB',
                     page: 80,
                     additional_spells: [
@@ -1353,7 +1353,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '89d1061f-8976-4e9a-b01e-6eac1d47ec98',
                     class_id: '3cef1591-b577-4c0f-9dc7-02b846c63d52',
                     name: 'Way of the Four Elements',
                     short_name: 'Four Elements',
@@ -1368,7 +1368,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '66a90984-598f-42d0-8561-3c408f387fea',
                     class_id: '3cef1591-b577-4c0f-9dc7-02b846c63d52',
                     name: 'Way of the Open Hand',
                     short_name: 'Open Hand',
@@ -1382,7 +1382,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'dae057c1-2342-4599-859f-2b7a07e4726e',
                     class_id: '3cef1591-b577-4c0f-9dc7-02b846c63d52',
                     name: 'Way of the Long Death',
                     short_name: 'Long Death',
@@ -1396,7 +1396,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'ba225eff-cc40-4c37-9377-4889e697e972',
                     class_id: '3cef1591-b577-4c0f-9dc7-02b846c63d52',
                     name: 'Way of the Drunken Master',
                     short_name: 'Drunken Master',
@@ -1410,7 +1410,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'f37ac38b-d258-4297-8118-1e63ad20bd46',
                     class_id: '3cef1591-b577-4c0f-9dc7-02b846c63d52',
                     name: 'Way of the Kensei',
                     short_name: 'Kensei',
@@ -1424,7 +1424,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '6610f30f-eee8-43a7-8cce-6b849a03ca87',
                     class_id: '3cef1591-b577-4c0f-9dc7-02b846c63d52',
                     name: 'Way of the Sun Soul',
                     short_name: 'Sun Soul',
@@ -1438,7 +1438,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '424a5e25-7ebd-460b-9efb-207c1d1fd77b',
                     class_id: '3cef1591-b577-4c0f-9dc7-02b846c63d52',
                     name: 'Way of Mercy',
                     short_name: 'Mercy',
@@ -1452,7 +1452,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '6f5a2d4f-91ec-4d9c-82c9-7ea81f4b74cb',
                     class_id: '3cef1591-b577-4c0f-9dc7-02b846c63d52',
                     name: 'Way of the Astral Self',
                     short_name: 'Astral Self',
@@ -1464,9 +1464,9 @@ exports.seed = knex => (
                         'Body of the Astral Self|Monk||Astral Self|TCE|11',
                         'Awakened Astral Self|Monk||Astral Self|TCE|17',
                     ],
-                },         
+                },
                 {
-                    id: uuidv4(),
+                    id: '4bd8e37f-ee17-4a82-923e-8975ff64b203',
                     class_id: 'cf3cd010-8db3-4956-9f4f-0f3da3739e22',
                     name: 'Oath of Devotion',
                     short_name: 'Devotion',
@@ -1491,7 +1491,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'f2c28e2e-b948-4a71-93eb-b379e1f53c9d',
                     class_id: 'cf3cd010-8db3-4956-9f4f-0f3da3739e22',
                     name: 'Oath of the Ancients',
                     short_name: 'Ancients',
@@ -1516,7 +1516,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'e9c4ff00-3b14-4357-b736-8b4b98eedaa8',
                     class_id: 'cf3cd010-8db3-4956-9f4f-0f3da3739e22',
                     name: 'Oath of Vengeance',
                     short_name: 'Vengeance',
@@ -1541,7 +1541,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'f483c8ed-589e-4cd8-af1d-da6ad6b469bd',
                     class_id: 'cf3cd010-8db3-4956-9f4f-0f3da3739e22',
                     name: 'Oathbreaker',
                     short_name: 'Oathbreaker',
@@ -1566,7 +1566,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '5b836264-d23b-4cb8-918f-632946a2975d',
                     class_id: 'cf3cd010-8db3-4956-9f4f-0f3da3739e22',
                     name: 'Oath of the Crown',
                     short_name: 'Crown',
@@ -1591,7 +1591,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '897d18a2-8756-4eec-b2d5-5c153f9870f9',
                     class_id: 'cf3cd010-8db3-4956-9f4f-0f3da3739e22',
                     name: 'Oath of Conquest',
                     short_name: 'Conquest',
@@ -1616,7 +1616,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '56052d2b-2e5e-4313-b892-61fb82eb4065',
                     class_id: 'cf3cd010-8db3-4956-9f4f-0f3da3739e22',
                     name: 'Oath of Redemption',
                     short_name: 'Redemption',
@@ -1641,7 +1641,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'c9549a70-96d4-43ff-9130-e0c177353d12',
                     class_id: 'cf3cd010-8db3-4956-9f4f-0f3da3739e22',
                     name: 'Oath of Glory',
                     short_name: 'Glory',
@@ -1666,7 +1666,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '53293e45-2f28-4bd8-a316-1e8de1e05bbb',
                     class_id: 'cf3cd010-8db3-4956-9f4f-0f3da3739e22',
                     name: 'Oath of the Watchers',
                     short_name: 'Watchers',
@@ -1689,9 +1689,9 @@ exports.seed = knex => (
                         'Vigilant Rebuke|Paladin||Watchers|TCE|15',
                         'Mortal Bulwark|Paladin||Watchers|TCE|20',
                     ],
-                },       
+                },
                 {
-                    id: uuidv4(),
+                    id: '41d393de-3554-4cf0-8188-0ba781292555',
                     class_id: '5116d376-344c-4c22-82a0-b4d32c58147e',
                     name: 'Beast Master',
                     short_name: 'Beast Master',
@@ -1705,7 +1705,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'c7c1c6e6-c9d7-4709-b5f7-45c49b2d7143',
                     class_id: '5116d376-344c-4c22-82a0-b4d32c58147e',
                     name: 'Hunter',
                     short_name: 'Hunter',
@@ -1719,7 +1719,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '29a9832a-0f09-4635-bd33-8334d2a2634e',
                     class_id: '5116d376-344c-4c22-82a0-b4d32c58147e',
                     name: 'Gloom Stalker',
                     short_name: 'Gloom Stalker',
@@ -1744,7 +1744,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '966aa360-6eb8-4512-aadd-882c9c3fbdef',
                     class_id: '5116d376-344c-4c22-82a0-b4d32c58147e',
                     name: 'Horizon Walker',
                     short_name: 'Horizon Walker',
@@ -1769,7 +1769,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'f1fcb321-f6b1-4619-b2c4-f84fba861c93',
                     class_id: '5116d376-344c-4c22-82a0-b4d32c58147e',
                     name: 'Monster Slayer',
                     short_name: 'Monster Slayer',
@@ -1794,7 +1794,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '177cad39-6006-454b-83fe-8655051f17a2',
                     class_id: '5116d376-344c-4c22-82a0-b4d32c58147e',
                     name: 'Fey Wanderer',
                     short_name: 'Fey Wanderer',
@@ -1819,7 +1819,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '91e2079a-e43d-444e-8f82-0920c6eafba4',
                     class_id: '5116d376-344c-4c22-82a0-b4d32c58147e',
                     name: 'Swarmkeeper',
                     short_name: 'Swarmkeeper',
@@ -1844,7 +1844,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'b2247aaa-babb-48f8-9f5f-ba907ee60054',
                     class_id: '429ccb89-62a8-4d1f-8c82-9549a988de3e',
                     name: 'Arcane Trickster',
                     short_name: 'Arcane Trickster',
@@ -1938,7 +1938,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '2cd12960-117d-4b1d-9068-2528a0df54db',
                     class_id: '429ccb89-62a8-4d1f-8c82-9549a988de3e',
                     name: 'Assassin',
                     short_name: 'Assassin',
@@ -1952,7 +1952,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '95045e9a-964f-4434-84d9-2f03ca44875f',
                     class_id: '429ccb89-62a8-4d1f-8c82-9549a988de3e',
                     name: 'Thief',
                     short_name: 'Thief',
@@ -1966,7 +1966,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'd5fd7ed3-849e-4d74-8152-cc9f8c289993',
                     class_id: '429ccb89-62a8-4d1f-8c82-9549a988de3e',
                     name: 'Inquisitive',
                     short_name: 'Inquisitive',
@@ -1980,7 +1980,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '64a69982-da3e-485b-874a-5611de38e610',
                     class_id: '429ccb89-62a8-4d1f-8c82-9549a988de3e',
                     name: 'Mastermind',
                     short_name: 'Mastermind',
@@ -1994,7 +1994,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '3fb61bee-17ff-4356-a1e5-849e20327ff7',
                     class_id: '429ccb89-62a8-4d1f-8c82-9549a988de3e',
                     name: 'Scout',
                     short_name: 'Scout',
@@ -2008,7 +2008,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '221705cd-db67-4e50-9cce-48186f040cfd',
                     class_id: '429ccb89-62a8-4d1f-8c82-9549a988de3e',
                     name: 'Swashbuckler',
                     short_name: 'Swashbuckler',
@@ -2022,7 +2022,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '5bc2eb08-5aba-4801-a74b-5c651de487e1',
                     class_id: '429ccb89-62a8-4d1f-8c82-9549a988de3e',
                     name: 'Phantom',
                     short_name: 'Phantom',
@@ -2036,7 +2036,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '5a460cb3-1052-4302-9de9-9c1863307177',
                     class_id: '429ccb89-62a8-4d1f-8c82-9549a988de3e',
                     name: 'Soulknife',
                     short_name: 'Soulknife',
@@ -2048,15 +2048,15 @@ exports.seed = knex => (
                         'Psychic Veil|Rogue||Soulknife|TCE|13',
                         'Rend Mind|Rogue||Soulknife|TCE|17',
                     ],
-                },        
+                },
                 {
-                    id: uuidv4(),
+                    id: '971fddc9-e7c9-4c2c-a968-331f067e1646',
                     class_id: 'e1068650-2673-4835-af88-adddd16d5095',
                     name: 'Draconic Bloodline',
                     short_name: 'Draconic',
                     source: 'PHB',
                     page: 102,
-                    
+
                     subclass_features: [
                         'Draconic Bloodline||Draconic||1',
                         'Elemental Affinity||Draconic||6',
@@ -2065,7 +2065,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '78b73df4-9cc1-407f-802a-0423712d8dd6',
                     class_id: 'e1068650-2673-4835-af88-adddd16d5095',
                     name: 'Wild Magic',
                     short_name: 'Wild',
@@ -2079,7 +2079,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'f570e1f2-15d9-4ea7-a4a5-a54d8b54de38',
                     class_id: 'e1068650-2673-4835-af88-adddd16d5095',
                     name: 'Pyromancer (PSK)',
                     short_name: 'Pyromancer (PSK)',
@@ -2093,7 +2093,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '5e3e6220-10ca-437e-910b-6c4c54843b5c',
                     class_id: 'e1068650-2673-4835-af88-adddd16d5095',
                     name: 'Divine Soul',
                     short_name: 'Divine Soul',
@@ -2139,10 +2139,10 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'b67debd4-2026-4949-bba0-3f0e343fd486',
                     class_id: 'e1068650-2673-4835-af88-adddd16d5095',
                     name: 'Shadow Magic',
-                    short_name: 'Shadow',
+                    short_name: 'Shadow Magic',
                     source: 'XGE',
                     page: 50,
                     additional_spells: [
@@ -2160,7 +2160,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '46a6bbdd-aba9-4fd1-b2bc-9a7ed5bd940d',
                     class_id: 'e1068650-2673-4835-af88-adddd16d5095',
                     name: 'Storm Sorcery',
                     short_name: 'Storm',
@@ -2175,7 +2175,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '411f3237-29be-4f53-b802-2ee97131983b',
                     class_id: 'e1068650-2673-4835-af88-adddd16d5095',
                     name: 'Aberrant Mind',
                     short_name: 'Aberrant Mind',
@@ -2201,7 +2201,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '7b2102b1-7a4f-4e22-b1be-54e6e5d21556',
                     class_id: 'e1068650-2673-4835-af88-adddd16d5095',
                     name: 'Clockwork Soul',
                     short_name: 'Clockwork Soul',
@@ -2226,7 +2226,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '2bba6a46-9ea2-444f-bd04-8371833e1e01',
                     class_id: '468deff3-41eb-4ddb-a635-a39d251eaf62',
                     name: 'The Archfey',
                     short_name: 'Archfey',
@@ -2251,13 +2251,13 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '2214c5b5-d34d-4920-a180-0ee7563871e7',
                     class_id: '468deff3-41eb-4ddb-a635-a39d251eaf62',
                     name: 'The Fiend',
                     short_name: 'Fiend',
                     source: 'PHB',
                     page: 109,
-                    
+
                     additional_spells: [
                         {
                             expanded: {
@@ -2277,7 +2277,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '0beea624-6747-4517-9234-cd5458fee338',
                     class_id: '468deff3-41eb-4ddb-a635-a39d251eaf62',
                     name: 'The Great Old One',
                     short_name: 'Great Old One',
@@ -2302,7 +2302,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '64fa2272-a52c-40eb-ba10-60ea24deaa05',
                     class_id: '468deff3-41eb-4ddb-a635-a39d251eaf62',
                     name: 'The Undying',
                     short_name: 'Undying',
@@ -2330,7 +2330,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'c87d4c5f-37d1-456d-841d-7b0b3dd560eb',
                     class_id: '468deff3-41eb-4ddb-a635-a39d251eaf62',
                     name: 'The Celestial',
                     short_name: 'Celestial',
@@ -2358,7 +2358,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'ee52fef1-dcb4-47d7-977f-d098f8018874',
                     class_id: '468deff3-41eb-4ddb-a635-a39d251eaf62',
                     name: 'The Hexblade',
                     short_name: 'Hexblade',
@@ -2383,7 +2383,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '2f53b095-a374-4b59-9268-c1955a39675d',
                     class_id: '468deff3-41eb-4ddb-a635-a39d251eaf62',
                     name: 'The Fathomless',
                     short_name: 'Fathomless',
@@ -2409,7 +2409,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'c50bfde0-9bf7-43f6-8d6f-754474e15b1b',
                     class_id: '468deff3-41eb-4ddb-a635-a39d251eaf62',
                     name: 'The Genie',
                     short_name: 'Genie',
@@ -2469,7 +2469,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '20d098ef-cb7c-4887-9fe4-0a5d3aefd3c2',
                     class_id: '468deff3-41eb-4ddb-a635-a39d251eaf62',
                     name: 'The Undead',
                     short_name: 'Undead',
@@ -2494,7 +2494,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'ebadb0b2-46db-4134-b93a-03c8eb4ced20',
                     class_id: '8ae9927f-fd72-42a3-a5ab-c1c2b57a40b4',
                     name: 'School of Abjuration',
                     short_name: 'Abjuration',
@@ -2508,7 +2508,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'a53428da-5c46-431d-be00-d17fb6bebd30',
                     class_id: '8ae9927f-fd72-42a3-a5ab-c1c2b57a40b4',
                     name: 'School of Conjuration',
                     short_name: 'Conjuration',
@@ -2522,7 +2522,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '04c4fb92-5553-4eca-87ce-ac26d7f51998',
                     class_id: '8ae9927f-fd72-42a3-a5ab-c1c2b57a40b4',
                     name: 'School of Divination',
                     short_name: 'Divination',
@@ -2536,7 +2536,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '64184115-b209-4db3-a43c-3909d1bb8d5e',
                     class_id: '8ae9927f-fd72-42a3-a5ab-c1c2b57a40b4',
                     name: 'School of Enchantment',
                     short_name: 'Enchantment',
@@ -2550,7 +2550,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '030a9b0c-2ebb-4ed4-a38d-85ab55ecf706',
                     class_id: '8ae9927f-fd72-42a3-a5ab-c1c2b57a40b4',
                     name: 'School of Evocation',
                     short_name: 'Evocation',
@@ -2564,7 +2564,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'a9349f5d-5868-4e85-9cac-4c44acb1cd75',
                     class_id: '8ae9927f-fd72-42a3-a5ab-c1c2b57a40b4',
                     name: 'School of Illusion',
                     short_name: 'Illusion',
@@ -2585,7 +2585,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'e1a9ef50-6ade-43fc-a843-79cd4ab4a70f',
                     class_id: '8ae9927f-fd72-42a3-a5ab-c1c2b57a40b4',
                     name: 'School of Necromancy',
                     short_name: 'Necromancy',
@@ -2599,7 +2599,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'f6eb118d-3883-449d-aa77-db575537ab8f',
                     class_id: '8ae9927f-fd72-42a3-a5ab-c1c2b57a40b4',
                     name: 'School of Transmutation',
                     short_name: 'Transmutation',
@@ -2613,10 +2613,10 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'ca70bedd-0a46-47e3-8b01-81402eeb4faa',
                     class_id: '8ae9927f-fd72-42a3-a5ab-c1c2b57a40b4',
                     name: 'War Magic',
-                    short_name: 'War',
+                    short_name: 'War Magic',
                     source: 'XGE',
                     page: 59,
                     subclass_features: [
@@ -2627,7 +2627,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'd6e950dc-7b29-4d61-b62a-e6c31dd5bb11',
                     class_id: '8ae9927f-fd72-42a3-a5ab-c1c2b57a40b4',
                     name: 'Chronurgy Magic',
                     short_name: 'Chronurgy',
@@ -2641,7 +2641,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: 'd6b260d4-d970-4b2f-96f1-5dc8520a2903',
                     class_id: '8ae9927f-fd72-42a3-a5ab-c1c2b57a40b4',
                     name: 'Graviturgy Magic',
                     short_name: 'Graviturgy',
@@ -2655,7 +2655,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '832afe69-cbad-483e-9463-c0dc9db09dd0',
                     class_id: '8ae9927f-fd72-42a3-a5ab-c1c2b57a40b4',
                     name: 'Bladesinging',
                     short_name: 'Bladesinging',
@@ -2669,7 +2669,7 @@ exports.seed = knex => (
                     ],
                 },
                 {
-                    id: uuidv4(),
+                    id: '675ebfd8-2765-4d83-af7b-6ad5319ee17d',
                     class_id: '8ae9927f-fd72-42a3-a5ab-c1c2b57a40b4',
                     name: 'Order of Scribes',
                     short_name: 'Scribes',
@@ -2682,7 +2682,7 @@ exports.seed = knex => (
                         'One with the Word|Wizard||Scribes|TCE|14',
                     ],
                 },
-            
+
             ])
         )))
 

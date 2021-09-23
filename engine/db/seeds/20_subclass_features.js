@@ -13,6 +13,7 @@ exports.seed = knex => (
                     source: 'EGW',
                     page: 184,
                     subclass_short_name: 'Chronurgy',
+                    subclass_id: 'd6e950dc-7b29-4d61-b62a-e6c31dd5bb11',
                     subclass_source: 'EGW',
                     level: 2,
                     entries: {
@@ -36,6 +37,7 @@ exports.seed = knex => (
                     source: 'EGW',
                     page: 184,
                     subclass_short_name: 'Chronurgy',
+                    subclass_id: 'd6e950dc-7b29-4d61-b62a-e6c31dd5bb11',
                     subclass_source: 'EGW',
                     level: 2,
                     entries: {
@@ -53,6 +55,7 @@ exports.seed = knex => (
                     source: 'EGW',
                     page: 184,
                     subclass_short_name: 'Chronurgy',
+                    subclass_id: 'd6e950dc-7b29-4d61-b62a-e6c31dd5bb11',
                     subclass_source: 'EGW',
                     level: 2,
                     entries: {
@@ -69,6 +72,7 @@ exports.seed = knex => (
                     source: 'EGW',
                     page: 184,
                     subclass_short_name: 'Chronurgy',
+                    subclass_id: 'd6e950dc-7b29-4d61-b62a-e6c31dd5bb11',
                     subclass_source: 'EGW',
                     level: 6,
                     entries: {
@@ -86,6 +90,7 @@ exports.seed = knex => (
                     source: 'EGW',
                     page: 184,
                     subclass_short_name: 'Chronurgy',
+                    subclass_id: 'd6e950dc-7b29-4d61-b62a-e6c31dd5bb11',
                     subclass_source: 'EGW',
                     level: 10,
                     entries: {
@@ -104,6 +109,7 @@ exports.seed = knex => (
                     source: 'EGW',
                     page: 184,
                     subclass_short_name: 'Chronurgy',
+                    subclass_id: 'd6e950dc-7b29-4d61-b62a-e6c31dd5bb11',
                     subclass_source: 'EGW',
                     level: 14,
                     entries: {
@@ -121,6 +127,7 @@ exports.seed = knex => (
                     source: 'EGW',
                     page: 185,
                     subclass_short_name: 'Graviturgy',
+                    subclass_id: 'd6b260d4-d970-4b2f-96f1-5dc8520a2903',
                     subclass_source: 'EGW',
                     level: 2,
                     entries: {
@@ -140,6 +147,7 @@ exports.seed = knex => (
                     source: 'EGW',
                     page: 185,
                     subclass_short_name: 'Graviturgy',
+                    subclass_id: 'd6b260d4-d970-4b2f-96f1-5dc8520a2903',
                     subclass_source: 'EGW',
                     level: 2,
                     entries: {
@@ -158,6 +166,7 @@ exports.seed = knex => (
                     source: 'EGW',
                     page: 185,
                     subclass_short_name: 'Graviturgy',
+                    subclass_id: 'd6b260d4-d970-4b2f-96f1-5dc8520a2903',
                     subclass_source: 'EGW',
                     level: 6,
                     entries: {
@@ -174,6 +183,7 @@ exports.seed = knex => (
                     source: 'EGW',
                     page: 185,
                     subclass_short_name: 'Graviturgy',
+                    subclass_id: 'd6b260d4-d970-4b2f-96f1-5dc8520a2903',
                     subclass_source: 'EGW',
                     level: 10,
                     entries: {
@@ -192,6 +202,7 @@ exports.seed = knex => (
                     source: 'EGW',
                     page: 185,
                     subclass_short_name: 'Graviturgy',
+                    subclass_id: 'd6b260d4-d970-4b2f-96f1-5dc8520a2903',
                     subclass_source: 'EGW',
                     level: 14,
                     entries: {
@@ -209,6 +220,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 115,
                     subclass_short_name: 'Abjuration',
+                    subclass_id: 'ebadb0b2-46db-4134-b93a-03c8eb4ced20',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -233,6 +245,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 115,
                     subclass_short_name: 'Abjuration',
+                    subclass_id: 'ebadb0b2-46db-4134-b93a-03c8eb4ced20',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -248,6 +261,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 115,
                     subclass_short_name: 'Abjuration',
+                    subclass_id: 'ebadb0b2-46db-4134-b93a-03c8eb4ced20',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -265,6 +279,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 115,
                     subclass_short_name: 'Abjuration',
+                    subclass_id: 'ebadb0b2-46db-4134-b93a-03c8eb4ced20',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -280,6 +295,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 115,
                     subclass_short_name: 'Abjuration',
+                    subclass_id: 'ebadb0b2-46db-4134-b93a-03c8eb4ced20',
                     subclass_source: 'PHB',
                     level: 10,
                     entries: {
@@ -295,6 +311,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 115,
                     subclass_short_name: 'Abjuration',
+                    subclass_id: 'ebadb0b2-46db-4134-b93a-03c8eb4ced20',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -311,6 +328,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 116,
                     subclass_short_name: 'Conjuration',
+                    subclass_id: 'a53428da-5c46-431d-be00-d17fb6bebd30',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -334,6 +352,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 116,
                     subclass_short_name: 'Conjuration',
+                    subclass_id: 'a53428da-5c46-431d-be00-d17fb6bebd30',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -349,6 +368,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 116,
                     subclass_short_name: 'Conjuration',
+                    subclass_id: 'a53428da-5c46-431d-be00-d17fb6bebd30',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -365,6 +385,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 116,
                     subclass_short_name: 'Conjuration',
+                    subclass_id: 'a53428da-5c46-431d-be00-d17fb6bebd30',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -381,6 +402,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 116,
                     subclass_short_name: 'Conjuration',
+                    subclass_id: 'a53428da-5c46-431d-be00-d17fb6bebd30',
                     subclass_source: 'PHB',
                     level: 10,
                     entries: {
@@ -396,6 +418,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 116,
                     subclass_short_name: 'Conjuration',
+                    subclass_id: 'a53428da-5c46-431d-be00-d17fb6bebd30',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -411,6 +434,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 116,
                     subclass_short_name: 'Divination',
+                    subclass_id: '04c4fb92-5553-4eca-87ce-ac26d7f51998',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -434,6 +458,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 116,
                     subclass_short_name: 'Divination',
+                    subclass_id: '04c4fb92-5553-4eca-87ce-ac26d7f51998',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -449,6 +474,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 116,
                     subclass_short_name: 'Divination',
+                    subclass_id: '04c4fb92-5553-4eca-87ce-ac26d7f51998',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -465,6 +491,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 116,
                     subclass_short_name: 'Divination',
+                    subclass_id: '04c4fb92-5553-4eca-87ce-ac26d7f51998',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -480,6 +507,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 116,
                     subclass_short_name: 'Divination',
+                    subclass_id: '04c4fb92-5553-4eca-87ce-ac26d7f51998',
                     subclass_source: 'PHB',
                     level: 10,
                     entries: {
@@ -524,6 +552,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 116,
                     subclass_short_name: 'Divination',
+                    subclass_id: '04c4fb92-5553-4eca-87ce-ac26d7f51998',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -539,6 +568,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 117,
                     subclass_short_name: 'Enchantment',
+                    subclass_id: '64184115-b209-4db3-a43c-3909d1bb8d5e',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -562,6 +592,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 117,
                     subclass_short_name: 'Enchantment',
+                    subclass_id: '64184115-b209-4db3-a43c-3909d1bb8d5e',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -577,6 +608,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 117,
                     subclass_short_name: 'Enchantment',
+                    subclass_id: '64184115-b209-4db3-a43c-3909d1bb8d5e',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -594,6 +626,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 117,
                     subclass_short_name: 'Enchantment',
+                    subclass_id: '64184115-b209-4db3-a43c-3909d1bb8d5e',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -610,6 +643,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 117,
                     subclass_short_name: 'Enchantment',
+                    subclass_id: '64184115-b209-4db3-a43c-3909d1bb8d5e',
                     subclass_source: 'PHB',
                     level: 10,
                     entries: {
@@ -625,6 +659,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 117,
                     subclass_short_name: 'Enchantment',
+                    subclass_id: '64184115-b209-4db3-a43c-3909d1bb8d5e',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -641,6 +676,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 117,
                     subclass_short_name: 'Evocation',
+                    subclass_id: '030a9b0c-2ebb-4ed4-a38d-85ab55ecf706',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -664,6 +700,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 117,
                     subclass_short_name: 'Evocation',
+                    subclass_id: '030a9b0c-2ebb-4ed4-a38d-85ab55ecf706',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -679,6 +716,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 117,
                     subclass_short_name: 'Evocation',
+                    subclass_id: '030a9b0c-2ebb-4ed4-a38d-85ab55ecf706',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -694,6 +732,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 117,
                     subclass_short_name: 'Evocation',
+                    subclass_id: '030a9b0c-2ebb-4ed4-a38d-85ab55ecf706',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -709,6 +748,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 117,
                     subclass_short_name: 'Evocation',
+                    subclass_id: '030a9b0c-2ebb-4ed4-a38d-85ab55ecf706',
                     subclass_source: 'PHB',
                     level: 10,
                     entries: {
@@ -724,6 +764,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 117,
                     subclass_short_name: 'Evocation',
+                    subclass_id: '030a9b0c-2ebb-4ed4-a38d-85ab55ecf706',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -740,6 +781,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 118,
                     subclass_short_name: 'Illusion',
+                    subclass_id: 'a9349f5d-5868-4e85-9cac-4c44acb1cd75',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -763,6 +805,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 118,
                     subclass_short_name: 'Illusion',
+                    subclass_id: 'a9349f5d-5868-4e85-9cac-4c44acb1cd75',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -778,6 +821,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 118,
                     subclass_short_name: 'Illusion',
+                    subclass_id: 'a9349f5d-5868-4e85-9cac-4c44acb1cd75',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -794,6 +838,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 118,
                     subclass_short_name: 'Illusion',
+                    subclass_id: 'a9349f5d-5868-4e85-9cac-4c44acb1cd75',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -809,6 +854,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 118,
                     subclass_short_name: 'Illusion',
+                    subclass_id: 'a9349f5d-5868-4e85-9cac-4c44acb1cd75',
                     subclass_source: 'PHB',
                     level: 10,
                     entries: {
@@ -825,6 +871,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 118,
                     subclass_short_name: 'Illusion',
+                    subclass_id: 'a9349f5d-5868-4e85-9cac-4c44acb1cd75',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -841,6 +888,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 118,
                     subclass_short_name: 'Necromancy',
+                    subclass_id: 'e1a9ef50-6ade-43fc-a843-79cd4ab4a70f',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -865,6 +913,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 118,
                     subclass_short_name: 'Necromancy',
+                    subclass_id: 'e1a9ef50-6ade-43fc-a843-79cd4ab4a70f',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -880,6 +929,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 118,
                     subclass_short_name: 'Necromancy',
+                    subclass_id: 'e1a9ef50-6ade-43fc-a843-79cd4ab4a70f',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -895,6 +945,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 118,
                     subclass_short_name: 'Necromancy',
+                    subclass_id: 'e1a9ef50-6ade-43fc-a843-79cd4ab4a70f',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -918,6 +969,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 118,
                     subclass_short_name: 'Necromancy',
+                    subclass_id: 'e1a9ef50-6ade-43fc-a843-79cd4ab4a70f',
                     subclass_source: 'PHB',
                     level: 10,
                     entries: {
@@ -933,6 +985,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 118,
                     subclass_short_name: 'Necromancy',
+                    subclass_id: 'e1a9ef50-6ade-43fc-a843-79cd4ab4a70f',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -949,6 +1002,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 119,
                     subclass_short_name: 'Transmutation',
+                    subclass_id: 'f6eb118d-3883-449d-aa77-db575537ab8f',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -973,6 +1027,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 119,
                     subclass_short_name: 'Transmutation',
+                    subclass_id: 'f6eb118d-3883-449d-aa77-db575537ab8f',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -988,6 +1043,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 119,
                     subclass_short_name: 'Transmutation',
+                    subclass_id: 'f6eb118d-3883-449d-aa77-db575537ab8f',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -1003,6 +1059,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 119,
                     subclass_short_name: 'Transmutation',
+                    subclass_id: 'f6eb118d-3883-449d-aa77-db575537ab8f',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -1029,6 +1086,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 119,
                     subclass_short_name: 'Transmutation',
+                    subclass_id: 'f6eb118d-3883-449d-aa77-db575537ab8f',
                     subclass_source: 'PHB',
                     level: 10,
                     entries: {
@@ -1045,6 +1103,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 119,
                     subclass_short_name: 'Transmutation',
+                    subclass_id: 'f6eb118d-3883-449d-aa77-db575537ab8f',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -1093,6 +1152,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 76,
                     subclass_short_name: 'Bladesinging',
+                    subclass_id: '832afe69-cbad-483e-9463-c0dc9db09dd0',
                     subclass_source: 'TCE',
                     level: 2,
                     entries: {
@@ -1121,6 +1181,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 76,
                     subclass_short_name: 'Bladesinging',
+                    subclass_id: '832afe69-cbad-483e-9463-c0dc9db09dd0',
                     subclass_source: 'TCE',
                     level: 2,
                     entries: {
@@ -1158,6 +1219,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 76,
                     subclass_short_name: 'Bladesinging',
+                    subclass_id: '832afe69-cbad-483e-9463-c0dc9db09dd0',
                     subclass_source: 'TCE',
                     level: 2,
                     entries: {
@@ -1185,6 +1247,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 76,
                     subclass_short_name: 'Bladesinging',
+                    subclass_id: '832afe69-cbad-483e-9463-c0dc9db09dd0',
                     subclass_source: 'TCE',
                     level: 2,
                     entries: {
@@ -1201,6 +1264,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 76,
                     subclass_short_name: 'Bladesinging',
+                    subclass_id: '832afe69-cbad-483e-9463-c0dc9db09dd0',
                     subclass_source: 'TCE',
                     level: 6,
                     entries: {
@@ -1216,6 +1280,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 76,
                     subclass_short_name: 'Bladesinging',
+                    subclass_id: '832afe69-cbad-483e-9463-c0dc9db09dd0',
                     subclass_source: 'TCE',
                     level: 10,
                     entries: {
@@ -1231,6 +1296,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 76,
                     subclass_short_name: 'Bladesinging',
+                    subclass_id: '832afe69-cbad-483e-9463-c0dc9db09dd0',
                     subclass_source: 'TCE',
                     level: 14,
                     entries: {
@@ -1246,6 +1312,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 77,
                     subclass_short_name: 'Scribes',
+                    subclass_id: '675ebfd8-2765-4d83-af7b-6ad5319ee17d',
                     subclass_source: 'TCE',
                     level: 2,
                     entries: {
@@ -1270,6 +1337,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 77,
                     subclass_short_name: 'Scribes',
+                    subclass_id: '675ebfd8-2765-4d83-af7b-6ad5319ee17d',
                     subclass_source: 'TCE',
                     level: 2,
                     entries: {
@@ -1296,6 +1364,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 77,
                     subclass_short_name: 'Scribes',
+                    subclass_id: '675ebfd8-2765-4d83-af7b-6ad5319ee17d',
                     subclass_source: 'TCE',
                     level: 2,
                     entries: {
@@ -1321,6 +1390,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 77,
                     subclass_short_name: 'Scribes',
+                    subclass_id: '675ebfd8-2765-4d83-af7b-6ad5319ee17d',
                     subclass_source: 'TCE',
                     level: 6,
                     entries: {
@@ -1342,6 +1412,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 78,
                     subclass_short_name: 'Scribes',
+                    subclass_id: '675ebfd8-2765-4d83-af7b-6ad5319ee17d',
                     subclass_source: 'TCE',
                     level: 10,
                     entries: {
@@ -1360,6 +1431,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 77,
                     subclass_short_name: 'Scribes',
+                    subclass_id: '675ebfd8-2765-4d83-af7b-6ad5319ee17d',
                     subclass_source: 'TCE',
                     level: 14,
                     entries: {
@@ -1378,7 +1450,8 @@ exports.seed = knex => (
                     name: 'War Magic',
                     source: 'XGE',
                     page: 59,
-                    subclass_short_name: 'War',
+                    subclass_short_name: 'War Magic',
+                    subclass_id: 'ca70bedd-0a46-47e3-8b01-81402eeb4faa',
                     subclass_source: 'XGE',
                     level: 2,
                     entries: {
@@ -1403,7 +1476,8 @@ exports.seed = knex => (
                     name: 'Arcane Deflection',
                     source: 'XGE',
                     page: 59,
-                    subclass_short_name: 'War',
+                    subclass_short_name: 'War Magic',
+                    subclass_id: 'ca70bedd-0a46-47e3-8b01-81402eeb4faa',
                     subclass_source: 'XGE',
                     level: 2,
                     entries: {
@@ -1419,7 +1493,8 @@ exports.seed = knex => (
                     name: 'Tactical Wit',
                     source: 'XGE',
                     page: 59,
-                    subclass_short_name: 'War',
+                    subclass_short_name: 'War Magic',
+                    subclass_id: 'ca70bedd-0a46-47e3-8b01-81402eeb4faa',
                     subclass_source: 'XGE',
                     level: 2,
                     entries: {
@@ -1434,7 +1509,8 @@ exports.seed = knex => (
                     name: 'Power Surge',
                     source: 'XGE',
                     page: 59,
-                    subclass_short_name: 'War',
+                    subclass_short_name: 'War Magic',
+                    subclass_id: 'ca70bedd-0a46-47e3-8b01-81402eeb4faa',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -1451,7 +1527,8 @@ exports.seed = knex => (
                     name: 'Durable Magic',
                     source: 'XGE',
                     page: 59,
-                    subclass_short_name: 'War',
+                    subclass_short_name: 'War Magic',
+                    subclass_id: 'ca70bedd-0a46-47e3-8b01-81402eeb4faa',
                     subclass_source: 'XGE',
                     level: 10,
                     entries: {
@@ -1466,7 +1543,8 @@ exports.seed = knex => (
                     name: 'Deflecting Shroud',
                     source: 'XGE',
                     page: 59,
-                    subclass_short_name: 'War',
+                    subclass_short_name: 'War Magic',
+                    subclass_id: 'ca70bedd-0a46-47e3-8b01-81402eeb4faa',
                     subclass_source: 'XGE',
                     level: 14,
                     entries: {
@@ -1482,6 +1560,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 108,
                     subclass_short_name: 'Archfey',
+                    subclass_id: '2bba6a46-9ea2-444f-bd04-8371833e1e01',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -1521,6 +1600,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 108,
                     subclass_short_name: 'Archfey',
+                    subclass_id: '2bba6a46-9ea2-444f-bd04-8371833e1e01',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -1537,6 +1617,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 108,
                     subclass_short_name: 'Archfey',
+                    subclass_id: '2bba6a46-9ea2-444f-bd04-8371833e1e01',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -1553,6 +1634,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 108,
                     subclass_short_name: 'Archfey',
+                    subclass_id: '2bba6a46-9ea2-444f-bd04-8371833e1e01',
                     subclass_source: 'PHB',
                     level: 10,
                     entries: {
@@ -1568,6 +1650,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 108,
                     subclass_short_name: 'Archfey',
+                    subclass_id: '2bba6a46-9ea2-444f-bd04-8371833e1e01',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -1585,6 +1668,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 109,
                     subclass_short_name: 'Fiend',
+                    subclass_id: '2214c5b5-d34d-4920-a180-0ee7563871e7',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -1624,6 +1708,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 109,
                     subclass_short_name: 'Fiend',
+                    subclass_id: '2214c5b5-d34d-4920-a180-0ee7563871e7',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -1639,6 +1724,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 109,
                     subclass_short_name: 'Fiend',
+                    subclass_id: '2214c5b5-d34d-4920-a180-0ee7563871e7',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -1655,6 +1741,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 109,
                     subclass_short_name: 'Fiend',
+                    subclass_id: '2214c5b5-d34d-4920-a180-0ee7563871e7',
                     subclass_source: 'PHB',
                     level: 10,
                     entries: {
@@ -1670,6 +1757,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 109,
                     subclass_short_name: 'Fiend',
+                    subclass_id: '2214c5b5-d34d-4920-a180-0ee7563871e7',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -1687,6 +1775,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 109,
                     subclass_short_name: 'Great Old One',
+                    subclass_id: '0beea624-6747-4517-9234-cd5458fee338',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -1726,6 +1815,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 109,
                     subclass_short_name: 'Great Old One',
+                    subclass_id: '0beea624-6747-4517-9234-cd5458fee338',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -1741,6 +1831,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 109,
                     subclass_short_name: 'Great Old One',
+                    subclass_id: '0beea624-6747-4517-9234-cd5458fee338',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -1757,6 +1848,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 109,
                     subclass_short_name: 'Great Old One',
+                    subclass_id: '0beea624-6747-4517-9234-cd5458fee338',
                     subclass_source: 'PHB',
                     level: 10,
                     entries: {
@@ -1772,6 +1864,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 109,
                     subclass_short_name: 'Great Old One',
+                    subclass_id: '0beea624-6747-4517-9234-cd5458fee338',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -1788,6 +1881,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 139,
                     subclass_short_name: 'Undying',
+                    subclass_id: '64fa2272-a52c-40eb-ba10-60ea24deaa05',
                     subclass_source: 'SCAG',
                     level: 1,
                     entries: {
@@ -1828,6 +1922,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 139,
                     subclass_short_name: 'Undying',
+                    subclass_id: '64fa2272-a52c-40eb-ba10-60ea24deaa05',
                     subclass_source: 'SCAG',
                     level: 1,
                     entries: {
@@ -1844,6 +1939,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 139,
                     subclass_short_name: 'Undying',
+                    subclass_id: '64fa2272-a52c-40eb-ba10-60ea24deaa05',
                     subclass_source: 'SCAG',
                     level: 6,
                     entries: {
@@ -1860,6 +1956,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 139,
                     subclass_short_name: 'Undying',
+                    subclass_id: '64fa2272-a52c-40eb-ba10-60ea24deaa05',
                     subclass_source: 'SCAG',
                     level: 10,
                     entries: {
@@ -1876,6 +1973,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 139,
                     subclass_short_name: 'Undying',
+                    subclass_id: '64fa2272-a52c-40eb-ba10-60ea24deaa05',
                     subclass_source: 'SCAG',
                     level: 14,
                     entries: {
@@ -1892,6 +1990,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 72,
                     subclass_short_name: 'Fathomless',
+                    subclass_id: '2f53b095-a374-4b59-9268-c1955a39675d',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -1938,6 +2037,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 72,
                     subclass_short_name: 'Fathomless',
+                    subclass_id: '2f53b095-a374-4b59-9268-c1955a39675d',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -1954,6 +2054,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 72,
                     subclass_short_name: 'Fathomless',
+                    subclass_id: '2f53b095-a374-4b59-9268-c1955a39675d',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -1973,6 +2074,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 72,
                     subclass_short_name: 'Fathomless',
+                    subclass_id: '2f53b095-a374-4b59-9268-c1955a39675d',
                     subclass_source: 'TCE',
                     level: 6,
                     entries: {
@@ -1989,6 +2091,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 72,
                     subclass_short_name: 'Fathomless',
+                    subclass_id: '2f53b095-a374-4b59-9268-c1955a39675d',
                     subclass_source: 'TCE',
                     level: 6,
                     entries: {
@@ -2005,6 +2108,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 72,
                     subclass_short_name: 'Fathomless',
+                    subclass_id: '2f53b095-a374-4b59-9268-c1955a39675d',
                     subclass_source: 'TCE',
                     level: 10,
                     entries: {
@@ -2022,6 +2126,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 72,
                     subclass_short_name: 'Fathomless',
+                    subclass_id: '2f53b095-a374-4b59-9268-c1955a39675d',
                     subclass_source: 'TCE',
                     level: 14,
                     entries: {
@@ -2039,6 +2144,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 73,
                     subclass_short_name: 'Genie',
+                    subclass_id: 'c50bfde0-9bf7-43f6-8d6f-754474e15b1b',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -2142,6 +2248,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 73,
                     subclass_short_name: 'Genie',
+                    subclass_id: 'c50bfde0-9bf7-43f6-8d6f-754474e15b1b',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -2189,6 +2296,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 73,
                     subclass_short_name: 'Genie',
+                    subclass_id: 'c50bfde0-9bf7-43f6-8d6f-754474e15b1b',
                     subclass_source: 'TCE',
                     level: 6,
                     entries: {
@@ -2206,6 +2314,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 73,
                     subclass_short_name: 'Genie',
+                    subclass_id: 'c50bfde0-9bf7-43f6-8d6f-754474e15b1b',
                     subclass_source: 'TCE',
                     level: 10,
                     entries: {
@@ -2224,6 +2333,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 73,
                     subclass_short_name: 'Genie',
+                    subclass_id: 'c50bfde0-9bf7-43f6-8d6f-754474e15b1b',
                     subclass_source: 'TCE',
                     level: 14,
                     entries: {
@@ -2241,6 +2351,7 @@ exports.seed = knex => (
                     source: 'VRGR',
                     page: 30,
                     subclass_short_name: 'Undead',
+                    subclass_id: '20d098ef-cb7c-4887-9fe4-0a5d3aefd3c2',
                     subclass_source: 'VRGR',
                     level: 1,
                     entries: {
@@ -2282,6 +2393,7 @@ exports.seed = knex => (
                     source: 'VRGR',
                     page: 30,
                     subclass_short_name: 'Undead',
+                    subclass_id: '20d098ef-cb7c-4887-9fe4-0a5d3aefd3c2',
                     subclass_source: 'VRGR',
                     level: 1,
                     entries: {
@@ -2308,6 +2420,7 @@ exports.seed = knex => (
                     source: 'VRGR',
                     page: 30,
                     subclass_short_name: 'Undead',
+                    subclass_id: '20d098ef-cb7c-4887-9fe4-0a5d3aefd3c2',
                     subclass_source: 'VRGR',
                     level: 6,
                     entries: {
@@ -2325,6 +2438,7 @@ exports.seed = knex => (
                     source: 'VRGR',
                     page: 30,
                     subclass_short_name: 'Undead',
+                    subclass_id: '20d098ef-cb7c-4887-9fe4-0a5d3aefd3c2',
                     subclass_source: 'VRGR',
                     level: 10,
                     entries: {
@@ -2342,6 +2456,7 @@ exports.seed = knex => (
                     source: 'VRGR',
                     page: 30,
                     subclass_short_name: 'Undead',
+                    subclass_id: '20d098ef-cb7c-4887-9fe4-0a5d3aefd3c2',
                     subclass_source: 'VRGR',
                     level: 14,
                     entries: {
@@ -2370,6 +2485,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 54,
                     subclass_short_name: 'Celestial',
+                    subclass_id: 'c87d4c5f-37d1-456d-841d-7b0b3dd560eb',
                     subclass_source: 'XGE',
                     level: 1,
                     entries: {
@@ -2414,6 +2530,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 54,
                     subclass_short_name: 'Celestial',
+                    subclass_id: 'c87d4c5f-37d1-456d-841d-7b0b3dd560eb',
                     subclass_source: 'XGE',
                     level: 1,
                     entries: {
@@ -2429,6 +2546,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 54,
                     subclass_short_name: 'Celestial',
+                    subclass_id: 'c87d4c5f-37d1-456d-841d-7b0b3dd560eb',
                     subclass_source: 'XGE',
                     level: 1,
                     entries: {
@@ -2446,6 +2564,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 54,
                     subclass_short_name: 'Celestial',
+                    subclass_id: 'c87d4c5f-37d1-456d-841d-7b0b3dd560eb',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -2461,6 +2580,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 54,
                     subclass_short_name: 'Celestial',
+                    subclass_id: 'c87d4c5f-37d1-456d-841d-7b0b3dd560eb',
                     subclass_source: 'XGE',
                     level: 10,
                     entries: {
@@ -2476,6 +2596,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 54,
                     subclass_short_name: 'Celestial',
+                    subclass_id: 'c87d4c5f-37d1-456d-841d-7b0b3dd560eb',
                     subclass_source: 'XGE',
                     level: 14,
                     entries: {
@@ -2492,6 +2613,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 55,
                     subclass_short_name: 'Hexblade',
+                    subclass_id: 'ee52fef1-dcb4-47d7-977f-d098f8018874',
                     subclass_source: 'XGE',
                     level: 1,
                     entries: {
@@ -2536,6 +2658,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 55,
                     subclass_short_name: 'Hexblade',
+                    subclass_id: 'ee52fef1-dcb4-47d7-977f-d098f8018874',
                     subclass_source: 'XGE',
                     level: 1,
                     entries: {
@@ -2552,6 +2675,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 55,
                     subclass_short_name: 'Hexblade',
+                    subclass_id: 'ee52fef1-dcb4-47d7-977f-d098f8018874',
                     subclass_source: 'XGE',
                     level: 1,
                     entries: {
@@ -2576,6 +2700,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 55,
                     subclass_short_name: 'Hexblade',
+                    subclass_id: 'ee52fef1-dcb4-47d7-977f-d098f8018874',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -2593,6 +2718,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 55,
                     subclass_short_name: 'Hexblade',
+                    subclass_id: 'ee52fef1-dcb4-47d7-977f-d098f8018874',
                     subclass_source: 'XGE',
                     level: 10,
                     entries: {
@@ -2608,6 +2734,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 55,
                     subclass_short_name: 'Hexblade',
+                    subclass_id: 'ee52fef1-dcb4-47d7-977f-d098f8018874',
                     subclass_source: 'XGE',
                     level: 14,
                     entries: {
@@ -2623,6 +2750,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 73,
                     subclass_short_name: 'Genie',
+                    subclass_id: 'c50bfde0-9bf7-43f6-8d6f-754474e15b1b',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -2638,6 +2766,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 73,
                     subclass_short_name: 'Genie',
+                    subclass_id: 'c50bfde0-9bf7-43f6-8d6f-754474e15b1b',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -2653,6 +2782,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 102,
                     subclass_short_name: 'Draconic',
+                    subclass_id: '971fddc9-e7c9-4c2c-a968-331f067e1646',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -2676,6 +2806,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 102,
                     subclass_short_name: 'Draconic',
+                    subclass_id: '971fddc9-e7c9-4c2c-a968-331f067e1646',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -2692,6 +2823,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 102,
                     subclass_short_name: 'Draconic',
+                    subclass_id: '971fddc9-e7c9-4c2c-a968-331f067e1646',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -2726,6 +2858,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 102,
                     subclass_short_name: 'Draconic',
+                    subclass_id: '971fddc9-e7c9-4c2c-a968-331f067e1646',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -2741,6 +2874,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 102,
                     subclass_short_name: 'Draconic',
+                    subclass_id: '971fddc9-e7c9-4c2c-a968-331f067e1646',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -2757,6 +2891,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 102,
                     subclass_short_name: 'Draconic',
+                    subclass_id: '971fddc9-e7c9-4c2c-a968-331f067e1646',
                     subclass_source: 'PHB',
                     level: 18,
                     entries: {
@@ -2772,6 +2907,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 103,
                     subclass_short_name: 'Wild',
+                    subclass_id: '78b73df4-9cc1-407f-802a-0423712d8dd6',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -2795,6 +2931,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 103,
                     subclass_short_name: 'Wild',
+                    subclass_id: '78b73df4-9cc1-407f-802a-0423712d8dd6',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -2811,6 +2948,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 103,
                     subclass_short_name: 'Wild',
+                    subclass_id: '78b73df4-9cc1-407f-802a-0423712d8dd6',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -2999,6 +3137,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 103,
                     subclass_short_name: 'Wild',
+                    subclass_id: '78b73df4-9cc1-407f-802a-0423712d8dd6',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -3014,6 +3153,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 103,
                     subclass_short_name: 'Wild',
+                    subclass_id: '78b73df4-9cc1-407f-802a-0423712d8dd6',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -3029,6 +3169,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 103,
                     subclass_short_name: 'Wild',
+                    subclass_id: '78b73df4-9cc1-407f-802a-0423712d8dd6',
                     subclass_source: 'PHB',
                     level: 18,
                     entries: {
@@ -3044,6 +3185,7 @@ exports.seed = knex => (
                     source: 'PSK',
                     page: 9,
                     subclass_short_name: 'Pyromancer (PSK)',
+                    subclass_id: 'f570e1f2-15d9-4ea7-a4a5-a54d8b54de38',
                     subclass_source: 'PSK',
                     level: 1,
                     entries: {
@@ -3063,6 +3205,7 @@ exports.seed = knex => (
                     source: 'PSK',
                     page: 9,
                     subclass_short_name: 'Pyromancer (PSK)',
+                    subclass_id: 'f570e1f2-15d9-4ea7-a4a5-a54d8b54de38',
                     subclass_source: 'PSK',
                     level: 1,
                     entries: {
@@ -3078,6 +3221,7 @@ exports.seed = knex => (
                     source: 'PSK',
                     page: 9,
                     subclass_short_name: 'Pyromancer (PSK)',
+                    subclass_id: 'f570e1f2-15d9-4ea7-a4a5-a54d8b54de38',
                     subclass_source: 'PSK',
                     level: 6,
                     entries: {
@@ -3093,6 +3237,7 @@ exports.seed = knex => (
                     source: 'PSK',
                     page: 9,
                     subclass_short_name: 'Pyromancer (PSK)',
+                    subclass_id: 'f570e1f2-15d9-4ea7-a4a5-a54d8b54de38',
                     subclass_source: 'PSK',
                     level: 14,
                     entries: {
@@ -3108,6 +3253,7 @@ exports.seed = knex => (
                     source: 'PSK',
                     page: 9,
                     subclass_short_name: 'Pyromancer (PSK)',
+                    subclass_id: 'f570e1f2-15d9-4ea7-a4a5-a54d8b54de38',
                     subclass_source: 'PSK',
                     level: 18,
                     entries: {
@@ -3123,6 +3269,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 66,
                     subclass_short_name: 'Aberrant Mind',
+                    subclass_id: '411f3237-29be-4f53-b802-2ee97131983b',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -3179,6 +3326,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 66,
                     subclass_short_name: 'Aberrant Mind',
+                    subclass_id: '411f3237-29be-4f53-b802-2ee97131983b',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -3209,6 +3357,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 66,
                     subclass_short_name: 'Aberrant Mind',
+                    subclass_id: '411f3237-29be-4f53-b802-2ee97131983b',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -3226,6 +3375,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 66,
                     subclass_short_name: 'Aberrant Mind',
+                    subclass_id: '411f3237-29be-4f53-b802-2ee97131983b',
                     subclass_source: 'TCE',
                     level: 6,
                     entries: {
@@ -3243,6 +3393,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 66,
                     subclass_short_name: 'Aberrant Mind',
+                    subclass_id: '411f3237-29be-4f53-b802-2ee97131983b',
                     subclass_source: 'TCE',
                     level: 6,
                     entries: {
@@ -3259,6 +3410,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 66,
                     subclass_short_name: 'Aberrant Mind',
+                    subclass_id: '411f3237-29be-4f53-b802-2ee97131983b',
                     subclass_source: 'TCE',
                     level: 14,
                     entries: {
@@ -3284,6 +3436,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 66,
                     subclass_short_name: 'Aberrant Mind',
+                    subclass_id: '411f3237-29be-4f53-b802-2ee97131983b',
                     subclass_source: 'TCE',
                     level: 18,
                     entries: {
@@ -3301,6 +3454,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 68,
                     subclass_short_name: 'Clockwork Soul',
+                    subclass_id: '7b2102b1-7a4f-4e22-b1be-54e6e5d21556',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -3324,6 +3478,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 68,
                     subclass_short_name: 'Clockwork Soul',
+                    subclass_id: '7b2102b1-7a4f-4e22-b1be-54e6e5d21556',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -3378,6 +3533,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 68,
                     subclass_short_name: 'Clockwork Soul',
+                    subclass_id: '7b2102b1-7a4f-4e22-b1be-54e6e5d21556',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -3395,6 +3551,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 68,
                     subclass_short_name: 'Clockwork Soul',
+                    subclass_id: '7b2102b1-7a4f-4e22-b1be-54e6e5d21556',
                     subclass_source: 'TCE',
                     level: 6,
                     entries: {
@@ -3412,6 +3569,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 68,
                     subclass_short_name: 'Clockwork Soul',
+                    subclass_id: '7b2102b1-7a4f-4e22-b1be-54e6e5d21556',
                     subclass_source: 'TCE',
                     level: 14,
                     entries: {
@@ -3429,6 +3587,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 68,
                     subclass_short_name: 'Clockwork Soul',
+                    subclass_id: '7b2102b1-7a4f-4e22-b1be-54e6e5d21556',
                     subclass_source: 'TCE',
                     level: 18,
                     entries: {
@@ -3454,6 +3613,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 50,
                     subclass_short_name: 'Divine Soul',
+                    subclass_id: '5e3e6220-10ca-437e-910b-6c4c54843b5c',
                     subclass_source: 'XGE',
                     level: 1,
                     entries: {
@@ -3480,6 +3640,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 50,
                     subclass_short_name: 'Divine Soul',
+                    subclass_id: '5e3e6220-10ca-437e-910b-6c4c54843b5c',
                     subclass_source: 'XGE',
                     level: 1,
                     entries: {
@@ -3508,6 +3669,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 50,
                     subclass_short_name: 'Divine Soul',
+                    subclass_id: '5e3e6220-10ca-437e-910b-6c4c54843b5c',
                     subclass_source: 'XGE',
                     level: 1,
                     entries: {
@@ -3523,6 +3685,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 50,
                     subclass_short_name: 'Divine Soul',
+                    subclass_id: '5e3e6220-10ca-437e-910b-6c4c54843b5c',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -3538,6 +3701,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 50,
                     subclass_short_name: 'Divine Soul',
+                    subclass_id: '5e3e6220-10ca-437e-910b-6c4c54843b5c',
                     subclass_source: 'XGE',
                     level: 14,
                     entries: {
@@ -3554,6 +3718,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 50,
                     subclass_short_name: 'Divine Soul',
+                    subclass_id: '5e3e6220-10ca-437e-910b-6c4c54843b5c',
                     subclass_source: 'XGE',
                     level: 18,
                     entries: {
@@ -3569,7 +3734,8 @@ exports.seed = knex => (
                     name: 'Shadow Magic',
                     source: 'XGE',
                     page: 50,
-                    subclass_short_name: 'Shadow',
+                    subclass_short_name: 'Shadow Magic',
+                    subclass_id: 'b67debd4-2026-4949-bba0-3f0e343fd486',
                     subclass_source: 'XGE',
                     level: 1,
                     entries: {
@@ -3616,7 +3782,8 @@ exports.seed = knex => (
                     name: 'Eyes of the Dark',
                     source: 'XGE',
                     page: 50,
-                    subclass_short_name: 'Shadow',
+                    subclass_short_name: 'Shadow Magic',
+                    subclass_id: 'b67debd4-2026-4949-bba0-3f0e343fd486',
                     subclass_source: 'XGE',
                     level: 1,
                     entries: {
@@ -3632,7 +3799,8 @@ exports.seed = knex => (
                     name: 'Strength of the Grave',
                     source: 'XGE',
                     page: 50,
-                    subclass_short_name: 'Shadow',
+                    subclass_short_name: 'Shadow Magic',
+                    subclass_id: 'b67debd4-2026-4949-bba0-3f0e343fd486',
                     subclass_source: 'XGE',
                     level: 1,
                     entries: {
@@ -3648,7 +3816,8 @@ exports.seed = knex => (
                     name: 'Hound of Ill Omen',
                     source: 'XGE',
                     page: 50,
-                    subclass_short_name: 'Shadow',
+                    subclass_short_name: 'Shadow Magic',
+                    subclass_id: 'b67debd4-2026-4949-bba0-3f0e343fd486',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -3673,7 +3842,8 @@ exports.seed = knex => (
                     name: 'Shadow Walk',
                     source: 'XGE',
                     page: 50,
-                    subclass_short_name: 'Shadow',
+                    subclass_short_name: 'Way of Shadow',
+                    subclass_id: '3f112332-73db-4b0b-abd5-16505cdd473f',
                     subclass_source: 'XGE',
                     level: 14,
                     entries: {
@@ -3688,7 +3858,8 @@ exports.seed = knex => (
                     name: 'Umbral Form',
                     source: 'XGE',
                     page: 50,
-                    subclass_short_name: 'Shadow',
+                    subclass_short_name: 'Shadow Magic',
+                    subclass_id: 'b67debd4-2026-4949-bba0-3f0e343fd486',
                     subclass_source: 'XGE',
                     level: 18,
                     entries: {
@@ -3705,6 +3876,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 51,
                     subclass_short_name: 'Storm',
+                    subclass_id: '46a6bbdd-aba9-4fd1-b2bc-9a7ed5bd940d',
                     subclass_source: 'XGE',
                     level: 1,
                     entries: {
@@ -3729,6 +3901,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 51,
                     subclass_short_name: 'Storm',
+                    subclass_id: '46a6bbdd-aba9-4fd1-b2bc-9a7ed5bd940d',
                     subclass_source: 'XGE',
                     level: 1,
                     entries: {
@@ -3744,6 +3917,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 51,
                     subclass_short_name: 'Storm',
+                    subclass_id: '46a6bbdd-aba9-4fd1-b2bc-9a7ed5bd940d',
                     subclass_source: 'XGE',
                     level: 1,
                     entries: {
@@ -3759,6 +3933,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 51,
                     subclass_short_name: 'Storm',
+                    subclass_id: '46a6bbdd-aba9-4fd1-b2bc-9a7ed5bd940d',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -3774,6 +3949,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 51,
                     subclass_short_name: 'Storm',
+                    subclass_id: '46a6bbdd-aba9-4fd1-b2bc-9a7ed5bd940d',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -3791,6 +3967,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 51,
                     subclass_short_name: 'Storm',
+                    subclass_id: '46a6bbdd-aba9-4fd1-b2bc-9a7ed5bd940d',
                     subclass_source: 'XGE',
                     level: 14,
                     entries: {
@@ -3806,6 +3983,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 51,
                     subclass_short_name: 'Storm',
+                    subclass_id: '46a6bbdd-aba9-4fd1-b2bc-9a7ed5bd940d',
                     subclass_source: 'XGE',
                     level: 18,
                     entries: {
@@ -3822,6 +4000,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 97,
                     subclass_short_name: 'Arcane Trickster',
+                    subclass_id: 'b2247aaa-babb-48f8-9f5f-ba907ee60054',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -3845,6 +4024,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 97,
                     subclass_short_name: 'Arcane Trickster',
+                    subclass_id: 'b2247aaa-babb-48f8-9f5f-ba907ee60054',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -3870,6 +4050,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 97,
                     subclass_short_name: 'Arcane Trickster',
+                    subclass_id: 'b2247aaa-babb-48f8-9f5f-ba907ee60054',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -3947,6 +4128,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 97,
                     subclass_short_name: 'Arcane Trickster',
+                    subclass_id: 'b2247aaa-babb-48f8-9f5f-ba907ee60054',
                     subclass_source: 'PHB',
                     level: 9,
                     entries: {
@@ -3962,6 +4144,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 97,
                     subclass_short_name: 'Arcane Trickster',
+                    subclass_id: 'b2247aaa-babb-48f8-9f5f-ba907ee60054',
                     subclass_source: 'PHB',
                     level: 13,
                     entries: {
@@ -3977,6 +4160,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 97,
                     subclass_short_name: 'Arcane Trickster',
+                    subclass_id: 'b2247aaa-babb-48f8-9f5f-ba907ee60054',
                     subclass_source: 'PHB',
                     level: 17,
                     entries: {
@@ -3994,6 +4178,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 97,
                     subclass_short_name: 'Assassin',
+                    subclass_id: '2cd12960-117d-4b1d-9068-2528a0df54db',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -4018,6 +4203,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 97,
                     subclass_short_name: 'Assassin',
+                    subclass_id: '2cd12960-117d-4b1d-9068-2528a0df54db',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -4033,6 +4219,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 97,
                     subclass_short_name: 'Assassin',
+                    subclass_id: '2cd12960-117d-4b1d-9068-2528a0df54db',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -4048,6 +4235,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 97,
                     subclass_short_name: 'Assassin',
+                    subclass_id: '2cd12960-117d-4b1d-9068-2528a0df54db',
                     subclass_source: 'PHB',
                     level: 9,
                     entries: {
@@ -4064,6 +4252,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 97,
                     subclass_short_name: 'Assassin',
+                    subclass_id: '2cd12960-117d-4b1d-9068-2528a0df54db',
                     subclass_source: 'PHB',
                     level: 13,
                     entries: {
@@ -4080,6 +4269,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 97,
                     subclass_short_name: 'Assassin',
+                    subclass_id: '2cd12960-117d-4b1d-9068-2528a0df54db',
                     subclass_source: 'PHB',
                     level: 17,
                     entries: {
@@ -4095,6 +4285,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 97,
                     subclass_short_name: 'Thief',
+                    subclass_id: '95045e9a-964f-4434-84d9-2f03ca44875f',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -4118,6 +4309,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 97,
                     subclass_short_name: 'Thief',
+                    subclass_id: '95045e9a-964f-4434-84d9-2f03ca44875f',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -4133,6 +4325,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 97,
                     subclass_short_name: 'Thief',
+                    subclass_id: '95045e9a-964f-4434-84d9-2f03ca44875f',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -4149,6 +4342,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 97,
                     subclass_short_name: 'Thief',
+                    subclass_id: '95045e9a-964f-4434-84d9-2f03ca44875f',
                     subclass_source: 'PHB',
                     level: 9,
                     entries: {
@@ -4164,6 +4358,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 97,
                     subclass_short_name: 'Thief',
+                    subclass_id: '95045e9a-964f-4434-84d9-2f03ca44875f',
                     subclass_source: 'PHB',
                     level: 13,
                     entries: {
@@ -4179,6 +4374,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 97,
                     subclass_short_name: 'Thief',
+                    subclass_id: '95045e9a-964f-4434-84d9-2f03ca44875f',
                     subclass_source: 'PHB',
                     level: 17,
                     entries: {
@@ -4194,6 +4390,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 62,
                     subclass_short_name: 'Phantom',
+                    subclass_id: '5bc2eb08-5aba-4801-a74b-5c651de487e1',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -4219,6 +4416,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 62,
                     subclass_short_name: 'Phantom',
+                    subclass_id: '5bc2eb08-5aba-4801-a74b-5c651de487e1',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -4236,6 +4434,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 62,
                     subclass_short_name: 'Phantom',
+                    subclass_id: '5bc2eb08-5aba-4801-a74b-5c651de487e1',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -4252,6 +4451,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 62,
                     subclass_short_name: 'Phantom',
+                    subclass_id: '5bc2eb08-5aba-4801-a74b-5c651de487e1',
                     subclass_source: 'TCE',
                     level: 9,
                     entries: {
@@ -4277,6 +4477,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 62,
                     subclass_short_name: 'Phantom',
+                    subclass_id: '5bc2eb08-5aba-4801-a74b-5c651de487e1',
                     subclass_source: 'TCE',
                     level: 13,
                     entries: {
@@ -4294,6 +4495,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 62,
                     subclass_short_name: 'Phantom',
+                    subclass_id: '5bc2eb08-5aba-4801-a74b-5c651de487e1',
                     subclass_source: 'TCE',
                     level: 17,
                     entries: {
@@ -4317,6 +4519,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 63,
                     subclass_short_name: 'Soulknife',
+                    subclass_id: '5a460cb3-1052-4302-9de9-9c1863307177',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -4342,6 +4545,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 63,
                     subclass_short_name: 'Soulknife',
+                    subclass_id: '5a460cb3-1052-4302-9de9-9c1863307177',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -4374,6 +4578,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 63,
                     subclass_short_name: 'Soulknife',
+                    subclass_id: '5a460cb3-1052-4302-9de9-9c1863307177',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -4391,6 +4596,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 63,
                     subclass_short_name: 'Soulknife',
+                    subclass_id: '5a460cb3-1052-4302-9de9-9c1863307177',
                     subclass_source: 'TCE',
                     level: 9,
                     entries: {
@@ -4421,6 +4627,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 63,
                     subclass_short_name: 'Soulknife',
+                    subclass_id: '5a460cb3-1052-4302-9de9-9c1863307177',
                     subclass_source: 'TCE',
                     level: 13,
                     entries: {
@@ -4438,6 +4645,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 63,
                     subclass_short_name: 'Soulknife',
+                    subclass_id: '5a460cb3-1052-4302-9de9-9c1863307177',
                     subclass_source: 'TCE',
                     level: 17,
                     entries: {
@@ -4455,6 +4663,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 45,
                     subclass_short_name: 'Inquisitive',
+                    subclass_id: 'd5fd7ed3-849e-4d74-8152-cc9f8c289993',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -4482,6 +4691,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 45,
                     subclass_short_name: 'Inquisitive',
+                    subclass_id: 'd5fd7ed3-849e-4d74-8152-cc9f8c289993',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -4497,6 +4707,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 45,
                     subclass_short_name: 'Inquisitive',
+                    subclass_id: 'd5fd7ed3-849e-4d74-8152-cc9f8c289993',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -4512,6 +4723,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 45,
                     subclass_short_name: 'Inquisitive',
+                    subclass_id: 'd5fd7ed3-849e-4d74-8152-cc9f8c289993',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -4528,6 +4740,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 45,
                     subclass_short_name: 'Inquisitive',
+                    subclass_id: 'd5fd7ed3-849e-4d74-8152-cc9f8c289993',
                     subclass_source: 'XGE',
                     level: 9,
                     entries: {
@@ -4543,6 +4756,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 45,
                     subclass_short_name: 'Inquisitive',
+                    subclass_id: 'd5fd7ed3-849e-4d74-8152-cc9f8c289993',
                     subclass_source: 'XGE',
                     level: 13,
                     entries: {
@@ -4559,6 +4773,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 45,
                     subclass_short_name: 'Inquisitive',
+                    subclass_id: 'd5fd7ed3-849e-4d74-8152-cc9f8c289993',
                     subclass_source: 'XGE',
                     level: 17,
                     entries: {
@@ -4574,6 +4789,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 46,
                     subclass_short_name: 'Mastermind',
+                    subclass_id: '64a69982-da3e-485b-874a-5611de38e610',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -4597,6 +4813,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 46,
                     subclass_short_name: 'Mastermind',
+                    subclass_id: '64a69982-da3e-485b-874a-5611de38e610',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -4613,6 +4830,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 46,
                     subclass_short_name: 'Mastermind',
+                    subclass_id: '64a69982-da3e-485b-874a-5611de38e610',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -4628,6 +4846,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 46,
                     subclass_short_name: 'Mastermind',
+                    subclass_id: '64a69982-da3e-485b-874a-5611de38e610',
                     subclass_source: 'XGE',
                     level: 9,
                     entries: {
@@ -4653,6 +4872,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 46,
                     subclass_short_name: 'Mastermind',
+                    subclass_id: '64a69982-da3e-485b-874a-5611de38e610',
                     subclass_source: 'XGE',
                     level: 13,
                     entries: {
@@ -4668,6 +4888,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 46,
                     subclass_short_name: 'Mastermind',
+                    subclass_id: '64a69982-da3e-485b-874a-5611de38e610',
                     subclass_source: 'XGE',
                     level: 17,
                     entries: {
@@ -4684,6 +4905,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 47,
                     subclass_short_name: 'Scout',
+                    subclass_id: '3fb61bee-17ff-4356-a1e5-849e20327ff7',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -4707,6 +4929,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 47,
                     subclass_short_name: 'Scout',
+                    subclass_id: '3fb61bee-17ff-4356-a1e5-849e20327ff7',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -4722,6 +4945,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 47,
                     subclass_short_name: 'Scout',
+                    subclass_id: '3fb61bee-17ff-4356-a1e5-849e20327ff7',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -4737,6 +4961,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 47,
                     subclass_short_name: 'Scout',
+                    subclass_id: '3fb61bee-17ff-4356-a1e5-849e20327ff7',
                     subclass_source: 'XGE',
                     level: 9,
                     entries: {
@@ -4752,6 +4977,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 47,
                     subclass_short_name: 'Scout',
+                    subclass_id: '3fb61bee-17ff-4356-a1e5-849e20327ff7',
                     subclass_source: 'XGE',
                     level: 13,
                     entries: {
@@ -4768,6 +4994,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 47,
                     subclass_short_name: 'Scout',
+                    subclass_id: '3fb61bee-17ff-4356-a1e5-849e20327ff7',
                     subclass_source: 'XGE',
                     level: 17,
                     entries: {
@@ -4783,6 +5010,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 48,
                     subclass_short_name: 'Swashbuckler',
+                    subclass_id: '221705cd-db67-4e50-9cce-48186f040cfd',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -4807,6 +5035,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 48,
                     subclass_short_name: 'Swashbuckler',
+                    subclass_id: '221705cd-db67-4e50-9cce-48186f040cfd',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -4822,6 +5051,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 48,
                     subclass_short_name: 'Swashbuckler',
+                    subclass_id: '221705cd-db67-4e50-9cce-48186f040cfd',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -4838,6 +5068,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 48,
                     subclass_short_name: 'Swashbuckler',
+                    subclass_id: '221705cd-db67-4e50-9cce-48186f040cfd',
                     subclass_source: 'XGE',
                     level: 9,
                     entries: {
@@ -4855,6 +5086,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 48,
                     subclass_short_name: 'Swashbuckler',
+                    subclass_id: '221705cd-db67-4e50-9cce-48186f040cfd',
                     subclass_source: 'XGE',
                     level: 13,
                     entries: {
@@ -4870,6 +5102,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 48,
                     subclass_short_name: 'Swashbuckler',
+                    subclass_id: '221705cd-db67-4e50-9cce-48186f040cfd',
                     subclass_source: 'XGE',
                     level: 17,
                     entries: {
@@ -4885,6 +5118,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 63,
                     subclass_short_name: 'Soulknife',
+                    subclass_id: '5a460cb3-1052-4302-9de9-9c1863307177',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -4900,6 +5134,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 63,
                     subclass_short_name: 'Soulknife',
+                    subclass_id: '5a460cb3-1052-4302-9de9-9c1863307177',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -4916,6 +5151,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 63,
                     subclass_short_name: 'Soulknife',
+                    subclass_id: '5a460cb3-1052-4302-9de9-9c1863307177',
                     subclass_source: 'TCE',
                     level: 9,
                     entries: {
@@ -4931,6 +5167,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 63,
                     subclass_short_name: 'Soulknife',
+                    subclass_id: '5a460cb3-1052-4302-9de9-9c1863307177',
                     subclass_source: 'TCE',
                     level: 9,
                     entries: {
@@ -4946,6 +5183,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 93,
                     subclass_short_name: 'Beast Master',
+                    subclass_id: '41d393de-3554-4cf0-8188-0ba781292555',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -4974,6 +5212,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 61,
                     subclass_short_name: 'Beast Master',
+                    subclass_id: '41d393de-3554-4cf0-8188-0ba781292555',
                     subclass_source: 'PHB',
                     level: 3,
                     is_class_feature_variant: true,
@@ -4994,6 +5233,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 93,
                     subclass_short_name: 'Beast Master',
+                    subclass_id: '41d393de-3554-4cf0-8188-0ba781292555',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -5013,6 +5253,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 93,
                     subclass_short_name: 'Beast Master',
+                    subclass_id: '41d393de-3554-4cf0-8188-0ba781292555',
                     subclass_source: 'PHB',
                     level: 7,
                     entries: {
@@ -5028,6 +5269,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 93,
                     subclass_short_name: 'Beast Master',
+                    subclass_id: '41d393de-3554-4cf0-8188-0ba781292555',
                     subclass_source: 'PHB',
                     level: 11,
                     entries: {
@@ -5043,6 +5285,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 93,
                     subclass_short_name: 'Beast Master',
+                    subclass_id: '41d393de-3554-4cf0-8188-0ba781292555',
                     subclass_source: 'PHB',
                     level: 15,
                     entries: {
@@ -5058,6 +5301,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 93,
                     subclass_short_name: 'Hunter',
+                    subclass_id: 'c7c1c6e6-c9d7-4709-b5f7-45c49b2d7143',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -5077,6 +5321,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 93,
                     subclass_short_name: 'Hunter',
+                    subclass_id: 'c7c1c6e6-c9d7-4709-b5f7-45c49b2d7143',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -5092,6 +5337,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 93,
                     subclass_short_name: 'Hunter',
+                    subclass_id: 'c7c1c6e6-c9d7-4709-b5f7-45c49b2d7143',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -5125,6 +5371,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 93,
                     subclass_short_name: 'Hunter',
+                    subclass_id: 'c7c1c6e6-c9d7-4709-b5f7-45c49b2d7143',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -5140,6 +5387,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 93,
                     subclass_short_name: 'Hunter',
+                    subclass_id: 'c7c1c6e6-c9d7-4709-b5f7-45c49b2d7143',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -5155,6 +5403,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 93,
                     subclass_short_name: 'Hunter',
+                    subclass_id: 'c7c1c6e6-c9d7-4709-b5f7-45c49b2d7143',
                     subclass_source: 'PHB',
                     level: 7,
                     entries: {
@@ -5188,6 +5437,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 93,
                     subclass_short_name: 'Hunter',
+                    subclass_id: 'c7c1c6e6-c9d7-4709-b5f7-45c49b2d7143',
                     subclass_source: 'PHB',
                     level: 7,
                     entries: {
@@ -5201,6 +5451,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 93,
                     subclass_short_name: 'Hunter',
+                    subclass_id: 'c7c1c6e6-c9d7-4709-b5f7-45c49b2d7143',
                     subclass_source: 'PHB',
                     level: 7,
                     entries: {
@@ -5216,6 +5467,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 93,
                     subclass_short_name: 'Hunter',
+                    subclass_id: 'c7c1c6e6-c9d7-4709-b5f7-45c49b2d7143',
                     subclass_source: 'PHB',
                     level: 7,
                     entries: {
@@ -5229,6 +5481,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 93,
                     subclass_short_name: 'Hunter',
+                    subclass_id: 'c7c1c6e6-c9d7-4709-b5f7-45c49b2d7143',
                     subclass_source: 'PHB',
                     level: 11,
                     entries: {
@@ -5258,6 +5511,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 93,
                     subclass_short_name: 'Hunter',
+                    subclass_id: 'c7c1c6e6-c9d7-4709-b5f7-45c49b2d7143',
                     subclass_source: 'PHB',
                     level: 11,
                     entries: {
@@ -5273,6 +5527,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 93,
                     subclass_short_name: 'Hunter',
+                    subclass_id: 'c7c1c6e6-c9d7-4709-b5f7-45c49b2d7143',
                     subclass_source: 'PHB',
                     level: 11,
                     entries: {
@@ -5288,6 +5543,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 93,
                     subclass_short_name: 'Hunter',
+                    subclass_id: 'c7c1c6e6-c9d7-4709-b5f7-45c49b2d7143',
                     subclass_source: 'PHB',
                     level: 15,
                     entries: {
@@ -5303,6 +5559,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 93,
                     subclass_short_name: 'Hunter',
+                    subclass_id: 'c7c1c6e6-c9d7-4709-b5f7-45c49b2d7143',
                     subclass_source: 'PHB',
                     level: 15,
                     entries: {
@@ -5318,6 +5575,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 93,
                     subclass_short_name: 'Hunter',
+                    subclass_id: 'c7c1c6e6-c9d7-4709-b5f7-45c49b2d7143',
                     subclass_source: 'PHB',
                     level: 15,
                     entries: {
@@ -5351,6 +5609,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 93,
                     subclass_short_name: 'Hunter',
+                    subclass_id: 'c7c1c6e6-c9d7-4709-b5f7-45c49b2d7143',
                     subclass_source: 'PHB',
                     level: 15,
                     entries: {
@@ -5366,6 +5625,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 58,
                     subclass_short_name: 'Fey Wanderer',
+                    subclass_id: '177cad39-6006-454b-83fe-8655051f17a2',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -5393,6 +5653,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 58,
                     subclass_short_name: 'Fey Wanderer',
+                    subclass_id: '177cad39-6006-454b-83fe-8655051f17a2',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -5410,6 +5671,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 58,
                     subclass_short_name: 'Fey Wanderer',
+                    subclass_id: '177cad39-6006-454b-83fe-8655051f17a2',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -5463,6 +5725,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 58,
                     subclass_short_name: 'Fey Wanderer',
+                    subclass_id: '177cad39-6006-454b-83fe-8655051f17a2',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -5480,6 +5743,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 58,
                     subclass_short_name: 'Fey Wanderer',
+                    subclass_id: '177cad39-6006-454b-83fe-8655051f17a2',
                     subclass_source: 'TCE',
                     level: 7,
                     entries: {
@@ -5497,6 +5761,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 58,
                     subclass_short_name: 'Fey Wanderer',
+                    subclass_id: '177cad39-6006-454b-83fe-8655051f17a2',
                     subclass_source: 'TCE',
                     level: 11,
                     entries: {
@@ -5514,6 +5779,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 58,
                     subclass_short_name: 'Fey Wanderer',
+                    subclass_id: '177cad39-6006-454b-83fe-8655051f17a2',
                     subclass_source: 'TCE',
                     level: 15,
                     entries: {
@@ -5531,6 +5797,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 59,
                     subclass_short_name: 'Swarmkeeper',
+                    subclass_id: '91e2079a-e43d-444e-8f82-0920c6eafba4',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -5554,6 +5821,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 59,
                     subclass_short_name: 'Swarmkeeper',
+                    subclass_id: '91e2079a-e43d-444e-8f82-0920c6eafba4',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -5599,6 +5867,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 59,
                     subclass_short_name: 'Swarmkeeper',
+                    subclass_id: '91e2079a-e43d-444e-8f82-0920c6eafba4',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -5629,6 +5898,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 59,
                     subclass_short_name: 'Swarmkeeper',
+                    subclass_id: '91e2079a-e43d-444e-8f82-0920c6eafba4',
                     subclass_source: 'TCE',
                     level: 7,
                     entries: {
@@ -5646,6 +5916,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 59,
                     subclass_short_name: 'Swarmkeeper',
+                    subclass_id: '91e2079a-e43d-444e-8f82-0920c6eafba4',
                     subclass_source: 'TCE',
                     level: 11,
                     entries: {
@@ -5670,6 +5941,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 59,
                     subclass_short_name: 'Swarmkeeper',
+                    subclass_id: '91e2079a-e43d-444e-8f82-0920c6eafba4',
                     subclass_source: 'TCE',
                     level: 15,
                     entries: {
@@ -5687,6 +5959,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 41,
                     subclass_short_name: 'Gloom Stalker',
+                    subclass_id: '29a9832a-0f09-4635-bd33-8334d2a2634e',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -5714,6 +5987,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 41,
                     subclass_short_name: 'Gloom Stalker',
+                    subclass_id: '29a9832a-0f09-4635-bd33-8334d2a2634e',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -5730,6 +6004,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 41,
                     subclass_short_name: 'Gloom Stalker',
+                    subclass_id: '29a9832a-0f09-4635-bd33-8334d2a2634e',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -5758,6 +6033,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 41,
                     subclass_short_name: 'Gloom Stalker',
+                    subclass_id: '29a9832a-0f09-4635-bd33-8334d2a2634e',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -5774,6 +6050,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 41,
                     subclass_short_name: 'Gloom Stalker',
+                    subclass_id: '29a9832a-0f09-4635-bd33-8334d2a2634e',
                     subclass_source: 'XGE',
                     level: 7,
                     entries: {
@@ -5789,6 +6066,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 41,
                     subclass_short_name: 'Gloom Stalker',
+                    subclass_id: '29a9832a-0f09-4635-bd33-8334d2a2634e',
                     subclass_source: 'XGE',
                     level: 11,
                     entries: {
@@ -5804,6 +6082,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 41,
                     subclass_short_name: 'Gloom Stalker',
+                    subclass_id: '29a9832a-0f09-4635-bd33-8334d2a2634e',
                     subclass_source: 'XGE',
                     level: 15,
                     entries: {
@@ -5819,6 +6098,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 42,
                     subclass_short_name: 'Horizon Walker',
+                    subclass_id: '966aa360-6eb8-4512-aadd-882c9c3fbdef',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -5846,6 +6126,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 42,
                     subclass_short_name: 'Horizon Walker',
+                    subclass_id: '966aa360-6eb8-4512-aadd-882c9c3fbdef',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -5863,6 +6144,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 42,
                     subclass_short_name: 'Horizon Walker',
+                    subclass_id: '966aa360-6eb8-4512-aadd-882c9c3fbdef',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -5891,6 +6173,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 42,
                     subclass_short_name: 'Horizon Walker',
+                    subclass_id: '966aa360-6eb8-4512-aadd-882c9c3fbdef',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -5907,6 +6190,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 42,
                     subclass_short_name: 'Horizon Walker',
+                    subclass_id: '966aa360-6eb8-4512-aadd-882c9c3fbdef',
                     subclass_source: 'XGE',
                     level: 7,
                     entries: {
@@ -5923,6 +6207,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 42,
                     subclass_short_name: 'Horizon Walker',
+                    subclass_id: '966aa360-6eb8-4512-aadd-882c9c3fbdef',
                     subclass_source: 'XGE',
                     level: 11,
                     entries: {
@@ -5939,6 +6224,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 42,
                     subclass_short_name: 'Horizon Walker',
+                    subclass_id: '966aa360-6eb8-4512-aadd-882c9c3fbdef',
                     subclass_source: 'XGE',
                     level: 15,
                     entries: {
@@ -5954,6 +6240,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 43,
                     subclass_short_name: 'Monster Slayer',
+                    subclass_id: 'f1fcb321-f6b1-4619-b2c4-f84fba861c93',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -5981,6 +6268,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 43,
                     subclass_short_name: 'Monster Slayer',
+                    subclass_id: 'f1fcb321-f6b1-4619-b2c4-f84fba861c93',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -5997,6 +6285,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 43,
                     subclass_short_name: 'Monster Slayer',
+                    subclass_id: 'f1fcb321-f6b1-4619-b2c4-f84fba861c93',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -6025,6 +6314,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 43,
                     subclass_short_name: 'Monster Slayer',
+                    subclass_id: 'f1fcb321-f6b1-4619-b2c4-f84fba861c93',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -6041,6 +6331,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 43,
                     subclass_short_name: 'Monster Slayer',
+                    subclass_id: 'f1fcb321-f6b1-4619-b2c4-f84fba861c93',
                     subclass_source: 'XGE',
                     level: 7,
                     entries: {
@@ -6056,6 +6347,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 43,
                     subclass_short_name: 'Monster Slayer',
+                    subclass_id: 'f1fcb321-f6b1-4619-b2c4-f84fba861c93',
                     subclass_source: 'XGE',
                     level: 11,
                     entries: {
@@ -6072,6 +6364,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 43,
                     subclass_short_name: 'Monster Slayer',
+                    subclass_id: 'f1fcb321-f6b1-4619-b2c4-f84fba861c93',
                     subclass_source: 'XGE',
                     level: 15,
                     entries: {
@@ -6087,6 +6380,7 @@ exports.seed = knex => (
                     source: 'DMG',
                     page: 97,
                     subclass_short_name: 'Oathbreaker',
+                    subclass_id: 'f483c8ed-589e-4cd8-af1d-da6ad6b469bd',
                     subclass_source: 'DMG',
                     level: 3,
                     entries: {
@@ -6117,6 +6411,7 @@ exports.seed = knex => (
                     source: 'DMG',
                     page: 97,
                     subclass_short_name: 'Oathbreaker',
+                    subclass_id: 'f483c8ed-589e-4cd8-af1d-da6ad6b469bd',
                     subclass_source: 'DMG',
                     level: 3,
                     entries: {
@@ -6132,6 +6427,7 @@ exports.seed = knex => (
                     source: 'DMG',
                     page: 97,
                     subclass_short_name: 'Oathbreaker',
+                    subclass_id: 'f483c8ed-589e-4cd8-af1d-da6ad6b469bd',
                     subclass_source: 'DMG',
                     level: 3,
                     entries: {
@@ -6147,6 +6443,7 @@ exports.seed = knex => (
                     source: 'DMG',
                     page: 97,
                     subclass_short_name: 'Oathbreaker',
+                    subclass_id: 'f483c8ed-589e-4cd8-af1d-da6ad6b469bd',
                     subclass_source: 'DMG',
                     level: 3,
                     entries: {
@@ -6175,6 +6472,7 @@ exports.seed = knex => (
                     source: 'DMG',
                     page: 97,
                     subclass_short_name: 'Oathbreaker',
+                    subclass_id: 'f483c8ed-589e-4cd8-af1d-da6ad6b469bd',
                     subclass_source: 'DMG',
                     level: 7,
                     entries: {
@@ -6191,6 +6489,7 @@ exports.seed = knex => (
                     source: 'DMG',
                     page: 97,
                     subclass_short_name: 'Oathbreaker',
+                    subclass_id: 'f483c8ed-589e-4cd8-af1d-da6ad6b469bd',
                     subclass_source: 'DMG',
                     level: 15,
                     entries: {
@@ -6206,6 +6505,7 @@ exports.seed = knex => (
                     source: 'DMG',
                     page: 97,
                     subclass_short_name: 'Oathbreaker',
+                    subclass_id: 'f483c8ed-589e-4cd8-af1d-da6ad6b469bd',
                     subclass_source: 'DMG',
                     level: 20,
                     entries: {
@@ -6223,6 +6523,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 86,
                     subclass_short_name: 'Ancients',
+                    subclass_id: 'f2c28e2e-b948-4a71-93eb-b379e1f53c9d',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -6256,6 +6557,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 86,
                     subclass_short_name: 'Ancients',
+                    subclass_id: 'f2c28e2e-b948-4a71-93eb-b379e1f53c9d',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -6271,6 +6573,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 86,
                     subclass_short_name: 'Ancients',
+                    subclass_id: 'f2c28e2e-b948-4a71-93eb-b379e1f53c9d',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -6288,6 +6591,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 86,
                     subclass_short_name: 'Ancients',
+                    subclass_id: 'f2c28e2e-b948-4a71-93eb-b379e1f53c9d',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -6316,6 +6620,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 86,
                     subclass_short_name: 'Ancients',
+                    subclass_id: 'f2c28e2e-b948-4a71-93eb-b379e1f53c9d',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -6379,6 +6684,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 86,
                     subclass_short_name: 'Ancients',
+                    subclass_id: 'f2c28e2e-b948-4a71-93eb-b379e1f53c9d',
                     subclass_source: 'PHB',
                     level: 7,
                     entries: {
@@ -6395,6 +6701,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 86,
                     subclass_short_name: 'Ancients',
+                    subclass_id: 'f2c28e2e-b948-4a71-93eb-b379e1f53c9d',
                     subclass_source: 'PHB',
                     level: 15,
                     entries: {
@@ -6411,6 +6718,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 86,
                     subclass_short_name: 'Ancients',
+                    subclass_id: 'f2c28e2e-b948-4a71-93eb-b379e1f53c9d',
                     subclass_source: 'PHB',
                     level: 20,
                     entries: {
@@ -6436,6 +6744,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 85,
                     subclass_short_name: 'Devotion',
+                    subclass_id: '4bd8e37f-ee17-4a82-923e-8975ff64b203',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -6469,6 +6778,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 85,
                     subclass_short_name: 'Devotion',
+                    subclass_id: '4bd8e37f-ee17-4a82-923e-8975ff64b203',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -6485,6 +6795,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 85,
                     subclass_short_name: 'Devotion',
+                    subclass_id: '4bd8e37f-ee17-4a82-923e-8975ff64b203',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -6501,6 +6812,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 85,
                     subclass_short_name: 'Devotion',
+                    subclass_id: '4bd8e37f-ee17-4a82-923e-8975ff64b203',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -6529,6 +6841,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 85,
                     subclass_short_name: 'Devotion',
+                    subclass_id: '4bd8e37f-ee17-4a82-923e-8975ff64b203',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -6600,6 +6913,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 85,
                     subclass_short_name: 'Devotion',
+                    subclass_id: '4bd8e37f-ee17-4a82-923e-8975ff64b203',
                     subclass_source: 'PHB',
                     level: 7,
                     entries: {
@@ -6616,6 +6930,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 85,
                     subclass_short_name: 'Devotion',
+                    subclass_id: '4bd8e37f-ee17-4a82-923e-8975ff64b203',
                     subclass_source: 'PHB',
                     level: 15,
                     entries: {
@@ -6631,6 +6946,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 85,
                     subclass_short_name: 'Devotion',
+                    subclass_id: '4bd8e37f-ee17-4a82-923e-8975ff64b203',
                     subclass_source: 'PHB',
                     level: 20,
                     entries: {
@@ -6649,6 +6965,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 87,
                     subclass_short_name: 'Vengeance',
+                    subclass_id: 'e9c4ff00-3b14-4357-b736-8b4b98eedaa8',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -6682,6 +6999,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 87,
                     subclass_short_name: 'Vengeance',
+                    subclass_id: 'e9c4ff00-3b14-4357-b736-8b4b98eedaa8',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -6699,6 +7017,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 87,
                     subclass_short_name: 'Vengeance',
+                    subclass_id: 'e9c4ff00-3b14-4357-b736-8b4b98eedaa8',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -6714,6 +7033,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 87,
                     subclass_short_name: 'Vengeance',
+                    subclass_id: 'e9c4ff00-3b14-4357-b736-8b4b98eedaa8',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -6742,6 +7062,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 87,
                     subclass_short_name: 'Vengeance',
+                    subclass_id: 'e9c4ff00-3b14-4357-b736-8b4b98eedaa8',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -6805,6 +7126,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 87,
                     subclass_short_name: 'Vengeance',
+                    subclass_id: 'e9c4ff00-3b14-4357-b736-8b4b98eedaa8',
                     subclass_source: 'PHB',
                     level: 7,
                     entries: {
@@ -6820,6 +7142,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 87,
                     subclass_short_name: 'Vengeance',
+                    subclass_id: 'e9c4ff00-3b14-4357-b736-8b4b98eedaa8',
                     subclass_source: 'PHB',
                     level: 15,
                     entries: {
@@ -6835,6 +7158,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 87,
                     subclass_short_name: 'Vengeance',
+                    subclass_id: 'e9c4ff00-3b14-4357-b736-8b4b98eedaa8',
                     subclass_source: 'PHB',
                     level: 20,
                     entries: {
@@ -6858,6 +7182,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 132,
                     subclass_short_name: 'Crown',
+                    subclass_id: '5b836264-d23b-4cb8-918f-632946a2975d',
                     subclass_source: 'SCAG',
                     level: 3,
                     entries: {
@@ -6891,6 +7216,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 132,
                     subclass_short_name: 'Crown',
+                    subclass_id: '5b836264-d23b-4cb8-918f-632946a2975d',
                     subclass_source: 'SCAG',
                     level: 3,
                     entries: {
@@ -6906,6 +7232,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 132,
                     subclass_short_name: 'Crown',
+                    subclass_id: '5b836264-d23b-4cb8-918f-632946a2975d',
                     subclass_source: 'SCAG',
                     level: 3,
                     entries: {
@@ -6921,6 +7248,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 132,
                     subclass_short_name: 'Crown',
+                    subclass_id: '5b836264-d23b-4cb8-918f-632946a2975d',
                     subclass_source: 'SCAG',
                     level: 3,
                     entries: {
@@ -6949,6 +7277,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 132,
                     subclass_short_name: 'Crown',
+                    subclass_id: '5b836264-d23b-4cb8-918f-632946a2975d',
                     subclass_source: 'SCAG',
                     level: 3,
                     entries: {
@@ -7012,6 +7341,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 132,
                     subclass_short_name: 'Crown',
+                    subclass_id: '5b836264-d23b-4cb8-918f-632946a2975d',
                     subclass_source: 'SCAG',
                     level: 7,
                     entries: {
@@ -7027,6 +7357,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 132,
                     subclass_short_name: 'Crown',
+                    subclass_id: '5b836264-d23b-4cb8-918f-632946a2975d',
                     subclass_source: 'SCAG',
                     level: 15,
                     entries: {
@@ -7042,6 +7373,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 132,
                     subclass_short_name: 'Crown',
+                    subclass_id: '5b836264-d23b-4cb8-918f-632946a2975d',
                     subclass_source: 'SCAG',
                     level: 20,
                     entries: {
@@ -7066,6 +7398,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 53,
                     subclass_short_name: 'Glory',
+                    subclass_id: 'c9549a70-96d4-43ff-9130-e0c177353d12',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -7093,6 +7426,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 53,
                     subclass_short_name: 'Glory',
+                    subclass_id: 'c9549a70-96d4-43ff-9130-e0c177353d12',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -7117,6 +7451,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 53,
                     subclass_short_name: 'Glory',
+                    subclass_id: 'c9549a70-96d4-43ff-9130-e0c177353d12',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -7146,6 +7481,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 53,
                     subclass_short_name: 'Glory',
+                    subclass_id: 'c9549a70-96d4-43ff-9130-e0c177353d12',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -7187,6 +7523,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 53,
                     subclass_short_name: 'Glory',
+                    subclass_id: 'c9549a70-96d4-43ff-9130-e0c177353d12',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -7202,6 +7539,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 53,
                     subclass_short_name: 'Glory',
+                    subclass_id: 'c9549a70-96d4-43ff-9130-e0c177353d12',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -7217,6 +7555,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 53,
                     subclass_short_name: 'Glory',
+                    subclass_id: 'c9549a70-96d4-43ff-9130-e0c177353d12',
                     subclass_source: 'TCE',
                     level: 7,
                     entries: {
@@ -7234,6 +7573,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 53,
                     subclass_short_name: 'Glory',
+                    subclass_id: 'c9549a70-96d4-43ff-9130-e0c177353d12',
                     subclass_source: 'TCE',
                     level: 15,
                     entries: {
@@ -7251,6 +7591,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 53,
                     subclass_short_name: 'Glory',
+                    subclass_id: 'c9549a70-96d4-43ff-9130-e0c177353d12',
                     subclass_source: 'TCE',
                     level: 20,
                     entries: {
@@ -7276,6 +7617,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 54,
                     subclass_short_name: 'Watchers',
+                    subclass_id: '53293e45-2f28-4bd8-a316-1e8de1e05bbb',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -7304,6 +7646,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 54,
                     subclass_short_name: 'Watchers',
+                    subclass_id: '53293e45-2f28-4bd8-a316-1e8de1e05bbb',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -7335,6 +7678,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 54,
                     subclass_short_name: 'Watchers',
+                    subclass_id: '53293e45-2f28-4bd8-a316-1e8de1e05bbb',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -7364,6 +7708,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 54,
                     subclass_short_name: 'Watchers',
+                    subclass_id: '53293e45-2f28-4bd8-a316-1e8de1e05bbb',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -7400,6 +7745,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 54,
                     subclass_short_name: 'Watchers',
+                    subclass_id: '53293e45-2f28-4bd8-a316-1e8de1e05bbb',
                     subclass_source: 'TCE',
                     level: 7,
                     entries: {
@@ -7417,6 +7763,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 54,
                     subclass_short_name: 'Watchers',
+                    subclass_id: '53293e45-2f28-4bd8-a316-1e8de1e05bbb',
                     subclass_source: 'TCE',
                     level: 15,
                     entries: {
@@ -7433,6 +7780,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 54,
                     subclass_short_name: 'Watchers',
+                    subclass_id: '53293e45-2f28-4bd8-a316-1e8de1e05bbb',
                     subclass_source: 'TCE',
                     level: 20,
                     entries: {
@@ -7458,6 +7806,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 37,
                     subclass_short_name: 'Conquest',
+                    subclass_id: '897d18a2-8756-4eec-b2d5-5c153f9870f9',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -7492,6 +7841,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 37,
                     subclass_short_name: 'Conquest',
+                    subclass_id: '897d18a2-8756-4eec-b2d5-5c153f9870f9',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -7507,6 +7857,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 37,
                     subclass_short_name: 'Conquest',
+                    subclass_id: '897d18a2-8756-4eec-b2d5-5c153f9870f9',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -7522,6 +7873,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 37,
                     subclass_short_name: 'Conquest',
+                    subclass_id: '897d18a2-8756-4eec-b2d5-5c153f9870f9',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -7550,6 +7902,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 37,
                     subclass_short_name: 'Conquest',
+                    subclass_id: '897d18a2-8756-4eec-b2d5-5c153f9870f9',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -7591,6 +7944,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 37,
                     subclass_short_name: 'Conquest',
+                    subclass_id: '897d18a2-8756-4eec-b2d5-5c153f9870f9',
                     subclass_source: 'XGE',
                     level: 7,
                     entries: {
@@ -7608,6 +7962,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 37,
                     subclass_short_name: 'Conquest',
+                    subclass_id: '897d18a2-8756-4eec-b2d5-5c153f9870f9',
                     subclass_source: 'XGE',
                     level: 15,
                     entries: {
@@ -7623,6 +7978,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 37,
                     subclass_short_name: 'Conquest',
+                    subclass_id: '897d18a2-8756-4eec-b2d5-5c153f9870f9',
                     subclass_source: 'XGE',
                     level: 20,
                     entries: {
@@ -7647,6 +8003,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 38,
                     subclass_short_name: 'Redemption',
+                    subclass_id: '56052d2b-2e5e-4313-b892-61fb82eb4065',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -7681,6 +8038,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 38,
                     subclass_short_name: 'Redemption',
+                    subclass_id: '56052d2b-2e5e-4313-b892-61fb82eb4065',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -7696,6 +8054,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 38,
                     subclass_short_name: 'Redemption',
+                    subclass_id: '56052d2b-2e5e-4313-b892-61fb82eb4065',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -7711,6 +8070,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 38,
                     subclass_short_name: 'Redemption',
+                    subclass_id: '56052d2b-2e5e-4313-b892-61fb82eb4065',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -7739,6 +8099,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 38,
                     subclass_short_name: 'Redemption',
+                    subclass_id: '56052d2b-2e5e-4313-b892-61fb82eb4065',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -7802,6 +8163,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 38,
                     subclass_short_name: 'Redemption',
+                    subclass_id: '56052d2b-2e5e-4313-b892-61fb82eb4065',
                     subclass_source: 'XGE',
                     level: 7,
                     entries: {
@@ -7818,6 +8180,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 38,
                     subclass_short_name: 'Redemption',
+                    subclass_id: '56052d2b-2e5e-4313-b892-61fb82eb4065',
                     subclass_source: 'XGE',
                     level: 15,
                     entries: {
@@ -7833,6 +8196,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 38,
                     subclass_short_name: 'Redemption',
+                    subclass_id: '56052d2b-2e5e-4313-b892-61fb82eb4065',
                     subclass_source: 'XGE',
                     level: 20,
                     entries: {
@@ -7856,6 +8220,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 80,
                     subclass_short_name: 'Four Elements',
+                    subclass_id: '89d1061f-8976-4e9a-b01e-6eac1d47ec98',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -7880,6 +8245,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 80,
                     subclass_short_name: 'Four Elements',
+                    subclass_id: '89d1061f-8976-4e9a-b01e-6eac1d47ec98',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -7918,6 +8284,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 80,
                     subclass_short_name: 'Four Elements',
+                    subclass_id: '89d1061f-8976-4e9a-b01e-6eac1d47ec98',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -8019,6 +8386,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 80,
                     subclass_short_name: 'Four Elements',
+                    subclass_id: '89d1061f-8976-4e9a-b01e-6eac1d47ec98',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -8035,6 +8403,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 80,
                     subclass_short_name: 'Four Elements',
+                    subclass_id: '89d1061f-8976-4e9a-b01e-6eac1d47ec98',
                     subclass_source: 'PHB',
                     level: 11,
                     entries: {
@@ -8051,6 +8420,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 80,
                     subclass_short_name: 'Four Elements',
+                    subclass_id: '89d1061f-8976-4e9a-b01e-6eac1d47ec98',
                     subclass_source: 'PHB',
                     level: 17,
                     entries: {
@@ -8067,6 +8437,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 79,
                     subclass_short_name: 'Open Hand',
+                    subclass_id: '66a90984-598f-42d0-8561-3c408f387fea',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -8086,6 +8457,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 79,
                     subclass_short_name: 'Open Hand',
+                    subclass_id: '66a90984-598f-42d0-8561-3c408f387fea',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -8109,6 +8481,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 79,
                     subclass_short_name: 'Open Hand',
+                    subclass_id: '66a90984-598f-42d0-8561-3c408f387fea',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -8124,6 +8497,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 79,
                     subclass_short_name: 'Open Hand',
+                    subclass_id: '66a90984-598f-42d0-8561-3c408f387fea',
                     subclass_source: 'PHB',
                     level: 11,
                     entries: {
@@ -8139,6 +8513,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 79,
                     subclass_short_name: 'Open Hand',
+                    subclass_id: '66a90984-598f-42d0-8561-3c408f387fea',
                     subclass_source: 'PHB',
                     level: 17,
                     entries: {
@@ -8154,7 +8529,8 @@ exports.seed = knex => (
                     name: 'Way of Shadow',
                     source: 'PHB',
                     page: 80,
-                    subclass_short_name: 'Shadow',
+                    subclass_short_name: 'Way of Shadow',
+                    subclass_id: '3f112332-73db-4b0b-abd5-16505cdd473f',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -8173,7 +8549,8 @@ exports.seed = knex => (
                     name: 'Shadow Arts',
                     source: 'PHB',
                     page: 80,
-                    subclass_short_name: 'Shadow',
+                    subclass_short_name: 'Shadow Magic',
+                    subclass_id: 'b67debd4-2026-4949-bba0-3f0e343fd486',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -8188,7 +8565,8 @@ exports.seed = knex => (
                     name: 'Shadow Step',
                     source: 'PHB',
                     page: 80,
-                    subclass_short_name: 'Shadow',
+                    subclass_short_name: 'Way of Shadow',
+                    subclass_id: '3f112332-73db-4b0b-abd5-16505cdd473f',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -8203,7 +8581,8 @@ exports.seed = knex => (
                     name: 'Cloak of Shadows',
                     source: 'PHB',
                     page: 80,
-                    subclass_short_name: 'Shadow',
+                    subclass_short_name: 'Way of Shadow',
+                    subclass_id: '3f112332-73db-4b0b-abd5-16505cdd473f',
                     subclass_source: 'PHB',
                     level: 11,
                     entries: {
@@ -8218,7 +8597,8 @@ exports.seed = knex => (
                     name: 'Opportunist',
                     source: 'PHB',
                     page: 80,
-                    subclass_short_name: 'Shadow',
+                    subclass_short_name: 'Way of Shadow',
+                    subclass_id: '3f112332-73db-4b0b-abd5-16505cdd473f',
                     subclass_source: 'PHB',
                     level: 17,
                     entries: {
@@ -8234,6 +8614,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 130,
                     subclass_short_name: 'Long Death',
+                    subclass_id: 'dae057c1-2342-4599-859f-2b7a07e4726e',
                     subclass_source: 'SCAG',
                     level: 3,
                     entries: {
@@ -8253,6 +8634,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 130,
                     subclass_short_name: 'Long Death',
+                    subclass_id: 'dae057c1-2342-4599-859f-2b7a07e4726e',
                     subclass_source: 'SCAG',
                     level: 3,
                     entries: {
@@ -8268,6 +8650,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 130,
                     subclass_short_name: 'Long Death',
+                    subclass_id: 'dae057c1-2342-4599-859f-2b7a07e4726e',
                     subclass_source: 'SCAG',
                     level: 6,
                     entries: {
@@ -8283,6 +8666,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 130,
                     subclass_short_name: 'Long Death',
+                    subclass_id: 'dae057c1-2342-4599-859f-2b7a07e4726e',
                     subclass_source: 'SCAG',
                     level: 11,
                     entries: {
@@ -8298,6 +8682,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 130,
                     subclass_short_name: 'Long Death',
+                    subclass_id: 'dae057c1-2342-4599-859f-2b7a07e4726e',
                     subclass_source: 'SCAG',
                     level: 17,
                     entries: {
@@ -8313,6 +8698,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 50,
                     subclass_short_name: 'Astral Self',
+                    subclass_id: '6f5a2d4f-91ec-4d9c-82c9-7ea81f4b74cb',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -8336,6 +8722,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 50,
                     subclass_short_name: 'Astral Self',
+                    subclass_id: '6f5a2d4f-91ec-4d9c-82c9-7ea81f4b74cb',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -8363,6 +8750,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 50,
                     subclass_short_name: 'Astral Self',
+                    subclass_id: '6f5a2d4f-91ec-4d9c-82c9-7ea81f4b74cb',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -8379,6 +8767,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 50,
                     subclass_short_name: 'Astral Self',
+                    subclass_id: '6f5a2d4f-91ec-4d9c-82c9-7ea81f4b74cb',
                     subclass_source: 'TCE',
                     level: 6,
                     entries: {
@@ -8418,6 +8807,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 50,
                     subclass_short_name: 'Astral Self',
+                    subclass_id: '6f5a2d4f-91ec-4d9c-82c9-7ea81f4b74cb',
                     subclass_source: 'TCE',
                     level: 11,
                     entries: {
@@ -8449,6 +8839,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 50,
                     subclass_short_name: 'Astral Self',
+                    subclass_id: '6f5a2d4f-91ec-4d9c-82c9-7ea81f4b74cb',
                     subclass_source: 'TCE',
                     level: 17,
                     entries: {
@@ -8478,6 +8869,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 49,
                     subclass_short_name: 'Mercy',
+                    subclass_id: '424a5e25-7ebd-460b-9efb-207c1d1fd77b',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -8507,6 +8899,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 49,
                     subclass_short_name: 'Mercy',
+                    subclass_id: '424a5e25-7ebd-460b-9efb-207c1d1fd77b',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -8523,6 +8916,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 49,
                     subclass_short_name: 'Mercy',
+                    subclass_id: '424a5e25-7ebd-460b-9efb-207c1d1fd77b',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -8540,6 +8934,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 49,
                     subclass_short_name: 'Mercy',
+                    subclass_id: '424a5e25-7ebd-460b-9efb-207c1d1fd77b',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -8571,6 +8966,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 49,
                     subclass_short_name: 'Mercy',
+                    subclass_id: '424a5e25-7ebd-460b-9efb-207c1d1fd77b',
                     subclass_source: 'TCE',
                     level: 6,
                     entries: {
@@ -8589,6 +8985,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 49,
                     subclass_short_name: 'Mercy',
+                    subclass_id: '424a5e25-7ebd-460b-9efb-207c1d1fd77b',
                     subclass_source: 'TCE',
                     level: 11,
                     entries: {
@@ -8606,6 +9003,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 49,
                     subclass_short_name: 'Mercy',
+                    subclass_id: '424a5e25-7ebd-460b-9efb-207c1d1fd77b',
                     subclass_source: 'TCE',
                     level: 17,
                     entries: {
@@ -8623,6 +9021,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 33,
                     subclass_short_name: 'Drunken Master',
+                    subclass_id: 'ba225eff-cc40-4c37-9377-4889e697e972',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -8647,6 +9046,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 33,
                     subclass_short_name: 'Drunken Master',
+                    subclass_id: 'ba225eff-cc40-4c37-9377-4889e697e972',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -8662,6 +9062,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 33,
                     subclass_short_name: 'Drunken Master',
+                    subclass_id: 'ba225eff-cc40-4c37-9377-4889e697e972',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -8677,6 +9078,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 33,
                     subclass_short_name: 'Drunken Master',
+                    subclass_id: 'ba225eff-cc40-4c37-9377-4889e697e972',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -8706,6 +9108,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 33,
                     subclass_short_name: 'Drunken Master',
+                    subclass_id: 'ba225eff-cc40-4c37-9377-4889e697e972',
                     subclass_source: 'XGE',
                     level: 11,
                     entries: {
@@ -8721,6 +9124,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 33,
                     subclass_short_name: 'Drunken Master',
+                    subclass_id: 'ba225eff-cc40-4c37-9377-4889e697e972',
                     subclass_source: 'XGE',
                     level: 17,
                     entries: {
@@ -8736,6 +9140,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 34,
                     subclass_short_name: 'Kensei',
+                    subclass_id: 'f37ac38b-d258-4297-8118-1e63ad20bd46',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -8756,6 +9161,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 34,
                     subclass_short_name: 'Kensei',
+                    subclass_id: 'f37ac38b-d258-4297-8118-1e63ad20bd46',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -8798,6 +9204,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 34,
                     subclass_short_name: 'Kensei',
+                    subclass_id: 'f37ac38b-d258-4297-8118-1e63ad20bd46',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -8827,6 +9234,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 34,
                     subclass_short_name: 'Kensei',
+                    subclass_id: 'f37ac38b-d258-4297-8118-1e63ad20bd46',
                     subclass_source: 'XGE',
                     level: 11,
                     entries: {
@@ -8842,6 +9250,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 34,
                     subclass_short_name: 'Kensei',
+                    subclass_id: 'f37ac38b-d258-4297-8118-1e63ad20bd46',
                     subclass_source: 'XGE',
                     level: 17,
                     entries: {
@@ -8857,6 +9266,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 35,
                     subclass_short_name: 'Sun Soul',
+                    subclass_id: '6610f30f-eee8-43a7-8cce-6b849a03ca87',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -8876,6 +9286,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 35,
                     subclass_short_name: 'Sun Soul',
+                    subclass_id: '6610f30f-eee8-43a7-8cce-6b849a03ca87',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -8894,6 +9305,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 35,
                     subclass_short_name: 'Sun Soul',
+                    subclass_id: '6610f30f-eee8-43a7-8cce-6b849a03ca87',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -8910,6 +9322,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 35,
                     subclass_short_name: 'Sun Soul',
+                    subclass_id: '6610f30f-eee8-43a7-8cce-6b849a03ca87',
                     subclass_source: 'XGE',
                     level: 11,
                     entries: {
@@ -8927,6 +9340,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 35,
                     subclass_short_name: 'Sun Soul',
+                    subclass_id: '6610f30f-eee8-43a7-8cce-6b849a03ca87',
                     subclass_source: 'XGE',
                     level: 17,
                     entries: {
@@ -8943,6 +9357,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 34,
                     subclass_short_name: 'Drunken Master',
+                    subclass_id: 'ba225eff-cc40-4c37-9377-4889e697e972',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -8958,6 +9373,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 34,
                     subclass_short_name: 'Drunken Master',
+                    subclass_id: 'ba225eff-cc40-4c37-9377-4889e697e972',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -8973,6 +9389,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 34,
                     subclass_short_name: 'Kensei',
+                    subclass_id: 'f37ac38b-d258-4297-8118-1e63ad20bd46',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -8988,6 +9405,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 34,
                     subclass_short_name: 'Kensei',
+                    subclass_id: 'f37ac38b-d258-4297-8118-1e63ad20bd46',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -9003,6 +9421,7 @@ exports.seed = knex => (
                     source: 'EGW',
                     page: 183,
                     subclass_short_name: 'Echo Knight',
+                    subclass_id: '4c72d589-f164-415b-9a4d-063a093465c0',
                     subclass_source: 'EGW',
                     level: 3,
                     entries: {
@@ -9026,6 +9445,7 @@ exports.seed = knex => (
                     source: 'EGW',
                     page: 183,
                     subclass_short_name: 'Echo Knight',
+                    subclass_id: '4c72d589-f164-415b-9a4d-063a093465c0',
                     subclass_source: 'EGW',
                     level: 3,
                     entries: {
@@ -9052,6 +9472,7 @@ exports.seed = knex => (
                     source: 'EGW',
                     page: 183,
                     subclass_short_name: 'Echo Knight',
+                    subclass_id: '4c72d589-f164-415b-9a4d-063a093465c0',
                     subclass_source: 'EGW',
                     level: 3,
                     entries: {
@@ -9069,6 +9490,7 @@ exports.seed = knex => (
                     source: 'EGW',
                     page: 183,
                     subclass_short_name: 'Echo Knight',
+                    subclass_id: '4c72d589-f164-415b-9a4d-063a093465c0',
                     subclass_source: 'EGW',
                     level: 7,
                     entries: {
@@ -9085,6 +9507,7 @@ exports.seed = knex => (
                     source: 'EGW',
                     page: 183,
                     subclass_short_name: 'Echo Knight',
+                    subclass_id: '4c72d589-f164-415b-9a4d-063a093465c0',
                     subclass_source: 'EGW',
                     level: 10,
                     entries: {
@@ -9102,6 +9525,7 @@ exports.seed = knex => (
                     source: 'EGW',
                     page: 183,
                     subclass_short_name: 'Echo Knight',
+                    subclass_id: '4c72d589-f164-415b-9a4d-063a093465c0',
                     subclass_source: 'EGW',
                     level: 15,
                     entries: {
@@ -9119,6 +9543,7 @@ exports.seed = knex => (
                     source: 'EGW',
                     page: 183,
                     subclass_short_name: 'Echo Knight',
+                    subclass_id: '4c72d589-f164-415b-9a4d-063a093465c0',
                     subclass_source: 'EGW',
                     level: 18,
                     entries: {
@@ -9136,6 +9561,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 73,
                     subclass_short_name: 'Battle Master',
+                    subclass_id: '5894cd05-4e4c-4690-af71-0ddd806acc50',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -9172,6 +9598,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 73,
                     subclass_short_name: 'Battle Master',
+                    subclass_id: '5894cd05-4e4c-4690-af71-0ddd806acc50',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -9230,6 +9657,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 41,
                     subclass_short_name: 'Battle Master',
+                    subclass_id: '5894cd05-4e4c-4690-af71-0ddd806acc50',
                     subclass_source: 'PHB',
                     level: 3,
                     is_class_feature_variant: true,
@@ -9285,6 +9713,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 73,
                     subclass_short_name: 'Battle Master',
+                    subclass_id: '5894cd05-4e4c-4690-af71-0ddd806acc50',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -9370,6 +9799,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 73,
                     subclass_short_name: 'Battle Master',
+                    subclass_id: '5894cd05-4e4c-4690-af71-0ddd806acc50',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -9385,6 +9815,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 73,
                     subclass_short_name: 'Battle Master',
+                    subclass_id: '5894cd05-4e4c-4690-af71-0ddd806acc50',
                     subclass_source: 'PHB',
                     level: 7,
                     entries: {
@@ -9398,6 +9829,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 73,
                     subclass_short_name: 'Battle Master',
+                    subclass_id: '5894cd05-4e4c-4690-af71-0ddd806acc50',
                     subclass_source: 'PHB',
                     level: 7,
                     entries: {
@@ -9411,6 +9843,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 73,
                     subclass_short_name: 'Battle Master',
+                    subclass_id: '5894cd05-4e4c-4690-af71-0ddd806acc50',
                     subclass_source: 'PHB',
                     level: 7,
                     entries: {
@@ -9438,6 +9871,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 73,
                     subclass_short_name: 'Battle Master',
+                    subclass_id: '5894cd05-4e4c-4690-af71-0ddd806acc50',
                     subclass_source: 'PHB',
                     level: 10,
                     entries: {
@@ -9451,6 +9885,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 73,
                     subclass_short_name: 'Battle Master',
+                    subclass_id: '5894cd05-4e4c-4690-af71-0ddd806acc50',
                     subclass_source: 'PHB',
                     level: 10,
                     entries: {
@@ -9464,6 +9899,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 73,
                     subclass_short_name: 'Battle Master',
+                    subclass_id: '5894cd05-4e4c-4690-af71-0ddd806acc50',
                     subclass_source: 'PHB',
                     level: 15,
                     entries: {
@@ -9477,6 +9913,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 73,
                     subclass_short_name: 'Battle Master',
+                    subclass_id: '5894cd05-4e4c-4690-af71-0ddd806acc50',
                     subclass_source: 'PHB',
                     level: 15,
                     entries: {
@@ -9490,6 +9927,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 73,
                     subclass_short_name: 'Battle Master',
+                    subclass_id: '5894cd05-4e4c-4690-af71-0ddd806acc50',
                     subclass_source: 'PHB',
                     level: 15,
                     entries: {
@@ -9505,6 +9943,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 73,
                     subclass_short_name: 'Battle Master',
+                    subclass_id: '5894cd05-4e4c-4690-af71-0ddd806acc50',
                     subclass_source: 'PHB',
                     level: 18,
                     entries: {
@@ -9518,6 +9957,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 72,
                     subclass_short_name: 'Champion',
+                    subclass_id: 'c732884f-e52c-41e7-8dd3-c6a3a90f35a7',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -9537,6 +9977,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 72,
                     subclass_short_name: 'Champion',
+                    subclass_id: 'c732884f-e52c-41e7-8dd3-c6a3a90f35a7',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -9552,6 +9993,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 72,
                     subclass_short_name: 'Champion',
+                    subclass_id: 'c732884f-e52c-41e7-8dd3-c6a3a90f35a7',
                     subclass_source: 'PHB',
                     level: 7,
                     entries: {
@@ -9568,6 +10010,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 72,
                     subclass_short_name: 'Champion',
+                    subclass_id: 'c732884f-e52c-41e7-8dd3-c6a3a90f35a7',
                     subclass_source: 'PHB',
                     level: 10,
                     entries: {
@@ -9583,6 +10026,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 72,
                     subclass_short_name: 'Champion',
+                    subclass_id: 'c732884f-e52c-41e7-8dd3-c6a3a90f35a7',
                     subclass_source: 'PHB',
                     level: 15,
                     entries: {
@@ -9598,6 +10042,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 72,
                     subclass_short_name: 'Champion',
+                    subclass_id: 'c732884f-e52c-41e7-8dd3-c6a3a90f35a7',
                     subclass_source: 'PHB',
                     level: 18,
                     entries: {
@@ -9613,6 +10058,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 74,
                     subclass_short_name: 'Eldritch Knight',
+                    subclass_id: '5e1ac9aa-baee-4ee5-8be0-a0fd1e7b2aa7',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -9636,6 +10082,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 74,
                     subclass_short_name: 'Eldritch Knight',
+                    subclass_id: '5e1ac9aa-baee-4ee5-8be0-a0fd1e7b2aa7',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -9708,6 +10155,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 74,
                     subclass_short_name: 'Eldritch Knight',
+                    subclass_id: '5e1ac9aa-baee-4ee5-8be0-a0fd1e7b2aa7',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -9725,6 +10173,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 74,
                     subclass_short_name: 'Eldritch Knight',
+                    subclass_id: '5e1ac9aa-baee-4ee5-8be0-a0fd1e7b2aa7',
                     subclass_source: 'PHB',
                     level: 7,
                     entries: {
@@ -9740,6 +10189,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 74,
                     subclass_short_name: 'Eldritch Knight',
+                    subclass_id: '5e1ac9aa-baee-4ee5-8be0-a0fd1e7b2aa7',
                     subclass_source: 'PHB',
                     level: 10,
                     entries: {
@@ -9755,6 +10205,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 74,
                     subclass_short_name: 'Eldritch Knight',
+                    subclass_id: '5e1ac9aa-baee-4ee5-8be0-a0fd1e7b2aa7',
                     subclass_source: 'PHB',
                     level: 15,
                     entries: {
@@ -9770,6 +10221,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 74,
                     subclass_short_name: 'Eldritch Knight',
+                    subclass_id: '5e1ac9aa-baee-4ee5-8be0-a0fd1e7b2aa7',
                     subclass_source: 'PHB',
                     level: 18,
                     entries: {
@@ -9785,6 +10237,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 128,
                     subclass_short_name: 'Purple Dragon Knight (Banneret)',
+                    subclass_id: '4c0f028e-6de5-4e2a-9b5a-70ebaa87c616',
                     subclass_source: 'SCAG',
                     level: 3,
                     entries: {
@@ -9812,6 +10265,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 128,
                     subclass_short_name: 'Purple Dragon Knight (Banneret)',
+                    subclass_id: '4c0f028e-6de5-4e2a-9b5a-70ebaa87c616',
                     subclass_source: 'SCAG',
                     level: 3,
                     entries: {
@@ -9828,6 +10282,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 128,
                     subclass_short_name: 'Purple Dragon Knight (Banneret)',
+                    subclass_id: '4c0f028e-6de5-4e2a-9b5a-70ebaa87c616',
                     subclass_source: 'SCAG',
                     level: 3,
                     entries: {
@@ -9844,6 +10299,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 128,
                     subclass_short_name: 'Purple Dragon Knight (Banneret)',
+                    subclass_id: '4c0f028e-6de5-4e2a-9b5a-70ebaa87c616',
                     subclass_source: 'SCAG',
                     level: 7,
                     entries: {
@@ -9861,6 +10317,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 128,
                     subclass_short_name: 'Purple Dragon Knight (Banneret)',
+                    subclass_id: '4c0f028e-6de5-4e2a-9b5a-70ebaa87c616',
                     subclass_source: 'SCAG',
                     level: 10,
                     entries: {
@@ -9877,6 +10334,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 128,
                     subclass_short_name: 'Purple Dragon Knight (Banneret)',
+                    subclass_id: '4c0f028e-6de5-4e2a-9b5a-70ebaa87c616',
                     subclass_source: 'SCAG',
                     level: 15,
                     entries: {
@@ -9892,6 +10350,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 128,
                     subclass_short_name: 'Purple Dragon Knight (Banneret)',
+                    subclass_id: '4c0f028e-6de5-4e2a-9b5a-70ebaa87c616',
                     subclass_source: 'SCAG',
                     level: 18,
                     entries: {
@@ -9907,6 +10366,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 42,
                     subclass_short_name: 'Psi Warrior',
+                    subclass_id: '7f9d27bb-79a4-479b-b2ce-c7270b198bba',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -9927,6 +10387,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 42,
                     subclass_short_name: 'Psi Warrior',
+                    subclass_id: '7f9d27bb-79a4-479b-b2ce-c7270b198bba',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -9965,6 +10426,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 42,
                     subclass_short_name: 'Psi Warrior',
+                    subclass_id: '7f9d27bb-79a4-479b-b2ce-c7270b198bba',
                     subclass_source: 'TCE',
                     level: 7,
                     entries: {
@@ -9997,6 +10459,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 42,
                     subclass_short_name: 'Psi Warrior',
+                    subclass_id: '7f9d27bb-79a4-479b-b2ce-c7270b198bba',
                     subclass_source: 'TCE',
                     level: 10,
                     entries: {
@@ -10013,6 +10476,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 42,
                     subclass_short_name: 'Psi Warrior',
+                    subclass_id: '7f9d27bb-79a4-479b-b2ce-c7270b198bba',
                     subclass_source: 'TCE',
                     level: 15,
                     entries: {
@@ -10030,6 +10494,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 42,
                     subclass_short_name: 'Psi Warrior',
+                    subclass_id: '7f9d27bb-79a4-479b-b2ce-c7270b198bba',
                     subclass_source: 'TCE',
                     level: 18,
                     entries: {
@@ -10047,6 +10512,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 44,
                     subclass_short_name: 'Rune Knight',
+                    subclass_id: 'c784b48e-c7bd-41c8-9b6a-c3f725258ae7',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -10074,6 +10540,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 44,
                     subclass_short_name: 'Rune Knight',
+                    subclass_id: 'c784b48e-c7bd-41c8-9b6a-c3f725258ae7',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -10090,6 +10557,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 44,
                     subclass_short_name: 'Rune Knight',
+                    subclass_id: 'c784b48e-c7bd-41c8-9b6a-c3f725258ae7',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -10115,6 +10583,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 44,
                     subclass_short_name: 'Rune Knight',
+                    subclass_id: 'c784b48e-c7bd-41c8-9b6a-c3f725258ae7',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -10177,6 +10646,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 44,
                     subclass_short_name: 'Rune Knight',
+                    subclass_id: 'c784b48e-c7bd-41c8-9b6a-c3f725258ae7',
                     subclass_source: 'TCE',
                     level: 7,
                     entries: {
@@ -10190,6 +10660,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 44,
                     subclass_short_name: 'Rune Knight',
+                    subclass_id: 'c784b48e-c7bd-41c8-9b6a-c3f725258ae7',
                     subclass_source: 'TCE',
                     level: 7,
                     entries: {
@@ -10207,6 +10678,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 44,
                     subclass_short_name: 'Rune Knight',
+                    subclass_id: 'c784b48e-c7bd-41c8-9b6a-c3f725258ae7',
                     subclass_source: 'TCE',
                     level: 10,
                     entries: {
@@ -10220,6 +10692,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 44,
                     subclass_short_name: 'Rune Knight',
+                    subclass_id: 'c784b48e-c7bd-41c8-9b6a-c3f725258ae7',
                     subclass_source: 'TCE',
                     level: 10,
                     entries: {
@@ -10237,6 +10710,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 44,
                     subclass_short_name: 'Rune Knight',
+                    subclass_id: 'c784b48e-c7bd-41c8-9b6a-c3f725258ae7',
                     subclass_source: 'TCE',
                     level: 15,
                     entries: {
@@ -10250,6 +10724,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 44,
                     subclass_short_name: 'Rune Knight',
+                    subclass_id: 'c784b48e-c7bd-41c8-9b6a-c3f725258ae7',
                     subclass_source: 'TCE',
                     level: 15,
                     entries: {
@@ -10266,6 +10741,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 44,
                     subclass_short_name: 'Rune Knight',
+                    subclass_id: 'c784b48e-c7bd-41c8-9b6a-c3f725258ae7',
                     subclass_source: 'TCE',
                     level: 18,
                     entries: {
@@ -10282,6 +10758,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 28,
                     subclass_short_name: 'Arcane Archer',
+                    subclass_id: '8f541077-245b-4c40-b781-f07fc24e48a7',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -10309,6 +10786,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 28,
                     subclass_short_name: 'Arcane Archer',
+                    subclass_id: '8f541077-245b-4c40-b781-f07fc24e48a7',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -10324,6 +10802,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 28,
                     subclass_short_name: 'Arcane Archer',
+                    subclass_id: '8f541077-245b-4c40-b781-f07fc24e48a7',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -10341,6 +10820,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 28,
                     subclass_short_name: 'Arcane Archer',
+                    subclass_id: '8f541077-245b-4c40-b781-f07fc24e48a7',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -10400,6 +10880,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 28,
                     subclass_short_name: 'Arcane Archer',
+                    subclass_id: '8f541077-245b-4c40-b781-f07fc24e48a7',
                     subclass_source: 'XGE',
                     level: 7,
                     entries: {
@@ -10415,6 +10896,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 28,
                     subclass_short_name: 'Arcane Archer',
+                    subclass_id: '8f541077-245b-4c40-b781-f07fc24e48a7',
                     subclass_source: 'XGE',
                     level: 7,
                     entries: {
@@ -10430,6 +10912,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 28,
                     subclass_short_name: 'Arcane Archer',
+                    subclass_id: '8f541077-245b-4c40-b781-f07fc24e48a7',
                     subclass_source: 'XGE',
                     level: 7,
                     entries: {
@@ -10445,6 +10928,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 28,
                     subclass_short_name: 'Arcane Archer',
+                    subclass_id: '8f541077-245b-4c40-b781-f07fc24e48a7',
                     subclass_source: 'XGE',
                     level: 10,
                     entries: {
@@ -10460,6 +10944,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 28,
                     subclass_short_name: 'Arcane Archer',
+                    subclass_id: '8f541077-245b-4c40-b781-f07fc24e48a7',
                     subclass_source: 'XGE',
                     level: 15,
                     entries: {
@@ -10475,6 +10960,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 28,
                     subclass_short_name: 'Arcane Archer',
+                    subclass_id: '8f541077-245b-4c40-b781-f07fc24e48a7',
                     subclass_source: 'XGE',
                     level: 15,
                     entries: {
@@ -10490,6 +10976,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 28,
                     subclass_short_name: 'Arcane Archer',
+                    subclass_id: '8f541077-245b-4c40-b781-f07fc24e48a7',
                     subclass_source: 'XGE',
                     level: 18,
                     entries: {
@@ -10505,6 +10992,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 30,
                     subclass_short_name: 'Cavalier',
+                    subclass_id: 'b8c46aab-d984-43e3-b42d-bd619ab6b0cf',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -10532,6 +11020,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 30,
                     subclass_short_name: 'Cavalier',
+                    subclass_id: 'b8c46aab-d984-43e3-b42d-bd619ab6b0cf',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -10547,6 +11036,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 30,
                     subclass_short_name: 'Cavalier',
+                    subclass_id: 'b8c46aab-d984-43e3-b42d-bd619ab6b0cf',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -10563,6 +11053,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 30,
                     subclass_short_name: 'Cavalier',
+                    subclass_id: 'b8c46aab-d984-43e3-b42d-bd619ab6b0cf',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -10581,6 +11072,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 30,
                     subclass_short_name: 'Cavalier',
+                    subclass_id: 'b8c46aab-d984-43e3-b42d-bd619ab6b0cf',
                     subclass_source: 'XGE',
                     level: 7,
                     entries: {
@@ -10597,6 +11089,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 30,
                     subclass_short_name: 'Cavalier',
+                    subclass_id: 'b8c46aab-d984-43e3-b42d-bd619ab6b0cf',
                     subclass_source: 'XGE',
                     level: 10,
                     entries: {
@@ -10612,6 +11105,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 30,
                     subclass_short_name: 'Cavalier',
+                    subclass_id: 'b8c46aab-d984-43e3-b42d-bd619ab6b0cf',
                     subclass_source: 'XGE',
                     level: 15,
                     entries: {
@@ -10627,6 +11121,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 30,
                     subclass_short_name: 'Cavalier',
+                    subclass_id: 'b8c46aab-d984-43e3-b42d-bd619ab6b0cf',
                     subclass_source: 'XGE',
                     level: 18,
                     entries: {
@@ -10642,6 +11137,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 31,
                     subclass_short_name: 'Samurai',
+                    subclass_id: '77f53fb4-23d4-4c80-80ca-eaedad90efbf',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -10665,6 +11161,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 31,
                     subclass_short_name: 'Samurai',
+                    subclass_id: '77f53fb4-23d4-4c80-80ca-eaedad90efbf',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -10680,6 +11177,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 31,
                     subclass_short_name: 'Samurai',
+                    subclass_id: '77f53fb4-23d4-4c80-80ca-eaedad90efbf',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -10696,6 +11194,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 31,
                     subclass_short_name: 'Samurai',
+                    subclass_id: '77f53fb4-23d4-4c80-80ca-eaedad90efbf',
                     subclass_source: 'XGE',
                     level: 7,
                     entries: {
@@ -10712,6 +11211,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 31,
                     subclass_short_name: 'Samurai',
+                    subclass_id: '77f53fb4-23d4-4c80-80ca-eaedad90efbf',
                     subclass_source: 'XGE',
                     level: 10,
                     entries: {
@@ -10727,6 +11227,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 31,
                     subclass_short_name: 'Samurai',
+                    subclass_id: '77f53fb4-23d4-4c80-80ca-eaedad90efbf',
                     subclass_source: 'XGE',
                     level: 15,
                     entries: {
@@ -10742,6 +11243,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 31,
                     subclass_short_name: 'Samurai',
+                    subclass_id: '77f53fb4-23d4-4c80-80ca-eaedad90efbf',
                     subclass_source: 'XGE',
                     level: 18,
                     entries: {
@@ -10758,6 +11260,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 42,
                     subclass_short_name: 'Psi Warrior',
+                    subclass_id: '7f9d27bb-79a4-479b-b2ce-c7270b198bba',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -10773,6 +11276,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 42,
                     subclass_short_name: 'Psi Warrior',
+                    subclass_id: '7f9d27bb-79a4-479b-b2ce-c7270b198bba',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -10788,6 +11292,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 42,
                     subclass_short_name: 'Psi Warrior',
+                    subclass_id: '7f9d27bb-79a4-479b-b2ce-c7270b198bba',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -10803,6 +11308,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 42,
                     subclass_short_name: 'Psi Warrior',
+                    subclass_id: '7f9d27bb-79a4-479b-b2ce-c7270b198bba',
                     subclass_source: 'TCE',
                     level: 7,
                     entries: {
@@ -10818,6 +11324,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 42,
                     subclass_short_name: 'Psi Warrior',
+                    subclass_id: '7f9d27bb-79a4-479b-b2ce-c7270b198bba',
                     subclass_source: 'TCE',
                     level: 7,
                     entries: {
@@ -10833,6 +11340,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 68,
                     subclass_short_name: 'Land',
+                    subclass_id: 'b995558b-0f05-483c-8242-23b4d08a7f9a',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -10860,6 +11368,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 68,
                     subclass_short_name: 'Land',
+                    subclass_id: 'b995558b-0f05-483c-8242-23b4d08a7f9a',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -10873,6 +11382,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 68,
                     subclass_short_name: 'Land',
+                    subclass_id: 'b995558b-0f05-483c-8242-23b4d08a7f9a',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -10985,6 +11495,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 68,
                     subclass_short_name: 'Land',
+                    subclass_id: 'b995558b-0f05-483c-8242-23b4d08a7f9a',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -11001,6 +11512,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 68,
                     subclass_short_name: 'Land',
+                    subclass_id: 'b995558b-0f05-483c-8242-23b4d08a7f9a',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -11017,6 +11529,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 68,
                     subclass_short_name: 'Land',
+                    subclass_id: 'b995558b-0f05-483c-8242-23b4d08a7f9a',
                     subclass_source: 'PHB',
                     level: 10,
                     entries: {
@@ -11032,6 +11545,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 68,
                     subclass_short_name: 'Land',
+                    subclass_id: 'b995558b-0f05-483c-8242-23b4d08a7f9a',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -11048,6 +11562,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 69,
                     subclass_short_name: 'Moon',
+                    subclass_id: 'b545b4bb-e33f-424f-a3aa-ce51353221e0',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -11072,6 +11587,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 69,
                     subclass_short_name: 'Moon',
+                    subclass_id: 'b545b4bb-e33f-424f-a3aa-ce51353221e0',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -11104,6 +11620,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 69,
                     subclass_short_name: 'Moon',
+                    subclass_id: 'b545b4bb-e33f-424f-a3aa-ce51353221e0',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -11120,6 +11637,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 69,
                     subclass_short_name: 'Moon',
+                    subclass_id: 'b545b4bb-e33f-424f-a3aa-ce51353221e0',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -11135,6 +11653,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 69,
                     subclass_short_name: 'Moon',
+                    subclass_id: 'b545b4bb-e33f-424f-a3aa-ce51353221e0',
                     subclass_source: 'PHB',
                     level: 10,
                     entries: {
@@ -11150,6 +11669,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 69,
                     subclass_short_name: 'Moon',
+                    subclass_id: 'b545b4bb-e33f-424f-a3aa-ce51353221e0',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -11165,6 +11685,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 36,
                     subclass_short_name: 'Spores',
+                    subclass_id: '58eef9f2-ced4-4981-a50c-f3674358f6fe',
                     subclass_source: 'TCE',
                     level: 2,
                     entries: {
@@ -11194,6 +11715,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 36,
                     subclass_short_name: 'Spores',
+                    subclass_id: '58eef9f2-ced4-4981-a50c-f3674358f6fe',
                     subclass_source: 'TCE',
                     level: 2,
                     entries: {
@@ -11222,6 +11744,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 36,
                     subclass_short_name: 'Spores',
+                    subclass_id: '58eef9f2-ced4-4981-a50c-f3674358f6fe',
                     subclass_source: 'TCE',
                     level: 2,
                     entries: {
@@ -11237,6 +11760,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 36,
                     subclass_short_name: 'Spores',
+                    subclass_id: '58eef9f2-ced4-4981-a50c-f3674358f6fe',
                     subclass_source: 'TCE',
                     level: 2,
                     entries: {
@@ -11260,6 +11784,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 36,
                     subclass_short_name: 'Spores',
+                    subclass_id: '58eef9f2-ced4-4981-a50c-f3674358f6fe',
                     subclass_source: 'TCE',
                     level: 6,
                     entries: {
@@ -11277,6 +11802,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 36,
                     subclass_short_name: 'Spores',
+                    subclass_id: '58eef9f2-ced4-4981-a50c-f3674358f6fe',
                     subclass_source: 'TCE',
                     level: 10,
                     entries: {
@@ -11294,6 +11820,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 36,
                     subclass_short_name: 'Spores',
+                    subclass_id: '58eef9f2-ced4-4981-a50c-f3674358f6fe',
                     subclass_source: 'TCE',
                     level: 14,
                     entries: {
@@ -11309,6 +11836,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 38,
                     subclass_short_name: 'Stars',
+                    subclass_id: 'f198b72a-8dc9-4b5e-94df-e648a25c4ed0',
                     subclass_source: 'TCE',
                     level: 2,
                     entries: {
@@ -11333,6 +11861,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 38,
                     subclass_short_name: 'Stars',
+                    subclass_id: 'f198b72a-8dc9-4b5e-94df-e648a25c4ed0',
                     subclass_source: 'TCE',
                     level: 2,
                     entries: {
@@ -11376,6 +11905,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 38,
                     subclass_short_name: 'Stars',
+                    subclass_id: 'f198b72a-8dc9-4b5e-94df-e648a25c4ed0',
                     subclass_source: 'TCE',
                     level: 2,
                     entries: {
@@ -11415,6 +11945,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 38,
                     subclass_short_name: 'Stars',
+                    subclass_id: 'f198b72a-8dc9-4b5e-94df-e648a25c4ed0',
                     subclass_source: 'TCE',
                     level: 6,
                     entries: {
@@ -11450,6 +11981,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 38,
                     subclass_short_name: 'Stars',
+                    subclass_id: 'f198b72a-8dc9-4b5e-94df-e648a25c4ed0',
                     subclass_source: 'TCE',
                     level: 10,
                     entries: {
@@ -11467,6 +11999,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 38,
                     subclass_short_name: 'Stars',
+                    subclass_id: 'f198b72a-8dc9-4b5e-94df-e648a25c4ed0',
                     subclass_source: 'TCE',
                     level: 14,
                     entries: {
@@ -11483,6 +12016,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 39,
                     subclass_short_name: 'Wildfire',
+                    subclass_id: 'c6f1a6aa-b00b-4ab0-bb68-c738bf2a33bb',
                     subclass_source: 'TCE',
                     level: 2,
                     entries: {
@@ -11506,6 +12040,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 39,
                     subclass_short_name: 'Wildfire',
+                    subclass_id: 'c6f1a6aa-b00b-4ab0-bb68-c738bf2a33bb',
                     subclass_source: 'TCE',
                     level: 2,
                     entries: {
@@ -11536,6 +12071,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 39,
                     subclass_short_name: 'Wildfire',
+                    subclass_id: 'c6f1a6aa-b00b-4ab0-bb68-c738bf2a33bb',
                     subclass_source: 'TCE',
                     level: 2,
                     entries: {
@@ -11556,6 +12092,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 39,
                     subclass_short_name: 'Wildfire',
+                    subclass_id: 'c6f1a6aa-b00b-4ab0-bb68-c738bf2a33bb',
                     subclass_source: 'TCE',
                     level: 6,
                     entries: {
@@ -11573,6 +12110,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 39,
                     subclass_short_name: 'Wildfire',
+                    subclass_id: 'c6f1a6aa-b00b-4ab0-bb68-c738bf2a33bb',
                     subclass_source: 'TCE',
                     level: 10,
                     entries: {
@@ -11590,6 +12128,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 39,
                     subclass_short_name: 'Wildfire',
+                    subclass_id: 'c6f1a6aa-b00b-4ab0-bb68-c738bf2a33bb',
                     subclass_source: 'TCE',
                     level: 14,
                     entries: {
@@ -11607,6 +12146,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 22,
                     subclass_short_name: 'Dreams',
+                    subclass_id: '684a1dd4-541f-4e8e-ab1a-b51c35bd86e3',
                     subclass_source: 'XGE',
                     level: 2,
                     entries: {
@@ -11626,6 +12166,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 22,
                     subclass_short_name: 'Dreams',
+                    subclass_id: '684a1dd4-541f-4e8e-ab1a-b51c35bd86e3',
                     subclass_source: 'XGE',
                     level: 2,
                     entries: {
@@ -11643,6 +12184,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 22,
                     subclass_short_name: 'Dreams',
+                    subclass_id: '684a1dd4-541f-4e8e-ab1a-b51c35bd86e3',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -11660,6 +12202,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 22,
                     subclass_short_name: 'Dreams',
+                    subclass_id: '684a1dd4-541f-4e8e-ab1a-b51c35bd86e3',
                     subclass_source: 'XGE',
                     level: 10,
                     entries: {
@@ -11676,6 +12219,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 22,
                     subclass_short_name: 'Dreams',
+                    subclass_id: '684a1dd4-541f-4e8e-ab1a-b51c35bd86e3',
                     subclass_source: 'XGE',
                     level: 14,
                     entries: {
@@ -11694,6 +12238,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 23,
                     subclass_short_name: 'Shepherd',
+                    subclass_id: 'e00db9f1-b94d-4fdf-a963-6e21f63c265f',
                     subclass_source: 'XGE',
                     level: 2,
                     entries: {
@@ -11718,6 +12263,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 23,
                     subclass_short_name: 'Shepherd',
+                    subclass_id: 'e00db9f1-b94d-4fdf-a963-6e21f63c265f',
                     subclass_source: 'XGE',
                     level: 2,
                     entries: {
@@ -11734,6 +12280,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 23,
                     subclass_short_name: 'Shepherd',
+                    subclass_id: 'e00db9f1-b94d-4fdf-a963-6e21f63c265f',
                     subclass_source: 'XGE',
                     level: 2,
                     entries: {
@@ -11773,6 +12320,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 23,
                     subclass_short_name: 'Shepherd',
+                    subclass_id: 'e00db9f1-b94d-4fdf-a963-6e21f63c265f',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -11795,6 +12343,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 23,
                     subclass_short_name: 'Shepherd',
+                    subclass_id: 'e00db9f1-b94d-4fdf-a963-6e21f63c265f',
                     subclass_source: 'XGE',
                     level: 10,
                     entries: {
@@ -11810,6 +12359,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 23,
                     subclass_short_name: 'Shepherd',
+                    subclass_id: 'e00db9f1-b94d-4fdf-a963-6e21f63c265f',
                     subclass_source: 'XGE',
                     level: 14,
                     entries: {
@@ -11826,6 +12376,7 @@ exports.seed = knex => (
                     source: 'DMG',
                     page: 96,
                     subclass_short_name: 'Death',
+                    subclass_id: 'cd48025f-06f7-4108-b456-242254671023',
                     subclass_source: 'DMG',
                     level: 1,
                     entries: {
@@ -11863,6 +12414,7 @@ exports.seed = knex => (
                     source: 'DMG',
                     page: 96,
                     subclass_short_name: 'Death',
+                    subclass_id: 'cd48025f-06f7-4108-b456-242254671023',
                     subclass_source: 'DMG',
                     level: 1,
                     entries: {
@@ -11878,6 +12430,7 @@ exports.seed = knex => (
                     source: 'DMG',
                     page: 96,
                     subclass_short_name: 'Death',
+                    subclass_id: 'cd48025f-06f7-4108-b456-242254671023',
                     subclass_source: 'DMG',
                     level: 1,
                     entries: {
@@ -11893,6 +12446,7 @@ exports.seed = knex => (
                     source: 'DMG',
                     page: 96,
                     subclass_short_name: 'Death',
+                    subclass_id: 'cd48025f-06f7-4108-b456-242254671023',
                     subclass_source: 'DMG',
                     level: 2,
                     entries: {
@@ -11909,6 +12463,7 @@ exports.seed = knex => (
                     source: 'DMG',
                     page: 96,
                     subclass_short_name: 'Death',
+                    subclass_id: 'cd48025f-06f7-4108-b456-242254671023',
                     subclass_source: 'DMG',
                     level: 6,
                     entries: {
@@ -11924,6 +12479,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 30,
                     subclass_short_name: 'Death',
+                    subclass_id: 'cd48025f-06f7-4108-b456-242254671023',
                     subclass_source: 'DMG',
                     level: 8,
                     is_class_feature_variant: true,
@@ -11941,6 +12497,7 @@ exports.seed = knex => (
                     source: 'DMG',
                     page: 96,
                     subclass_short_name: 'Death',
+                    subclass_id: 'cd48025f-06f7-4108-b456-242254671023',
                     subclass_source: 'DMG',
                     level: 8,
                     entries: {
@@ -11956,6 +12513,7 @@ exports.seed = knex => (
                     source: 'DMG',
                     page: 96,
                     subclass_short_name: 'Death',
+                    subclass_id: 'cd48025f-06f7-4108-b456-242254671023',
                     subclass_source: 'DMG',
                     level: 17,
                     entries: {
@@ -11971,6 +12529,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 59,
                     subclass_short_name: 'Knowledge',
+                    subclass_id: 'e0e15786-094a-46bb-9bed-75bf9d5d3325',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -12004,6 +12563,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 59,
                     subclass_short_name: 'Knowledge',
+                    subclass_id: 'e0e15786-094a-46bb-9bed-75bf9d5d3325',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -12020,6 +12580,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 59,
                     subclass_short_name: 'Knowledge',
+                    subclass_id: 'e0e15786-094a-46bb-9bed-75bf9d5d3325',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -12035,6 +12596,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 59,
                     subclass_short_name: 'Knowledge',
+                    subclass_id: 'e0e15786-094a-46bb-9bed-75bf9d5d3325',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -12053,6 +12615,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 30,
                     subclass_short_name: 'Knowledge',
+                    subclass_id: 'e0e15786-094a-46bb-9bed-75bf9d5d3325',
                     subclass_source: 'PHB',
                     level: 8,
                     is_class_feature_variant: true,
@@ -12070,6 +12633,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 59,
                     subclass_short_name: 'Knowledge',
+                    subclass_id: 'e0e15786-094a-46bb-9bed-75bf9d5d3325',
                     subclass_source: 'PHB',
                     level: 8,
                     entries: {
@@ -12085,6 +12649,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 59,
                     subclass_short_name: 'Knowledge',
+                    subclass_id: 'e0e15786-094a-46bb-9bed-75bf9d5d3325',
                     subclass_source: 'PHB',
                     level: 17,
                     entries: {
@@ -12125,6 +12690,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 60,
                     subclass_short_name: 'Life',
+                    subclass_id: '25162155-aec5-45f1-b91d-3d9bcd4ca6e4',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -12162,6 +12728,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 60,
                     subclass_short_name: 'Life',
+                    subclass_id: '25162155-aec5-45f1-b91d-3d9bcd4ca6e4',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -12177,6 +12744,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 60,
                     subclass_short_name: 'Life',
+                    subclass_id: '25162155-aec5-45f1-b91d-3d9bcd4ca6e4',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -12192,6 +12760,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 60,
                     subclass_short_name: 'Life',
+                    subclass_id: '25162155-aec5-45f1-b91d-3d9bcd4ca6e4',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -12208,6 +12777,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 60,
                     subclass_short_name: 'Life',
+                    subclass_id: '25162155-aec5-45f1-b91d-3d9bcd4ca6e4',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -12223,6 +12793,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 30,
                     subclass_short_name: 'Life',
+                    subclass_id: '25162155-aec5-45f1-b91d-3d9bcd4ca6e4',
                     subclass_source: 'PHB',
                     level: 8,
                     is_class_feature_variant: true,
@@ -12240,6 +12811,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 60,
                     subclass_short_name: 'Life',
+                    subclass_id: '25162155-aec5-45f1-b91d-3d9bcd4ca6e4',
                     subclass_source: 'PHB',
                     level: 8,
                     entries: {
@@ -12255,6 +12827,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 60,
                     subclass_short_name: 'Life',
+                    subclass_id: '25162155-aec5-45f1-b91d-3d9bcd4ca6e4',
                     subclass_source: 'PHB',
                     level: 17,
                     entries: {
@@ -12270,6 +12843,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 60,
                     subclass_short_name: 'Light',
+                    subclass_id: '3257b2f4-10a4-4175-94e6-cdba18dccc7a',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -12307,6 +12881,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 60,
                     subclass_short_name: 'Light',
+                    subclass_id: '3257b2f4-10a4-4175-94e6-cdba18dccc7a',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -12322,6 +12897,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 60,
                     subclass_short_name: 'Light',
+                    subclass_id: '3257b2f4-10a4-4175-94e6-cdba18dccc7a',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -12338,6 +12914,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 60,
                     subclass_short_name: 'Light',
+                    subclass_id: '3257b2f4-10a4-4175-94e6-cdba18dccc7a',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -12354,6 +12931,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 60,
                     subclass_short_name: 'Light',
+                    subclass_id: '3257b2f4-10a4-4175-94e6-cdba18dccc7a',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -12369,6 +12947,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 30,
                     subclass_short_name: 'Light',
+                    subclass_id: '3257b2f4-10a4-4175-94e6-cdba18dccc7a',
                     subclass_source: 'PHB',
                     level: 8,
                     is_class_feature_variant: true,
@@ -12386,6 +12965,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 60,
                     subclass_short_name: 'Light',
+                    subclass_id: '3257b2f4-10a4-4175-94e6-cdba18dccc7a',
                     subclass_source: 'PHB',
                     level: 8,
                     entries: {
@@ -12401,6 +12981,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 60,
                     subclass_short_name: 'Light',
+                    subclass_id: '3257b2f4-10a4-4175-94e6-cdba18dccc7a',
                     subclass_source: 'PHB',
                     level: 17,
                     entries: {
@@ -12416,6 +12997,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 61,
                     subclass_short_name: 'Nature',
+                    subclass_id: 'bdb26150-5b48-4b9a-abe3-16300394855c',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -12453,6 +13035,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 61,
                     subclass_short_name: 'Nature',
+                    subclass_id: 'bdb26150-5b48-4b9a-abe3-16300394855c',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -12468,6 +13051,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 61,
                     subclass_short_name: 'Nature',
+                    subclass_id: 'bdb26150-5b48-4b9a-abe3-16300394855c',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -12481,6 +13065,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 61,
                     subclass_short_name: 'Nature',
+                    subclass_id: 'bdb26150-5b48-4b9a-abe3-16300394855c',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -12497,6 +13082,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 61,
                     subclass_short_name: 'Nature',
+                    subclass_id: 'bdb26150-5b48-4b9a-abe3-16300394855c',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -12512,6 +13098,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 30,
                     subclass_short_name: 'Nature',
+                    subclass_id: 'bdb26150-5b48-4b9a-abe3-16300394855c',
                     subclass_source: 'PHB',
                     level: 8,
                     is_class_feature_variant: true,
@@ -12529,6 +13116,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 61,
                     subclass_short_name: 'Nature',
+                    subclass_id: 'bdb26150-5b48-4b9a-abe3-16300394855c',
                     subclass_source: 'PHB',
                     level: 8,
                     entries: {
@@ -12544,6 +13132,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 61,
                     subclass_short_name: 'Nature',
+                    subclass_id: 'bdb26150-5b48-4b9a-abe3-16300394855c',
                     subclass_source: 'PHB',
                     level: 17,
                     entries: {
@@ -12559,6 +13148,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 62,
                     subclass_short_name: 'Tempest',
+                    subclass_id: '3bd5cc14-a268-44b6-a590-8fee4910f8ce',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -12596,6 +13186,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 62,
                     subclass_short_name: 'Tempest',
+                    subclass_id: '3bd5cc14-a268-44b6-a590-8fee4910f8ce',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -12611,6 +13202,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 62,
                     subclass_short_name: 'Tempest',
+                    subclass_id: '3bd5cc14-a268-44b6-a590-8fee4910f8ce',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -12627,6 +13219,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 62,
                     subclass_short_name: 'Tempest',
+                    subclass_id: '3bd5cc14-a268-44b6-a590-8fee4910f8ce',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -12643,6 +13236,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 62,
                     subclass_short_name: 'Tempest',
+                    subclass_id: '3bd5cc14-a268-44b6-a590-8fee4910f8ce',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -12658,6 +13252,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 30,
                     subclass_short_name: 'Tempest',
+                    subclass_id: '3bd5cc14-a268-44b6-a590-8fee4910f8ce',
                     subclass_source: 'PHB',
                     level: 8,
                     is_class_feature_variant: true,
@@ -12675,6 +13270,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 62,
                     subclass_short_name: 'Tempest',
+                    subclass_id: '3bd5cc14-a268-44b6-a590-8fee4910f8ce',
                     subclass_source: 'PHB',
                     level: 8,
                     entries: {
@@ -12690,6 +13286,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 62,
                     subclass_short_name: 'Tempest',
+                    subclass_id: '3bd5cc14-a268-44b6-a590-8fee4910f8ce',
                     subclass_source: 'PHB',
                     level: 17,
                     entries: {
@@ -12705,6 +13302,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 62,
                     subclass_short_name: 'Trickery',
+                    subclass_id: '55ff6902-2fe2-454e-a496-8c9189a9f7d8',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -12738,6 +13336,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 62,
                     subclass_short_name: 'Trickery',
+                    subclass_id: '55ff6902-2fe2-454e-a496-8c9189a9f7d8',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -12753,6 +13352,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 62,
                     subclass_short_name: 'Trickery',
+                    subclass_id: '55ff6902-2fe2-454e-a496-8c9189a9f7d8',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -12770,6 +13370,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 62,
                     subclass_short_name: 'Trickery',
+                    subclass_id: '55ff6902-2fe2-454e-a496-8c9189a9f7d8',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -12786,6 +13387,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 30,
                     subclass_short_name: 'Trickery',
+                    subclass_id: '55ff6902-2fe2-454e-a496-8c9189a9f7d8',
                     subclass_source: 'PHB',
                     level: 8,
                     is_class_feature_variant: true,
@@ -12803,6 +13405,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 62,
                     subclass_short_name: 'Trickery',
+                    subclass_id: '55ff6902-2fe2-454e-a496-8c9189a9f7d8',
                     subclass_source: 'PHB',
                     level: 8,
                     entries: {
@@ -12818,6 +13421,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 62,
                     subclass_short_name: 'Trickery',
+                    subclass_id: '55ff6902-2fe2-454e-a496-8c9189a9f7d8',
                     subclass_source: 'PHB',
                     level: 17,
                     entries: {
@@ -12832,7 +13436,8 @@ exports.seed = knex => (
                     name: 'War Domain',
                     source: 'PHB',
                     page: 63,
-                    subclass_short_name: 'War',
+                    subclass_short_name: 'War Domain',
+                    subclass_id: '252d31b3-28e1-4680-b2e9-c948785bc2e9',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -12869,7 +13474,8 @@ exports.seed = knex => (
                     name: 'Bonus Proficiencies',
                     source: 'PHB',
                     page: 63,
-                    subclass_short_name: 'War',
+                    subclass_short_name: 'War Domain',
+                    subclass_id: '252d31b3-28e1-4680-b2e9-c948785bc2e9',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -12884,7 +13490,8 @@ exports.seed = knex => (
                     name: 'War Priest',
                     source: 'PHB',
                     page: 63,
-                    subclass_short_name: 'War',
+                    subclass_short_name: 'War Domain',
+                    subclass_id: '252d31b3-28e1-4680-b2e9-c948785bc2e9',
                     subclass_source: 'PHB',
                     level: 1,
                     entries: {
@@ -12899,7 +13506,8 @@ exports.seed = knex => (
                     name: 'Channel Divinity: Guided Strike',
                     source: 'PHB',
                     page: 63,
-                    subclass_short_name: 'War',
+                    subclass_short_name: 'War Domain',
+                    subclass_id: '252d31b3-28e1-4680-b2e9-c948785bc2e9',
                     subclass_source: 'PHB',
                     level: 2,
                     entries: {
@@ -12914,7 +13522,8 @@ exports.seed = knex => (
                     name: "Channel Divinity: War God's Blessing",
                     source: 'PHB',
                     page: 63,
-                    subclass_short_name: 'War',
+                    subclass_short_name: 'War Domain',
+                    subclass_id: '252d31b3-28e1-4680-b2e9-c948785bc2e9',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -12929,7 +13538,8 @@ exports.seed = knex => (
                     name: 'Blessed Strikes',
                     source: 'TCE',
                     page: 30,
-                    subclass_short_name: 'War',
+                    subclass_short_name: 'War Domain',
+                    subclass_id: '252d31b3-28e1-4680-b2e9-c948785bc2e9',
                     subclass_source: 'PHB',
                     level: 8,
                     is_class_feature_variant: true,
@@ -12946,7 +13556,8 @@ exports.seed = knex => (
                     name: 'Divine Strike',
                     source: 'PHB',
                     page: 63,
-                    subclass_short_name: 'War',
+                    subclass_short_name: 'War Domain',
+                    subclass_id: '252d31b3-28e1-4680-b2e9-c948785bc2e9',
                     subclass_source: 'PHB',
                     level: 8,
                     entries: {
@@ -12961,7 +13572,8 @@ exports.seed = knex => (
                     name: 'Avatar of Battle',
                     source: 'PHB',
                     page: 63,
-                    subclass_short_name: 'War',
+                    subclass_short_name: 'War Domain',
+                    subclass_id: '252d31b3-28e1-4680-b2e9-c948785bc2e9',
                     subclass_source: 'PHB',
                     level: 17,
                     entries: {
@@ -12977,6 +13589,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 125,
                     subclass_short_name: 'Arcana',
+                    subclass_id: 'cdf73810-91e5-42da-809e-6668af2c4f47',
                     subclass_source: 'SCAG',
                     level: 1,
                     entries: {
@@ -13011,6 +13624,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 125,
                     subclass_short_name: 'Arcana',
+                    subclass_id: 'cdf73810-91e5-42da-809e-6668af2c4f47',
                     subclass_source: 'SCAG',
                     level: 1,
                     entries: {
@@ -13026,6 +13640,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 125,
                     subclass_short_name: 'Arcana',
+                    subclass_id: 'cdf73810-91e5-42da-809e-6668af2c4f47',
                     subclass_source: 'SCAG',
                     level: 2,
                     entries: {
@@ -13057,6 +13672,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 125,
                     subclass_short_name: 'Arcana',
+                    subclass_id: 'cdf73810-91e5-42da-809e-6668af2c4f47',
                     subclass_source: 'SCAG',
                     level: 6,
                     entries: {
@@ -13072,6 +13688,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 30,
                     subclass_short_name: 'Arcana',
+                    subclass_id: 'cdf73810-91e5-42da-809e-6668af2c4f47',
                     subclass_source: 'SCAG',
                     level: 8,
                     is_class_feature_variant: true,
@@ -13089,6 +13706,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 125,
                     subclass_short_name: 'Arcana',
+                    subclass_id: 'cdf73810-91e5-42da-809e-6668af2c4f47',
                     subclass_source: 'SCAG',
                     level: 8,
                     entries: {
@@ -13104,6 +13722,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 125,
                     subclass_short_name: 'Arcana',
+                    subclass_id: 'cdf73810-91e5-42da-809e-6668af2c4f47',
                     subclass_source: 'SCAG',
                     level: 17,
                     entries: {
@@ -13119,6 +13738,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 31,
                     subclass_short_name: 'Order',
+                    subclass_id: 'e2c4944d-04d9-406a-8dcb-745f91e82200',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -13158,6 +13778,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 31,
                     subclass_short_name: 'Order',
+                    subclass_id: 'e2c4944d-04d9-406a-8dcb-745f91e82200',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -13173,6 +13794,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 31,
                     subclass_short_name: 'Order',
+                    subclass_id: 'e2c4944d-04d9-406a-8dcb-745f91e82200',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -13189,6 +13811,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 31,
                     subclass_short_name: 'Order',
+                    subclass_id: 'e2c4944d-04d9-406a-8dcb-745f91e82200',
                     subclass_source: 'TCE',
                     level: 2,
                     entries: {
@@ -13205,6 +13828,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 31,
                     subclass_short_name: 'Order',
+                    subclass_id: 'e2c4944d-04d9-406a-8dcb-745f91e82200',
                     subclass_source: 'TCE',
                     level: 6,
                     entries: {
@@ -13222,6 +13846,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 31,
                     subclass_short_name: 'Order',
+                    subclass_id: 'e2c4944d-04d9-406a-8dcb-745f91e82200',
                     subclass_source: 'TCE',
                     level: 8,
                     is_class_feature_variant: true,
@@ -13239,6 +13864,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 31,
                     subclass_short_name: 'Order',
+                    subclass_id: 'e2c4944d-04d9-406a-8dcb-745f91e82200',
                     subclass_source: 'TCE',
                     level: 8,
                     entries: {
@@ -13254,6 +13880,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 31,
                     subclass_short_name: 'Order',
+                    subclass_id: 'e2c4944d-04d9-406a-8dcb-745f91e82200',
                     subclass_source: 'TCE',
                     level: 17,
                     entries: {
@@ -13269,6 +13896,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 32,
                     subclass_short_name: 'Peace',
+                    subclass_id: '3cc36fe6-dd52-441f-a67e-199767e6bfee',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -13330,6 +13958,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 32,
                     subclass_short_name: 'Peace',
+                    subclass_id: '3cc36fe6-dd52-441f-a67e-199767e6bfee',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -13347,6 +13976,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 32,
                     subclass_short_name: 'Peace',
+                    subclass_id: '3cc36fe6-dd52-441f-a67e-199767e6bfee',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -13363,6 +13993,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 32,
                     subclass_short_name: 'Peace',
+                    subclass_id: '3cc36fe6-dd52-441f-a67e-199767e6bfee',
                     subclass_source: 'TCE',
                     level: 2,
                     entries: {
@@ -13379,6 +14010,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 32,
                     subclass_short_name: 'Peace',
+                    subclass_id: '3cc36fe6-dd52-441f-a67e-199767e6bfee',
                     subclass_source: 'TCE',
                     level: 6,
                     entries: {
@@ -13395,6 +14027,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 32,
                     subclass_short_name: 'Peace',
+                    subclass_id: '3cc36fe6-dd52-441f-a67e-199767e6bfee',
                     subclass_source: 'TCE',
                     level: 8,
                     is_class_feature_variant: true,
@@ -13412,6 +14045,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 32,
                     subclass_short_name: 'Peace',
+                    subclass_id: '3cc36fe6-dd52-441f-a67e-199767e6bfee',
                     subclass_source: 'TCE',
                     level: 8,
                     entries: {
@@ -13428,6 +14062,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 32,
                     subclass_short_name: 'Peace',
+                    subclass_id: '3cc36fe6-dd52-441f-a67e-199767e6bfee',
                     subclass_source: 'TCE',
                     level: 17,
                     entries: {
@@ -13444,6 +14079,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 34,
                     subclass_short_name: 'Twilight',
+                    subclass_id: '8dfd372a-d55c-4a9d-951d-e25a39510194',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -13509,6 +14145,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 34,
                     subclass_short_name: 'Twilight',
+                    subclass_id: '8dfd372a-d55c-4a9d-951d-e25a39510194',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -13525,6 +14162,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 34,
                     subclass_short_name: 'Twilight',
+                    subclass_id: '8dfd372a-d55c-4a9d-951d-e25a39510194',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -13542,6 +14180,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 34,
                     subclass_short_name: 'Twilight',
+                    subclass_id: '8dfd372a-d55c-4a9d-951d-e25a39510194',
                     subclass_source: 'TCE',
                     level: 1,
                     entries: {
@@ -13558,6 +14197,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 34,
                     subclass_short_name: 'Twilight',
+                    subclass_id: '8dfd372a-d55c-4a9d-951d-e25a39510194',
                     subclass_source: 'TCE',
                     level: 2,
                     entries: {
@@ -13582,6 +14222,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 34,
                     subclass_short_name: 'Twilight',
+                    subclass_id: '8dfd372a-d55c-4a9d-951d-e25a39510194',
                     subclass_source: 'TCE',
                     level: 6,
                     entries: {
@@ -13598,6 +14239,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 34,
                     subclass_short_name: 'Twilight',
+                    subclass_id: '8dfd372a-d55c-4a9d-951d-e25a39510194',
                     subclass_source: 'TCE',
                     level: 8,
                     is_class_feature_variant: true,
@@ -13615,6 +14257,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 34,
                     subclass_short_name: 'Twilight',
+                    subclass_id: '8dfd372a-d55c-4a9d-951d-e25a39510194',
                     subclass_source: 'TCE',
                     level: 8,
                     entries: {
@@ -13631,6 +14274,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 34,
                     subclass_short_name: 'Twilight',
+                    subclass_id: '8dfd372a-d55c-4a9d-951d-e25a39510194',
                     subclass_source: 'TCE',
                     level: 17,
                     entries: {
@@ -13647,6 +14291,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 18,
                     subclass_short_name: 'Forge',
+                    subclass_id: '8dadf414-ad6c-4f7b-ab6e-f050fc89c1f3',
                     subclass_source: 'XGE',
                     level: 1,
                     entries: {
@@ -13684,6 +14329,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 18,
                     subclass_short_name: 'Forge',
+                    subclass_id: '8dadf414-ad6c-4f7b-ab6e-f050fc89c1f3',
                     subclass_source: 'XGE',
                     level: 1,
                     entries: {
@@ -13700,6 +14346,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 18,
                     subclass_short_name: 'Forge',
+                    subclass_id: '8dadf414-ad6c-4f7b-ab6e-f050fc89c1f3',
                     subclass_source: 'XGE',
                     level: 1,
                     entries: {
@@ -13715,6 +14362,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 18,
                     subclass_short_name: 'Forge',
+                    subclass_id: '8dadf414-ad6c-4f7b-ab6e-f050fc89c1f3',
                     subclass_source: 'XGE',
                     level: 2,
                     entries: {
@@ -13732,6 +14380,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 18,
                     subclass_short_name: 'Forge',
+                    subclass_id: '8dadf414-ad6c-4f7b-ab6e-f050fc89c1f3',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -13754,6 +14403,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 30,
                     subclass_short_name: 'Forge',
+                    subclass_id: '8dadf414-ad6c-4f7b-ab6e-f050fc89c1f3',
                     subclass_source: 'XGE',
                     level: 8,
                     is_class_feature_variant: true,
@@ -13771,6 +14421,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 18,
                     subclass_short_name: 'Forge',
+                    subclass_id: '8dadf414-ad6c-4f7b-ab6e-f050fc89c1f3',
                     subclass_source: 'XGE',
                     level: 8,
                     entries: {
@@ -13786,6 +14437,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 18,
                     subclass_short_name: 'Forge',
+                    subclass_id: '8dadf414-ad6c-4f7b-ab6e-f050fc89c1f3',
                     subclass_source: 'XGE',
                     level: 17,
                     entries: {
@@ -13808,6 +14460,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 19,
                     subclass_short_name: 'Grave',
+                    subclass_id: 'd0a5477a-a116-4a07-84b7-0c308c8727dd',
                     subclass_source: 'XGE',
                     level: 1,
                     entries: {
@@ -13844,6 +14497,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 19,
                     subclass_short_name: 'Grave',
+                    subclass_id: 'd0a5477a-a116-4a07-84b7-0c308c8727dd',
                     subclass_source: 'XGE',
                     level: 1,
                     entries: {
@@ -13860,6 +14514,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 19,
                     subclass_short_name: 'Grave',
+                    subclass_id: 'd0a5477a-a116-4a07-84b7-0c308c8727dd',
                     subclass_source: 'XGE',
                     level: 1,
                     entries: {
@@ -13876,6 +14531,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 19,
                     subclass_short_name: 'Grave',
+                    subclass_id: 'd0a5477a-a116-4a07-84b7-0c308c8727dd',
                     subclass_source: 'XGE',
                     level: 2,
                     entries: {
@@ -13892,6 +14548,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 19,
                     subclass_short_name: 'Grave',
+                    subclass_id: 'd0a5477a-a116-4a07-84b7-0c308c8727dd',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -13908,6 +14565,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 30,
                     subclass_short_name: 'Grave',
+                    subclass_id: 'd0a5477a-a116-4a07-84b7-0c308c8727dd',
                     subclass_source: 'XGE',
                     level: 8,
                     is_class_feature_variant: true,
@@ -13925,6 +14583,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 19,
                     subclass_short_name: 'Grave',
+                    subclass_id: 'd0a5477a-a116-4a07-84b7-0c308c8727dd',
                     subclass_source: 'XGE',
                     level: 8,
                     entries: {
@@ -13940,6 +14599,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 19,
                     subclass_short_name: 'Grave',
+                    subclass_id: 'd0a5477a-a116-4a07-84b7-0c308c8727dd',
                     subclass_source: 'XGE',
                     level: 17,
                     entries: {
@@ -13955,6 +14615,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 54,
                     subclass_short_name: 'Lore',
+                    subclass_id: '9e2bfb7d-6a86-4d62-a230-3705328b1d18',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -13980,6 +14641,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 54,
                     subclass_short_name: 'Lore',
+                    subclass_id: '9e2bfb7d-6a86-4d62-a230-3705328b1d18',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -13995,6 +14657,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 54,
                     subclass_short_name: 'Lore',
+                    subclass_id: '9e2bfb7d-6a86-4d62-a230-3705328b1d18',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -14010,6 +14673,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 54,
                     subclass_short_name: 'Lore',
+                    subclass_id: '9e2bfb7d-6a86-4d62-a230-3705328b1d18',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -14025,6 +14689,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 54,
                     subclass_short_name: 'Lore',
+                    subclass_id: '9e2bfb7d-6a86-4d62-a230-3705328b1d18',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -14040,6 +14705,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 55,
                     subclass_short_name: 'Valor',
+                    subclass_id: 'af87decd-bb31-4319-9246-2b0c983e9313',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -14063,6 +14729,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 55,
                     subclass_short_name: 'Valor',
+                    subclass_id: 'af87decd-bb31-4319-9246-2b0c983e9313',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -14078,6 +14745,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 55,
                     subclass_short_name: 'Valor',
+                    subclass_id: 'af87decd-bb31-4319-9246-2b0c983e9313',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -14093,6 +14761,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 55,
                     subclass_short_name: 'Valor',
+                    subclass_id: 'af87decd-bb31-4319-9246-2b0c983e9313',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -14108,6 +14777,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 55,
                     subclass_short_name: 'Valor',
+                    subclass_id: 'af87decd-bb31-4319-9246-2b0c983e9313',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -14123,6 +14793,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 27,
                     subclass_short_name: 'Creation',
+                    subclass_id: '9f8f7140-5569-44c6-bead-58acaf564246',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -14148,6 +14819,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 27,
                     subclass_short_name: 'Creation',
+                    subclass_id: '9f8f7140-5569-44c6-bead-58acaf564246',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -14189,6 +14861,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 27,
                     subclass_short_name: 'Creation',
+                    subclass_id: '9f8f7140-5569-44c6-bead-58acaf564246',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -14207,6 +14880,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 27,
                     subclass_short_name: 'Creation',
+                    subclass_id: '9f8f7140-5569-44c6-bead-58acaf564246',
                     subclass_source: 'TCE',
                     level: 6,
                     entries: {
@@ -14226,6 +14900,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 27,
                     subclass_short_name: 'Creation',
+                    subclass_id: '9f8f7140-5569-44c6-bead-58acaf564246',
                     subclass_source: 'TCE',
                     level: 14,
                     entries: {
@@ -14243,6 +14918,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 29,
                     subclass_short_name: 'Eloquence',
+                    subclass_id: '67dbeac2-7abc-4ed8-8c86-be90c84343e3',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -14266,6 +14942,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 29,
                     subclass_short_name: 'Eloquence',
+                    subclass_id: '67dbeac2-7abc-4ed8-8c86-be90c84343e3',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -14282,6 +14959,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 29,
                     subclass_short_name: 'Eloquence',
+                    subclass_id: '67dbeac2-7abc-4ed8-8c86-be90c84343e3',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -14298,6 +14976,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 29,
                     subclass_short_name: 'Eloquence',
+                    subclass_id: '67dbeac2-7abc-4ed8-8c86-be90c84343e3',
                     subclass_source: 'TCE',
                     level: 6,
                     entries: {
@@ -14314,6 +14993,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 29,
                     subclass_short_name: 'Eloquence',
+                    subclass_id: '67dbeac2-7abc-4ed8-8c86-be90c84343e3',
                     subclass_source: 'TCE',
                     level: 6,
                     entries: {
@@ -14331,6 +15011,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 29,
                     subclass_short_name: 'Eloquence',
+                    subclass_id: '67dbeac2-7abc-4ed8-8c86-be90c84343e3',
                     subclass_source: 'TCE',
                     level: 14,
                     entries: {
@@ -14348,6 +15029,7 @@ exports.seed = knex => (
                     source: 'VRGR',
                     page: 28,
                     subclass_short_name: 'Spirits',
+                    subclass_id: '844e85b3-27d7-4acb-9866-a7abdd3d2d8c',
                     subclass_source: 'VRGR',
                     level: 3,
                     entries: {
@@ -14375,6 +15057,7 @@ exports.seed = knex => (
                     source: 'VRGR',
                     page: 28,
                     subclass_short_name: 'Spirits',
+                    subclass_id: '844e85b3-27d7-4acb-9866-a7abdd3d2d8c',
                     subclass_source: 'VRGR',
                     level: 3,
                     entries: {
@@ -14391,6 +15074,7 @@ exports.seed = knex => (
                     source: 'VRGR',
                     page: 28,
                     subclass_short_name: 'Spirits',
+                    subclass_id: '844e85b3-27d7-4acb-9866-a7abdd3d2d8c',
                     subclass_source: 'VRGR',
                     level: 3,
                     entries: {
@@ -14408,6 +15092,7 @@ exports.seed = knex => (
                     source: 'VRGR',
                     page: 28,
                     subclass_short_name: 'Spirits',
+                    subclass_id: '844e85b3-27d7-4acb-9866-a7abdd3d2d8c',
                     subclass_source: 'VRGR',
                     level: 3,
                     entries: {
@@ -14483,6 +15168,7 @@ exports.seed = knex => (
                     source: 'VRGR',
                     page: 28,
                     subclass_short_name: 'Spirits',
+                    subclass_id: '844e85b3-27d7-4acb-9866-a7abdd3d2d8c',
                     subclass_source: 'VRGR',
                     level: 6,
                     entries: {
@@ -14501,6 +15187,7 @@ exports.seed = knex => (
                     source: 'VRGR',
                     page: 28,
                     subclass_short_name: 'Spirits',
+                    subclass_id: '844e85b3-27d7-4acb-9866-a7abdd3d2d8c',
                     subclass_source: 'VRGR',
                     level: 14,
                     entries: {
@@ -14524,6 +15211,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 14,
                     subclass_short_name: 'Glamour',
+                    subclass_id: '1c053f0e-4602-4558-a1c3-1f21a019041f',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -14548,6 +15236,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 14,
                     subclass_short_name: 'Glamour',
+                    subclass_id: '1c053f0e-4602-4558-a1c3-1f21a019041f',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -14566,6 +15255,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 14,
                     subclass_short_name: 'Glamour',
+                    subclass_id: '1c053f0e-4602-4558-a1c3-1f21a019041f',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -14583,6 +15273,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 14,
                     subclass_short_name: 'Glamour',
+                    subclass_id: '1c053f0e-4602-4558-a1c3-1f21a019041f',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -14600,6 +15291,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 14,
                     subclass_short_name: 'Glamour',
+                    subclass_id: '1c053f0e-4602-4558-a1c3-1f21a019041f',
                     subclass_source: 'XGE',
                     level: 14,
                     entries: {
@@ -14617,6 +15309,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 15,
                     subclass_short_name: 'Swords',
+                    subclass_id: '89935e49-a48c-4969-ad9a-0b260386c834',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -14646,6 +15339,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 15,
                     subclass_short_name: 'Swords',
+                    subclass_id: '89935e49-a48c-4969-ad9a-0b260386c834',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -14679,6 +15373,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 15,
                     subclass_short_name: 'Swords',
+                    subclass_id: '89935e49-a48c-4969-ad9a-0b260386c834',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -14695,6 +15390,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 15,
                     subclass_short_name: 'Swords',
+                    subclass_id: '89935e49-a48c-4969-ad9a-0b260386c834',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -14724,6 +15420,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 15,
                     subclass_short_name: 'Swords',
+                    subclass_id: '89935e49-a48c-4969-ad9a-0b260386c834',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -14739,6 +15436,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 15,
                     subclass_short_name: 'Swords',
+                    subclass_id: '89935e49-a48c-4969-ad9a-0b260386c834',
                     subclass_source: 'XGE',
                     level: 14,
                     entries: {
@@ -14754,6 +15452,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 16,
                     subclass_short_name: 'Whispers',
+                    subclass_id: '48d54aa7-5643-46de-87f7-5018095293f4',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -14778,6 +15477,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 16,
                     subclass_short_name: 'Whispers',
+                    subclass_id: '48d54aa7-5643-46de-87f7-5018095293f4',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -14795,6 +15495,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 16,
                     subclass_short_name: 'Whispers',
+                    subclass_id: '48d54aa7-5643-46de-87f7-5018095293f4',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -14813,6 +15514,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 16,
                     subclass_short_name: 'Whispers',
+                    subclass_id: '48d54aa7-5643-46de-87f7-5018095293f4',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -14832,6 +15534,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 16,
                     subclass_short_name: 'Whispers',
+                    subclass_id: '48d54aa7-5643-46de-87f7-5018095293f4',
                     subclass_source: 'XGE',
                     level: 14,
                     entries: {
@@ -14852,6 +15555,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 15,
                     subclass_short_name: 'Swords',
+                    subclass_id: '89935e49-a48c-4969-ad9a-0b260386c834',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -14867,6 +15571,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 15,
                     subclass_short_name: 'Swords',
+                    subclass_id: '89935e49-a48c-4969-ad9a-0b260386c834',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -14882,6 +15587,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 15,
                     subclass_short_name: 'Swords',
+                    subclass_id: '89935e49-a48c-4969-ad9a-0b260386c834',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -14897,6 +15603,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 49,
                     subclass_short_name: 'Berserker',
+                    subclass_id: 'f5106f19-6314-4584-a362-81565b7a2ac3',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -14916,6 +15623,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 49,
                     subclass_short_name: 'Berserker',
+                    subclass_id: 'f5106f19-6314-4584-a362-81565b7a2ac3',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -14931,6 +15639,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 49,
                     subclass_short_name: 'Berserker',
+                    subclass_id: 'f5106f19-6314-4584-a362-81565b7a2ac3',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -14946,6 +15655,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 49,
                     subclass_short_name: 'Berserker',
+                    subclass_id: 'f5106f19-6314-4584-a362-81565b7a2ac3',
                     subclass_source: 'PHB',
                     level: 10,
                     entries: {
@@ -14962,6 +15672,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 49,
                     subclass_short_name: 'Berserker',
+                    subclass_id: 'f5106f19-6314-4584-a362-81565b7a2ac3',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -14977,6 +15688,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 50,
                     subclass_short_name: 'Totem Warrior',
+                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -14992,6 +15704,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 50,
                     subclass_short_name: 'Totem Warrior',
+                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -15007,6 +15720,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 50,
                     subclass_short_name: 'Totem Warrior',
+                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -15031,6 +15745,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 50,
                     subclass_short_name: 'Totem Warrior',
+                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -15046,6 +15761,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 50,
                     subclass_short_name: 'Totem Warrior',
+                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -15061,6 +15777,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 50,
                     subclass_short_name: 'Totem Warrior',
+                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -15103,6 +15820,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 50,
                     subclass_short_name: 'Totem Warrior',
+                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -15118,6 +15836,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 50,
                     subclass_short_name: 'Totem Warrior',
+                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -15133,6 +15852,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 50,
                     subclass_short_name: 'Totem Warrior',
+                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -15148,6 +15868,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 50,
                     subclass_short_name: 'Totem Warrior',
+                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -15189,6 +15910,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 50,
                     subclass_short_name: 'Totem Warrior',
+                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
                     level: 10,
                     entries: {
@@ -15204,6 +15926,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 50,
                     subclass_short_name: 'Totem Warrior',
+                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -15219,6 +15942,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 50,
                     subclass_short_name: 'Totem Warrior',
+                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -15234,6 +15958,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 50,
                     subclass_short_name: 'Totem Warrior',
+                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -15249,6 +15974,7 @@ exports.seed = knex => (
                     source: 'PHB',
                     page: 50,
                     subclass_short_name: 'Totem Warrior',
+                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -15290,6 +16016,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 121,
                     subclass_short_name: 'Battlerager',
+                    subclass_id: 'f9ec7489-6745-448b-ba7c-c52a693839d1',
                     subclass_source: 'SCAG',
                     level: 3,
                     entries: {
@@ -15314,6 +16041,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 121,
                     subclass_short_name: 'Battlerager',
+                    subclass_id: 'f9ec7489-6745-448b-ba7c-c52a693839d1',
                     subclass_source: 'SCAG',
                     level: 3,
                     entries: {
@@ -15331,6 +16059,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 121,
                     subclass_short_name: 'Battlerager',
+                    subclass_id: 'f9ec7489-6745-448b-ba7c-c52a693839d1',
                     subclass_source: 'SCAG',
                     level: 3,
                     entries: {
@@ -15347,6 +16076,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 121,
                     subclass_short_name: 'Battlerager',
+                    subclass_id: 'f9ec7489-6745-448b-ba7c-c52a693839d1',
                     subclass_source: 'SCAG',
                     level: 6,
                     entries: {
@@ -15362,6 +16092,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 121,
                     subclass_short_name: 'Battlerager',
+                    subclass_id: 'f9ec7489-6745-448b-ba7c-c52a693839d1',
                     subclass_source: 'SCAG',
                     level: 10,
                     entries: {
@@ -15377,6 +16108,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 121,
                     subclass_short_name: 'Battlerager',
+                    subclass_id: 'f9ec7489-6745-448b-ba7c-c52a693839d1',
                     subclass_source: 'SCAG',
                     level: 14,
                     entries: {
@@ -15392,6 +16124,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 24,
                     subclass_short_name: 'Beast',
+                    subclass_id: 'dcb9f92d-5526-496b-a942-c2549cd9c608',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -15436,6 +16169,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 24,
                     subclass_short_name: 'Beast',
+                    subclass_id: 'dcb9f92d-5526-496b-a942-c2549cd9c608',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -15477,6 +16211,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 24,
                     subclass_short_name: 'Beast',
+                    subclass_id: 'dcb9f92d-5526-496b-a942-c2549cd9c608',
                     subclass_source: 'TCE',
                     level: 6,
                     entries: {
@@ -15502,6 +16237,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 24,
                     subclass_short_name: 'Beast',
+                    subclass_id: 'dcb9f92d-5526-496b-a942-c2549cd9c608',
                     subclass_source: 'TCE',
                     level: 10,
                     entries: {
@@ -15526,6 +16262,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 24,
                     subclass_short_name: 'Beast',
+                    subclass_id: 'dcb9f92d-5526-496b-a942-c2549cd9c608',
                     subclass_source: 'TCE',
                     level: 14,
                     entries: {
@@ -15544,6 +16281,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 25,
                     subclass_short_name: 'Wild Magic',
+                    subclass_id: '3f02738a-5b95-4616-bec3-7d43e5ae1cba',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -15567,6 +16305,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 25,
                     subclass_short_name: 'Wild Magic',
+                    subclass_id: '3f02738a-5b95-4616-bec3-7d43e5ae1cba',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -15584,6 +16323,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 25,
                     subclass_short_name: 'Wild Magic',
+                    subclass_id: '3f02738a-5b95-4616-bec3-7d43e5ae1cba',
                     subclass_source: 'TCE',
                     level: 3,
                     entries: {
@@ -15644,6 +16384,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 25,
                     subclass_short_name: 'Wild Magic',
+                    subclass_id: '3f02738a-5b95-4616-bec3-7d43e5ae1cba',
                     subclass_source: 'TCE',
                     level: 6,
                     entries: {
@@ -15668,6 +16409,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 25,
                     subclass_short_name: 'Wild Magic',
+                    subclass_id: '3f02738a-5b95-4616-bec3-7d43e5ae1cba',
                     subclass_source: 'TCE',
                     level: 10,
                     entries: {
@@ -15684,6 +16426,7 @@ exports.seed = knex => (
                     source: 'TCE',
                     page: 25,
                     subclass_short_name: 'Wild Magic',
+                    subclass_id: '3f02738a-5b95-4616-bec3-7d43e5ae1cba',
                     subclass_source: 'TCE',
                     level: 14,
                     entries: {
@@ -15700,6 +16443,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 9,
                     subclass_short_name: 'Ancestral Guardian',
+                    subclass_id: 'b3ded45c-513f-4c06-9547-6cbf4b9cca72',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -15721,6 +16465,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 9,
                     subclass_short_name: 'Ancestral Guardian',
+                    subclass_id: 'b3ded45c-513f-4c06-9547-6cbf4b9cca72',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -15736,6 +16481,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 9,
                     subclass_short_name: 'Ancestral Guardian',
+                    subclass_id: 'b3ded45c-513f-4c06-9547-6cbf4b9cca72',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -15748,10 +16494,12 @@ exports.seed = knex => (
                     class_id: '8be354f0-4707-41a5-be97-127d1218c446',
                 },
                 {
+                    id: uuidv4(),
                     name: 'Consult the Spirits',
                     source: 'XGE',
                     page: 9,
                     subclass_short_name: 'Ancestral Guardian',
+                    subclass_id: 'b3ded45c-513f-4c06-9547-6cbf4b9cca72',
                     subclass_source: 'XGE',
                     level: 10,
                     entries: {
@@ -15760,14 +16508,15 @@ exports.seed = knex => (
                             "After you cast either spell in this way, you can't use this feature again until you finish a short or long rest.",
                         ],
                     },
-                    id: uuidv4(),
-                    class_id: '8be354f0-4707-41a5-be97-127d1218c446',
                 },
                 {
+                    id: uuidv4(),
+                    class_id: '8be354f0-4707-41a5-be97-127d1218c446',
                     name: 'Vengeful Ancestors',
                     source: 'XGE',
                     page: 9,
                     subclass_short_name: 'Ancestral Guardian',
+                    subclass_id: 'b3ded45c-513f-4c06-9547-6cbf4b9cca72',
                     subclass_source: 'XGE',
                     level: 14,
                     entries: {
@@ -15783,6 +16532,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 10,
                     subclass_short_name: 'Storm Herald',
+                    subclass_id: '237f13ed-86c8-4f42-871d-4fc932f0b30c',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -15803,6 +16553,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 10,
                     subclass_short_name: 'Storm Herald',
+                    subclass_id: '237f13ed-86c8-4f42-871d-4fc932f0b30c',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -15837,6 +16588,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 10,
                     subclass_short_name: 'Storm Herald',
+                    subclass_id: '237f13ed-86c8-4f42-871d-4fc932f0b30c',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -15869,6 +16621,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 10,
                     subclass_short_name: 'Storm Herald',
+                    subclass_id: '237f13ed-86c8-4f42-871d-4fc932f0b30c',
                     subclass_source: 'XGE',
                     level: 10,
                     entries: {
@@ -15884,6 +16637,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 10,
                     subclass_short_name: 'Storm Herald',
+                    subclass_id: '237f13ed-86c8-4f42-871d-4fc932f0b30c',
                     subclass_source: 'XGE',
                     level: 14,
                     entries: {
@@ -15916,6 +16670,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 11,
                     subclass_short_name: 'Zealot',
+                    subclass_id: '074ce21c-97e7-4e82-8ed4-6c09def06f9f',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -15940,6 +16695,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 11,
                     subclass_short_name: 'Zealot',
+                    subclass_id: '074ce21c-97e7-4e82-8ed4-6c09def06f9f',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -15955,6 +16711,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 11,
                     subclass_short_name: 'Zealot',
+                    subclass_id: '074ce21c-97e7-4e82-8ed4-6c09def06f9f',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -15970,6 +16727,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 11,
                     subclass_short_name: 'Zealot',
+                    subclass_id: '074ce21c-97e7-4e82-8ed4-6c09def06f9f',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -15985,6 +16743,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 11,
                     subclass_short_name: 'Zealot',
+                    subclass_id: '074ce21c-97e7-4e82-8ed4-6c09def06f9f',
                     subclass_source: 'XGE',
                     level: 10,
                     entries: {
@@ -16001,6 +16760,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 11,
                     subclass_short_name: 'Zealot',
+                    subclass_id: '074ce21c-97e7-4e82-8ed4-6c09def06f9f',
                     subclass_source: 'XGE',
                     level: 14,
                     entries: {
@@ -16017,6 +16777,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 122,
                     subclass_short_name: 'Totem Warrior',
+                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -16032,6 +16793,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 122,
                     subclass_short_name: 'Totem Warrior',
+                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -16047,6 +16809,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 122,
                     subclass_short_name: 'Totem Warrior',
+                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -16062,6 +16825,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 122,
                     subclass_short_name: 'Totem Warrior',
+                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
                     level: 6,
                     entries: {
@@ -16077,6 +16841,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 122,
                     subclass_short_name: 'Totem Warrior',
+                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -16092,6 +16857,7 @@ exports.seed = knex => (
                     source: 'SCAG',
                     page: 122,
                     subclass_short_name: 'Totem Warrior',
+                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
                     level: 14,
                     entries: {
@@ -16107,6 +16873,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 10,
                     subclass_short_name: 'Storm Herald',
+                    subclass_id: '237f13ed-86c8-4f42-871d-4fc932f0b30c',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -16122,6 +16889,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 10,
                     subclass_short_name: 'Storm Herald',
+                    subclass_id: '237f13ed-86c8-4f42-871d-4fc932f0b30c',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -16137,6 +16905,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 10,
                     subclass_short_name: 'Storm Herald',
+                    subclass_id: '237f13ed-86c8-4f42-871d-4fc932f0b30c',
                     subclass_source: 'XGE',
                     level: 3,
                     entries: {
@@ -16152,6 +16921,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 10,
                     subclass_short_name: 'Storm Herald',
+                    subclass_id: '237f13ed-86c8-4f42-871d-4fc932f0b30c',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -16167,6 +16937,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 10,
                     subclass_short_name: 'Storm Herald',
+                    subclass_id: '237f13ed-86c8-4f42-871d-4fc932f0b30c',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -16182,6 +16953,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 10,
                     subclass_short_name: 'Storm Herald',
+                    subclass_id: '237f13ed-86c8-4f42-871d-4fc932f0b30c',
                     subclass_source: 'XGE',
                     level: 6,
                     entries: {
@@ -16197,6 +16969,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 10,
                     subclass_short_name: 'Storm Herald',
+                    subclass_id: '237f13ed-86c8-4f42-871d-4fc932f0b30c',
                     subclass_source: 'XGE',
                     level: 14,
                     entries: {
@@ -16212,6 +16985,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 10,
                     subclass_short_name: 'Storm Herald',
+                    subclass_id: '237f13ed-86c8-4f42-871d-4fc932f0b30c',
                     subclass_source: 'XGE',
                     level: 14,
                     entries: {
@@ -16227,6 +17001,7 @@ exports.seed = knex => (
                     source: 'XGE',
                     page: 10,
                     subclass_short_name: 'Storm Herald',
+                    subclass_id: '237f13ed-86c8-4f42-871d-4fc932f0b30c',
                     subclass_source: 'XGE',
                     level: 14,
                     entries: {
