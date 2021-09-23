@@ -47,7 +47,7 @@ const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected, character,
       const merged = classFeats.concat(subclassFeats)
       //@ts-ignore
       merged.sort((a,b) => a?.level - b.level)
-    
+    debugger
       setFeatures(merged)
     }
     if (character.currentLevel) {
