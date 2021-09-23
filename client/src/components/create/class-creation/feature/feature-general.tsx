@@ -134,7 +134,7 @@ const SubclassOptionType: React.FC<SubclassProps> = ({
     >
       <option>- Choose a {subclassIdent}</option>
       {data?.query.allSubclasses?.nodes.map((sc) => (
-        <option value={sc?.id}>{sc?.name}</option>
+        <option key={sc?.id} value={sc?.id}>{sc?.name}</option>
       ))}
     </select>
   )
@@ -195,20 +195,21 @@ const FeatureGeneral: React.FC<Props> = ({
         </div>
         {detailsActive && (
           <div className='p-2 text-sm space-y-2'>
-            {entries.map((entry: any) => {
+            {entries.map((entry: any, i: number) => {
               if (typeof entry === 'string') {
-                return <StringType entry={entry} />
+                return <StringType key={i} entry={entry} />
               }
               if (entry.type === 'skillOptions' && !viewOnly) {
-                return <SkillOptionType options={entry.options} />
+                return <SkillOptionType key={i} options={entry.options} />
               }
               if (entry.type === 'fightStyleOptions' && !viewOnly) {
-                return <FightOptionType options={entry.options} />
+                return <FightOptionType key={i} options={entry.options} />
               }
 
               if (entry.type === 'subclass' && !viewOnly) {
                 return (
                   <SubclassOptionType
+                    key={i} 
                     classId={feature.classId}
                     subclassIdent={feature.name}
                     characterId={character.characterId}
@@ -219,11 +220,11 @@ const FeatureGeneral: React.FC<Props> = ({
               }
 
               if (entry.type === 'list') {
-                return <EntryListType entry={entry} />
+                return <EntryListType key={i} entry={entry} />
               }
 
               if (entry.type === 'table') {
-                return <EntryTableType entry={entry} />
+                return <EntryTableType key={i} entry={entry} />
               }
 
               return null

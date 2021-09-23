@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import './scss/App.scss'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { AUTH_TOKEN } from './constants'
