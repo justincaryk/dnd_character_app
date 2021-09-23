@@ -8,7 +8,7 @@ const ClassCreation: React.FC = () => {
   const { id }: any = useParams()
   const [classSelected, setClassSelected] = useState<any>(null)
   const [performUpdate] = useUpdateCharacterMutation()
-  const { data: char, loading: charLoading } = useGetCharacterByIdQuery({
+  const { data: char, loading: charLoading, refetch: refetchChar } = useGetCharacterByIdQuery({
     variables: {
       characterId: id,
     },
@@ -79,7 +79,9 @@ const ClassCreation: React.FC = () => {
         <ClassFeatures 
           classObj={classSelected} 
           setClassSelected={setClassSelected}
-          character={char.characterByCharacterId}/>
+          character={char.characterByCharacterId}
+          refetchCharacter={refetchChar}
+        />
       </div>
     )
   }

@@ -1,23 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import classnames from 'classnames'
 import { numberToSpeakable } from '../../../../lib/utils'
-import { useFightingStyleByNameQuery, useSubclassNamesByClassIdQuery } from '../../../../generated/graphql'
+import {
+  useFightingStyleByNameQuery,
+  useSubclassNamesByClassIdQuery,
+  useUpdateCharacterMutation,
+} from '../../../../generated/graphql'
 import { EntryListType, EntryTableType } from '../../../shared/entries'
-interface Props {
-  feature: {
-    id: string
-    entries: any
-    classSource: string
-    isClassFeatureVariant: string
-    level: number
-    name: string
-    page: number
-    source: string
-    hasOptions?: boolean
-    classId: string
-  }
-  viewOnly?: boolean
-}
 
 interface OptionsTypeProps {
   options: {
@@ -100,23 +89,51 @@ const FightOptionType: React.FC<OptionsTypeProps> = ({ options }) => {
 interface SubclassProps {
   classId: string
   subclassIdent: string
+  characterId: string
+  subclassId: string
+  refetchCharacter: any
 }
-const SubclassOptionType: React.FC<SubclassProps> = ({ classId, subclassIdent }) => {
+const SubclassOptionType: React.FC<SubclassProps> = ({
+  classId,
+  subclassIdent,
+  characterId,
+  refetchCharacter,
+  subclassId,
+}) => {
   const { data, loading } = useSubclassNamesByClassIdQuery({
     variables: { classId: classId },
   })
+  const [selectedSubclassId, setSelectedSubclassId] = useState('')
+  const [performUpdate] = useUpdateCharacterMutation()
+
+  useEffect(() => {
+    setSelectedSubclassId(subclassId)
+  }, [subclassId])
 
   if (loading) {
     return null
   }
 
+  const handleSubclassChange = async (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    await performUpdate({
+      variables: {
+        characterId: characterId,
+        subclassId: e.currentTarget.value,
+      },
+    })
+    await refetchCharacter()
+  }
+
   return (
     <select
       className='w-full border rounded text-sm p-2'
-      defaultValue={''}
+      defaultValue={selectedSubclassId}
+      onChange={handleSubclassChange}
     >
       <option>- Choose a {subclassIdent}</option>
-      {data?.query.allSubclasses?.nodes.map(sc => (
+      {data?.query.allSubclasses?.nodes.map((sc) => (
         <option value={sc?.id}>{sc?.name}</option>
       ))}
     </select>
@@ -127,7 +144,30 @@ interface StringTypeProps {
 }
 const StringType: React.FC<StringTypeProps> = ({ entry }) => <div>{entry}</div>
 
-const FeatureGeneral: React.FC<Props> = ({ feature, viewOnly }) => {
+interface Props {
+  feature: {
+    id: string
+    entries: any
+    classSource: string
+    isClassFeatureVariant: string
+    level: number
+    name: string
+    page: number
+    source: string
+    hasOptions?: boolean
+    classId: string
+  }
+  viewOnly?: boolean
+  character: any
+  refetchCharacter?: any
+}
+
+const FeatureGeneral: React.FC<Props> = ({
+  feature,
+  viewOnly,
+  character,
+  refetchCharacter,
+}) => {
   const [detailsActive, toggleDetailActive] = useState(false)
   const [entries, setEntries] = useState([])
 
@@ -156,7 +196,7 @@ const FeatureGeneral: React.FC<Props> = ({ feature, viewOnly }) => {
         {detailsActive && (
           <div className='p-2 text-sm space-y-2'>
             {entries.map((entry: any) => {
-              if (typeof entry == 'string') {
+              if (typeof entry === 'string') {
                 return <StringType entry={entry} />
               }
               if (entry.type === 'skillOptions' && !viewOnly) {
@@ -167,7 +207,15 @@ const FeatureGeneral: React.FC<Props> = ({ feature, viewOnly }) => {
               }
 
               if (entry.type === 'subclass' && !viewOnly) {
-                return <SubclassOptionType classId={feature.classId} subclassIdent={feature.name} />
+                return (
+                  <SubclassOptionType
+                    classId={feature.classId}
+                    subclassIdent={feature.name}
+                    characterId={character.characterId}
+                    subclassId={character.subclassId}
+                    refetchCharacter={refetchCharacter}
+                  />
+                )
               }
 
               if (entry.type === 'list') {
@@ -177,6 +225,8 @@ const FeatureGeneral: React.FC<Props> = ({ feature, viewOnly }) => {
               if (entry.type === 'table') {
                 return <EntryTableType entry={entry} />
               }
+
+              return null
             })}
           </div>
         )}

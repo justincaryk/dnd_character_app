@@ -11,6 +11,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 11,
                     subclass_short_name: 'Painkiller',
+                    subclass_id: '24c00ee1-3e91-49e9-b1a8-691c084923c0',
                     subclass_source: 'MCDM',
                     level: 3,
                     entries: {
@@ -26,6 +27,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 11,
                     subclass_short_name: 'Painkiller',
+                    subclass_id: '24c00ee1-3e91-49e9-b1a8-691c084923c0',
                     subclass_source: 'MCDM',
                     level: 3,
                     entries: {
@@ -41,6 +43,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 11,
                     subclass_short_name: 'Painkiller',
+                    subclass_id: '24c00ee1-3e91-49e9-b1a8-691c084923c0',
                     subclass_source: 'MCDM',
                     level: 6,
                     entries: {
@@ -56,6 +59,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 11,
                     subclass_short_name: 'Painkiller',
+                    subclass_id: '24c00ee1-3e91-49e9-b1a8-691c084923c0',
                     subclass_source: 'MCDM',
                     level: 10,
                     entries: {
@@ -71,6 +75,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 11,
                     subclass_short_name: 'Painkiller',
+                    subclass_id: '24c00ee1-3e91-49e9-b1a8-691c084923c0',
                     subclass_source: 'MCDM',
                     level: 18,
                     entries: {
@@ -86,6 +91,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 11,
                     subclass_short_name: 'Painkiller',
+                    subclass_id: '24c00ee1-3e91-49e9-b1a8-691c084923c0',
                     subclass_source: 'MCDM',
                     level: 3,
                     entries: {
@@ -101,6 +107,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 11,
                     subclass_short_name: 'Painkiller',
+                    subclass_id: '24c00ee1-3e91-49e9-b1a8-691c084923c0',
                     subclass_source: 'MCDM',
                     level: 7,
                     entries: {
@@ -116,6 +123,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 11,
                     subclass_short_name: 'Painkiller',
+                    subclass_id: '24c00ee1-3e91-49e9-b1a8-691c084923c0',
                     subclass_source: 'MCDM',
                     level: 9,
                     entries: {
@@ -131,6 +139,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 13,
                     subclass_short_name: 'Painkiller',
+                    subclass_id: '24c00ee1-3e91-49e9-b1a8-691c084923c0',
                     subclass_source: 'MCDM',
                     level: 13,
                     entries: {
@@ -146,6 +155,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 11,
                     subclass_short_name: 'Painkiller',
+                    subclass_id: '24c00ee1-3e91-49e9-b1a8-691c084923c0',
                     subclass_source: 'MCDM',
                     level: 17,
                     entries: {
@@ -161,6 +171,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 11,
                     subclass_short_name: 'Painkiller',
+                    subclass_id: '24c00ee1-3e91-49e9-b1a8-691c084923c0',
                     subclass_source: 'MCDM',
                     level: 20,
                     entries: {
@@ -178,6 +189,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 13,
                     subclass_short_name: 'Shadowmaster',
+                    subclass_id: '00d0991a-e026-4b62-b43a-aca18bcf5bb4',
                     subclass_source: 'MCDM',
                     level: 3,
                     entries: {
@@ -193,6 +205,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 13,
                     subclass_short_name: 'Shadowmaster',
+                    subclass_id: '00d0991a-e026-4b62-b43a-aca18bcf5bb4',
                     subclass_source: 'MCDM',
                     level: 3,
                     entries: {
@@ -208,6 +221,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 13,
                     subclass_short_name: 'Shadowmaster',
+                    subclass_id: '00d0991a-e026-4b62-b43a-aca18bcf5bb4',
                     subclass_source: 'MCDM',
                     level: 3,
                     entries: {
@@ -224,6 +238,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 13,
                     subclass_short_name: 'Shadowmaster',
+                    subclass_id: '00d0991a-e026-4b62-b43a-aca18bcf5bb4',
                     subclass_source: 'MCDM',
                     level: 7,
                     entries: {
@@ -239,6 +254,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 13,
                     subclass_short_name: 'Shadowmaster',
+                    subclass_id: '00d0991a-e026-4b62-b43a-aca18bcf5bb4',
                     subclass_source: 'MCDM',
                     level: 9,
                     entries: {
@@ -254,6 +270,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 13,
                     subclass_short_name: 'Shadowmaster',
+                    subclass_id: '00d0991a-e026-4b62-b43a-aca18bcf5bb4',
                     subclass_source: 'MCDM',
                     level: 13,
                     entries: {
@@ -269,6 +286,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 13,
                     subclass_short_name: 'Shadowmaster',
+                    subclass_id: '00d0991a-e026-4b62-b43a-aca18bcf5bb4',
                     subclass_source: 'MCDM',
                     level: 17,
                     entries: {
@@ -284,6 +302,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 13,
                     subclass_short_name: 'Shadowmaster',
+                    subclass_id: '00d0991a-e026-4b62-b43a-aca18bcf5bb4',
                     subclass_source: 'MCDM',
                     level: 20,
                     entries: {
@@ -299,6 +318,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 13,
                     subclass_short_name: 'Shadowmaster',
+                    subclass_id: '00d0991a-e026-4b62-b43a-aca18bcf5bb4',
                     subclass_source: 'MCDM',
                     level: 3,
                     entries: {
@@ -314,6 +334,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 13,
                     subclass_short_name: 'Shadowmaster',
+                    subclass_id: '00d0991a-e026-4b62-b43a-aca18bcf5bb4',
                     subclass_source: 'MCDM',
                     level: 6,
                     entries: {
@@ -330,6 +351,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 13,
                     subclass_short_name: 'Shadowmaster',
+                    subclass_id: '00d0991a-e026-4b62-b43a-aca18bcf5bb4',
                     subclass_source: 'MCDM',
                     level: 10,
                     entries: {
@@ -345,6 +367,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 13,
                     subclass_short_name: 'Shadowmaster',
+                    subclass_id: '00d0991a-e026-4b62-b43a-aca18bcf5bb4',
                     subclass_source: 'MCDM',
                     level: 18,
                     entries: {
@@ -362,6 +385,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 16,
                     subclass_short_name: 'Ruin',
+                    subclass_id: '37b84de0-f94e-427f-b7ee-77d026963cb3',
                     subclass_source: 'MCDM',
                     level: 3,
                     entries: {
@@ -437,6 +461,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 16,
                     subclass_short_name: 'Ruin',
+                    subclass_id: '37b84de0-f94e-427f-b7ee-77d026963cb3',
                     subclass_source: 'MCDM',
                     level: 7,
                     entries: {
@@ -452,6 +477,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 16,
                     subclass_short_name: 'Ruin',
+                    subclass_id: '37b84de0-f94e-427f-b7ee-77d026963cb3',
                     subclass_source: 'MCDM',
                     level: 9,
                     entries: {
@@ -467,6 +493,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 17,
                     subclass_short_name: 'Ruin',
+                    subclass_id: '37b84de0-f94e-427f-b7ee-77d026963cb3',
                     subclass_source: 'MCDM',
                     level: 13,
                     entries: {
@@ -482,6 +509,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 17,
                     subclass_short_name: 'Ruin',
+                    subclass_id: '37b84de0-f94e-427f-b7ee-77d026963cb3',
                     subclass_source: 'MCDM',
                     level: 17,
                     entries: {
@@ -497,6 +525,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 17,
                     subclass_short_name: 'Ruin',
+                    subclass_id: '37b84de0-f94e-427f-b7ee-77d026963cb3',
                     subclass_source: 'MCDM',
                     level: 20,
                     entries: {
@@ -512,6 +541,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 16,
                     subclass_short_name: 'Ruin',
+                    subclass_id: '37b84de0-f94e-427f-b7ee-77d026963cb3',
                     subclass_source: 'MCDM',
                     level: 3,
                     entries: {
@@ -527,6 +557,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 16,
                     subclass_short_name: 'Ruin',
+                    subclass_id: '37b84de0-f94e-427f-b7ee-77d026963cb3',
                     subclass_source: 'MCDM',
                     level: 3,
                     entries: {
@@ -542,6 +573,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 17,
                     subclass_short_name: 'Ruin',
+                    subclass_id: '37b84de0-f94e-427f-b7ee-77d026963cb3',
                     subclass_source: 'MCDM',
                     level: 6,
                     entries: {
@@ -557,6 +589,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 17,
                     subclass_short_name: 'Ruin',
+                    subclass_id: '37b84de0-f94e-427f-b7ee-77d026963cb3',
                     subclass_source: 'MCDM',
                     level: 10,
                     entries: {
@@ -572,6 +605,7 @@ exports.seed = knex => (
                     source: 'MCDM',
                     page: 17,
                     subclass_short_name: 'Ruin',
+                    subclass_id: '37b84de0-f94e-427f-b7ee-77d026963cb3',
                     subclass_source: 'MCDM',
                     level: 18,
                     entries: {

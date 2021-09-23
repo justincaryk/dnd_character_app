@@ -65,7 +65,7 @@ const HitPoints: React.FC<Props> = ({ characterId, hdFaces, currentLevel}) => {
       })
     }
     setHitPoints((currentLevel * hdFaces) + bonusHash[conScore])
-  }, [core, asisSel, asis])
+  }, [core, asisSel, asis, currentLevel])
 
   return (
     <div>

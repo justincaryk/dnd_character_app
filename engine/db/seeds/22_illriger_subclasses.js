@@ -8,7 +8,7 @@ exports.seed = knex => (
             knex('subclasses').insert([
                 {
 
-                    id: uuidv4(),
+                    id: '24c00ee1-3e91-49e9-b1a8-691c084923c0',
                     name: 'Painkiller',
                     short_name: 'Painkiller',
                     source: 'MCDM',
@@ -29,7 +29,7 @@ exports.seed = knex => (
                 },
                 {
 
-                    id: uuidv4(),
+                    id: '00d0991a-e026-4b62-b43a-aca18bcf5bb4',
                     name: 'Shadowmaster',
                     short_name: 'Shadowmaster',
                     source: 'MCDM',
@@ -52,7 +52,7 @@ exports.seed = knex => (
                 },
                 {
 
-                    id: uuidv4(),
+                    id: '37b84de0-f94e-427f-b7ee-77d026963cb3',
                     name: 'Architect of Ruin',
                     short_name: 'Ruin',
                     source: 'MCDM',
