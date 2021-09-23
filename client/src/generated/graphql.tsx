@@ -10078,6 +10078,7 @@ export type GetAllAsiSelectionsByFeatIdQuery = (
 
 export type ClassByIdQueryVariables = Exact<{
   id: Scalars['UUID'];
+  subclassId?: Maybe<Scalars['UUID']>;
 }>;
 
 
@@ -11499,7 +11500,7 @@ export type GetAllAsiSelectionsByFeatIdQueryHookResult = ReturnType<typeof useGe
 export type GetAllAsiSelectionsByFeatIdLazyQueryHookResult = ReturnType<typeof useGetAllAsiSelectionsByFeatIdLazyQuery>;
 export type GetAllAsiSelectionsByFeatIdQueryResult = Apollo.QueryResult<GetAllAsiSelectionsByFeatIdQuery, GetAllAsiSelectionsByFeatIdQueryVariables>;
 export const ClassByIdDocument = gql`
-    query ClassById($id: UUID!) {
+    query ClassById($id: UUID!, $subclassId: UUID) {
   classById(id: $id) {
     name
     id
@@ -11541,7 +11542,7 @@ export const ClassByIdDocument = gql`
         preparedSpells
       }
     }
-    subclassFeaturesByClassId(orderBy: NAME_ASC) {
+    subclassFeaturesByClassId(condition: {id: $subclassId}, orderBy: NAME_ASC) {
       nodes {
         entries
         id
@@ -11586,6 +11587,7 @@ export const ClassByIdDocument = gql`
  * const { data, loading, error } = useClassByIdQuery({
  *   variables: {
  *      id: // value for 'id'
+ *      subclassId: // value for 'subclassId'
  *   },
  * });
  */

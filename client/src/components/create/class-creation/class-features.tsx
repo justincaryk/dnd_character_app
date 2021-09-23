@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Dispatch, SetStateAction } from 'react'
-import { useClassByIdQuery, useUpdateCharacterMutation } from '../../../generated/graphql'
-import FeatureAsi from './asi/feature-asi'
-import FeatureGeneral from './asi/feature-general'
+import { useClassByIdQuery, useSubclassNamesByClassIdQuery, useUpdateCharacterMutation } from '../../../generated/graphql'
+import FeatureAsi from './feature/feature-asi'
+import FeatureGeneral from './feature/feature-general'
 import classnames from 'classnames'
 import FeatureStartProf from './asi/feature-start-prof'
 import { useParams } from 'react-router'
@@ -11,6 +11,7 @@ interface Props {
   classObj: {
     id: string
     name: string
+    subclassId: string
   }
   setClassSelected: Dispatch<SetStateAction<boolean>>
   character: any
@@ -20,6 +21,7 @@ const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected, character 
   const levels = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ]
+  const [features, setFeatures] = useState<any[]>([])
   const [currentLevel, setCurrentLevel] = useState(1)
   const { id }: any = useParams()
   const [classFeatures, setClassFeatures] = useState<any[]>([])
@@ -29,13 +31,24 @@ const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected, character 
   const [higherFeaturesVisible, toggleHigherFeaturesVisible] = useState(false)
   const { data, loading } = useClassByIdQuery({
     variables: {
-      id: classObj.id,
+      id: classObj.id
     },
   })
+  
   const [performUpdate] = useUpdateCharacterMutation()
 
   useEffect(() => {
     
+    // if (data?.classById?.classFeaturesByClassId.nodes && data.classById.subclassFeaturesByClassId.nodes) {
+    //   const classFeats = data.classById.classFeaturesByClassId.nodes
+    //   const subclassFeats = data.classById.subclassFeaturesByClassId.nodes.filter(x => x?.id === character.subclassId)
+    //   //@ts-ignore
+    //   const merged = classFeats.concat(subclassFeats)
+    //   //@ts-ignore
+    //   merged.sort((a,b) => a.level - b.level)
+      
+    //   setFeatures(merged)
+    // }
     if (character.currentLevel) {
       setCurrentLevel(character.currentLevel)
     }
