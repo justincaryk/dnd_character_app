@@ -144,13 +144,13 @@ const AsiGenerator: React.FC = () => {
     if (!core?.allAsiSelectedCores?.nodes[0]) {
       variables.characterId = id
       variables.method = activeMethod
-      performCreate({variables})
+      await performCreate({variables})
 
     } else {
       variables.asiSelBaseId = core?.allAsiSelectedCores?.nodes[0]?.asiSelBaseId
-      performUpdate({ variables })
+      await performUpdate({ variables })
     }
-    refetchAsiCore()
+    await refetchAsiCore()
     setAttributes(attributes)
   }
 

@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 
 export default gql`
-  query ClassById($id: UUID!) {
+  query ClassById($id: UUID!, $subclassId: UUID) {
     classById(id: $id) {
       name
       id
@@ -44,10 +44,9 @@ export default gql`
         }
       }
       subclassFeaturesByClassId(
-        condition: {
-          id: $subclassId
-        },
-        orderBy: NAME_ASC) {
+        condition: { id: $subclassId }
+        orderBy: NAME_ASC
+      ) {
         nodes {
           entries
           id
@@ -56,6 +55,7 @@ export default gql`
           nodeId
           name
           page
+          subclassId
           subclassShortName
           subclassSource
           source

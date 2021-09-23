@@ -40,16 +40,16 @@ const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected, character,
 
   useEffect(() => {
     
-    // if (data?.classById?.classFeaturesByClassId.nodes && data.classById.subclassFeaturesByClassId.nodes) {
-    //   const classFeats = data.classById.classFeaturesByClassId.nodes
-    //   const subclassFeats = data.classById.subclassFeaturesByClassId.nodes.filter(x => x?.id === character.subclassId)
-    //   //@ts-ignore
-    //   const merged = classFeats.concat(subclassFeats)
-    //   //@ts-ignore
-    //   merged.sort((a,b) => a.level - b.level)
+    if (data?.classById?.classFeaturesByClassId.nodes && data.classById.subclassFeaturesByClassId.nodes) {
+      const classFeats = data.classById.classFeaturesByClassId.nodes
+      const subclassFeats = data.classById.subclassFeaturesByClassId.nodes.filter(x => x?.id === character.subclassId) as any[]
       
-    //   setFeatures(merged)
-    // }
+      const merged = classFeats.concat(subclassFeats)
+      //@ts-ignore
+      merged.sort((a,b) => a?.level - b.level)
+      
+      setFeatures(merged)
+    }
     if (character.currentLevel) {
       setCurrentLevel(character.currentLevel)
     }

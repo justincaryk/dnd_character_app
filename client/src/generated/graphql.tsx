@@ -2319,6 +2319,8 @@ export type CreateSubclassFeaturePayload = {
   query?: Maybe<Query>;
   /** Reads a single `Class` that is related to this `SubclassFeature`. */
   classByClassId?: Maybe<Class>;
+  /** Reads a single `Subclass` that is related to this `SubclassFeature`. */
+  subclassBySubclassId?: Maybe<Subclass>;
   /** An edge for our `SubclassFeature`. May be used by Relay 1. */
   subclassFeatureEdge?: Maybe<SubclassFeaturesEdge>;
 };
@@ -3681,6 +3683,8 @@ export type DeleteSubclassFeaturePayload = {
   query?: Maybe<Query>;
   /** Reads a single `Class` that is related to this `SubclassFeature`. */
   classByClassId?: Maybe<Class>;
+  /** Reads a single `Subclass` that is related to this `SubclassFeature`. */
+  subclassBySubclassId?: Maybe<Subclass>;
   /** An edge for our `SubclassFeature`. May be used by Relay 1. */
   subclassFeatureEdge?: Maybe<SubclassFeaturesEdge>;
 };
@@ -7585,8 +7589,21 @@ export type Subclass = Node & {
   preparedSpells?: Maybe<Scalars['String']>;
   /** Reads a single `Class` that is related to this `Subclass`. */
   classByClassId?: Maybe<Class>;
+  /** Reads and enables pagination through a set of `SubclassFeature`. */
+  subclassFeaturesBySubclassId: SubclassFeaturesConnection;
   /** Reads and enables pagination through a set of `Character`. */
   charactersBySubclassId: CharactersConnection;
+};
+
+
+export type SubclassSubclassFeaturesBySubclassIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<SubclassFeaturesOrderBy>>;
+  condition?: Maybe<SubclassFeatureCondition>;
 };
 
 
@@ -7649,8 +7666,11 @@ export type SubclassFeature = Node & {
   isClassFeatureVariant?: Maybe<Scalars['Boolean']>;
   page?: Maybe<Scalars['Int']>;
   entries?: Maybe<Scalars['JSON']>;
+  subclassId?: Maybe<Scalars['UUID']>;
   /** Reads a single `Class` that is related to this `SubclassFeature`. */
   classByClassId?: Maybe<Class>;
+  /** Reads a single `Subclass` that is related to this `SubclassFeature`. */
+  subclassBySubclassId?: Maybe<Subclass>;
 };
 
 /**
@@ -7678,6 +7698,8 @@ export type SubclassFeatureCondition = {
   page?: Maybe<Scalars['Int']>;
   /** Checks for equality with the object’s `entries` field. */
   entries?: Maybe<Scalars['JSON']>;
+  /** Checks for equality with the object’s `subclassId` field. */
+  subclassId?: Maybe<Scalars['UUID']>;
 };
 
 /** An input for mutations affecting `SubclassFeature` */
@@ -7692,6 +7714,7 @@ export type SubclassFeatureInput = {
   isClassFeatureVariant?: Maybe<Scalars['Boolean']>;
   page?: Maybe<Scalars['Int']>;
   entries?: Maybe<Scalars['JSON']>;
+  subclassId?: Maybe<Scalars['UUID']>;
 };
 
 /** Represents an update to a `SubclassFeature`. Fields that are set will be updated. */
@@ -7706,6 +7729,7 @@ export type SubclassFeaturePatch = {
   isClassFeatureVariant?: Maybe<Scalars['Boolean']>;
   page?: Maybe<Scalars['Int']>;
   entries?: Maybe<Scalars['JSON']>;
+  subclassId?: Maybe<Scalars['UUID']>;
 };
 
 /** A connection to a list of `SubclassFeature` values. */
@@ -7753,6 +7777,8 @@ export enum SubclassFeaturesOrderBy {
   PageDesc = 'PAGE_DESC',
   EntriesAsc = 'ENTRIES_ASC',
   EntriesDesc = 'ENTRIES_DESC',
+  SubclassIdAsc = 'SUBCLASS_ID_ASC',
+  SubclassIdDesc = 'SUBCLASS_ID_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -9254,6 +9280,8 @@ export type UpdateSubclassFeaturePayload = {
   query?: Maybe<Query>;
   /** Reads a single `Class` that is related to this `SubclassFeature`. */
   classByClassId?: Maybe<Class>;
+  /** Reads a single `Subclass` that is related to this `SubclassFeature`. */
+  subclassBySubclassId?: Maybe<Subclass>;
   /** An edge for our `SubclassFeature`. May be used by Relay 1. */
   subclassFeatureEdge?: Maybe<SubclassFeaturesEdge>;
 };
@@ -10097,7 +10125,7 @@ export type ClassByIdQuery = (
       { __typename?: 'SubclassFeaturesConnection' }
       & { nodes: Array<Maybe<(
         { __typename?: 'SubclassFeature' }
-        & Pick<SubclassFeature, 'entries' | 'id' | 'level' | 'isClassFeatureVariant' | 'nodeId' | 'name' | 'page' | 'subclassShortName' | 'subclassSource' | 'source'>
+        & Pick<SubclassFeature, 'entries' | 'id' | 'level' | 'isClassFeatureVariant' | 'nodeId' | 'name' | 'page' | 'subclassId' | 'subclassShortName' | 'subclassSource' | 'source'>
       )>> }
     ), classFeaturesByClassId: (
       { __typename?: 'ClassFeaturesConnection' }
@@ -11551,6 +11579,7 @@ export const ClassByIdDocument = gql`
         nodeId
         name
         page
+        subclassId
         subclassShortName
         subclassSource
         source
