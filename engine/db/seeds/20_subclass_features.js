@@ -2827,6 +2827,7 @@ exports.seed = knex => (
                     subclass_id: '971fddc9-e7c9-4c2c-a968-331f067e1646',
                     subclass_source: 'PHB',
                     level: 1,
+                    has_options: true,
                     entries: {
                         e: [
                             'At 1st level, you choose one type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later.',
@@ -2849,6 +2850,15 @@ exports.seed = knex => (
                                 ],
                             },
                             'You can speak, read, and write Draconic. Additionally, whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check.',
+                            {
+                                type: 'draconicAncestor',
+                                options: {
+                                    choose: {
+                                        count: 1,
+                                        from: ['Black', 'Blue', 'Brass', 'Bronze', 'Copper', 'Gold', 'Green', 'Red', 'Silver', 'White']
+                                    }
+                                }
+                            }
                         ],
                     },
                     id: uuidv4(),
@@ -3660,6 +3670,15 @@ exports.seed = knex => (
                                     ['Neutrality', 'protection from evil and good'],
                                 ],
                             },
+                            {
+                                type: 'divineMagic',
+                                options: {
+                                    choose: {
+                                        count: 1,
+                                        from: ['Chaos', 'Good', 'Evil', 'Law', 'Neutrality']
+                                    }
+                                }
+                            }
                         ],
                     },
                     id: uuidv4(),
@@ -4816,11 +4835,17 @@ exports.seed = knex => (
                     subclass_short_name: 'Mastermind',
                     subclass_id: '64a69982-da3e-485b-874a-5611de38e610',
                     subclass_source: 'XGE',
+                    has_options: true,
                     level: 3,
                     entries: {
                         e: [
                             'When you choose this archetype at 3rd level, you gain proficiency with the disguise Kit, the forgery kit, and one gaming set of your choice. You also learn two languages of your choice.',
                             'Additionally, you can unerringly mimic the speech patterns and accent of a creature that you hear speak for at least 1 minute, enabling you to pass yourself off as a native speaker of a particular land, provided that you know the language.',
+                            {
+                                type: 'skillOptions',
+                                count: 2,
+                                options: 'any'
+                            },
                         ],
                     },
                     id: uuidv4(),
@@ -10875,6 +10900,25 @@ exports.seed = knex => (
                     entries: {
                         e: [
                             'At 3rd level, you learn magical theory or some of the secrets of nature—typical for practitioners of this elven martial tradition. You choose to gain proficiency in either the Arcana or the Nature skill, and you choose to learn either the prestidigitation or the druidcraft cantrip.',
+                            {
+                                type: 'skillOptions',
+                                count: 1,
+                                options: [
+                                    { name: 'Arcana' },
+                                    { name: 'Nature' },
+                                ]
+                            },
+                            {
+                                type: 'cantrips',
+                                options: {
+                                    choose: {
+                                        count: 1,
+                                        from: {
+                                            spells: ['Prestidigitation', 'Druidcraft']
+                                        }
+                                    }
+                                }
+                            }
                         ],
                     },
                     id: uuidv4(),
@@ -10970,6 +11014,44 @@ exports.seed = knex => (
                     entries: {
                         e: [
                             'You gain an additional Arcane Shot option of your choice when you reach 7th level.',
+                            {
+                                type: 'options',
+                                count: 1,
+                                entries: [
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Banishing Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Beguiling Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Bursting Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Enfeebling Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Grasping Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Piercing Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Seeking Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Shadow Arrow|XGE',
+                                    },
+                                ],
+                            },
                         ],
                     },
                     id: uuidv4(),
@@ -11018,6 +11100,44 @@ exports.seed = knex => (
                     entries: {
                         e: [
                             'You gain an additional Arcane Shot option of your choice when you reach 10th level.',
+                            {
+                                type: 'options',
+                                count: 1,
+                                entries: [
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Banishing Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Beguiling Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Bursting Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Enfeebling Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Grasping Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Piercing Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Seeking Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Shadow Arrow|XGE',
+                                    },
+                                ],
+                            },
                         ],
                     },
                     id: uuidv4(),
@@ -11034,6 +11154,44 @@ exports.seed = knex => (
                     entries: {
                         e: [
                             'You gain an additional Arcane Shot option of your choice when you reach 15th level.',
+                            {
+                                type: 'options',
+                                count: 1,
+                                entries: [
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Banishing Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Beguiling Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Bursting Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Enfeebling Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Grasping Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Piercing Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Seeking Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Shadow Arrow|XGE',
+                                    },
+                                ],
+                            },
                         ],
                     },
                     id: uuidv4(),
@@ -11066,6 +11224,44 @@ exports.seed = knex => (
                     entries: {
                         e: [
                             'You gain an additional Arcane Shot option of your choice when you reach 18th level. Each option also improves when you become an 18th-level fighter.',
+                            {
+                                type: 'options',
+                                count: 1,
+                                entries: [
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Banishing Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Beguiling Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Bursting Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Enfeebling Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Grasping Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Piercing Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Seeking Arrow|XGE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Shadow Arrow|XGE',
+                                    },
+                                ],
+                            },
                         ],
                     },
                     id: uuidv4(),
@@ -11455,8 +11651,22 @@ exports.seed = knex => (
                     subclass_id: 'b995558b-0f05-483c-8242-23b4d08a7f9a',
                     subclass_source: 'PHB',
                     level: 2,
+                    has_options: true,
                     entries: {
-                        e: ['You learn one additional druid cantrip of your choice.'],
+                        e: [
+                            'You learn one additional druid cantrip of your choice.',
+                            {
+                                type: 'cantrips',
+                                options: {
+                                    choose: {
+                                        count: 2,
+                                        from: {
+                                            class: 'Druid'
+                                        }
+                                    }
+                                }
+                            }
+                        ],
                     },
                     id: uuidv4(),
                     class_id: '83880f9d-5125-4b0a-a774-af5cc36413ea',
@@ -12517,9 +12727,21 @@ exports.seed = knex => (
                     subclass_id: 'cd48025f-06f7-4108-b456-242254671023',
                     subclass_source: 'DMG',
                     level: 1,
+                    has_options: true,
                     entries: {
                         e: [
                             'At 1st level, the cleric learns one necromancy cantrip of his or her choice from any spell list. When the cleric casts a necromancy cantrip that normally targets only one creature, the spell can instead target two creatures within range and within 5 feet of each other.',
+                            {
+                                type: 'cantrips',
+                                options: {
+                                    choose: {
+                                        count: 2,
+                                        from: {
+                                            school: 'Necromancy'
+                                        }
+                                    }
+                                }
+                            }
                         ],
                     },
                     id: uuidv4(),
@@ -12654,6 +12876,22 @@ exports.seed = knex => (
                         e: [
                             'At 1st level, you learn two languages of your choice. You also become proficient in your choice of two of the following skills: Arcana, History, Nature, or Religion.',
                             'Your proficiency bonus is doubled for any ability check you make that uses either of those skills.',
+                            {
+                                type: 'languageOptions',
+                                count: 2,
+                                choose: {
+                                    from: 'any'
+                                }
+                            },
+                            {
+                                type: 'expertiseSkillOptions',
+                                options: {
+                                    choose: {
+                                        count: 2,
+                                        from: 'known'
+                                    }
+                                }
+                            },
                         ],
                     },
                     id: uuidv4(),
@@ -13122,9 +13360,30 @@ exports.seed = knex => (
                     subclass_id: 'bdb26150-5b48-4b9a-abe3-16300394855c',
                     subclass_source: 'PHB',
                     level: 1,
+                    has_options: true,
                     entries: {
                         e: [
                             'At 1st level, you learn one druid cantrip of your choice. You also gain proficiency in one of the following skills of your choice: Animal Handling, Nature, or Survival.',
+                            {
+                                type: 'skillOptions',
+                                count: 1,
+                                options: [
+                                    { name: 'Animal Handling' },
+                                    { name: 'Nature' },
+                                    { name: 'Survival' },
+                                ]
+                            },
+                            {
+                                type: 'cantrips',
+                                options: {
+                                    choose: {
+                                        count: 1,
+                                        from: {
+                                            class: 'Druid'
+                                        }
+                                    }
+                                }
+                            }
                         ],
                     },
                     id: uuidv4(),
@@ -13710,10 +13969,22 @@ exports.seed = knex => (
                     subclass_short_name: 'Arcana',
                     subclass_id: 'cdf73810-91e5-42da-809e-6668af2c4f47',
                     subclass_source: 'SCAG',
+                    has_options: true,
                     level: 1,
                     entries: {
                         e: [
                             'When you choose this domain at 1st level, you gain proficiency in the Arcana skill, and you gain two cantrips of your choice from the wizard spell list. For you, these cantrips count as cleric cantrips.',
+                            {
+                                type: 'cantrips',
+                                options: {
+                                    choose: {
+                                        count: 2,
+                                        from: {
+                                            class: 'Wizard'
+                                        }
+                                    }
+                                }
+                            }
                         ],
                     },
                     id: uuidv4(),
@@ -13808,10 +14079,60 @@ exports.seed = knex => (
                     subclass_short_name: 'Arcana',
                     subclass_id: 'cdf73810-91e5-42da-809e-6668af2c4f47',
                     subclass_source: 'SCAG',
+                    has_options: true,
                     level: 17,
                     entries: {
                         e: [
                             'At 17th level, you choose four spells from the Wizard spell list, one from each of the following levels: 6th, 7th, 8th, and 9th. You add them to your list of domain spells. Like your other domain spells, they are always prepared and count as cleric spells for you.',
+                            {
+                                type: 'spell',
+                                options: {
+                                    choose: {
+                                        count: 1,
+                                        from: {
+                                            class: 'Wizard'
+                                            
+                                        },
+                                        level: 6
+                                    }
+                                }
+                            },
+                            {
+                                type: 'spell',
+                                options: {
+                                    choose: {
+                                        count: 1,
+                                        from: {
+                                            class: 'Wizard',
+                                        },
+                                        level: 7
+                                    }
+                                }
+                            },
+                            {
+                                type: 'spell',
+                                options: {
+                                    choose: {
+                                        count: 1,
+                                        from: {
+                                            class: 'Wizard'
+                                        },
+                                        level: 8
+                                    }
+                                }
+                            },
+                            {
+                                type: 'spell',
+                                options: {
+                                    choose: {
+                                        count: 1,
+                                        from: {
+                                            class: 'Wizard'
+                                        },
+                                        level: 9
+                                    }
+                                }
+                            }
                         ],
                     },
                     id: uuidv4(),
@@ -13865,9 +14186,18 @@ exports.seed = knex => (
                     subclass_id: 'e2c4944d-04d9-406a-8dcb-745f91e82200',
                     subclass_source: 'TCE',
                     level: 1,
+                    has_options: true,
                     entries: {
                         e: [
                             'When you choose this domain at 1st level, you gain proficiency with heavy armor. You also gain proficiency in the Intimidation or Persuasion skill (your choice).',
+                            {
+                                type: 'skillOptions',
+                                count: 1,
+                                options: [
+                                    { name: 'Intimidation' },
+                                    { name: 'Persuasion' }
+                                ]
+                            },
                         ],
                     },
                     id: uuidv4(),
@@ -14067,6 +14397,15 @@ exports.seed = knex => (
                         e: [
                             '1st-level Peace Domain feature',
                             'You gain proficiency in the Insight, Performance, or Persuasion skill (your choice).',
+                            {
+                                type: 'skillOptions',
+                                count: 1,
+                                options: [
+                                    { name: 'Insight' },
+                                    { name: 'Performance' },
+                                    { name: 'Persuasion' },
+                                ]
+                            },
                         ],
                     },
                     id: uuidv4(),
@@ -14728,9 +15067,15 @@ exports.seed = knex => (
                     subclass_id: '9e2bfb7d-6a86-4d62-a230-3705328b1d18',
                     subclass_source: 'PHB',
                     level: 3,
+                    has_options: true,
                     entries: {
                         e: [
                             'When you join the College of Lore at 3rd level, you gain proficiency with three skills of your choice.',
+                            {
+                                type: 'skillOptions',
+                                count: 3,
+                                options: 'any'
+                            },
                         ],
                     },
                     id: uuidv4(),
@@ -14763,6 +15108,17 @@ exports.seed = knex => (
                     entries: {
                         e: [
                             "At 6th level, you learn two spells of your choice from any class. A spell you choose must be of a level you can cast, as shown on the Bard table, or a cantrip. The chosen spells count as bard spells for you but don't count against the number of bard spells you know.",
+                            {
+                                type: 'magicalSecretOptions',
+                                options: {
+                                    choose: {
+                                        count: 2,
+                                        from: {
+                                            class: 'any'
+                                        }
+                                    }
+                                }
+                            }
                         ],
                     },
                     id: uuidv4(),
