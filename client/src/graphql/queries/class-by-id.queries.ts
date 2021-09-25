@@ -53,8 +53,10 @@ export default gql`
           level
           isClassFeatureVariant
           nodeId
+          hasOptions
           name
           page
+          isSuboption
           subclassId
           subclassShortName
           subclassSource

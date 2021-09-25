@@ -1,11 +1,16 @@
 import React, { useEffect, useState, Dispatch, SetStateAction } from 'react'
-import { useClassByIdQuery, useUpdateCharacterMutation } from '../../../generated/graphql'
+import {
+  SubclassFeature,
+  useClassByIdQuery,
+  useUpdateCharacterMutation,
+} from '../../../generated/graphql'
 import FeatureAsi from './feature/feature-asi'
 import FeatureGeneral from './feature/feature-general'
 import classnames from 'classnames'
 import FeatureStartProf from './feature/feature-start-prof'
 import { useParams } from 'react-router'
 import HitPoints from './hit-points'
+import SubclassFeatureGeneral from './feature/subclass-feature-general'
 
 interface Props {
   classObj: {
@@ -18,72 +23,78 @@ interface Props {
   refetchCharacter: any
 }
 
-const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected, character, refetchCharacter }) => {
+const ClassFeatures: React.FC<Props> = ({
+  classObj,
+  setClassSelected,
+  character,
+  refetchCharacter,
+}) => {
   const levels = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ]
   const [features, setFeatures] = useState<any[]>([])
   const [currentLevel, setCurrentLevel] = useState(1)
   const { id }: any = useParams()
-  const [classFeatures, setClassFeatures] = useState<any[]>([])
+
   const [classFeaturesHigher, setClassFeaturesHigher] = useState<any[]>([])
   const [startingProficiencies, setStartingProficiencies] = useState<any>(null)
   const [hpDetailsActive, toggleHpDetailsActive] = useState(false)
   const [higherFeaturesVisible, toggleHigherFeaturesVisible] = useState(false)
   const { data, loading } = useClassByIdQuery({
     variables: {
-      id: classObj.id
+      id: classObj.id,
     },
   })
-  
+
   const [performUpdate] = useUpdateCharacterMutation()
 
   useEffect(() => {
-    
-    if (data?.classById?.classFeaturesByClassId.nodes && data.classById.subclassFeaturesByClassId.nodes) {
-      const classFeats = data.classById.classFeaturesByClassId.nodes
-      const subclassFeats = data.classById.subclassFeaturesByClassId.nodes.filter(x => x?.subclassId === character.subclassId) as any[]
-      
-      const merged = classFeats.concat(subclassFeats)
-      //@ts-ignore
-      merged.sort((a,b) => a?.level - b.level)
-    debugger
-      setFeatures(merged)
-    }
     if (character.currentLevel) {
       setCurrentLevel(character.currentLevel)
     }
+  }, [character.currentLevel])
 
-    const filteredEligible =
-      data?.classById?.classFeaturesByClassId.nodes.filter((x) =>
-        x?.level ? x.level <= currentLevel : false
-      )
-    setClassFeatures(filteredEligible || [])
+  useEffect(() => {
+    const classFeats = data?.classById?.classFeaturesByClassId?.nodes
+    const subclassFeats =
+      data?.classById?.subclassFeaturesByClassId?.nodes.filter(
+        (x) => x?.subclassId === character.subclassId
+      ) as any[]
+
+    const merged = classFeats ? classFeats.concat(subclassFeats) : []
+    //@ts-ignore
+    merged.sort((a, b) => a.level - b.level)
+
+    const filteredEligible = merged.filter((x) =>
+      x?.level ? x.level <= currentLevel : false
+    )
+
+    setFeatures(filteredEligible || [])
+
     const filteredIneligible =
       data?.classById?.classFeaturesByClassId.nodes.filter((x) =>
         x?.level ? x.level > currentLevel : false
       )
-    setClassFeaturesHigher(filteredIneligible || [])
 
+    setClassFeaturesHigher(filteredIneligible || [])
+  }, [data?.classById, currentLevel, character])
+
+  useEffect(() => {
     const parsed = data
       ? JSON.parse(data?.classById?.startingProficiencies)
       : null
 
     setStartingProficiencies(parsed)
-  }, [
-    currentLevel,
-    data,
-    character
-  ])
+  }, [data])
 
   const handleLevelChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCurrentLevel(Number(e.currentTarget.value))
-    
+
     await performUpdate({
       variables: {
         characterId: id,
-        currentLevel: Number(e.currentTarget.value)
-      }
+        currentLevel: Number(e.currentTarget.value),
+      },
     })
     await refetchCharacter()
   }
@@ -98,10 +109,11 @@ const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected, character,
       <div className='flex items-center justify-between border-b pb-5'>
         <div className='text-xl font-bold'>Character Level: {currentLevel}</div>
         <div className='border rounded p-2 bg-white'>
-          <HitPoints 
-            characterId={id} 
-            hdFaces={Number(data?.classById?.hdFaces)} 
-            currentLevel={currentLevel}/>
+          <HitPoints
+            characterId={id}
+            hdFaces={data?.classById?.hdFaces ? data?.classById?.hdFaces : 0}
+            currentLevel={currentLevel}
+          />
           <div>
             <span className='font-bold'>Hit Dice: &nbsp;</span>
             <span>
@@ -138,7 +150,17 @@ const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected, character,
           </select>
           <div
             className='text-red-500 text-4xl font-bold h-full cursor-pointer'
-            onClick={() => setClassSelected(false)}
+            onClick={async () => {
+              setClassSelected(false)
+              setCurrentLevel(1)
+              await performUpdate({
+                variables: {
+                  characterId: id,
+                  currentLevel: 1,
+                },
+              })
+              await refetchCharacter()
+            }}
           >
             &times;
           </div>
@@ -189,7 +211,7 @@ const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected, character,
       />
       {/* row 6 ALL ELIGIBLE CLASS FEATURES */}
       <div className='space-y-3'>
-        {classFeatures.map((feature, i) => {
+        {features.map((feature, i) => {
           if (feature.name.toLowerCase() === 'ability score improvement') {
             return (
               <div key={i} className='relative'>
@@ -203,6 +225,24 @@ const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected, character,
                 <FeatureAsi feature={feature} />
               </div>
             )
+          } else if (feature.subclassId) {
+            return (
+              <div className='relative' key={i}>
+                {feature.hasOptions && (
+                  <div className='absolute -top-2 -left-2'>
+                    <div className='bg-sky-blue circle rounded-full flex items-center justify-center h-6 w-6 text-white font-bold'>
+                      !
+                    </div>
+                  </div>
+                )}
+                <SubclassFeatureGeneral
+                  feature={feature}
+                  featuresFiltered={features.filter(
+                    (feat) => feat.level === feature.level && feat.isSuboption
+                  )}
+                />
+              </div>
+            )
           } else {
             return (
               <div className='relative' key={i}>
@@ -213,8 +253,8 @@ const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected, character,
                     </div>
                   </div>
                 )}
-                <FeatureGeneral 
-                  feature={feature} 
+                <FeatureGeneral
+                  feature={feature}
                   character={character}
                   refetchCharacter={refetchCharacter}
                 />
@@ -245,13 +285,16 @@ const ClassFeatures: React.FC<Props> = ({ classObj, setClassSelected, character,
                     <FeatureAsi viewOnly feature={feature} />
                   </div>
                 )
+              } else if (feature.subclassId) {
+                return <SubclassFeatureGeneral feature={feature} />
               } else {
                 return (
                   <div key={i}>
-                    <FeatureGeneral 
-                      viewOnly 
+                    <FeatureGeneral
+                      viewOnly
                       feature={feature}
-                      character={character} />
+                      character={character}
+                    />
                   </div>
                 )
               }

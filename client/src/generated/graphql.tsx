@@ -7667,6 +7667,8 @@ export type SubclassFeature = Node & {
   page?: Maybe<Scalars['Int']>;
   entries?: Maybe<Scalars['JSON']>;
   subclassId?: Maybe<Scalars['UUID']>;
+  isSuboption?: Maybe<Scalars['Boolean']>;
+  hasOptions?: Maybe<Scalars['Boolean']>;
   /** Reads a single `Class` that is related to this `SubclassFeature`. */
   classByClassId?: Maybe<Class>;
   /** Reads a single `Subclass` that is related to this `SubclassFeature`. */
@@ -7700,6 +7702,10 @@ export type SubclassFeatureCondition = {
   entries?: Maybe<Scalars['JSON']>;
   /** Checks for equality with the object’s `subclassId` field. */
   subclassId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `isSuboption` field. */
+  isSuboption?: Maybe<Scalars['Boolean']>;
+  /** Checks for equality with the object’s `hasOptions` field. */
+  hasOptions?: Maybe<Scalars['Boolean']>;
 };
 
 /** An input for mutations affecting `SubclassFeature` */
@@ -7715,6 +7721,8 @@ export type SubclassFeatureInput = {
   page?: Maybe<Scalars['Int']>;
   entries?: Maybe<Scalars['JSON']>;
   subclassId?: Maybe<Scalars['UUID']>;
+  isSuboption?: Maybe<Scalars['Boolean']>;
+  hasOptions?: Maybe<Scalars['Boolean']>;
 };
 
 /** Represents an update to a `SubclassFeature`. Fields that are set will be updated. */
@@ -7730,6 +7738,8 @@ export type SubclassFeaturePatch = {
   page?: Maybe<Scalars['Int']>;
   entries?: Maybe<Scalars['JSON']>;
   subclassId?: Maybe<Scalars['UUID']>;
+  isSuboption?: Maybe<Scalars['Boolean']>;
+  hasOptions?: Maybe<Scalars['Boolean']>;
 };
 
 /** A connection to a list of `SubclassFeature` values. */
@@ -7779,6 +7789,10 @@ export enum SubclassFeaturesOrderBy {
   EntriesDesc = 'ENTRIES_DESC',
   SubclassIdAsc = 'SUBCLASS_ID_ASC',
   SubclassIdDesc = 'SUBCLASS_ID_DESC',
+  IsSuboptionAsc = 'IS_SUBOPTION_ASC',
+  IsSuboptionDesc = 'IS_SUBOPTION_DESC',
+  HasOptionsAsc = 'HAS_OPTIONS_ASC',
+  HasOptionsDesc = 'HAS_OPTIONS_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -10125,7 +10139,7 @@ export type ClassByIdQuery = (
       { __typename?: 'SubclassFeaturesConnection' }
       & { nodes: Array<Maybe<(
         { __typename?: 'SubclassFeature' }
-        & Pick<SubclassFeature, 'entries' | 'id' | 'level' | 'isClassFeatureVariant' | 'nodeId' | 'name' | 'page' | 'subclassId' | 'subclassShortName' | 'subclassSource' | 'source'>
+        & Pick<SubclassFeature, 'entries' | 'id' | 'level' | 'isClassFeatureVariant' | 'nodeId' | 'hasOptions' | 'name' | 'page' | 'isSuboption' | 'subclassId' | 'subclassShortName' | 'subclassSource' | 'source'>
       )>> }
     ), classFeaturesByClassId: (
       { __typename?: 'ClassFeaturesConnection' }
@@ -11577,8 +11591,10 @@ export const ClassByIdDocument = gql`
         level
         isClassFeatureVariant
         nodeId
+        hasOptions
         name
         page
+        isSuboption
         subclassId
         subclassShortName
         subclassSource

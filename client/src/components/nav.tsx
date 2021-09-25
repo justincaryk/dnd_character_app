@@ -151,7 +151,7 @@ const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
           </div>
         </div>
         <div className='h-38 w-full bg-stone mb-12'>
-          <div className='relative px-5 py-6'>
+          <div className='relative px-5 py-3'>
             <div className='flex w-full justify-between items-center text-sm'>
               {links
                 .filter((x) => x.link.indexOf('create') > -1)

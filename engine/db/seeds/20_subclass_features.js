@@ -509,6 +509,7 @@ exports.seed = knex => (
                     subclass_short_name: 'Divination',
                     subclass_id: '04c4fb92-5553-4eca-87ce-ac26d7f51998',
                     subclass_source: 'PHB',
+                    has_options: true,
                     level: 10,
                     entries: {
                         e: [
@@ -5339,6 +5340,7 @@ exports.seed = knex => (
                     subclass_short_name: 'Hunter',
                     subclass_id: 'c7c1c6e6-c9d7-4709-b5f7-45c49b2d7143',
                     subclass_source: 'PHB',
+                    has_options: true,
                     level: 3,
                     entries: {
                         e: [
@@ -5405,6 +5407,7 @@ exports.seed = knex => (
                     subclass_short_name: 'Hunter',
                     subclass_id: 'c7c1c6e6-c9d7-4709-b5f7-45c49b2d7143',
                     subclass_source: 'PHB',
+                    has_options: true,
                     level: 7,
                     entries: {
                         e: [
@@ -5483,6 +5486,7 @@ exports.seed = knex => (
                     subclass_short_name: 'Hunter',
                     subclass_id: 'c7c1c6e6-c9d7-4709-b5f7-45c49b2d7143',
                     subclass_source: 'PHB',
+                    has_options: true,
                     level: 11,
                     entries: {
                         e: [
@@ -5577,6 +5581,7 @@ exports.seed = knex => (
                     subclass_short_name: 'Hunter',
                     subclass_id: 'c7c1c6e6-c9d7-4709-b5f7-45c49b2d7143',
                     subclass_source: 'PHB',
+                    has_options: true,
                     level: 15,
                     entries: {
                         e: [
@@ -8286,6 +8291,7 @@ exports.seed = knex => (
                     subclass_short_name: 'Four Elements',
                     subclass_id: '89d1061f-8976-4e9a-b01e-6eac1d47ec98',
                     subclass_source: 'PHB',
+                    has_options: true,
                     level: 3,
                     entries: {
                         e: [
@@ -9653,68 +9659,13 @@ exports.seed = knex => (
                     class_id: '38d52f93-07f5-443f-81de-88cfe30dd2d8',
                 },
                 {
-                    name: 'Maneuver Options',
-                    source: 'TCE',
-                    page: 41,
-                    subclass_short_name: 'Battle Master',
-                    subclass_id: '5894cd05-4e4c-4690-af71-0ddd806acc50',
-                    subclass_source: 'PHB',
-                    level: 3,
-                    is_class_feature_variant: true,
-                    entries: {
-                        e: [
-                            '3rd-level fighter optional class features',
-                            'If you have access to maneuvers, the following maneuvers are added to the list of options available to you. Maneuvers are available to Battle Masters but also to characters who have a special feature like the Superior Technique fighting style or the Martial Adept feat.',
-                            {
-                                type: 'entries',
-                                entries: [
-                                    {
-                                        type: 'options',
-                                        entries: [
-                                            {
-                                                type: 'refOptionalfeature',
-                                                optionalfeature: 'Ambush|TCE',
-                                            },
-                                            {
-                                                type: 'refOptionalfeature',
-                                                optionalfeature: 'Bait and Switch|TCE',
-                                            },
-                                            {
-                                                type: 'refOptionalfeature',
-                                                optionalfeature: 'Brace|TCE',
-                                            },
-                                            {
-                                                type: 'refOptionalfeature',
-                                                optionalfeature: 'Commanding Presence|TCE',
-                                            },
-                                            {
-                                                type: 'refOptionalfeature',
-                                                optionalfeature: 'Grappling Strike|TCE',
-                                            },
-                                            {
-                                                type: 'refOptionalfeature',
-                                                optionalfeature: 'Quick Toss|TCE',
-                                            },
-                                            {
-                                                type: 'refOptionalfeature',
-                                                optionalfeature: 'Tactical Assessment|TCE',
-                                            },
-                                        ],
-                                    },
-                                ],
-                            },
-                        ],
-                    },
-                    id: uuidv4(),
-                    class_id: '38d52f93-07f5-443f-81de-88cfe30dd2d8',
-                },
-                {
                     name: 'Maneuvers',
                     source: 'PHB',
                     page: 73,
                     subclass_short_name: 'Battle Master',
                     subclass_id: '5894cd05-4e4c-4690-af71-0ddd806acc50',
                     subclass_source: 'PHB',
+                    has_options: true,
                     level: 3,
                     entries: {
                         e: [
@@ -9786,6 +9737,34 @@ exports.seed = knex => (
                                     {
                                         type: 'refOptionalfeature',
                                         optionalfeature: 'Trip Attack',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Ambush|TCE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Bait and Switch|TCE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Brace|TCE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Commanding Presence|TCE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Grappling Strike|TCE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Quick Toss|TCE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Tactical Assessment|TCE',
                                     },
                                 ],
                             },
@@ -10389,7 +10368,7 @@ exports.seed = knex => (
                     subclass_short_name: 'Psi Warrior',
                     subclass_id: '7f9d27bb-79a4-479b-b2ce-c7270b198bba',
                     subclass_source: 'TCE',
-                    level: 3,
+                    has_options: true,
                     entries: {
                         e: [
                             '3rd-level Psi Warrior feature',
@@ -10585,6 +10564,7 @@ exports.seed = knex => (
                     subclass_short_name: 'Rune Knight',
                     subclass_id: 'c784b48e-c7bd-41c8-9b6a-c3f725258ae7',
                     subclass_source: 'TCE',
+                    has_options: true,
                     level: 3,
                     entries: {
                         e: [
@@ -10648,9 +10628,44 @@ exports.seed = knex => (
                     subclass_short_name: 'Rune Knight',
                     subclass_id: 'c784b48e-c7bd-41c8-9b6a-c3f725258ae7',
                     subclass_source: 'TCE',
+                    has_options: true,
                     level: 7,
                     entries: {
-                        e: ['7th-level Rune Knight feature', 'You learn an additional Rune.'],
+                        e: [
+                            '7th-level Rune Knight feature', 'You learn an additional Rune.',
+                            {
+                                type: 'options',
+                                count: 1,
+                                entries: [
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Cloud Rune|TCE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Fire Rune|TCE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Frost Rune|TCE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Stone Rune|TCE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Hill Rune|TCE',
+                                        name: 'Hill Rune (7th Level or Higher)',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Storm Rune|TCE',
+                                        name: 'Storm Rune (7th Level or Higher)',
+                                    }
+                                ],
+                            },
+                        ],
                     },
                     id: uuidv4(),
                     class_id: '38d52f93-07f5-443f-81de-88cfe30dd2d8',
@@ -10681,8 +10696,43 @@ exports.seed = knex => (
                     subclass_id: 'c784b48e-c7bd-41c8-9b6a-c3f725258ae7',
                     subclass_source: 'TCE',
                     level: 10,
+                    has_options: true,
                     entries: {
-                        e: ['10th-level Rune Knight feature', 'You learn an additional Rune.'],
+                        e: [
+                            '10th-level Rune Knight feature', 'You learn an additional Rune.',
+                            {
+                                type: 'options',
+                                count: 1,
+                                entries: [
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Cloud Rune|TCE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Fire Rune|TCE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Frost Rune|TCE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Stone Rune|TCE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Hill Rune|TCE',
+                                        name: 'Hill Rune (7th Level or Higher)',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Storm Rune|TCE',
+                                        name: 'Storm Rune (7th Level or Higher)',
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     id: uuidv4(),
                     class_id: '38d52f93-07f5-443f-81de-88cfe30dd2d8',
@@ -10713,8 +10763,41 @@ exports.seed = knex => (
                     subclass_id: 'c784b48e-c7bd-41c8-9b6a-c3f725258ae7',
                     subclass_source: 'TCE',
                     level: 15,
+                    has_options: true,
                     entries: {
-                        e: ['15th-level Rune Knight feature', 'You learn an additional Rune.'],
+                        e: ['15th-level Rune Knight feature', 'You learn an additional Rune.',
+                            {
+                                type: 'options',
+                                count: 1,
+                                entries: [
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Cloud Rune|TCE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Fire Rune|TCE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Frost Rune|TCE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Stone Rune|TCE',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Hill Rune|TCE',
+                                        name: 'Hill Rune (7th Level or Higher)',
+                                    },
+                                    {
+                                        type: 'refOptionalfeature',
+                                        optionalfeature: 'Storm Rune|TCE',
+                                        name: 'Storm Rune (7th Level or Higher)',
+                                    },
+                                ],
+                            },],
                     },
                     id: uuidv4(),
                     class_id: '38d52f93-07f5-443f-81de-88cfe30dd2d8',
@@ -10822,6 +10905,7 @@ exports.seed = knex => (
                     subclass_short_name: 'Arcane Archer',
                     subclass_id: '8f541077-245b-4c40-b781-f07fc24e48a7',
                     subclass_source: 'XGE',
+                    has_options: true,
                     level: 3,
                     entries: {
                         e: [
@@ -15392,6 +15476,7 @@ exports.seed = knex => (
                     subclass_short_name: 'Swords',
                     subclass_id: '89935e49-a48c-4969-ad9a-0b260386c834',
                     subclass_source: 'XGE',
+                    has_options: true,
                     level: 3,
                     entries: {
                         e: [
@@ -15718,31 +15803,6 @@ exports.seed = knex => (
                     class_id: '8be354f0-4707-41a5-be97-127d1218c446',
                 },
                 {
-                    name: 'Path of the Totem Warrior',
-                    source: 'PHB',
-                    page: 50,
-                    subclass_short_name: 'Totem Warrior',
-                    subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
-                    subclass_source: 'PHB',
-                    level: 3,
-                    entries: {
-                        e: [
-                            'The Path of the Totem Warrior is a spiritual journey, as the barbarian accepts a spirit animal as guide, protector, and inspiration. In battle, your totem spirit fills you with supernatural might, adding magical fuel to your barbarian rage.',
-                            'Most barbarian tribes consider a totem animal to be kin to a particular clan. In such cases, it is unusual for an individual to have more than one totem animal spirit, though exceptions exist.',
-                            {
-                                type: 'refSubclassFeature',
-                                subclassFeature: 'Spirit Seeker|Barbarian||Totem Warrior||3',
-                            },
-                            {
-                                type: 'refSubclassFeature',
-                                subclassFeature: 'Totem Spirit|Barbarian||Totem Warrior||3',
-                            },
-                        ],
-                    },
-                    id: uuidv4(),
-                    class_id: '8be354f0-4707-41a5-be97-127d1218c446',
-                },
-                {
                     name: 'Wolf',
                     source: 'PHB',
                     page: 50,
@@ -15781,6 +15841,7 @@ exports.seed = knex => (
                     page: 50,
                     subclass_short_name: 'Totem Warrior',
                     subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
+                    has_options: true,
                     subclass_source: 'PHB',
                     level: 3,
                     entries: {
@@ -15877,6 +15938,7 @@ exports.seed = knex => (
                     subclass_short_name: 'Totem Warrior',
                     subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
+                    has_options: true,
                     level: 6,
                     entries: {
                         e: [
@@ -15986,6 +16048,7 @@ exports.seed = knex => (
                     subclass_short_name: 'Totem Warrior',
                     subclass_id: '0bdbf120-88fb-4f00-b537-58b635928091',
                     subclass_source: 'PHB',
+                    has_options: true,
                     level: 14,
                     entries: {
                         e: [
@@ -16035,7 +16098,7 @@ exports.seed = knex => (
                             {
                                 type: 'refSubclassFeature',
                                 subclassFeature:
-                                    'Restriction - Dwarves Only|Barbarian||Battlerager|SCAG|3',
+                                    'Restriction: Dwarves Only|Barbarian||Battlerager|SCAG|3',
                             },
                             {
                                 type: 'refSubclassFeature',
@@ -16565,6 +16628,7 @@ exports.seed = knex => (
                     subclass_short_name: 'Storm Herald',
                     subclass_id: '237f13ed-86c8-4f42-871d-4fc932f0b30c',
                     subclass_source: 'XGE',
+                    has_options: true,
                     level: 3,
                     entries: {
                         e: [
@@ -16573,6 +16637,7 @@ exports.seed = knex => (
                             "If your aura's effects require a saving throw, the DC equals 8 + your proficiency bonus + your Constitution modifier.",
                             {
                                 type: 'options',
+                                count: 1,
                                 entries: [
                                     {
                                         type: 'refSubclassFeature',
@@ -16708,9 +16773,11 @@ exports.seed = knex => (
                     subclass_id: '074ce21c-97e7-4e82-8ed4-6c09def06f9f',
                     subclass_source: 'XGE',
                     level: 3,
+                    has_options: true,
                     entries: {
                         e: [
                             "Starting when you choose this path at 3rd level, you can channel divine fury into your weapon strikes. While you're raging, the first creature you hit on each of your turns with a weapon attack takes extra damage equal to 1d6 + half your barbarian level. The extra damage is necrotic or radiant; you choose the type of damage when you gain this feature.",
+                            
                         ],
                     },
                     id: uuidv4(),
