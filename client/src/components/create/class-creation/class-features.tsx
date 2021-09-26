@@ -1,8 +1,8 @@
 import React, { useEffect, useState, Dispatch, SetStateAction } from 'react'
 import {
-  SubclassFeature,
   useClassByIdQuery,
   useUpdateCharacterMutation,
+  useDeleteAllCharacterSkillsMutation,
 } from '../../../generated/graphql'
 import FeatureAsi from './feature/feature-asi'
 import FeatureGeneral from './feature/feature-general'
@@ -47,6 +47,7 @@ const ClassFeatures: React.FC<Props> = ({
   })
 
   const [performUpdate] = useUpdateCharacterMutation()
+  const [performDeleteAllSkills] = useDeleteAllCharacterSkillsMutation()
 
   useEffect(() => {
     if (character.currentLevel) {
@@ -87,6 +88,23 @@ const ClassFeatures: React.FC<Props> = ({
     setStartingProficiencies(parsed)
   }, [data])
 
+  const handleClassDelete = async ()=> {
+    setClassSelected(false)
+    setCurrentLevel(1)
+    await performUpdate({
+      variables: {
+        characterId: id,
+        currentLevel: 1,
+      },
+    })
+    await refetchCharacter()
+    await useDeleteAllCharacterSkillsMutation
+    await performDeleteAllSkills({
+      variables: {
+        characterId: character.characterId
+      }
+    })
+  }
   const handleLevelChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCurrentLevel(Number(e.currentTarget.value))
 
@@ -150,17 +168,7 @@ const ClassFeatures: React.FC<Props> = ({
           </select>
           <div
             className='text-red-500 text-4xl font-bold h-full cursor-pointer'
-            onClick={async () => {
-              setClassSelected(false)
-              setCurrentLevel(1)
-              await performUpdate({
-                variables: {
-                  characterId: id,
-                  currentLevel: 1,
-                },
-              })
-              await refetchCharacter()
-            }}
+            onClick={handleClassDelete}
           >
             &times;
           </div>
@@ -206,6 +214,7 @@ const ClassFeatures: React.FC<Props> = ({
       </div>
       {/* row 5 STARTING PROFICIENCIES */}
       <FeatureStartProf
+        characterId={character.characterId}
         startingProficiencies={startingProficiencies}
         savingThrows={data?.classById?.proficiency}
       />

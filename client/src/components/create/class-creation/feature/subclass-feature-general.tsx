@@ -91,6 +91,9 @@ const SubclassFeatureGeneral: React.FC<SubclassFeatureProps> = ({
                 />
               )
             }
+            console.log('TODO: ', entry.type)
+            console.log(entry)
+            return null
           })}
           <div>
             {suboptSelected && featuresFiltered ? (

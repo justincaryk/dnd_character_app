@@ -252,10 +252,10 @@ exports.seed = knex => (
                         armor: ['light'],
                         weapons: [
                             'simple',
-                            'hand crossbow|phb|hand crossbows',
-                            'longsword|phb|longswords',
-                            'rapier|phb|rapiers',
-                            'shortsword|phb|shortswords',
+                            'hand crossbows',
+                            'longswords',
+                            'rapiers',
+                            'shortswords',
                         ],
                         tools: [
                             'three musical instruments of your choice',

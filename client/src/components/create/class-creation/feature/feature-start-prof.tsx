@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import classnames from 'classnames'
-import { start } from 'repl'
+import {
+  useCreateSkillSelectedMutation,
+  useGetAllSkillsSelectedQuery,
+  useUpdateSkillSelectedMutation,
+  useAllSkillsQuery,
+  SkillLevelSel,
+  useDeleteSkillSelectedMutation,
+} from '../../../../generated/graphql'
 
 interface Props {
   startingProficiencies: {
@@ -10,21 +17,85 @@ interface Props {
     skills: any
   }
   savingThrows: any
+  characterId: string
 }
 
 const FeatureStartProf: React.FC<Props> = ({
   startingProficiencies,
   savingThrows,
+  characterId,
 }) => {
-  const [profDetailsActive, toggleProfDetailsActive] = useState(false)
   
-  if (!startingProficiencies) {
+  const [profDetailsActive, toggleProfDetailsActive] = useState(false)
+  const [performCreate] = useCreateSkillSelectedMutation()
+  const [performUpdate] = useUpdateSkillSelectedMutation()
+  
+  const {
+    data: skillsSel,
+    loading: skillsSelLoad,
+    refetch,
+  } = useGetAllSkillsSelectedQuery({
+    variables: {
+      characterId: characterId,
+      grantedByStartingProf: true,
+    },
+  })
+
+  const { data: skills, loading: skillsLoad } = useAllSkillsQuery()
+
+
+  if (!startingProficiencies || skillsSelLoad || skillsLoad) {
     return null
   }
 
   const arrayToIterate: string[] = Array(
     startingProficiencies.skills.choose.count
   ).fill('x', 0)
+
+  const handleSkillSelection = async (
+    e: React.ChangeEvent<HTMLSelectElement>,
+    i: number
+  ) => {
+    
+    if (!e.currentTarget.value) {
+      await performUpdate({
+        variables: {
+          skillSelId: skillsSel?.allSkillsSelecteds?.nodes[i]?.skillSelId,
+          skillId: null,
+          grantedByStartingProf: true,
+        },
+      })
+      await refetch()
+      
+      return
+    }
+
+    const skillId = skills?.allSkills?.skills.find(
+      (x) => x?.skill.toLowerCase() === e.currentTarget.value.toLowerCase()
+    )?.id
+
+    if (!skillsSel?.allSkillsSelecteds?.nodes[i]) {
+      await performCreate({
+        variables: {
+          characterId: characterId,
+          skillId: skillId,
+          grantedByStartingProf: true,
+          level: SkillLevelSel.Prof,
+        },
+      })
+    } else {
+      await performUpdate({
+        variables: {
+          skillSelId: skillsSel.allSkillsSelecteds.nodes[i]?.skillSelId,
+          skillId: skillId,
+          grantedByStartingProf: true,
+        },
+      })
+    }
+
+    await refetch()
+    
+  }
 
   return (
     <div className='space-y-3'>
@@ -64,24 +135,35 @@ const FeatureStartProf: React.FC<Props> = ({
                 {startingProficiencies.skills.choose.from.join(', ')}
               </div>
               <div className='mt-1 space-y-2'>
-                {arrayToIterate.map((x, i) => (
-                  <select
-                    className='w-full border rounded text-sm p-2'
-                    defaultValue={''}
-                    key={i}
-                  >
-                    <option value=''>- Choose a Skill -</option>
-                    {startingProficiencies.skills.choose.from.map(
-                      (skill: string) => {
-                        return (
-                          <option key={i} value='skill'>
-                            {skill}
-                          </option>
-                        )
-                      }
-                    )}
-                  </select>
-                ))}
+                {arrayToIterate.map((x, i) => {
+                  const defaultValue = skills?.allSkills?.skills.find(
+                    (x) =>
+                      x?.id === skillsSel?.allSkillsSelecteds?.nodes[i]?.skillId
+                  )?.skill
+                  return (
+                    <select
+                      className='w-full border rounded text-sm p-2'
+                      defaultValue={defaultValue || ''}
+                      key={i}
+                      onChange={(e) => handleSkillSelection(e, i)}
+                    >
+                      <option value=''>- Choose a Skill -</option>
+                      {startingProficiencies.skills.choose.from.map(
+                        (skill: string, j: number) => {
+                          const skillCapFirst = skill[0].toUpperCase()
+                          const skillCapRest = skill.slice(1, skill.length)
+                          const skillFull = skillCapFirst + skillCapRest
+
+                          return (
+                            <option key={`${j}-${skill}`} value={skillFull}>
+                              {skillFull}
+                            </option>
+                          )
+                        }
+                      )}
+                    </select>
+                  )
+                })}
               </div>
             </div>
           </div>

@@ -227,6 +227,9 @@ const FeatureGeneral: React.FC<Props> = ({
                 return <EntryTableType key={i} entry={entry} />
               }
 
+              console.log('TODO: ', entry.type)
+              console.log(entry)
+
               return null
             })}
           </div>
