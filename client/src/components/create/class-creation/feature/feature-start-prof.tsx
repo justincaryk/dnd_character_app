@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import classnames from 'classnames'
 import {
   useCreateSkillSelectedMutation,
@@ -25,11 +25,11 @@ const FeatureStartProf: React.FC<Props> = ({
   savingThrows,
   characterId,
 }) => {
-  
+  const [allOptionsSelected, setAllOptionsSelected] = useState(false)
   const [profDetailsActive, toggleProfDetailsActive] = useState(false)
   const [performCreate] = useCreateSkillSelectedMutation()
   const [performUpdate] = useUpdateSkillSelectedMutation()
-  
+
   const {
     data: skillsSel,
     loading: skillsSelLoad,
@@ -43,6 +43,18 @@ const FeatureStartProf: React.FC<Props> = ({
 
   const { data: skills, loading: skillsLoad } = useAllSkillsQuery()
 
+  useEffect(() => {
+    const triggerOne = skillsSel?.allSkillsSelecteds &&
+    skillsSel?.allSkillsSelecteds?.nodes.length <
+      startingProficiencies.skills.choose.count
+
+    const triggerTwo = skillsSel?.allSkillsSelecteds?.nodes.find((x) => !x?.skillId)
+    if (triggerOne || triggerTwo) {
+      setAllOptionsSelected(false)
+    } else {
+      setAllOptionsSelected(true)
+    }
+  }, [startingProficiencies, skillsSel?.allSkillsSelecteds, setAllOptionsSelected])
 
   if (!startingProficiencies || skillsSelLoad || skillsLoad) {
     return null
@@ -56,7 +68,6 @@ const FeatureStartProf: React.FC<Props> = ({
     e: React.ChangeEvent<HTMLSelectElement>,
     i: number
   ) => {
-    
     if (!e.currentTarget.value) {
       await performUpdate({
         variables: {
@@ -66,7 +77,7 @@ const FeatureStartProf: React.FC<Props> = ({
         },
       })
       await refetch()
-      
+
       return
     }
 
@@ -94,16 +105,24 @@ const FeatureStartProf: React.FC<Props> = ({
     }
 
     await refetch()
-    
   }
 
   return (
-    <div className='space-y-3'>
-      <div className='border bg-white'>
+    <div className='space-y-3 relative'>
+      {!allOptionsSelected ? (
+        <div className='absolute -top-2 -left-2'>
+          <div className='bg-sky-blue circle rounded-full flex items-center justify-center h-6 w-6 text-white font-bold'>
+            !
+          </div>
+        </div>
+      ) : null}
+      <div className='bg-white'>
         <div
           className={classnames({
             'p-2 hover:bg-cream cursor-pointer': true,
             'bg-cream border-b': profDetailsActive,
+            'border-1 border-sky-blue': !allOptionsSelected,
+            'border': allOptionsSelected,
           })}
           onClick={() => toggleProfDetailsActive(!profDetailsActive)}
         >
@@ -111,7 +130,7 @@ const FeatureStartProf: React.FC<Props> = ({
           <div className='text-xs text-gray-500'>1st level</div>
         </div>
         {profDetailsActive && (
-          <div className='p-2 text-sm'>
+          <div className='p-2 text-sm border-b border-l border-r'>
             <div className='capitalize'>
               <strong>Armor:</strong>{' '}
               {startingProficiencies.armor?.join(', ') || 'None'}
@@ -142,7 +161,11 @@ const FeatureStartProf: React.FC<Props> = ({
                   )?.skill
                   return (
                     <select
-                      className='w-full border rounded text-sm p-2'
+                      className={classnames({
+                        'w-full rounded text-sm p-2': true,
+                        'border-1 border-sky-blue': !defaultValue,
+                        'border': defaultValue,
+                      })}
                       defaultValue={defaultValue || ''}
                       key={i}
                       onChange={(e) => handleSkillSelection(e, i)}
