@@ -73,6 +73,7 @@ const FeatureStartProf: React.FC<Props> = ({
           skillSelId: skillsSel?.allSkillsSelecteds?.nodes[i]?.skillSelId,
           skillId: null,
           grantedByStartingProf: true,
+          level: SkillLevelSel.Prof
         },
       })
       await refetch()

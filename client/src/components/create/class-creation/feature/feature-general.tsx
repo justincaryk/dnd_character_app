@@ -2,11 +2,90 @@ import React, { useEffect, useState } from 'react'
 import classnames from 'classnames'
 import { numberToSpeakable } from '../../../../lib/utils'
 import {
+  SkillLevelSel,
   useFightingStyleByNameQuery,
+  useGetAllSkillsSelectedQuery,
   useSubclassNamesByClassIdQuery,
   useUpdateCharacterMutation,
+  useUpdateSkillSelectedMutation,
 } from '../../../../generated/graphql'
 import { EntryListType, EntryTableType } from '../../../shared/entries'
+
+interface EntryExpertiseTypeProps {
+  entry: {
+    options: {
+      choose: {
+        count: number
+        from: string
+      }
+    }
+  }
+  characterId: string
+}
+
+const EntryExpertiseType: React.FC<EntryExpertiseTypeProps> = ({entry, characterId}) => {
+  const emptyArray = Array(entry.options.choose.count).fill('x', 0)
+  
+  const [performUpdate] = useUpdateSkillSelectedMutation()
+  const {
+    data,
+    loading,
+  } = useGetAllSkillsSelectedQuery({
+    variables: {
+      characterId: characterId,
+      grantedByStartingProf: true,
+    },
+  })
+
+  const handleExpertiseSelection = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    // if empty
+    if (!e.currentTarget.value) {
+      // set skill id prof to prof
+      performUpdate({variables: { 
+        skillSelId: e.currentTarget.value,
+        level: SkillLevelSel.Prof
+      }})
+    } else {
+      // set prof level to exp
+      performUpdate({variables: { 
+        skillSelId: e.currentTarget.value,
+        level: SkillLevelSel.Exp
+      }})
+    }
+    
+  }
+
+  if (loading) {
+    return null
+  }
+
+  return (
+    <>
+      {emptyArray.map((x: any, i: number) => {
+        const defaultValue = data?.allSkillsSelecteds?.nodes.filter(x => x?.level === SkillLevelSel.Exp)[i]?.skillSelId
+        return (
+          <select 
+            key={i}
+            onChange={handleExpertiseSelection}
+            className={classnames({
+              'w-full rounded text-sm p-2': true,
+              'border-1 border-sky-blue': !defaultValue,
+              'border': defaultValue,
+            })}
+            defaultValue={defaultValue}
+          >
+            <option value={''}>- Select a Skill -</option>
+            {data?.allSkillsSelecteds?.nodes.map(skillSel => {
+              return (
+                <option key={skillSel?.skillSelId} value={skillSel?.skillSelId}>{skillSel?.skillBySkillId?.skill}</option>
+              )
+            })}
+          </select>
+        )
+      })}
+    </>
+  )
+}
 
 interface OptionsTypeProps {
   options: {
@@ -227,6 +306,10 @@ const FeatureGeneral: React.FC<Props> = ({
                 return <EntryTableType key={i} entry={entry} />
               }
 
+              if (entry.type === 'expertiseSkillOptions') {
+                return <EntryExpertiseType entry={entry} characterId={character.characterId} />
+              }
+              
               console.log('TODO: ', entry.type)
               console.log(entry)
 

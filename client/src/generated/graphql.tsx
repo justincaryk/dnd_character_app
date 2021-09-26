@@ -10310,6 +10310,10 @@ export type GetAllSkillsSelectedQuery = (
     & { nodes: Array<Maybe<(
       { __typename?: 'SkillsSelected' }
       & Pick<SkillsSelected, 'skillSelId' | 'characterId' | 'skillId' | 'level' | 'grantedByStartingProf' | 'grantingClassFeatId' | 'grantingSubcclassFeatId'>
+      & { skillBySkillId?: Maybe<(
+        { __typename?: 'Skill' }
+        & Pick<Skill, 'skill'>
+      )> }
     )>> }
   )> }
 );
@@ -11808,6 +11812,9 @@ export const GetAllSkillsSelectedDocument = gql`
       grantedByStartingProf
       grantingClassFeatId
       grantingSubcclassFeatId
+      skillBySkillId {
+        skill
+      }
     }
   }
 }
