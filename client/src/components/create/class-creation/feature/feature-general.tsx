@@ -21,9 +21,10 @@ interface EntryExpertiseTypeProps {
     }
   }
   characterId: string
+  featureLevel: number
 }
 
-const EntryExpertiseType: React.FC<EntryExpertiseTypeProps> = ({entry, characterId}) => {
+const EntryExpertiseType: React.FC<EntryExpertiseTypeProps> = ({entry, characterId, featureLevel}) => {
   const emptyArray = Array(entry.options.choose.count).fill('x', 0)
   
   const [performUpdate] = useUpdateSkillSelectedMutation()
@@ -62,7 +63,7 @@ const EntryExpertiseType: React.FC<EntryExpertiseTypeProps> = ({entry, character
   return (
     <>
       {emptyArray.map((x: any, i: number) => {
-        const defaultValue = data?.allSkillsSelecteds?.nodes.filter(x => x?.level === SkillLevelSel.Exp)[i]?.skillSelId
+        const defaultValue = data?.allSkillsSelecteds?.nodes.filter(x => x?.level === SkillLevelSel.Exp)[featureLevel -1 + i]?.skillSelId
         return (
           <select 
             key={i}
@@ -307,7 +308,7 @@ const FeatureGeneral: React.FC<Props> = ({
               }
 
               if (entry.type === 'expertiseSkillOptions') {
-                return <EntryExpertiseType entry={entry} characterId={character.characterId} />
+                return <EntryExpertiseType entry={entry} characterId={character.characterId} featureLevel={feature.level} />
               }
               
               console.log('TODO: ', entry.type)
