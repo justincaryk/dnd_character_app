@@ -38,16 +38,21 @@ const EntryExpertiseType: React.FC<EntryExpertiseTypeProps> = ({entry, character
     },
   })
 
-  const handleExpertiseSelection = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleExpertiseSelection = (e: React.ChangeEvent<HTMLSelectElement>, currentSkillSelId: string) => {
     // if empty
     if (!e.currentTarget.value) {
       // set skill id prof to prof
       performUpdate({variables: { 
-        skillSelId: e.currentTarget.value,
+        skillSelId: currentSkillSelId,
         level: SkillLevelSel.Prof
       }})
     } else {
-      // set prof level to exp
+      // set current to prof
+      performUpdate({variables: { 
+        skillSelId: currentSkillSelId,
+        level: SkillLevelSel.Prof
+      }})
+      // set new to exp
       performUpdate({variables: { 
         skillSelId: e.currentTarget.value,
         level: SkillLevelSel.Exp
@@ -56,6 +61,7 @@ const EntryExpertiseType: React.FC<EntryExpertiseTypeProps> = ({entry, character
     
   }
 
+  
   if (loading) {
     return null
   }
@@ -67,7 +73,7 @@ const EntryExpertiseType: React.FC<EntryExpertiseTypeProps> = ({entry, character
         return (
           <select 
             key={i}
-            onChange={handleExpertiseSelection}
+            onChange={e => handleExpertiseSelection(e, defaultValue)}
             className={classnames({
               'w-full rounded text-sm p-2': true,
               'border-1 border-sky-blue': !defaultValue,
@@ -76,7 +82,9 @@ const EntryExpertiseType: React.FC<EntryExpertiseTypeProps> = ({entry, character
             defaultValue={defaultValue}
           >
             <option value={''}>- Select a Skill -</option>
-            {data?.allSkillsSelecteds?.nodes.map(skillSel => {
+            {data?.allSkillsSelecteds?.nodes
+              .filter(skill => skill?.skillId)
+              .map(skillSel => {
               return (
                 <option key={skillSel?.skillSelId} value={skillSel?.skillSelId}>{skillSel?.skillBySkillId?.skill}</option>
               )
