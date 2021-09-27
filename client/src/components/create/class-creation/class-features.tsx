@@ -3,6 +3,7 @@ import {
   useClassByIdQuery,
   useUpdateCharacterMutation,
   useDeleteAllCharacterSkillsMutation,
+  useGetAllSkillsSelectedQuery,
 } from '../../../generated/graphql'
 import FeatureAsi from './feature/feature-asi'
 import FeatureGeneral from './feature/feature-general'
@@ -48,6 +49,17 @@ const ClassFeatures: React.FC<Props> = ({
 
   const [performUpdate] = useUpdateCharacterMutation()
   const [performDeleteAllSkills] = useDeleteAllCharacterSkillsMutation()
+
+  const {
+    data: skillsSel,
+    loading: skillsSelLoad,
+    refetch: refetchSkillsSel,
+  } = useGetAllSkillsSelectedQuery({
+    variables: {
+      characterId: character.characterId,
+      grantedByStartingProf: true,
+    },
+  })
 
   useEffect(() => {
     if (character.currentLevel) {
@@ -117,7 +129,7 @@ const ClassFeatures: React.FC<Props> = ({
     await refetchCharacter()
   }
 
-  if (loading) {
+  if (loading || skillsSelLoad || !skillsSel) {
     return <div>... Loading</div>
   }
 
@@ -217,6 +229,8 @@ const ClassFeatures: React.FC<Props> = ({
         characterId={character.characterId}
         startingProficiencies={startingProficiencies}
         savingThrows={data?.classById?.proficiency}
+        skillsSel={skillsSel}
+        refetchSkillsSel={refetchSkillsSel}
       />
       {/* row 6 ALL ELIGIBLE CLASS FEATURES */}
       <div className='space-y-3'>
@@ -266,6 +280,8 @@ const ClassFeatures: React.FC<Props> = ({
                   feature={feature}
                   character={character}
                   refetchCharacter={refetchCharacter}
+                  skillsSel={skillsSel}
+                  refetchSkillsSel={refetchSkillsSel}
                 />
               </div>
             )
@@ -303,6 +319,8 @@ const ClassFeatures: React.FC<Props> = ({
                       viewOnly
                       feature={feature}
                       character={character}
+                      skillsSel={skillsSel}
+                      refetchSkillsSel={refetchSkillsSel}
                     />
                   </div>
                 )

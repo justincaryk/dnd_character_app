@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import classnames from 'classnames'
 import { numberToSpeakable } from '../../../../lib/utils'
 import {
+  GetAllSkillsSelectedQuery,
   SkillLevelSel,
   useFightingStyleByNameQuery,
-  useGetAllSkillsSelectedQuery,
+  // useGetAllSkillsSelectedQuery,
   useSubclassNamesByClassIdQuery,
   useUpdateCharacterMutation,
   useUpdateSkillSelectedMutation,
@@ -19,24 +20,27 @@ interface EntryExpertiseTypeProps {
         from: string
       }
     }
+    increment: number
   }
   characterId: string
-  featureLevel: number
+  skillsSel: GetAllSkillsSelectedQuery
+  refetchSkillsSel: any
 }
 
-const EntryExpertiseType: React.FC<EntryExpertiseTypeProps> = ({entry, characterId, featureLevel}) => {
+const EntryExpertiseType: React.FC<EntryExpertiseTypeProps> = ({entry, characterId, skillsSel, refetchSkillsSel}) => {
   const emptyArray = Array(entry.options.choose.count).fill('x', 0)
-  
+  const [values, setValues] = useState<any>([])
   const [performUpdate] = useUpdateSkillSelectedMutation()
-  const {
-    data,
-    loading,
-  } = useGetAllSkillsSelectedQuery({
-    variables: {
-      characterId: characterId,
-      grantedByStartingProf: true,
-    },
-  })
+  // const {
+  //   data,
+  //   loading,
+  // } = useGetAllSkillsSelectedQuery({
+  //   variables: {
+  //     characterId: characterId,
+  //     grantedByStartingProf: true,
+  //   },
+  // })
+
 
   const handleExpertiseSelection = (e: React.ChangeEvent<HTMLSelectElement>, currentSkillSelId: string) => {
     // if empty
@@ -47,11 +51,13 @@ const EntryExpertiseType: React.FC<EntryExpertiseTypeProps> = ({entry, character
         level: SkillLevelSel.Prof
       }})
     } else {
-      // set current to prof
-      performUpdate({variables: { 
-        skillSelId: currentSkillSelId,
-        level: SkillLevelSel.Prof
-      }})
+      if (currentSkillSelId) {
+        // set current to prof
+        performUpdate({variables: { 
+          skillSelId: currentSkillSelId,
+          level: SkillLevelSel.Prof
+        }})
+      }
       // set new to exp
       performUpdate({variables: { 
         skillSelId: e.currentTarget.value,
@@ -61,15 +67,15 @@ const EntryExpertiseType: React.FC<EntryExpertiseTypeProps> = ({entry, character
     
   }
 
-  
-  if (loading) {
+
+  if (!skillsSel) {
     return null
   }
 
   return (
     <>
       {emptyArray.map((x: any, i: number) => {
-        const defaultValue = data?.allSkillsSelecteds?.nodes.filter(x => x?.level === SkillLevelSel.Exp)[featureLevel -1 + i]?.skillSelId
+        const defaultValue = skillsSel?.allSkillsSelecteds?.nodes.filter((y) => y?.level === SkillLevelSel.Exp)[(entry.increment * entry.options.choose.count) + i]?.skillSelId
         return (
           <select 
             key={i}
@@ -82,9 +88,9 @@ const EntryExpertiseType: React.FC<EntryExpertiseTypeProps> = ({entry, character
             defaultValue={defaultValue}
           >
             <option value={''}>- Select a Skill -</option>
-            {data?.allSkillsSelecteds?.nodes
-              .filter(skill => skill?.skillId)
-              .map(skillSel => {
+            {skillsSel?.allSkillsSelecteds?.nodes
+              .filter((skill) => skill?.skillId)
+              .map((skillSel) => {
               return (
                 <option key={skillSel?.skillSelId} value={skillSel?.skillSelId}>{skillSel?.skillBySkillId?.skill}</option>
               )
@@ -248,6 +254,8 @@ interface Props {
   viewOnly?: boolean
   character: any
   refetchCharacter?: any
+  skillsSel: any
+  refetchSkillsSel: any
 }
 
 const FeatureGeneral: React.FC<Props> = ({
@@ -255,6 +263,8 @@ const FeatureGeneral: React.FC<Props> = ({
   viewOnly,
   character,
   refetchCharacter,
+  skillsSel,
+  refetchSkillsSel
 }) => {
   const [detailsActive, toggleDetailActive] = useState(false)
   const [entries, setEntries] = useState([])
@@ -316,7 +326,13 @@ const FeatureGeneral: React.FC<Props> = ({
               }
 
               if (entry.type === 'expertiseSkillOptions') {
-                return <EntryExpertiseType entry={entry} characterId={character.characterId} featureLevel={feature.level} />
+                return (
+                  <EntryExpertiseType 
+                    entry={entry} 
+                    characterId={character.characterId}
+                    skillsSel={skillsSel} 
+                    refetchSkillsSel={refetchSkillsSel} />
+                )
               }
               
               console.log('TODO: ', entry.type)

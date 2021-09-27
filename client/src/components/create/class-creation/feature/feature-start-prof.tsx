@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import classnames from 'classnames'
 import {
   useCreateSkillSelectedMutation,
-  useGetAllSkillsSelectedQuery,
+  // useGetAllSkillsSelectedQuery,
   useUpdateSkillSelectedMutation,
   useAllSkillsQuery,
   SkillLevelSel,
+  GetAllSkillsSelectedQuery,
 } from '../../../../generated/graphql'
 
 interface Props {
@@ -17,32 +18,29 @@ interface Props {
   }
   savingThrows: any
   characterId: string
+  skillsSel: GetAllSkillsSelectedQuery,
+  refetchSkillsSel: any
 }
 
 const FeatureStartProf: React.FC<Props> = ({
   startingProficiencies,
   savingThrows,
   characterId,
+  skillsSel,
+  refetchSkillsSel,
 }) => {
   const [allOptionsSelected, setAllOptionsSelected] = useState(false)
   const [profDetailsActive, toggleProfDetailsActive] = useState(false)
   const [performCreate] = useCreateSkillSelectedMutation()
   const [performUpdate] = useUpdateSkillSelectedMutation()
 
-  const {
-    data: skillsSel,
-    loading: skillsSelLoad,
-    refetch,
-  } = useGetAllSkillsSelectedQuery({
-    variables: {
-      characterId: characterId,
-      grantedByStartingProf: true,
-    },
-  })
-
   const { data: skills, loading: skillsLoad } = useAllSkillsQuery()
 
   useEffect(() => {
+    if (!startingProficiencies) {
+      return
+    }
+
     const triggerOne = skillsSel?.allSkillsSelecteds &&
     skillsSel?.allSkillsSelecteds?.nodes.length <
       startingProficiencies.skills.choose.count
@@ -55,7 +53,7 @@ const FeatureStartProf: React.FC<Props> = ({
     }
   }, [startingProficiencies, skillsSel?.allSkillsSelecteds, setAllOptionsSelected])
 
-  if (!startingProficiencies || skillsSelLoad || skillsLoad) {
+  if (!startingProficiencies || skillsLoad) {
     return null
   }
 
@@ -76,8 +74,8 @@ const FeatureStartProf: React.FC<Props> = ({
           level: SkillLevelSel.Prof
         },
       })
-      await refetch()
-
+      await refetchSkillsSel()
+      
       return
     }
 
@@ -104,7 +102,7 @@ const FeatureStartProf: React.FC<Props> = ({
       })
     }
 
-    await refetch()
+    await refetchSkillsSel()
   }
 
   return (

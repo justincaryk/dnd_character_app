@@ -547,7 +547,8 @@ exports.seed = knex => (
                                         count: 2,
                                         from: 'known'
                                     }
-                                }
+                                },
+                                increment: 0
                             }
                         ],
                     },
@@ -702,7 +703,8 @@ exports.seed = knex => (
                                         count: 2,
                                         from: 'known'
                                     }
-                                }
+                                },
+                                increment: 1
                             }
                         ],
                     },
@@ -3511,7 +3513,8 @@ exports.seed = knex => (
                                         count: 2,
                                         from: 'known'
                                     }
-                                }
+                                },
+                                increment: 0
                             }
                         ],
                     },
@@ -3643,7 +3646,8 @@ exports.seed = knex => (
                                         count: 2,
                                         from: 'known'
                                     }
-                                }
+                                },
+                                increment: 1
                             }
                         ],
                     },
