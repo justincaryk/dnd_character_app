@@ -130,7 +130,7 @@ const ClassFeatures: React.FC<Props> = ({
   }
 
   if (loading || skillsSelLoad || !skillsSel) {
-    return <div>... Loading</div>
+    return <div>...Loading</div>
   }
 
   return (

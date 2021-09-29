@@ -1,13 +1,23 @@
 import gql from 'graphql-tag'
 
 export default gql`
-  query AllCharacters {
+  query GetAllCharacters {
     allCharacters {
       nodes {
-        name
         characterId
+        name
+        currentLevel
         raceByRaceId {
-            name
+          name
+        }
+        subraceBySubraceId {
+          name
+        }
+        classByClassId {
+          name
+        }
+        subclassBySubclassId {
+          name
         }
       }
     }

@@ -24,6 +24,7 @@ import SignOut from './components/sign-out'
 import Layout from './components/layout'
 import Home from './components/home'
 import ClassCreation from './components/create/class-creation/class-creation'
+import ViewCharacters from './components/view/characters/characters'
 
 
 const publicLinks: LinkType[] = [
@@ -73,6 +74,10 @@ const privateLinks: LinkType[] = [
   {
     link: '/view/classes',
     text: 'View Classes',
+  },
+  {
+    link: '/view/characters',
+    text: 'View Characters',
   },
 ]
 const signout = {
@@ -226,6 +231,12 @@ const App: React.FC = () => {
                 <Route path='/view/feats'>
                   <div className='container'>
                     <Feats />
+                  </div>
+                </Route>
+
+                <Route path='/view/characters'>
+                  <div className='container'>
+                    <ViewCharacters />
                   </div>
                 </Route>
 

@@ -10109,19 +10109,28 @@ export type AllBgsQuery = (
   )> }
 );
 
-export type AllCharactersQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetAllCharactersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllCharactersQuery = (
+export type GetAllCharactersQuery = (
   { __typename?: 'Query' }
   & { allCharacters?: Maybe<(
     { __typename?: 'CharactersConnection' }
     & { nodes: Array<Maybe<(
       { __typename?: 'Character' }
-      & Pick<Character, 'name' | 'characterId'>
+      & Pick<Character, 'characterId' | 'name' | 'currentLevel'>
       & { raceByRaceId?: Maybe<(
         { __typename?: 'Race' }
         & Pick<Race, 'name'>
+      )>, subraceBySubraceId?: Maybe<(
+        { __typename?: 'Subrace' }
+        & Pick<Subrace, 'name'>
+      )>, classByClassId?: Maybe<(
+        { __typename?: 'Class' }
+        & Pick<Class, 'name'>
+      )>, subclassBySubclassId?: Maybe<(
+        { __typename?: 'Subclass' }
+        & Pick<Subclass, 'name'>
       )> }
     )>> }
   )> }
@@ -11348,13 +11357,23 @@ export function useAllBgsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<All
 export type AllBgsQueryHookResult = ReturnType<typeof useAllBgsQuery>;
 export type AllBgsLazyQueryHookResult = ReturnType<typeof useAllBgsLazyQuery>;
 export type AllBgsQueryResult = Apollo.QueryResult<AllBgsQuery, AllBgsQueryVariables>;
-export const AllCharactersDocument = gql`
-    query AllCharacters {
+export const GetAllCharactersDocument = gql`
+    query GetAllCharacters {
   allCharacters {
     nodes {
-      name
       characterId
+      name
+      currentLevel
       raceByRaceId {
+        name
+      }
+      subraceBySubraceId {
+        name
+      }
+      classByClassId {
+        name
+      }
+      subclassBySubclassId {
         name
       }
     }
@@ -11363,31 +11382,31 @@ export const AllCharactersDocument = gql`
     `;
 
 /**
- * __useAllCharactersQuery__
+ * __useGetAllCharactersQuery__
  *
- * To run a query within a React component, call `useAllCharactersQuery` and pass it any options that fit your needs.
- * When your component renders, `useAllCharactersQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetAllCharactersQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllCharactersQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useAllCharactersQuery({
+ * const { data, loading, error } = useGetAllCharactersQuery({
  *   variables: {
  *   },
  * });
  */
-export function useAllCharactersQuery(baseOptions?: Apollo.QueryHookOptions<AllCharactersQuery, AllCharactersQueryVariables>) {
+export function useGetAllCharactersQuery(baseOptions?: Apollo.QueryHookOptions<GetAllCharactersQuery, GetAllCharactersQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<AllCharactersQuery, AllCharactersQueryVariables>(AllCharactersDocument, options);
+        return Apollo.useQuery<GetAllCharactersQuery, GetAllCharactersQueryVariables>(GetAllCharactersDocument, options);
       }
-export function useAllCharactersLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllCharactersQuery, AllCharactersQueryVariables>) {
+export function useGetAllCharactersLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllCharactersQuery, GetAllCharactersQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<AllCharactersQuery, AllCharactersQueryVariables>(AllCharactersDocument, options);
+          return Apollo.useLazyQuery<GetAllCharactersQuery, GetAllCharactersQueryVariables>(GetAllCharactersDocument, options);
         }
-export type AllCharactersQueryHookResult = ReturnType<typeof useAllCharactersQuery>;
-export type AllCharactersLazyQueryHookResult = ReturnType<typeof useAllCharactersLazyQuery>;
-export type AllCharactersQueryResult = Apollo.QueryResult<AllCharactersQuery, AllCharactersQueryVariables>;
+export type GetAllCharactersQueryHookResult = ReturnType<typeof useGetAllCharactersQuery>;
+export type GetAllCharactersLazyQueryHookResult = ReturnType<typeof useGetAllCharactersLazyQuery>;
+export type GetAllCharactersQueryResult = Apollo.QueryResult<GetAllCharactersQuery, GetAllCharactersQueryVariables>;
 export const AllClassNamesDocument = gql`
     query AllClassNames {
   allClasses(orderBy: NAME_ASC) {

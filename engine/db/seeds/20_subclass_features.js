@@ -4244,7 +4244,7 @@ exports.seed = knex => (
                     level: 3,
                     entries: {
                         e: [
-                            "When you choose this archetype at 3rd level, you gain proficiency with the disguise kitand the poisoner's kit.",
+                            "When you choose this archetype at 3rd level, you gain proficiency with the disguise kit and the poisoner's kit.",
                         ],
                     },
                     id: uuidv4(),
