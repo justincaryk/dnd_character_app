@@ -6,7 +6,7 @@ import {
   FeatFromType,
   useAllAsisQuery,
   useAllFeatsQuery,
-  useAllSkillsQuery,
+  useGetAllAsiSelectionsByFeatIdQuery,
   useCreateAsiSelectedMutation,
   useCreateFeatBaseSelMutation,
   useDeleteAsiSelectedMutation,
@@ -16,7 +16,6 @@ import {
   useUpdateAsiSelectMutation,
   useUpdateFeatSelectedByIdMutation,
 } from '../../../../generated/graphql'
-import deleteFeatSelById from '../../../../graphql/mutations/delete-feat-sel-by-id'
 
 interface Props {
   feature: {
@@ -47,6 +46,11 @@ const asiLevelHash = {
     '1': AsiFromType.Asi8_1,
     '2': AsiFromType.Asi8_2,
   },
+  '10': {
+    '1': AsiFromType.Asi10_1,
+    '2': AsiFromType.Asi10_2,
+  },
+  
   '12': {
     '1': AsiFromType.Asi12_1,
     '2': AsiFromType.Asi12_2,
@@ -69,6 +73,7 @@ const featLevelHash = {
   '4': FeatFromType.Asi_4,
   '6': FeatFromType.Asi_6,
   '8': FeatFromType.Asi_8,
+  '10': FeatFromType.Asi_10,
   '12': FeatFromType.Asi_12,
   '14': FeatFromType.Asi_14,
   '16': FeatFromType.Asi_16,
@@ -76,6 +81,11 @@ const featLevelHash = {
 }
 
 const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
+  const [featSelection, setFeatSelection] = useState<any>(null)
+  const [featAsiSel, setFeatAsiSel] = useState('')
+  const [asiSelection1, setAsiSelection1] = useState('')
+  const [asiSelection2, setAsiSelection2] = useState('')
+
   const [detailsActive, toggleDetailsActive] = useState(false)
   const [entries, setEntries] = useState<any>(null)
   const [choice, setChoice] = useState('')
@@ -102,7 +112,7 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
       asiFrom: asiLevelHash[feature.level]['2'],
     },
   })
-
+  
   const {
     data: featSel,
     loading: featSelLoading,
@@ -114,6 +124,18 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
     },
   })
 
+  
+  const {
+    data: featAsi,
+    loading: featAsiLoading,
+    refetch: refetchFeatAsi
+  } = useGetAllAsiSelectionsByFeatIdQuery({
+    variables: {
+      characterId: characterId,
+      featId: featSelection?.id
+    }
+  })
+
   const [performCreateFeat] = useCreateFeatBaseSelMutation()
   const [performUpdateFeat] = useUpdateFeatSelectedByIdMutation()
   const [performDeleteFeat] = useDeleteFeatSelByIdMutation()
@@ -122,9 +144,7 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
   const [performUpdateAsi] = useUpdateAsiSelectMutation()
   const [performDeleteAsi] = useDeleteAsiSelectedMutation()
 
-  const [featSelection, setFeatSelection] = useState<any>(null)
-  const [asiSelection1, setAsiSelection1] = useState('')
-  const [asiSelection2, setAsiSelection2] = useState('')
+
 
   useEffect(() => {
     const parsed = JSON.parse(feature.entries).e
@@ -137,7 +157,8 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
     }
     else if (
       (asi1?.allAsiSelecteds?.nodes[0] || asi2?.allAsiSelecteds?.nodes[0]) &&
-      !choice
+      !choice &&
+      !asi1?.allAsiSelecteds?.nodes[0]?.featId
     ) {
       setChoice('asi')
     }
@@ -172,6 +193,13 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
       setAsiSelection2(asi2.allAsiSelecteds.nodes[0].asiByAsiId.asiId)
     }
   }, [asi2, asiSelection2, setAsiSelection2])
+
+  useEffect(()=> {
+    if (!featAsiSel && featAsi?.allAsiSelecteds?.nodes[0]) {
+      const asiScore = asis?.allAsis?.nodes.find(x => x?.asiId === featAsi.allAsiSelecteds?.nodes[0]?.asiId)?.long
+      setFeatAsiSel(asiScore ? asiScore : '')
+    }
+  }, [featAsi, asis, featAsiSel, setFeatAsiSel])
 
   const handleChoiceSelection = async (
     e: React.ChangeEvent<HTMLSelectElement>
@@ -225,6 +253,8 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
         })
       }
       setChoice('feat')
+      setAsiSelection1('')
+      setAsiSelection2('')
     } else {
       if (featSel?.allFeatSelecteds?.nodes[0]) {
         performDeleteFeat({
@@ -234,6 +264,7 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
         })
       }
       setChoice('asi')
+      setFeatSelection(null)
     }
   }
 
@@ -344,6 +375,49 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
     }
   }
 
+  const handleFeatAsiSel = async (e: React.ChangeEvent<HTMLSelectElement>) => {
+    
+    if (!e.currentTarget.value) {
+      //delete
+      await performDeleteAsi({
+        variables: {
+          asiSelId: featAsi?.allAsiSelecteds?.nodes[0]?.asiSelId
+        }})
+      await refetchFeatAsi()
+      setFeatAsiSel('')
+      return
+    }
+
+    const asiId = asis?.allAsis?.nodes.find(x => x?.long?.toLowerCase() === e.currentTarget.value.toLowerCase())?.asiId
+    const asiScore = e.currentTarget.value
+    if (!featAsi?.allAsiSelecteds?.nodes[0]) {
+      //create
+      await performCreateAsi({
+        variables: {
+          characterId: characterId,
+          from: AsiFromType.Points,
+          asiId: asiId,
+          featId: featSelection.id,
+          count: 1,
+        }
+      })
+      await refetchFeatAsi()
+
+      
+    } else {
+      //perform update
+      await performUpdateAsi({
+        variables: {
+          asiSelId: featAsi.allAsiSelecteds.nodes[0].asiSelId,
+          asiId: asiId
+        }
+      })
+      await refetchFeatAsi()
+    }
+
+    setFeatAsiSel(asiScore)
+  }
+
   if (
     asisLoading ||
     featsLoading ||
@@ -361,7 +435,10 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
     if (!featSelection && choice === 'feat') {
       return true
     }
-    if (!asiSelection1 || !asiSelection2) {
+    if (featSelection.scores && !featAsiSel) {
+      return true
+    }
+    if ((!asiSelection1 || !asiSelection2) && choice === 'asis') {
       return true
     }
 
@@ -467,15 +544,16 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
                         </ul>
                       )}
 
-                      {featSelection.scores && (
+                      {featSelection?.scores && (
                         <select
                           className='w-full border rounded text-sm p-2'
-                          defaultValue={''}
+                          defaultValue={featAsiSel}
+                          onChange={handleFeatAsiSel}
                         >
-                          <option>- Choose an Ability Score-</option>
+                          <option value=''>- Choose an Ability Score-</option>
                           {featSelection.scores.map((score: string) => (
                             <option key={score} value={score}>
-                              {score}
+                              {score} Score
                             </option>
                           ))}
                         </select>

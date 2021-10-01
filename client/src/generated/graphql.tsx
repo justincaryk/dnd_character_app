@@ -82,6 +82,8 @@ export enum AsiFromType {
   Asi6_2 = 'ASI6_2',
   Asi8_1 = 'ASI8_1',
   Asi8_2 = 'ASI8_2',
+  Asi10_1 = 'ASI10_1',
+  Asi10_2 = 'ASI10_2',
   Asi12_1 = 'ASI12_1',
   Asi12_2 = 'ASI12_2',
   Asi14_1 = 'ASI14_1',
@@ -710,14 +712,14 @@ export type Character = Node & {
   bgByBgId?: Maybe<Bg>;
   /** Reads and enables pagination through a set of `AsiSelectedCore`. */
   asiSelectedCoresByCharacterId: AsiSelectedCoresConnection;
-  /** Reads and enables pagination through a set of `AsiSelected`. */
-  asiSelectedsByCharacterId: AsiSelectedsConnection;
-  /** Reads and enables pagination through a set of `FeatSelected`. */
-  featSelectedsByCharacterId: FeatSelectedsConnection;
   /** Reads and enables pagination through a set of `SkillsSelected`. */
   skillsSelectedsByCharacterId: SkillsSelectedsConnection;
   /** Reads and enables pagination through a set of `FightStyleSelected`. */
   fightStyleSelectedsByCharacterId: FightStyleSelectedsConnection;
+  /** Reads and enables pagination through a set of `AsiSelected`. */
+  asiSelectedsByCharacterId: AsiSelectedsConnection;
+  /** Reads and enables pagination through a set of `FeatSelected`. */
+  featSelectedsByCharacterId: FeatSelectedsConnection;
 };
 
 
@@ -729,28 +731,6 @@ export type CharacterAsiSelectedCoresByCharacterIdArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<AsiSelectedCoresOrderBy>>;
   condition?: Maybe<AsiSelectedCoreCondition>;
-};
-
-
-export type CharacterAsiSelectedsByCharacterIdArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<AsiSelectedsOrderBy>>;
-  condition?: Maybe<AsiSelectedCondition>;
-};
-
-
-export type CharacterFeatSelectedsByCharacterIdArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<FeatSelectedsOrderBy>>;
-  condition?: Maybe<FeatSelectedCondition>;
 };
 
 
@@ -773,6 +753,28 @@ export type CharacterFightStyleSelectedsByCharacterIdArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<FightStyleSelectedsOrderBy>>;
   condition?: Maybe<FightStyleSelectedCondition>;
+};
+
+
+export type CharacterAsiSelectedsByCharacterIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<AsiSelectedsOrderBy>>;
+  condition?: Maybe<AsiSelectedCondition>;
+};
+
+
+export type CharacterFeatSelectedsByCharacterIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<FeatSelectedsOrderBy>>;
+  condition?: Maybe<FeatSelectedCondition>;
 };
 
 /**
@@ -4124,6 +4126,7 @@ export enum FeatFromType {
   Asi_4 = 'ASI_4',
   Asi_6 = 'ASI_6',
   Asi_8 = 'ASI_8',
+  Asi_10 = 'ASI_10',
   Asi_12 = 'ASI_12',
   Asi_14 = 'ASI_14',
   Asi_16 = 'ASI_16',
@@ -4714,14 +4717,14 @@ export type Minion = Node & {
   charactersByUserId: CharactersConnection;
   /** Reads and enables pagination through a set of `AsiSelectedCore`. */
   asiSelectedCoresByUserId: AsiSelectedCoresConnection;
-  /** Reads and enables pagination through a set of `AsiSelected`. */
-  asiSelectedsByUserId: AsiSelectedsConnection;
-  /** Reads and enables pagination through a set of `FeatSelected`. */
-  featSelectedsByUserId: FeatSelectedsConnection;
   /** Reads and enables pagination through a set of `SkillsSelected`. */
   skillsSelectedsByUserId: SkillsSelectedsConnection;
   /** Reads and enables pagination through a set of `FightStyleSelected`. */
   fightStyleSelectedsByUserId: FightStyleSelectedsConnection;
+  /** Reads and enables pagination through a set of `AsiSelected`. */
+  asiSelectedsByUserId: AsiSelectedsConnection;
+  /** Reads and enables pagination through a set of `FeatSelected`. */
+  featSelectedsByUserId: FeatSelectedsConnection;
 };
 
 
@@ -4758,28 +4761,6 @@ export type MinionAsiSelectedCoresByUserIdArgs = {
 };
 
 
-export type MinionAsiSelectedsByUserIdArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<AsiSelectedsOrderBy>>;
-  condition?: Maybe<AsiSelectedCondition>;
-};
-
-
-export type MinionFeatSelectedsByUserIdArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<FeatSelectedsOrderBy>>;
-  condition?: Maybe<FeatSelectedCondition>;
-};
-
-
 export type MinionSkillsSelectedsByUserIdArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
@@ -4799,6 +4780,28 @@ export type MinionFightStyleSelectedsByUserIdArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<FightStyleSelectedsOrderBy>>;
   condition?: Maybe<FightStyleSelectedCondition>;
+};
+
+
+export type MinionAsiSelectedsByUserIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<AsiSelectedsOrderBy>>;
+  condition?: Maybe<AsiSelectedCondition>;
+};
+
+
+export type MinionFeatSelectedsByUserIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<FeatSelectedsOrderBy>>;
+  condition?: Maybe<FeatSelectedCondition>;
 };
 
 /** A condition to be used against `Minion` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -10370,7 +10373,7 @@ export type GetAllAsiSelectionsByFeatIdQuery = (
     { __typename?: 'AsiSelectedsConnection' }
     & { nodes: Array<Maybe<(
       { __typename?: 'AsiSelected' }
-      & Pick<AsiSelected, 'asiSelId' | 'count' | 'asiFrom' | 'featId'>
+      & Pick<AsiSelected, 'asiSelId' | 'count' | 'asiFrom' | 'featId' | 'asiId'>
       & { asiByAsiId?: Maybe<(
         { __typename?: 'Asi' }
         & Pick<Asi, 'asiId' | 'long' | 'short'>
@@ -11979,6 +11982,7 @@ export const GetAllAsiSelectionsByFeatIdDocument = gql`
       count
       asiFrom
       featId
+      asiId
       asiByAsiId {
         asiId
         long
