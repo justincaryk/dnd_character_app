@@ -80,7 +80,7 @@ const AsiSelects: React.FC<Props> = ({ raceAsis, characterId }) => {
       
       // if there is no value, delete the id
       if (!e.target.value) {
-        console.log('delete')
+        
         performDelete({
           variables: {
             asiSelId: asisSelected[i].asiSelId,
@@ -88,7 +88,7 @@ const AsiSelects: React.FC<Props> = ({ raceAsis, characterId }) => {
         })
         return
       }
-      console.log('update')
+      
       // update it to the new vlaue
       performUpdate({
         variables: {
@@ -112,11 +112,9 @@ const AsiSelects: React.FC<Props> = ({ raceAsis, characterId }) => {
           >
             <option value=''>- Choose an Ability Score -</option>
             {asis?.allAsis?.nodes.map((x) => {
-              let text = x?.long
-              text = text?.replace(/^\w/, (c) => c.toUpperCase())
               return (
                 <option key={x?.asiId} value={x?.asiId}>
-                  {text} Score
+                  {x?.long} Score
                 </option>
               )
             })}

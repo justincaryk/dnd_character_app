@@ -3,27 +3,27 @@ exports.seed = knex => (
         .then(() => (
             knex('asi').insert([
                 {
-                    long: 'strength',
+                    long: 'Strength',
                     short: 'str',
                 },
                 {
-                    long: 'dexterity',
+                    long: 'Dexterity',
                     short: 'dex',
                 },
                 {
-                    long: 'constitution',
+                    long: 'Constitution',
                     short: 'con',
                 },
                 {
-                    long: 'intelligence',
+                    long: 'Intelligence',
                     short: 'int',
                 },
                 {
-                    long: 'wisdom',
+                    long: 'Wisdom',
                     short: 'wis',
                 },
                 {
-                    long: 'charisma',
+                    long: 'Charisma',
                     short: 'cha',
                 },
             ])

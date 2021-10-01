@@ -237,15 +237,8 @@ const ClassFeatures: React.FC<Props> = ({
         {features.map((feature, i) => {
           if (feature.name.toLowerCase() === 'ability score improvement') {
             return (
-              <div key={i} className='relative'>
-                {true && (
-                  <div className='absolute -top-2 -left-2'>
-                    <div className='bg-sky-blue circle rounded-full flex items-center justify-center h-6 w-6 text-white font-bold'>
-                      !
-                    </div>
-                  </div>
-                )}
-                <FeatureAsi feature={feature} />
+              <div key={i}>
+                <FeatureAsi feature={feature} characterId={character.characterId} />
               </div>
             )
           } else if (feature.subclassId) {
@@ -307,7 +300,7 @@ const ClassFeatures: React.FC<Props> = ({
               if (feature.name.toLowerCase() === 'ability score improvement') {
                 return (
                   <div key={i}>
-                    <FeatureAsi viewOnly feature={feature} />
+                    <FeatureAsi viewOnly feature={feature} characterId={character.characterId} />
                   </div>
                 )
               } else if (feature.subclassId) {

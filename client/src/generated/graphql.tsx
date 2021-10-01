@@ -10021,6 +10021,7 @@ export type UpdateSkillSelectedMutation = (
 
 export type GetAllAsiSelectionsQueryVariables = Exact<{
   characterId: Scalars['UUID'];
+  asiFrom?: Maybe<AsiFromType>;
 }>;
 
 
@@ -11143,8 +11144,8 @@ export type UpdateSkillSelectedMutationHookResult = ReturnType<typeof useUpdateS
 export type UpdateSkillSelectedMutationResult = Apollo.MutationResult<UpdateSkillSelectedMutation>;
 export type UpdateSkillSelectedMutationOptions = Apollo.BaseMutationOptions<UpdateSkillSelectedMutation, UpdateSkillSelectedMutationVariables>;
 export const GetAllAsiSelectionsDocument = gql`
-    query GetAllAsiSelections($characterId: UUID!) {
-  allAsiSelecteds(condition: {characterId: $characterId}) {
+    query GetAllAsiSelections($characterId: UUID!, $asiFrom: AsiFromType) {
+  allAsiSelecteds(condition: {characterId: $characterId, asiFrom: $asiFrom}) {
     nodes {
       asiSelId
       count
@@ -11173,6 +11174,7 @@ export const GetAllAsiSelectionsDocument = gql`
  * const { data, loading, error } = useGetAllAsiSelectionsQuery({
  *   variables: {
  *      characterId: // value for 'characterId'
+ *      asiFrom: // value for 'asiFrom'
  *   },
  * });
  */
