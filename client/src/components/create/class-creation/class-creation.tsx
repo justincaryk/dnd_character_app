@@ -20,7 +20,7 @@ const ClassCreation: React.FC = () => {
       setClassSelected(c)
     }
     
-  }, [char?.characterByCharacterId?.classId, char?.characterByCharacterId?.classId, classes?.allClasses?.nodes])
+  }, [char?.characterByCharacterId?.classId, classes?.allClasses?.nodes])
 
   const handleClassSelection = async (c: any) => {
     setClassSelected(c)

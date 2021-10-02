@@ -5,8 +5,6 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import postgraphile from './postgraphile'
 import path from 'path'
-import jwt from 'express-jwt'
-import jwksRsa from 'jwks-rsa'
 
 const app = express()
 

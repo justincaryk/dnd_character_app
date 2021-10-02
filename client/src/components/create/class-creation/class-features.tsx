@@ -4,6 +4,7 @@ import {
   useUpdateCharacterMutation,
   useDeleteAllCharacterSkillsMutation,
   useGetAllSkillsSelectedQuery,
+  useDeleteAllCharacterAsiSelsMutation,
 } from '../../../generated/graphql'
 import FeatureAsi from './feature/feature-asi'
 import FeatureGeneral from './feature/feature-general'
@@ -49,7 +50,7 @@ const ClassFeatures: React.FC<Props> = ({
 
   const [performUpdate] = useUpdateCharacterMutation()
   const [performDeleteAllSkills] = useDeleteAllCharacterSkillsMutation()
-
+  const [performDeleteAllAsis] = useDeleteAllCharacterAsiSelsMutation()
   const {
     data: skillsSel,
     loading: skillsSelLoad,
@@ -110,13 +111,19 @@ const ClassFeatures: React.FC<Props> = ({
       },
     })
     await refetchCharacter()
-    await useDeleteAllCharacterSkillsMutation
+    
     await performDeleteAllSkills({
       variables: {
         characterId: character.characterId
       }
     })
+    await performDeleteAllAsis({
+      variables: {
+        characterId: character.characterId
+      }
+    })
   }
+
   const handleLevelChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCurrentLevel(Number(e.currentTarget.value))
 

@@ -435,7 +435,7 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
     if (!featSelection && choice === 'feat') {
       return true
     }
-    if (featSelection.scores && !featAsiSel) {
+    if (featSelection?.scores && !featAsiSel) {
       return true
     }
     if ((!asiSelection1 || !asiSelection2) && choice === 'asis') {
