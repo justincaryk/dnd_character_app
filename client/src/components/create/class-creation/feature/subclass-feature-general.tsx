@@ -3,6 +3,7 @@ import { SubclassFeature } from '../../../../generated/graphql'
 import classnames from 'classnames'
 import { numberToSpeakable } from '../../../../lib/utils'
 import EntryExpertiseType from './shared/entry-expertise-type'
+import BlueExclamation from '../../../shared/blue-exclamation'
 
 interface ChoicesProps {
   entry: any
@@ -70,12 +71,19 @@ const SubclassFeatureGeneral: React.FC<SubclassFeatureProps> = ({
   if (feature.isSuboption) {
     return null
   }
+  
   return (
-    <div className='border bg-white'>
+    <div className='bg-white'>
+      <div className='relative'>
+        {feature.hasOptions ? (
+          <BlueExclamation />
+        ) : null}
+      </div>
       <div
         className={classnames({
           'p-2 hover:bg-cream cursor-pointer': true,
           'bg-cream': detailActive,
+          'border': true
         })}
         onClick={() => toggleDetailActive(!detailActive)}
       >
@@ -98,6 +106,21 @@ const SubclassFeatureGeneral: React.FC<SubclassFeatureProps> = ({
                 />
               )
             }
+
+            if (entry.type === 'expertiseSkillOptions' && !viewOnly) {
+              return (
+                <EntryExpertiseType
+                  entry={entry}
+                  characterId={characterId}
+                  skillsSel={skillsSel}
+                  featId={feature.id}
+                  classOrSubclass={'class'}
+                  setAllOptionsSelected={() => null}
+                  viewOnly={viewOnly}
+                />
+              )
+            }
+
             console.log('TODO: ', entry.type)
             console.log(entry)
             return null
@@ -113,21 +136,6 @@ const SubclassFeatureGeneral: React.FC<SubclassFeatureProps> = ({
                         if (typeof entry === 'string') {
                           return <div key={i}>{entry}</div>
                         }
-
-                        if (entry.type === 'expertiseSkillOptions' && !viewOnly) {
-                          return (
-                            <EntryExpertiseType
-                              entry={entry}
-                              characterId={characterId}
-                              skillsSel={skillsSel}
-                              featId={feature.id}
-                              classOrSubclass={'class'}
-                              setAllOptionsSelected={() => null}
-                              viewOnly={viewOnly}
-                            />
-                          )
-                        }
-
                         return null
                       })}
                     </>

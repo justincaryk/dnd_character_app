@@ -8,6 +8,7 @@ import {
   SkillLevelSel,
   GetAllSkillsSelectedQuery,
 } from '../../../../generated/graphql'
+import BlueExclamation from '../../../shared/blue-exclamation'
 
 interface Props {
   startingProficiencies: {
@@ -108,11 +109,7 @@ const FeatureStartProf: React.FC<Props> = ({
   return (
     <div className='space-y-3 relative'>
       {!allOptionsSelected ? (
-        <div className='absolute -top-2 -left-2'>
-          <div className='bg-sky-blue circle rounded-full flex items-center justify-center h-6 w-6 text-white font-bold'>
-            !
-          </div>
-        </div>
+        <BlueExclamation />
       ) : null}
       <div className='bg-white'>
         <div

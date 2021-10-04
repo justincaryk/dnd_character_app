@@ -13,6 +13,7 @@ import FeatureStartProf from './feature/feature-start-prof'
 import { useParams } from 'react-router'
 import HitPoints from './hit-points'
 import SubclassFeatureGeneral from './feature/subclass-feature-general'
+import BlueExclamation from '../../shared/blue-exclamation'
 
 interface Props {
   classObj: {
@@ -20,7 +21,7 @@ interface Props {
     name: string
     subclassId: string
   }
-  setClassSelected: Dispatch<SetStateAction<boolean>>
+  setClassSelected: Dispatch<SetStateAction<any>>
   character: any
   refetchCharacter: any
 }
@@ -102,12 +103,14 @@ const ClassFeatures: React.FC<Props> = ({
   }, [data])
 
   const handleClassDelete = async ()=> {
-    setClassSelected(false)
+    setClassSelected('empty')
     setCurrentLevel(1)
     await performUpdate({
       variables: {
         characterId: id,
         currentLevel: 1,
+        classId: null,
+        subclassId: null
       },
     })
     await refetchCharacter()
@@ -252,11 +255,7 @@ const ClassFeatures: React.FC<Props> = ({
             return (
               <div className='relative' key={i}>
                 {feature.hasOptions && (
-                  <div className='absolute -top-2 -left-2'>
-                    <div className='bg-sky-blue circle rounded-full flex items-center justify-center h-6 w-6 text-white font-bold'>
-                      !
-                    </div>
-                  </div>
+                  <BlueExclamation />
                 )}
                 <SubclassFeatureGeneral
                   feature={feature}
@@ -271,19 +270,11 @@ const ClassFeatures: React.FC<Props> = ({
           } else {
             return (
               <div key={i}>
-                {/* {feature.hasOptions && (
-                  <div className='absolute -top-2 -left-2'>
-                    <div className='bg-sky-blue circle rounded-full flex items-center justify-center h-6 w-6 text-white font-bold'>
-                      !
-                    </div>
-                  </div>
-                )} */}
                 <FeatureGeneral
                   feature={feature}
                   character={character}
                   refetchCharacter={refetchCharacter}
                   skillsSel={skillsSel}
-                  // refetchSkillsSel={refetchSkillsSel}
                 />
               </div>
             )

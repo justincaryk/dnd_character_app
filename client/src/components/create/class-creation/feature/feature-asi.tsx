@@ -16,6 +16,7 @@ import {
   useUpdateAsiSelectMutation,
   useUpdateFeatSelectedByIdMutation,
 } from '../../../../generated/graphql'
+import BlueExclamation from '../../../shared/blue-exclamation'
 
 interface Props {
   feature: {
@@ -454,11 +455,7 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
   return (
     <div className='relative'>
       {optionsMissing ? (
-        <div className='absolute -top-2 -left-2'>
-          <div className='bg-sky-blue circle rounded-full flex items-center justify-center h-6 w-6 text-white font-bold'>
-            !
-          </div>
-        </div>
+        <BlueExclamation />
       ) : null}
       <div className='space-y-3'>
         <div className='bg-white'>
@@ -468,6 +465,7 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
               'bg-cream': detailsActive,
               'border-1 border-sky-blue shadow-md-sky-blue':
                 optionsMissing && !viewOnly ? true : false,
+              border: !optionsMissing
             })}
             onClick={() => toggleDetailsActive(!detailsActive)}
           >
@@ -477,7 +475,7 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
             </div>
           </div>
           {detailsActive && (
-            <div className='p-2 text-sm space-y-2'>
+            <div className='p-2 text-sm space-y-2 border-r border-b border-l'>
               {entries.map((entry: any) => (
                 <div>{entry}</div>
               ))}

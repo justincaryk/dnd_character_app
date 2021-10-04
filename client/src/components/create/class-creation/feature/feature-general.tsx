@@ -15,6 +15,7 @@ import {
 } from '../../../../generated/graphql'
 import { EntryListType, EntryTableType } from '../../../shared/entries'
 import EntryExpertiseType from './shared/entry-expertise-type'
+import BlueExclamation from '../../../shared/blue-exclamation'
 
 interface OptionsTypeProps {
   options: {
@@ -143,7 +144,7 @@ const SubclassOptionType: React.FC<SubclassProps> = ({
     })
     await refetchCharacter()
   }
-
+  
   return (
     <select
       className='w-full border rounded text-sm p-2'
@@ -207,15 +208,11 @@ const FeatureGeneral: React.FC<Props> = ({
       setAllOptionsSelected(true)
     }
   }, [entries, character.subclassId, feature.hasOptions])
-
+  
   return (
     <div className='relative'>
       {!viewOnly && feature.hasOptions && !allOptionsSelected ? (
-        <div className='absolute -top-2 -left-2'>
-          <div className='bg-sky-blue circle rounded-full flex items-center justify-center h-6 w-6 text-white font-bold'>
-            !
-          </div>
-        </div>
+        <BlueExclamation />
       ) : null}
       <div className='space-y-3'>
         <div className='bg-white'>
@@ -223,11 +220,11 @@ const FeatureGeneral: React.FC<Props> = ({
             className={classnames({
               'p-2 hover:bg-cream cursor-pointer': true,
               'bg-cream': detailsActive,
-
               'border-1 border-sky-blue shadow-md-sky-blue':
                 feature.hasOptions && !allOptionsSelected && !viewOnly
                   ? true
                   : false,
+              border: allOptionsSelected || viewOnly
             })}
             onClick={() => toggleDetailActive(!detailsActive)}
           >
