@@ -260,6 +260,8 @@ const ClassFeatures: React.FC<Props> = ({
                 )}
                 <SubclassFeatureGeneral
                   feature={feature}
+                  characterId={character.characterId}
+                  skillsSel={skillsSel}
                   featuresFiltered={features.filter(
                     (feat) => feat.level === feature.level && feat.isSuboption
                   )}
@@ -268,20 +270,20 @@ const ClassFeatures: React.FC<Props> = ({
             )
           } else {
             return (
-              <div className='relative' key={i}>
-                {feature.hasOptions && (
+              <div key={i}>
+                {/* {feature.hasOptions && (
                   <div className='absolute -top-2 -left-2'>
                     <div className='bg-sky-blue circle rounded-full flex items-center justify-center h-6 w-6 text-white font-bold'>
                       !
                     </div>
                   </div>
-                )}
+                )} */}
                 <FeatureGeneral
                   feature={feature}
                   character={character}
                   refetchCharacter={refetchCharacter}
                   skillsSel={skillsSel}
-                  refetchSkillsSel={refetchSkillsSel}
+                  // refetchSkillsSel={refetchSkillsSel}
                 />
               </div>
             )
@@ -311,7 +313,14 @@ const ClassFeatures: React.FC<Props> = ({
                   </div>
                 )
               } else if (feature.subclassId) {
-                return <SubclassFeatureGeneral feature={feature} />
+                return (
+                  <SubclassFeatureGeneral 
+                    feature={feature} 
+                    characterId={character.characterId}
+                    skillsSel={skillsSel}
+                    viewOnly 
+                  />
+                )
               } else {
                 return (
                   <div key={i}>
@@ -320,7 +329,6 @@ const ClassFeatures: React.FC<Props> = ({
                       feature={feature}
                       character={character}
                       skillsSel={skillsSel}
-                      refetchSkillsSel={refetchSkillsSel}
                     />
                   </div>
                 )

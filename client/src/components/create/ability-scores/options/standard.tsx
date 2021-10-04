@@ -7,12 +7,6 @@ interface Props {
   dbAttrs: any
 }
 
-// interface State<T> {
-//   hashTable: {
-//     [key: string]: T
-//   }
-// }
-
 const StandardArray: React.FC<Props> = ({
   attributes,
   callbackToSetAttributes,

@@ -18,6 +18,9 @@ const ClassCreation: React.FC = () => {
     if (char?.characterByCharacterId?.classId && classes?.allClasses?.nodes) {
       const c = classes?.allClasses?.nodes.find(c => c?.id === char.characterByCharacterId?.classId)
       setClassSelected(c)
+    } 
+    if (char?.characterByCharacterId && !char.characterByCharacterId.classId) {
+      setClassSelected('empty')
     }
     
   }, [char?.characterByCharacterId?.classId, classes?.allClasses?.nodes])
@@ -33,11 +36,11 @@ const ClassCreation: React.FC = () => {
     })
   }
 
-  if (loading || charLoading || !char) {
+  if (loading || charLoading || !char || !classSelected) {
     return <div>...Loading</div>
   }
 
-  if (!classSelected && classes) {
+  if (classSelected === 'empty' && classes) {
     return (
       <div className='space-y-2 max-w-screen-sm m-auto m-0'>
         {classes.allClasses?.nodes.map((c) => (

@@ -119,7 +119,7 @@ const FeatureStartProf: React.FC<Props> = ({
           className={classnames({
             'p-2 hover:bg-cream cursor-pointer': true,
             'bg-cream border-b': profDetailsActive,
-            'border-1 border-sky-blue': !allOptionsSelected,
+            'border-1 border-sky-blue shadow-md-sky-blue': !allOptionsSelected,
             'border': allOptionsSelected,
           })}
           onClick={() => toggleProfDetailsActive(!profDetailsActive)}
@@ -161,7 +161,7 @@ const FeatureStartProf: React.FC<Props> = ({
                     <select
                       className={classnames({
                         'w-full rounded text-sm p-2': true,
-                        'border-1 border-sky-blue': !defaultValue,
+                        'border-1 border-sky-blue shadow-md-sky-blue': !defaultValue,
                         'border': defaultValue,
                       })}
                       defaultValue={defaultValue || ''}

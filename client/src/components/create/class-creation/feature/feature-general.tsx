@@ -1,106 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import classnames from 'classnames'
 import { numberToSpeakable } from '../../../../lib/utils'
 import {
   GetAllSkillsSelectedQuery,
   SkillLevelSel,
   useFightingStyleByNameQuery,
-  // useGetAllSkillsSelectedQuery,
+  useGetAllSkillsSelectedQuery,
   useSubclassNamesByClassIdQuery,
   useUpdateCharacterMutation,
+  useCreateSkillSelectedMutation,
   useUpdateSkillSelectedMutation,
+  useDeleteAllCharacterSkillsMutation,
+  useDeleteSkillSelectedMutation,
 } from '../../../../generated/graphql'
 import { EntryListType, EntryTableType } from '../../../shared/entries'
-
-interface EntryExpertiseTypeProps {
-  entry: {
-    options: {
-      choose: {
-        count: number
-        from: string
-      }
-    }
-    increment: number
-  }
-  characterId: string
-  skillsSel: GetAllSkillsSelectedQuery
-  refetchSkillsSel: any
-}
-
-const EntryExpertiseType: React.FC<EntryExpertiseTypeProps> = ({entry, characterId, skillsSel, refetchSkillsSel}) => {
-  const emptyArray = Array(entry.options.choose.count).fill('x', 0)
-  const [values, setValues] = useState<any>([])
-  const [performUpdate] = useUpdateSkillSelectedMutation()
-  // const {
-  //   data,
-  //   loading,
-  // } = useGetAllSkillsSelectedQuery({
-  //   variables: {
-  //     characterId: characterId,
-  //     grantedByStartingProf: true,
-  //   },
-  // })
-
-
-  const handleExpertiseSelection = (e: React.ChangeEvent<HTMLSelectElement>, currentSkillSelId: string) => {
-    // if empty
-    if (!e.currentTarget.value) {
-      // set skill id prof to prof
-      performUpdate({variables: { 
-        skillSelId: currentSkillSelId,
-        level: SkillLevelSel.Prof
-      }})
-    } else {
-      if (currentSkillSelId) {
-        // set current to prof
-        performUpdate({variables: { 
-          skillSelId: currentSkillSelId,
-          level: SkillLevelSel.Prof
-        }})
-      }
-      // set new to exp
-      performUpdate({variables: { 
-        skillSelId: e.currentTarget.value,
-        level: SkillLevelSel.Exp
-      }})
-    }
-    
-  }
-
-
-  if (!skillsSel) {
-    return null
-  }
-
-  return (
-    <>
-      {emptyArray.map((x: any, i: number) => {
-        const defaultValue = skillsSel?.allSkillsSelecteds?.nodes.filter((y) => y?.level === SkillLevelSel.Exp)[(entry.increment * entry.options.choose.count) + i]?.skillSelId
-        return (
-          <select 
-            key={i}
-            onChange={e => handleExpertiseSelection(e, defaultValue)}
-            className={classnames({
-              'w-full rounded text-sm p-2': true,
-              'border-1 border-sky-blue': !defaultValue,
-              'border': defaultValue,
-            })}
-            defaultValue={defaultValue}
-          >
-            <option value={''}>- Select a Skill -</option>
-            {skillsSel?.allSkillsSelecteds?.nodes
-              .filter((skill) => skill?.skillId)
-              .map((skillSel) => {
-              return (
-                <option key={skillSel?.skillSelId} value={skillSel?.skillSelId}>{skillSel?.skillBySkillId?.skill}</option>
-              )
-            })}
-          </select>
-        )
-      })}
-    </>
-  )
-}
+import EntryExpertiseType from './shared/entry-expertise-type'
 
 interface OptionsTypeProps {
   options: {
@@ -109,7 +23,9 @@ interface OptionsTypeProps {
       from: any
     }
   }
+  setAllOptionsSelected: Dispatch<SetStateAction<boolean>>
 }
+
 const SkillOptionType: React.FC<OptionsTypeProps> = ({ options }) => {
   const arrayToIterate = Array(options.choose.count).fill('x', 0)
   return (
@@ -131,7 +47,10 @@ const SkillOptionType: React.FC<OptionsTypeProps> = ({ options }) => {
     </>
   )
 }
-const FightOptionType: React.FC<OptionsTypeProps> = ({ options }) => {
+const FightOptionType: React.FC<OptionsTypeProps> = ({
+  options,
+  setAllOptionsSelected,
+}) => {
   const arrayToIterate = Array(options.choose.count).fill('x', 0)
   const [styleName, setStyleName] = useState('')
   const [styleObj, setStyleObj] = useState<any>(null)
@@ -150,6 +69,11 @@ const FightOptionType: React.FC<OptionsTypeProps> = ({ options }) => {
     }
   }, [data?.allFightingStyles?.nodes])
 
+  useEffect(() => {
+    if (data?.allFightingStyles?.nodes[0]) {
+      setAllOptionsSelected(true)
+    }
+  }, [setAllOptionsSelected, data])
   return (
     <>
       {arrayToIterate.map((x, i) => {
@@ -228,7 +152,9 @@ const SubclassOptionType: React.FC<SubclassProps> = ({
     >
       <option>- Choose a {subclassIdent}</option>
       {data?.query.allSubclasses?.nodes.map((sc) => (
-        <option key={sc?.id} value={sc?.id}>{sc?.name}</option>
+        <option key={sc?.id} value={sc?.id}>
+          {sc?.name}
+        </option>
       ))}
     </select>
   )
@@ -250,12 +176,12 @@ interface Props {
     source: string
     hasOptions?: boolean
     classId: string
+    subclassId?: string
   }
   viewOnly?: boolean
   character: any
   refetchCharacter?: any
   skillsSel: any
-  refetchSkillsSel: any
 }
 
 const FeatureGeneral: React.FC<Props> = ({
@@ -264,50 +190,86 @@ const FeatureGeneral: React.FC<Props> = ({
   character,
   refetchCharacter,
   skillsSel,
-  refetchSkillsSel
 }) => {
   const [detailsActive, toggleDetailActive] = useState(false)
   const [entries, setEntries] = useState([])
+  const [allOptionsSelected, setAllOptionsSelected] = useState(false)
 
   useEffect(() => {
     const parsed = JSON.parse(feature.entries).e
     setEntries(parsed)
-  }, [feature.entries])
+  }, [feature])
+
+  useEffect(() => {
+    const subclassTest = entries?.filter((x: any) => x.type === 'subclass')
+
+    if (feature.hasOptions && character.subclassId && subclassTest.length) {
+      setAllOptionsSelected(true)
+    }
+  }, [entries, character.subclassId, feature.hasOptions])
 
   return (
-    <div className='space-y-3'>
-      <div className='border bg-white'>
-        <div
-          className={classnames({
-            'p-2 hover:bg-cream cursor-pointer': true,
-            'bg-cream': detailsActive,
-            'border-1 border-sky-blue':
-              feature.hasOptions && !viewOnly ? true : false,
-          })}
-          onClick={() => toggleDetailActive(!detailsActive)}
-        >
-          <div className='font-roboto'>{feature.name}</div>
-          <div className='text-xs text-gray-500'>
-            {numberToSpeakable(feature.level)} level
+    <div className='relative'>
+      {!viewOnly && feature.hasOptions && !allOptionsSelected ? (
+        <div className='absolute -top-2 -left-2'>
+          <div className='bg-sky-blue circle rounded-full flex items-center justify-center h-6 w-6 text-white font-bold'>
+            !
           </div>
         </div>
-        {detailsActive && (
-          <div className='p-2 text-sm space-y-2'>
+      ) : null}
+      <div className='space-y-3'>
+        <div className='bg-white'>
+          <div
+            className={classnames({
+              'p-2 hover:bg-cream cursor-pointer': true,
+              'bg-cream': detailsActive,
+
+              'border-1 border-sky-blue shadow-md-sky-blue':
+                feature.hasOptions && !allOptionsSelected && !viewOnly
+                  ? true
+                  : false,
+            })}
+            onClick={() => toggleDetailActive(!detailsActive)}
+          >
+            <div className='font-roboto'>{feature.name}</div>
+            <div className='text-xs text-gray-500'>
+              {numberToSpeakable(feature.level)} level
+            </div>
+          </div>
+          {/* feature inner */}
+          <div
+            className={classnames({
+              'p-2 text-sm space-y-2 border-r border-b border-l': true,
+              hidden: !detailsActive,
+            })}
+          >
             {entries.map((entry: any, i: number) => {
               if (typeof entry === 'string') {
                 return <StringType key={i} entry={entry} />
               }
               if (entry.type === 'skillOptions' && !viewOnly) {
-                return <SkillOptionType key={i} options={entry.options} />
+                return (
+                  <SkillOptionType
+                    key={i}
+                    options={entry.options}
+                    setAllOptionsSelected={setAllOptionsSelected}
+                  />
+                )
               }
               if (entry.type === 'fightStyleOptions' && !viewOnly) {
-                return <FightOptionType key={i} options={entry.options} />
+                return (
+                  <FightOptionType
+                    key={i}
+                    options={entry.options}
+                    setAllOptionsSelected={setAllOptionsSelected}
+                  />
+                )
               }
 
               if (entry.type === 'subclass' && !viewOnly) {
                 return (
                   <SubclassOptionType
-                    key={i} 
+                    key={i}
                     classId={feature.classId}
                     subclassIdent={feature.name}
                     characterId={character.characterId}
@@ -325,23 +287,26 @@ const FeatureGeneral: React.FC<Props> = ({
                 return <EntryTableType key={i} entry={entry} />
               }
 
-              if (entry.type === 'expertiseSkillOptions') {
+              if (entry.type === 'expertiseSkillOptions' && !viewOnly) {
                 return (
-                  <EntryExpertiseType 
-                    entry={entry} 
+                  <EntryExpertiseType
+                    entry={entry}
                     characterId={character.characterId}
-                    skillsSel={skillsSel} 
-                    refetchSkillsSel={refetchSkillsSel} />
+                    skillsSel={skillsSel}
+                    featId={feature.id}
+                    classOrSubclass={'class'}
+                    setAllOptionsSelected={setAllOptionsSelected}
+                  />
                 )
               }
-              
+
               console.log('TODO: ', entry.type)
               console.log(entry)
 
               return null
             })}
           </div>
-        )}
+        </div>
       </div>
     </div>
   )

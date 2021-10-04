@@ -339,7 +339,7 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
     }
 
     // if e && !asiSelection1
-    if (!asi1?.allAsiSelecteds?.nodes[0]) {
+    if (!asi1?.allAsiSelecteds?.nodes[asiNum-1]) {
       // create
       const asiFrom =
         asiNum === 1
@@ -429,6 +429,10 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
   }
 
   const isOptionMissing = () => {
+    if (viewOnly) {
+      return false
+    }
+
     if (!choice) {
       return true
     }
@@ -438,7 +442,7 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
     if (featSelection?.scores && !featAsiSel) {
       return true
     }
-    if ((!asiSelection1 || !asiSelection2) && choice === 'asis') {
+    if ((!asiSelection1 || !asiSelection2) && choice === 'asi') {
       return true
     }
 
@@ -457,12 +461,12 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
         </div>
       ) : null}
       <div className='space-y-3'>
-        <div className='border bg-white'>
+        <div className='bg-white'>
           <div
             className={classnames({
               'p-2 hover:bg-cream cursor-pointer': true,
               'bg-cream': detailsActive,
-              'border-1 border-sky-blue':
+              'border-1 border-sky-blue shadow-md-sky-blue':
                 optionsMissing && !viewOnly ? true : false,
             })}
             onClick={() => toggleDetailsActive(!detailsActive)}
@@ -491,7 +495,11 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
                   {choice === 'asi' ? (
                     <div className='ml-2 space-y-2'>
                       <select
-                        className='w-full border rounded text-sm p-2'
+                        className={classnames({
+                          'w-full rounded text-sm p-2': true,
+                          'border-1 border-sky-blue shadow-md-sky-blue': !asiSelection1,
+                          border: asiSelection1,
+                        })}
                         defaultValue={asiSelection1}
                         onChange={(e) => handleAsiSelection(e, 1)}
                       >
@@ -503,7 +511,11 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
                         ))}
                       </select>
                       <select
-                        className='w-full border rounded text-sm p-2'
+                        className={classnames({
+                          'w-full rounded text-sm p-2': true,
+                          'border-1 border-sky-blue shadow-md-sky-blue': !asiSelection2,
+                          border: asiSelection2,
+                        })}
                         defaultValue={asiSelection2}
                         onChange={(e) => handleAsiSelection(e, 2)}
                       >
@@ -546,7 +558,11 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
 
                       {featSelection?.scores && (
                         <select
-                          className='w-full border rounded text-sm p-2'
+                        className={classnames({
+                          'w-full rounded text-sm p-2': true,
+                          'border-1 border-sky-blue shadow-md-sky-blue': !featAsiSel,
+                          border: featAsiSel,
+                        })}
                           defaultValue={featAsiSel}
                           onChange={handleFeatAsiSel}
                         >

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { SubclassFeature } from '../../../../generated/graphql'
 import classnames from 'classnames'
 import { numberToSpeakable } from '../../../../lib/utils'
+import EntryExpertiseType from './shared/entry-expertise-type'
 
 interface ChoicesProps {
   entry: any
@@ -48,10 +49,16 @@ const ChoicesBlock: React.FC<ChoicesProps> = ({
 interface SubclassFeatureProps {
   feature: SubclassFeature
   featuresFiltered?: SubclassFeature[]
+  characterId: string
+  skillsSel: any
+  viewOnly?: boolean
 }
 const SubclassFeatureGeneral: React.FC<SubclassFeatureProps> = ({
   feature,
   featuresFiltered,
+  characterId,
+  skillsSel,
+  viewOnly
 }) => {
   const [detailActive, toggleDetailActive] = useState(false)
   const [suboptSelected, setSuboptSelected] = useState('')
@@ -102,10 +109,25 @@ const SubclassFeatureGeneral: React.FC<SubclassFeatureProps> = ({
                   .filter((feat) => feat.name === suboptSelected)
                   .map((feat) => (
                     <>
-                      {JSON.parse(feat.entries).e.map((x: any, i: number) => {
-                        if (typeof x === 'string') {
-                          return <div key={i}>{x}</div>
+                      {JSON.parse(feat.entries).e.map((entry: any, i: number) => {
+                        if (typeof entry === 'string') {
+                          return <div key={i}>{entry}</div>
                         }
+
+                        if (entry.type === 'expertiseSkillOptions' && !viewOnly) {
+                          return (
+                            <EntryExpertiseType
+                              entry={entry}
+                              characterId={characterId}
+                              skillsSel={skillsSel}
+                              featId={feature.id}
+                              classOrSubclass={'class'}
+                              setAllOptionsSelected={() => null}
+                              viewOnly={viewOnly}
+                            />
+                          )
+                        }
+
                         return null
                       })}
                     </>
