@@ -10,6 +10,7 @@ export default gql`
         count
         asiFrom
         featId
+        asiId
         asiByAsiId {
           asiId
           long

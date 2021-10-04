@@ -82,6 +82,8 @@ export enum AsiFromType {
   Asi6_2 = 'ASI6_2',
   Asi8_1 = 'ASI8_1',
   Asi8_2 = 'ASI8_2',
+  Asi10_1 = 'ASI10_1',
+  Asi10_2 = 'ASI10_2',
   Asi12_1 = 'ASI12_1',
   Asi12_2 = 'ASI12_2',
   Asi14_1 = 'ASI14_1',
@@ -708,16 +710,27 @@ export type Character = Node & {
   subraceBySubraceId?: Maybe<Subrace>;
   /** Reads a single `Bg` that is related to this `Character`. */
   bgByBgId?: Maybe<Bg>;
+  /** Reads and enables pagination through a set of `AsiSelectedCore`. */
+  asiSelectedCoresByCharacterId: AsiSelectedCoresConnection;
   /** Reads and enables pagination through a set of `SkillsSelected`. */
   skillsSelectedsByCharacterId: SkillsSelectedsConnection;
   /** Reads and enables pagination through a set of `FightStyleSelected`. */
   fightStyleSelectedsByCharacterId: FightStyleSelectedsConnection;
-  /** Reads and enables pagination through a set of `AsiSelectedCore`. */
-  asiSelectedCoresByCharacterId: AsiSelectedCoresConnection;
   /** Reads and enables pagination through a set of `AsiSelected`. */
   asiSelectedsByCharacterId: AsiSelectedsConnection;
   /** Reads and enables pagination through a set of `FeatSelected`. */
   featSelectedsByCharacterId: FeatSelectedsConnection;
+};
+
+
+export type CharacterAsiSelectedCoresByCharacterIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<AsiSelectedCoresOrderBy>>;
+  condition?: Maybe<AsiSelectedCoreCondition>;
 };
 
 
@@ -740,17 +753,6 @@ export type CharacterFightStyleSelectedsByCharacterIdArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<FightStyleSelectedsOrderBy>>;
   condition?: Maybe<FightStyleSelectedCondition>;
-};
-
-
-export type CharacterAsiSelectedCoresByCharacterIdArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<AsiSelectedCoresOrderBy>>;
-  condition?: Maybe<AsiSelectedCoreCondition>;
 };
 
 
@@ -1024,8 +1026,22 @@ export type ClassFeature = Node & {
   level?: Maybe<Scalars['Int']>;
   entries?: Maybe<Scalars['JSON']>;
   hasOptions?: Maybe<Scalars['Boolean']>;
+  isSuboption?: Maybe<Scalars['Boolean']>;
   /** Reads a single `Class` that is related to this `ClassFeature`. */
   classByClassId?: Maybe<Class>;
+  /** Reads and enables pagination through a set of `SkillsSelected`. */
+  skillsSelectedsByGrantingClassFeatId: SkillsSelectedsConnection;
+};
+
+
+export type ClassFeatureSkillsSelectedsByGrantingClassFeatIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<SkillsSelectedsOrderBy>>;
+  condition?: Maybe<SkillsSelectedCondition>;
 };
 
 /**
@@ -1053,6 +1069,8 @@ export type ClassFeatureCondition = {
   entries?: Maybe<Scalars['JSON']>;
   /** Checks for equality with the object’s `hasOptions` field. */
   hasOptions?: Maybe<Scalars['Boolean']>;
+  /** Checks for equality with the object’s `isSuboption` field. */
+  isSuboption?: Maybe<Scalars['Boolean']>;
 };
 
 /** An input for mutations affecting `ClassFeature` */
@@ -1067,6 +1085,7 @@ export type ClassFeatureInput = {
   level?: Maybe<Scalars['Int']>;
   entries?: Maybe<Scalars['JSON']>;
   hasOptions?: Maybe<Scalars['Boolean']>;
+  isSuboption?: Maybe<Scalars['Boolean']>;
 };
 
 /** Represents an update to a `ClassFeature`. Fields that are set will be updated. */
@@ -1081,6 +1100,7 @@ export type ClassFeaturePatch = {
   level?: Maybe<Scalars['Int']>;
   entries?: Maybe<Scalars['JSON']>;
   hasOptions?: Maybe<Scalars['Boolean']>;
+  isSuboption?: Maybe<Scalars['Boolean']>;
 };
 
 /** A connection to a list of `ClassFeature` values. */
@@ -1128,6 +1148,8 @@ export enum ClassFeaturesOrderBy {
   EntriesDesc = 'ENTRIES_DESC',
   HasOptionsAsc = 'HAS_OPTIONS_ASC',
   HasOptionsDesc = 'HAS_OPTIONS_DESC',
+  IsSuboptionAsc = 'IS_SUBOPTION_ASC',
+  IsSuboptionDesc = 'IS_SUBOPTION_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -1876,6 +1898,8 @@ export type CreateFightStyleSelectedPayload = {
   query?: Maybe<Query>;
   /** Reads a single `FightingStyle` that is related to this `FightStyleSelected`. */
   fightingStyleByFightStyleId?: Maybe<FightingStyle>;
+  /** Reads a single `Minion` that is related to this `FightStyleSelected`. */
+  minionByUserId?: Maybe<Minion>;
   /** Reads a single `Character` that is related to this `FightStyleSelected`. */
   characterByCharacterId?: Maybe<Character>;
   /** An edge for our `FightStyleSelected`. May be used by Relay 1. */
@@ -2216,6 +2240,12 @@ export type CreateSkillsSelectedPayload = {
   query?: Maybe<Query>;
   /** Reads a single `Character` that is related to this `SkillsSelected`. */
   characterByCharacterId?: Maybe<Character>;
+  /** Reads a single `Minion` that is related to this `SkillsSelected`. */
+  minionByUserId?: Maybe<Minion>;
+  /** Reads a single `ClassFeature` that is related to this `SkillsSelected`. */
+  classFeatureByGrantingClassFeatId?: Maybe<ClassFeature>;
+  /** Reads a single `SubclassFeature` that is related to this `SkillsSelected`. */
+  subclassFeatureByGrantingSubcclassFeatId?: Maybe<SubclassFeature>;
   /** Reads a single `Skill` that is related to this `SkillsSelected`. */
   skillBySkillId?: Maybe<Skill>;
   /** An edge for our `SkillsSelected`. May be used by Relay 1. */
@@ -2319,6 +2349,8 @@ export type CreateSubclassFeaturePayload = {
   query?: Maybe<Query>;
   /** Reads a single `Class` that is related to this `SubclassFeature`. */
   classByClassId?: Maybe<Class>;
+  /** Reads a single `Subclass` that is related to this `SubclassFeature`. */
+  subclassBySubclassId?: Maybe<Subclass>;
   /** An edge for our `SubclassFeature`. May be used by Relay 1. */
   subclassFeatureEdge?: Maybe<SubclassFeaturesEdge>;
 };
@@ -2472,6 +2504,52 @@ export type CreateWizardPayloadWizardEdgeArgs = {
 };
 
 
+
+/** All input for the `deleteAllClassAsisById` mutation. */
+export type DeleteAllClassAsisByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  characterId: Scalars['UUID'];
+};
+
+/** The output of our `deleteAllClassAsisById` mutation. */
+export type DeleteAllClassAsisByIdPayload = {
+  __typename?: 'DeleteAllClassAsisByIdPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  boolean?: Maybe<Scalars['Boolean']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** All input for the `deleteAllClassSkillsById` mutation. */
+export type DeleteAllClassSkillsByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  characterId: Scalars['UUID'];
+};
+
+/** The output of our `deleteAllClassSkillsById` mutation. */
+export type DeleteAllClassSkillsByIdPayload = {
+  __typename?: 'DeleteAllClassSkillsByIdPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  boolean?: Maybe<Scalars['Boolean']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
 
 /** All input for the `deleteAllRaceAsiSelByCharacterId` mutation. */
 export type DeleteAllRaceAsiSelByCharacterIdInput = {
@@ -3152,6 +3230,8 @@ export type DeleteFightStyleSelectedPayload = {
   query?: Maybe<Query>;
   /** Reads a single `FightingStyle` that is related to this `FightStyleSelected`. */
   fightingStyleByFightStyleId?: Maybe<FightingStyle>;
+  /** Reads a single `Minion` that is related to this `FightStyleSelected`. */
+  minionByUserId?: Maybe<Minion>;
   /** Reads a single `Character` that is related to this `FightStyleSelected`. */
   characterByCharacterId?: Maybe<Character>;
   /** An edge for our `FightStyleSelected`. May be used by Relay 1. */
@@ -3557,6 +3637,12 @@ export type DeleteSkillsSelectedPayload = {
   query?: Maybe<Query>;
   /** Reads a single `Character` that is related to this `SkillsSelected`. */
   characterByCharacterId?: Maybe<Character>;
+  /** Reads a single `Minion` that is related to this `SkillsSelected`. */
+  minionByUserId?: Maybe<Minion>;
+  /** Reads a single `ClassFeature` that is related to this `SkillsSelected`. */
+  classFeatureByGrantingClassFeatId?: Maybe<ClassFeature>;
+  /** Reads a single `SubclassFeature` that is related to this `SkillsSelected`. */
+  subclassFeatureByGrantingSubcclassFeatId?: Maybe<SubclassFeature>;
   /** Reads a single `Skill` that is related to this `SkillsSelected`. */
   skillBySkillId?: Maybe<Skill>;
   /** An edge for our `SkillsSelected`. May be used by Relay 1. */
@@ -3681,6 +3767,8 @@ export type DeleteSubclassFeaturePayload = {
   query?: Maybe<Query>;
   /** Reads a single `Class` that is related to this `SubclassFeature`. */
   classByClassId?: Maybe<Class>;
+  /** Reads a single `Subclass` that is related to this `SubclassFeature`. */
+  subclassBySubclassId?: Maybe<Subclass>;
   /** An edge for our `SubclassFeature`. May be used by Relay 1. */
   subclassFeatureEdge?: Maybe<SubclassFeaturesEdge>;
 };
@@ -4061,6 +4149,7 @@ export enum FeatFromType {
   Asi_4 = 'ASI_4',
   Asi_6 = 'ASI_6',
   Asi_8 = 'ASI_8',
+  Asi_10 = 'ASI_10',
   Asi_12 = 'ASI_12',
   Asi_14 = 'ASI_14',
   Asi_16 = 'ASI_16',
@@ -4223,9 +4312,12 @@ export type FightStyleSelected = Node & {
   nodeId: Scalars['ID'];
   fightStyleSelId: Scalars['UUID'];
   fightStyleId?: Maybe<Scalars['UUID']>;
+  userId?: Maybe<Scalars['UUID']>;
   characterId?: Maybe<Scalars['UUID']>;
   /** Reads a single `FightingStyle` that is related to this `FightStyleSelected`. */
   fightingStyleByFightStyleId?: Maybe<FightingStyle>;
+  /** Reads a single `Minion` that is related to this `FightStyleSelected`. */
+  minionByUserId?: Maybe<Minion>;
   /** Reads a single `Character` that is related to this `FightStyleSelected`. */
   characterByCharacterId?: Maybe<Character>;
 };
@@ -4239,6 +4331,8 @@ export type FightStyleSelectedCondition = {
   fightStyleSelId?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `fightStyleId` field. */
   fightStyleId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `userId` field. */
+  userId?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `characterId` field. */
   characterId?: Maybe<Scalars['UUID']>;
 };
@@ -4247,6 +4341,7 @@ export type FightStyleSelectedCondition = {
 export type FightStyleSelectedInput = {
   fightStyleSelId?: Maybe<Scalars['UUID']>;
   fightStyleId?: Maybe<Scalars['UUID']>;
+  userId?: Maybe<Scalars['UUID']>;
   characterId?: Maybe<Scalars['UUID']>;
 };
 
@@ -4254,6 +4349,7 @@ export type FightStyleSelectedInput = {
 export type FightStyleSelectedPatch = {
   fightStyleSelId?: Maybe<Scalars['UUID']>;
   fightStyleId?: Maybe<Scalars['UUID']>;
+  userId?: Maybe<Scalars['UUID']>;
   characterId?: Maybe<Scalars['UUID']>;
 };
 
@@ -4286,6 +4382,8 @@ export enum FightStyleSelectedsOrderBy {
   FightStyleSelIdDesc = 'FIGHT_STYLE_SEL_ID_DESC',
   FightStyleIdAsc = 'FIGHT_STYLE_ID_ASC',
   FightStyleIdDesc = 'FIGHT_STYLE_ID_DESC',
+  UserIdAsc = 'USER_ID_ASC',
+  UserIdDesc = 'USER_ID_DESC',
   CharacterIdAsc = 'CHARACTER_ID_ASC',
   CharacterIdDesc = 'CHARACTER_ID_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
@@ -4642,6 +4740,10 @@ export type Minion = Node & {
   charactersByUserId: CharactersConnection;
   /** Reads and enables pagination through a set of `AsiSelectedCore`. */
   asiSelectedCoresByUserId: AsiSelectedCoresConnection;
+  /** Reads and enables pagination through a set of `SkillsSelected`. */
+  skillsSelectedsByUserId: SkillsSelectedsConnection;
+  /** Reads and enables pagination through a set of `FightStyleSelected`. */
+  fightStyleSelectedsByUserId: FightStyleSelectedsConnection;
   /** Reads and enables pagination through a set of `AsiSelected`. */
   asiSelectedsByUserId: AsiSelectedsConnection;
   /** Reads and enables pagination through a set of `FeatSelected`. */
@@ -4679,6 +4781,28 @@ export type MinionAsiSelectedCoresByUserIdArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<AsiSelectedCoresOrderBy>>;
   condition?: Maybe<AsiSelectedCoreCondition>;
+};
+
+
+export type MinionSkillsSelectedsByUserIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<SkillsSelectedsOrderBy>>;
+  condition?: Maybe<SkillsSelectedCondition>;
+};
+
+
+export type MinionFightStyleSelectedsByUserIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<FightStyleSelectedsOrderBy>>;
+  condition?: Maybe<FightStyleSelectedCondition>;
 };
 
 
@@ -5051,6 +5175,8 @@ export type Mutation = {
   deleteSkillsSelectedBySkillSelId?: Maybe<DeleteSkillsSelectedPayload>;
   signin?: Maybe<SigninPayload>;
   signup?: Maybe<SignupPayload>;
+  deleteAllClassAsisById?: Maybe<DeleteAllClassAsisByIdPayload>;
+  deleteAllClassSkillsById?: Maybe<DeleteAllClassSkillsByIdPayload>;
   deleteAllRaceAsiSelByCharacterId?: Maybe<DeleteAllRaceAsiSelByCharacterIdPayload>;
   deleteAllRaceFeatSelByCharacterId?: Maybe<DeleteAllRaceFeatSelByCharacterIdPayload>;
 };
@@ -5881,6 +6007,18 @@ export type MutationSigninArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationSignupArgs = {
   input: SignupInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteAllClassAsisByIdArgs = {
+  input: DeleteAllClassAsisByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteAllClassSkillsByIdArgs = {
+  input: DeleteAllClassSkillsByIdInput;
 };
 
 
@@ -7161,6 +7299,7 @@ export type SkillInput = {
 };
 
 export enum SkillLevelSel {
+  Half = 'HALF',
   Prof = 'PROF',
   Exp = 'EXP'
 }
@@ -7210,11 +7349,21 @@ export type SkillsSelected = Node & {
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID'];
   skillSelId: Scalars['UUID'];
-  characterId?: Maybe<Scalars['UUID']>;
+  characterId: Scalars['UUID'];
+  userId?: Maybe<Scalars['UUID']>;
+  grantingClassFeatId?: Maybe<Scalars['UUID']>;
+  grantingSubcclassFeatId?: Maybe<Scalars['UUID']>;
+  grantedByStartingProf?: Maybe<Scalars['Boolean']>;
   skillId?: Maybe<Scalars['UUID']>;
   level?: Maybe<SkillLevelSel>;
   /** Reads a single `Character` that is related to this `SkillsSelected`. */
   characterByCharacterId?: Maybe<Character>;
+  /** Reads a single `Minion` that is related to this `SkillsSelected`. */
+  minionByUserId?: Maybe<Minion>;
+  /** Reads a single `ClassFeature` that is related to this `SkillsSelected`. */
+  classFeatureByGrantingClassFeatId?: Maybe<ClassFeature>;
+  /** Reads a single `SubclassFeature` that is related to this `SkillsSelected`. */
+  subclassFeatureByGrantingSubcclassFeatId?: Maybe<SubclassFeature>;
   /** Reads a single `Skill` that is related to this `SkillsSelected`. */
   skillBySkillId?: Maybe<Skill>;
 };
@@ -7228,6 +7377,14 @@ export type SkillsSelectedCondition = {
   skillSelId?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `characterId` field. */
   characterId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `userId` field. */
+  userId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `grantingClassFeatId` field. */
+  grantingClassFeatId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `grantingSubcclassFeatId` field. */
+  grantingSubcclassFeatId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `grantedByStartingProf` field. */
+  grantedByStartingProf?: Maybe<Scalars['Boolean']>;
   /** Checks for equality with the object’s `skillId` field. */
   skillId?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `level` field. */
@@ -7237,7 +7394,11 @@ export type SkillsSelectedCondition = {
 /** An input for mutations affecting `SkillsSelected` */
 export type SkillsSelectedInput = {
   skillSelId?: Maybe<Scalars['UUID']>;
-  characterId?: Maybe<Scalars['UUID']>;
+  characterId: Scalars['UUID'];
+  userId?: Maybe<Scalars['UUID']>;
+  grantingClassFeatId?: Maybe<Scalars['UUID']>;
+  grantingSubcclassFeatId?: Maybe<Scalars['UUID']>;
+  grantedByStartingProf?: Maybe<Scalars['Boolean']>;
   skillId?: Maybe<Scalars['UUID']>;
   level?: Maybe<SkillLevelSel>;
 };
@@ -7246,6 +7407,10 @@ export type SkillsSelectedInput = {
 export type SkillsSelectedPatch = {
   skillSelId?: Maybe<Scalars['UUID']>;
   characterId?: Maybe<Scalars['UUID']>;
+  userId?: Maybe<Scalars['UUID']>;
+  grantingClassFeatId?: Maybe<Scalars['UUID']>;
+  grantingSubcclassFeatId?: Maybe<Scalars['UUID']>;
+  grantedByStartingProf?: Maybe<Scalars['Boolean']>;
   skillId?: Maybe<Scalars['UUID']>;
   level?: Maybe<SkillLevelSel>;
 };
@@ -7279,6 +7444,14 @@ export enum SkillsSelectedsOrderBy {
   SkillSelIdDesc = 'SKILL_SEL_ID_DESC',
   CharacterIdAsc = 'CHARACTER_ID_ASC',
   CharacterIdDesc = 'CHARACTER_ID_DESC',
+  UserIdAsc = 'USER_ID_ASC',
+  UserIdDesc = 'USER_ID_DESC',
+  GrantingClassFeatIdAsc = 'GRANTING_CLASS_FEAT_ID_ASC',
+  GrantingClassFeatIdDesc = 'GRANTING_CLASS_FEAT_ID_DESC',
+  GrantingSubcclassFeatIdAsc = 'GRANTING_SUBCCLASS_FEAT_ID_ASC',
+  GrantingSubcclassFeatIdDesc = 'GRANTING_SUBCCLASS_FEAT_ID_DESC',
+  GrantedByStartingProfAsc = 'GRANTED_BY_STARTING_PROF_ASC',
+  GrantedByStartingProfDesc = 'GRANTED_BY_STARTING_PROF_DESC',
   SkillIdAsc = 'SKILL_ID_ASC',
   SkillIdDesc = 'SKILL_ID_DESC',
   LevelAsc = 'LEVEL_ASC',
@@ -7585,8 +7758,21 @@ export type Subclass = Node & {
   preparedSpells?: Maybe<Scalars['String']>;
   /** Reads a single `Class` that is related to this `Subclass`. */
   classByClassId?: Maybe<Class>;
+  /** Reads and enables pagination through a set of `SubclassFeature`. */
+  subclassFeaturesBySubclassId: SubclassFeaturesConnection;
   /** Reads and enables pagination through a set of `Character`. */
   charactersBySubclassId: CharactersConnection;
+};
+
+
+export type SubclassSubclassFeaturesBySubclassIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<SubclassFeaturesOrderBy>>;
+  condition?: Maybe<SubclassFeatureCondition>;
 };
 
 
@@ -7649,8 +7835,26 @@ export type SubclassFeature = Node & {
   isClassFeatureVariant?: Maybe<Scalars['Boolean']>;
   page?: Maybe<Scalars['Int']>;
   entries?: Maybe<Scalars['JSON']>;
+  subclassId?: Maybe<Scalars['UUID']>;
+  isSuboption?: Maybe<Scalars['Boolean']>;
+  hasOptions?: Maybe<Scalars['Boolean']>;
   /** Reads a single `Class` that is related to this `SubclassFeature`. */
   classByClassId?: Maybe<Class>;
+  /** Reads a single `Subclass` that is related to this `SubclassFeature`. */
+  subclassBySubclassId?: Maybe<Subclass>;
+  /** Reads and enables pagination through a set of `SkillsSelected`. */
+  skillsSelectedsByGrantingSubcclassFeatId: SkillsSelectedsConnection;
+};
+
+
+export type SubclassFeatureSkillsSelectedsByGrantingSubcclassFeatIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<SkillsSelectedsOrderBy>>;
+  condition?: Maybe<SkillsSelectedCondition>;
 };
 
 /**
@@ -7678,6 +7882,12 @@ export type SubclassFeatureCondition = {
   page?: Maybe<Scalars['Int']>;
   /** Checks for equality with the object’s `entries` field. */
   entries?: Maybe<Scalars['JSON']>;
+  /** Checks for equality with the object’s `subclassId` field. */
+  subclassId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `isSuboption` field. */
+  isSuboption?: Maybe<Scalars['Boolean']>;
+  /** Checks for equality with the object’s `hasOptions` field. */
+  hasOptions?: Maybe<Scalars['Boolean']>;
 };
 
 /** An input for mutations affecting `SubclassFeature` */
@@ -7692,6 +7902,9 @@ export type SubclassFeatureInput = {
   isClassFeatureVariant?: Maybe<Scalars['Boolean']>;
   page?: Maybe<Scalars['Int']>;
   entries?: Maybe<Scalars['JSON']>;
+  subclassId?: Maybe<Scalars['UUID']>;
+  isSuboption?: Maybe<Scalars['Boolean']>;
+  hasOptions?: Maybe<Scalars['Boolean']>;
 };
 
 /** Represents an update to a `SubclassFeature`. Fields that are set will be updated. */
@@ -7706,6 +7919,9 @@ export type SubclassFeaturePatch = {
   isClassFeatureVariant?: Maybe<Scalars['Boolean']>;
   page?: Maybe<Scalars['Int']>;
   entries?: Maybe<Scalars['JSON']>;
+  subclassId?: Maybe<Scalars['UUID']>;
+  isSuboption?: Maybe<Scalars['Boolean']>;
+  hasOptions?: Maybe<Scalars['Boolean']>;
 };
 
 /** A connection to a list of `SubclassFeature` values. */
@@ -7753,6 +7969,12 @@ export enum SubclassFeaturesOrderBy {
   PageDesc = 'PAGE_DESC',
   EntriesAsc = 'ENTRIES_ASC',
   EntriesDesc = 'ENTRIES_DESC',
+  SubclassIdAsc = 'SUBCLASS_ID_ASC',
+  SubclassIdDesc = 'SUBCLASS_ID_DESC',
+  IsSuboptionAsc = 'IS_SUBOPTION_ASC',
+  IsSuboptionDesc = 'IS_SUBOPTION_DESC',
+  HasOptionsAsc = 'HAS_OPTIONS_ASC',
+  HasOptionsDesc = 'HAS_OPTIONS_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -8696,6 +8918,8 @@ export type UpdateFightStyleSelectedPayload = {
   query?: Maybe<Query>;
   /** Reads a single `FightingStyle` that is related to this `FightStyleSelected`. */
   fightingStyleByFightStyleId?: Maybe<FightingStyle>;
+  /** Reads a single `Minion` that is related to this `FightStyleSelected`. */
+  minionByUserId?: Maybe<Minion>;
   /** Reads a single `Character` that is related to this `FightStyleSelected`. */
   characterByCharacterId?: Maybe<Character>;
   /** An edge for our `FightStyleSelected`. May be used by Relay 1. */
@@ -9123,6 +9347,12 @@ export type UpdateSkillsSelectedPayload = {
   query?: Maybe<Query>;
   /** Reads a single `Character` that is related to this `SkillsSelected`. */
   characterByCharacterId?: Maybe<Character>;
+  /** Reads a single `Minion` that is related to this `SkillsSelected`. */
+  minionByUserId?: Maybe<Minion>;
+  /** Reads a single `ClassFeature` that is related to this `SkillsSelected`. */
+  classFeatureByGrantingClassFeatId?: Maybe<ClassFeature>;
+  /** Reads a single `SubclassFeature` that is related to this `SkillsSelected`. */
+  subclassFeatureByGrantingSubcclassFeatId?: Maybe<SubclassFeature>;
   /** Reads a single `Skill` that is related to this `SkillsSelected`. */
   skillBySkillId?: Maybe<Skill>;
   /** An edge for our `SkillsSelected`. May be used by Relay 1. */
@@ -9254,6 +9484,8 @@ export type UpdateSubclassFeaturePayload = {
   query?: Maybe<Query>;
   /** Reads a single `Class` that is related to this `SubclassFeature`. */
   classByClassId?: Maybe<Class>;
+  /** Reads a single `Subclass` that is related to this `SubclassFeature`. */
+  subclassBySubclassId?: Maybe<Subclass>;
   /** An edge for our `SubclassFeature`. May be used by Relay 1. */
   subclassFeatureEdge?: Maybe<SubclassFeaturesEdge>;
 };
@@ -9581,6 +9813,53 @@ export type CreateFeatBaseSelMutation = (
   )> }
 );
 
+export type CreateSkillSelectedMutationVariables = Exact<{
+  skillId: Scalars['UUID'];
+  characterId: Scalars['UUID'];
+  level?: Maybe<SkillLevelSel>;
+  classFeatId?: Maybe<Scalars['UUID']>;
+  subclassFeatId?: Maybe<Scalars['UUID']>;
+  grantedByStartingProf?: Maybe<Scalars['Boolean']>;
+}>;
+
+
+export type CreateSkillSelectedMutation = (
+  { __typename?: 'Mutation' }
+  & { createSkillsSelected?: Maybe<(
+    { __typename?: 'CreateSkillsSelectedPayload' }
+    & { skillsSelected?: Maybe<(
+      { __typename?: 'SkillsSelected' }
+      & Pick<SkillsSelected, 'skillSelId'>
+    )> }
+  )> }
+);
+
+export type DeleteAllCharacterAsiSelsMutationVariables = Exact<{
+  characterId: Scalars['UUID'];
+}>;
+
+
+export type DeleteAllCharacterAsiSelsMutation = (
+  { __typename?: 'Mutation' }
+  & { deleteAllClassSkillsById?: Maybe<(
+    { __typename?: 'DeleteAllClassSkillsByIdPayload' }
+    & Pick<DeleteAllClassSkillsByIdPayload, 'boolean'>
+  )> }
+);
+
+export type DeleteAllCharacterSkillsMutationVariables = Exact<{
+  characterId: Scalars['UUID'];
+}>;
+
+
+export type DeleteAllCharacterSkillsMutation = (
+  { __typename?: 'Mutation' }
+  & { deleteAllClassSkillsById?: Maybe<(
+    { __typename?: 'DeleteAllClassSkillsByIdPayload' }
+    & Pick<DeleteAllClassSkillsByIdPayload, 'boolean'>
+  )> }
+);
+
 export type DeleteAsiSelectedMutationVariables = Exact<{
   asiSelId: Scalars['UUID'];
 }>;
@@ -9636,6 +9915,22 @@ export type DeleteAsiSelByCharIdMutation = (
   & { deleteAllRaceAsiSelByCharacterId?: Maybe<(
     { __typename?: 'DeleteAllRaceAsiSelByCharacterIdPayload' }
     & Pick<DeleteAllRaceAsiSelByCharacterIdPayload, 'boolean'>
+  )> }
+);
+
+export type DeleteSkillSelectedMutationVariables = Exact<{
+  skillSelId: Scalars['UUID'];
+}>;
+
+
+export type DeleteSkillSelectedMutation = (
+  { __typename?: 'Mutation' }
+  & { deleteSkillsSelectedBySkillSelId?: Maybe<(
+    { __typename?: 'DeleteSkillsSelectedPayload' }
+    & { skillsSelected?: Maybe<(
+      { __typename?: 'SkillsSelected' }
+      & Pick<SkillsSelected, 'skillSelId'>
+    )> }
   )> }
 );
 
@@ -9749,8 +10044,30 @@ export type UpdateFeatSelectedByIdMutation = (
   )> }
 );
 
+export type UpdateSkillSelectedMutationVariables = Exact<{
+  skillId?: Maybe<Scalars['UUID']>;
+  level?: Maybe<SkillLevelSel>;
+  classFeatId?: Maybe<Scalars['UUID']>;
+  subclassFeatId?: Maybe<Scalars['UUID']>;
+  grantedByStartingProf?: Maybe<Scalars['Boolean']>;
+  skillSelId: Scalars['UUID'];
+}>;
+
+
+export type UpdateSkillSelectedMutation = (
+  { __typename?: 'Mutation' }
+  & { updateSkillsSelectedBySkillSelId?: Maybe<(
+    { __typename?: 'UpdateSkillsSelectedPayload' }
+    & { skillsSelected?: Maybe<(
+      { __typename?: 'SkillsSelected' }
+      & Pick<SkillsSelected, 'skillSelId'>
+    )> }
+  )> }
+);
+
 export type GetAllAsiSelectionsQueryVariables = Exact<{
   characterId: Scalars['UUID'];
+  asiFrom?: Maybe<AsiFromType>;
 }>;
 
 
@@ -9839,19 +10156,28 @@ export type AllBgsQuery = (
   )> }
 );
 
-export type AllCharactersQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetAllCharactersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllCharactersQuery = (
+export type GetAllCharactersQuery = (
   { __typename?: 'Query' }
   & { allCharacters?: Maybe<(
     { __typename?: 'CharactersConnection' }
     & { nodes: Array<Maybe<(
       { __typename?: 'Character' }
-      & Pick<Character, 'name' | 'characterId'>
+      & Pick<Character, 'characterId' | 'name' | 'currentLevel'>
       & { raceByRaceId?: Maybe<(
         { __typename?: 'Race' }
         & Pick<Race, 'name'>
+      )>, subraceBySubraceId?: Maybe<(
+        { __typename?: 'Subrace' }
+        & Pick<Subrace, 'name'>
+      )>, classByClassId?: Maybe<(
+        { __typename?: 'Class' }
+        & Pick<Class, 'name'>
+      )>, subclassBySubclassId?: Maybe<(
+        { __typename?: 'Subclass' }
+        & Pick<Subclass, 'name'>
       )> }
     )>> }
   )> }
@@ -10016,10 +10342,33 @@ export type AllSkillsQuery = (
     { __typename?: 'SkillsConnection' }
     & { skills: Array<Maybe<(
       { __typename?: 'Skill' }
-      & Pick<Skill, 'skill'>
+      & Pick<Skill, 'id' | 'skill'>
       & { attributeByAttrId?: Maybe<(
         { __typename?: 'Attribute' }
         & Pick<Attribute, 'attribute'>
+      )> }
+    )>> }
+  )> }
+);
+
+export type GetAllSkillsSelectedQueryVariables = Exact<{
+  characterId: Scalars['UUID'];
+  classFeatId?: Maybe<Scalars['UUID']>;
+  subclassFeatId?: Maybe<Scalars['UUID']>;
+  grantedByStartingProf?: Maybe<Scalars['Boolean']>;
+}>;
+
+
+export type GetAllSkillsSelectedQuery = (
+  { __typename?: 'Query' }
+  & { allSkillsSelecteds?: Maybe<(
+    { __typename?: 'SkillsSelectedsConnection' }
+    & { nodes: Array<Maybe<(
+      { __typename?: 'SkillsSelected' }
+      & Pick<SkillsSelected, 'skillSelId' | 'characterId' | 'skillId' | 'level' | 'grantedByStartingProf' | 'grantingClassFeatId' | 'grantingSubcclassFeatId'>
+      & { skillBySkillId?: Maybe<(
+        { __typename?: 'Skill' }
+        & Pick<Skill, 'skill'>
       )> }
     )>> }
   )> }
@@ -10067,7 +10416,7 @@ export type GetAllAsiSelectionsByFeatIdQuery = (
     { __typename?: 'AsiSelectedsConnection' }
     & { nodes: Array<Maybe<(
       { __typename?: 'AsiSelected' }
-      & Pick<AsiSelected, 'asiSelId' | 'count' | 'asiFrom' | 'featId'>
+      & Pick<AsiSelected, 'asiSelId' | 'count' | 'asiFrom' | 'featId' | 'asiId'>
       & { asiByAsiId?: Maybe<(
         { __typename?: 'Asi' }
         & Pick<Asi, 'asiId' | 'long' | 'short'>
@@ -10078,6 +10427,7 @@ export type GetAllAsiSelectionsByFeatIdQuery = (
 
 export type ClassByIdQueryVariables = Exact<{
   id: Scalars['UUID'];
+  subclassId?: Maybe<Scalars['UUID']>;
 }>;
 
 
@@ -10096,7 +10446,7 @@ export type ClassByIdQuery = (
       { __typename?: 'SubclassFeaturesConnection' }
       & { nodes: Array<Maybe<(
         { __typename?: 'SubclassFeature' }
-        & Pick<SubclassFeature, 'entries' | 'id' | 'level' | 'isClassFeatureVariant' | 'nodeId' | 'name' | 'page' | 'subclassShortName' | 'subclassSource' | 'source'>
+        & Pick<SubclassFeature, 'entries' | 'id' | 'level' | 'isClassFeatureVariant' | 'nodeId' | 'hasOptions' | 'name' | 'page' | 'isSuboption' | 'subclassId' | 'subclassShortName' | 'subclassSource' | 'source'>
       )>> }
     ), classFeaturesByClassId: (
       { __typename?: 'ClassFeaturesConnection' }
@@ -10317,6 +10667,114 @@ export function useCreateFeatBaseSelMutation(baseOptions?: Apollo.MutationHookOp
 export type CreateFeatBaseSelMutationHookResult = ReturnType<typeof useCreateFeatBaseSelMutation>;
 export type CreateFeatBaseSelMutationResult = Apollo.MutationResult<CreateFeatBaseSelMutation>;
 export type CreateFeatBaseSelMutationOptions = Apollo.BaseMutationOptions<CreateFeatBaseSelMutation, CreateFeatBaseSelMutationVariables>;
+export const CreateSkillSelectedDocument = gql`
+    mutation CreateSkillSelected($skillId: UUID!, $characterId: UUID!, $level: SkillLevelSel, $classFeatId: UUID, $subclassFeatId: UUID, $grantedByStartingProf: Boolean) {
+  createSkillsSelected(
+    input: {skillsSelected: {characterId: $characterId, skillId: $skillId, level: $level, grantingClassFeatId: $classFeatId, grantingSubcclassFeatId: $subclassFeatId, grantedByStartingProf: $grantedByStartingProf}}
+  ) {
+    skillsSelected {
+      skillSelId
+    }
+  }
+}
+    `;
+export type CreateSkillSelectedMutationFn = Apollo.MutationFunction<CreateSkillSelectedMutation, CreateSkillSelectedMutationVariables>;
+
+/**
+ * __useCreateSkillSelectedMutation__
+ *
+ * To run a mutation, you first call `useCreateSkillSelectedMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateSkillSelectedMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createSkillSelectedMutation, { data, loading, error }] = useCreateSkillSelectedMutation({
+ *   variables: {
+ *      skillId: // value for 'skillId'
+ *      characterId: // value for 'characterId'
+ *      level: // value for 'level'
+ *      classFeatId: // value for 'classFeatId'
+ *      subclassFeatId: // value for 'subclassFeatId'
+ *      grantedByStartingProf: // value for 'grantedByStartingProf'
+ *   },
+ * });
+ */
+export function useCreateSkillSelectedMutation(baseOptions?: Apollo.MutationHookOptions<CreateSkillSelectedMutation, CreateSkillSelectedMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreateSkillSelectedMutation, CreateSkillSelectedMutationVariables>(CreateSkillSelectedDocument, options);
+      }
+export type CreateSkillSelectedMutationHookResult = ReturnType<typeof useCreateSkillSelectedMutation>;
+export type CreateSkillSelectedMutationResult = Apollo.MutationResult<CreateSkillSelectedMutation>;
+export type CreateSkillSelectedMutationOptions = Apollo.BaseMutationOptions<CreateSkillSelectedMutation, CreateSkillSelectedMutationVariables>;
+export const DeleteAllCharacterAsiSelsDocument = gql`
+    mutation DeleteAllCharacterAsiSels($characterId: UUID!) {
+  deleteAllClassSkillsById(input: {characterId: $characterId}) {
+    boolean
+  }
+}
+    `;
+export type DeleteAllCharacterAsiSelsMutationFn = Apollo.MutationFunction<DeleteAllCharacterAsiSelsMutation, DeleteAllCharacterAsiSelsMutationVariables>;
+
+/**
+ * __useDeleteAllCharacterAsiSelsMutation__
+ *
+ * To run a mutation, you first call `useDeleteAllCharacterAsiSelsMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteAllCharacterAsiSelsMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteAllCharacterAsiSelsMutation, { data, loading, error }] = useDeleteAllCharacterAsiSelsMutation({
+ *   variables: {
+ *      characterId: // value for 'characterId'
+ *   },
+ * });
+ */
+export function useDeleteAllCharacterAsiSelsMutation(baseOptions?: Apollo.MutationHookOptions<DeleteAllCharacterAsiSelsMutation, DeleteAllCharacterAsiSelsMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<DeleteAllCharacterAsiSelsMutation, DeleteAllCharacterAsiSelsMutationVariables>(DeleteAllCharacterAsiSelsDocument, options);
+      }
+export type DeleteAllCharacterAsiSelsMutationHookResult = ReturnType<typeof useDeleteAllCharacterAsiSelsMutation>;
+export type DeleteAllCharacterAsiSelsMutationResult = Apollo.MutationResult<DeleteAllCharacterAsiSelsMutation>;
+export type DeleteAllCharacterAsiSelsMutationOptions = Apollo.BaseMutationOptions<DeleteAllCharacterAsiSelsMutation, DeleteAllCharacterAsiSelsMutationVariables>;
+export const DeleteAllCharacterSkillsDocument = gql`
+    mutation DeleteAllCharacterSkills($characterId: UUID!) {
+  deleteAllClassSkillsById(input: {characterId: $characterId}) {
+    boolean
+  }
+}
+    `;
+export type DeleteAllCharacterSkillsMutationFn = Apollo.MutationFunction<DeleteAllCharacterSkillsMutation, DeleteAllCharacterSkillsMutationVariables>;
+
+/**
+ * __useDeleteAllCharacterSkillsMutation__
+ *
+ * To run a mutation, you first call `useDeleteAllCharacterSkillsMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteAllCharacterSkillsMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteAllCharacterSkillsMutation, { data, loading, error }] = useDeleteAllCharacterSkillsMutation({
+ *   variables: {
+ *      characterId: // value for 'characterId'
+ *   },
+ * });
+ */
+export function useDeleteAllCharacterSkillsMutation(baseOptions?: Apollo.MutationHookOptions<DeleteAllCharacterSkillsMutation, DeleteAllCharacterSkillsMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<DeleteAllCharacterSkillsMutation, DeleteAllCharacterSkillsMutationVariables>(DeleteAllCharacterSkillsDocument, options);
+      }
+export type DeleteAllCharacterSkillsMutationHookResult = ReturnType<typeof useDeleteAllCharacterSkillsMutation>;
+export type DeleteAllCharacterSkillsMutationResult = Apollo.MutationResult<DeleteAllCharacterSkillsMutation>;
+export type DeleteAllCharacterSkillsMutationOptions = Apollo.BaseMutationOptions<DeleteAllCharacterSkillsMutation, DeleteAllCharacterSkillsMutationVariables>;
 export const DeleteAsiSelectedDocument = gql`
     mutation DeleteAsiSelected($asiSelId: UUID!) {
   deleteAsiSelectedByAsiSelId(input: {asiSelId: $asiSelId}) {
@@ -10453,6 +10911,41 @@ export function useDeleteAsiSelByCharIdMutation(baseOptions?: Apollo.MutationHoo
 export type DeleteAsiSelByCharIdMutationHookResult = ReturnType<typeof useDeleteAsiSelByCharIdMutation>;
 export type DeleteAsiSelByCharIdMutationResult = Apollo.MutationResult<DeleteAsiSelByCharIdMutation>;
 export type DeleteAsiSelByCharIdMutationOptions = Apollo.BaseMutationOptions<DeleteAsiSelByCharIdMutation, DeleteAsiSelByCharIdMutationVariables>;
+export const DeleteSkillSelectedDocument = gql`
+    mutation DeleteSkillSelected($skillSelId: UUID!) {
+  deleteSkillsSelectedBySkillSelId(input: {skillSelId: $skillSelId}) {
+    skillsSelected {
+      skillSelId
+    }
+  }
+}
+    `;
+export type DeleteSkillSelectedMutationFn = Apollo.MutationFunction<DeleteSkillSelectedMutation, DeleteSkillSelectedMutationVariables>;
+
+/**
+ * __useDeleteSkillSelectedMutation__
+ *
+ * To run a mutation, you first call `useDeleteSkillSelectedMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteSkillSelectedMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteSkillSelectedMutation, { data, loading, error }] = useDeleteSkillSelectedMutation({
+ *   variables: {
+ *      skillSelId: // value for 'skillSelId'
+ *   },
+ * });
+ */
+export function useDeleteSkillSelectedMutation(baseOptions?: Apollo.MutationHookOptions<DeleteSkillSelectedMutation, DeleteSkillSelectedMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<DeleteSkillSelectedMutation, DeleteSkillSelectedMutationVariables>(DeleteSkillSelectedDocument, options);
+      }
+export type DeleteSkillSelectedMutationHookResult = ReturnType<typeof useDeleteSkillSelectedMutation>;
+export type DeleteSkillSelectedMutationResult = Apollo.MutationResult<DeleteSkillSelectedMutation>;
+export type DeleteSkillSelectedMutationOptions = Apollo.BaseMutationOptions<DeleteSkillSelectedMutation, DeleteSkillSelectedMutationVariables>;
 export const SigninDocument = gql`
     mutation Signin($username: String!, $password: String!) {
   signin(input: {username: $username, password: $password}) {
@@ -10687,9 +11180,51 @@ export function useUpdateFeatSelectedByIdMutation(baseOptions?: Apollo.MutationH
 export type UpdateFeatSelectedByIdMutationHookResult = ReturnType<typeof useUpdateFeatSelectedByIdMutation>;
 export type UpdateFeatSelectedByIdMutationResult = Apollo.MutationResult<UpdateFeatSelectedByIdMutation>;
 export type UpdateFeatSelectedByIdMutationOptions = Apollo.BaseMutationOptions<UpdateFeatSelectedByIdMutation, UpdateFeatSelectedByIdMutationVariables>;
+export const UpdateSkillSelectedDocument = gql`
+    mutation UpdateSkillSelected($skillId: UUID, $level: SkillLevelSel, $classFeatId: UUID, $subclassFeatId: UUID, $grantedByStartingProf: Boolean, $skillSelId: UUID!) {
+  updateSkillsSelectedBySkillSelId(
+    input: {skillSelId: $skillSelId, skillsSelectedPatch: {skillId: $skillId, level: $level, grantingClassFeatId: $classFeatId, grantingSubcclassFeatId: $subclassFeatId, grantedByStartingProf: $grantedByStartingProf}}
+  ) {
+    skillsSelected {
+      skillSelId
+    }
+  }
+}
+    `;
+export type UpdateSkillSelectedMutationFn = Apollo.MutationFunction<UpdateSkillSelectedMutation, UpdateSkillSelectedMutationVariables>;
+
+/**
+ * __useUpdateSkillSelectedMutation__
+ *
+ * To run a mutation, you first call `useUpdateSkillSelectedMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateSkillSelectedMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateSkillSelectedMutation, { data, loading, error }] = useUpdateSkillSelectedMutation({
+ *   variables: {
+ *      skillId: // value for 'skillId'
+ *      level: // value for 'level'
+ *      classFeatId: // value for 'classFeatId'
+ *      subclassFeatId: // value for 'subclassFeatId'
+ *      grantedByStartingProf: // value for 'grantedByStartingProf'
+ *      skillSelId: // value for 'skillSelId'
+ *   },
+ * });
+ */
+export function useUpdateSkillSelectedMutation(baseOptions?: Apollo.MutationHookOptions<UpdateSkillSelectedMutation, UpdateSkillSelectedMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<UpdateSkillSelectedMutation, UpdateSkillSelectedMutationVariables>(UpdateSkillSelectedDocument, options);
+      }
+export type UpdateSkillSelectedMutationHookResult = ReturnType<typeof useUpdateSkillSelectedMutation>;
+export type UpdateSkillSelectedMutationResult = Apollo.MutationResult<UpdateSkillSelectedMutation>;
+export type UpdateSkillSelectedMutationOptions = Apollo.BaseMutationOptions<UpdateSkillSelectedMutation, UpdateSkillSelectedMutationVariables>;
 export const GetAllAsiSelectionsDocument = gql`
-    query GetAllAsiSelections($characterId: UUID!) {
-  allAsiSelecteds(condition: {characterId: $characterId}) {
+    query GetAllAsiSelections($characterId: UUID!, $asiFrom: AsiFromType) {
+  allAsiSelecteds(condition: {characterId: $characterId, asiFrom: $asiFrom}) {
     nodes {
       asiSelId
       count
@@ -10718,6 +11253,7 @@ export const GetAllAsiSelectionsDocument = gql`
  * const { data, loading, error } = useGetAllAsiSelectionsQuery({
  *   variables: {
  *      characterId: // value for 'characterId'
+ *      asiFrom: // value for 'asiFrom'
  *   },
  * });
  */
@@ -10902,13 +11438,23 @@ export function useAllBgsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<All
 export type AllBgsQueryHookResult = ReturnType<typeof useAllBgsQuery>;
 export type AllBgsLazyQueryHookResult = ReturnType<typeof useAllBgsLazyQuery>;
 export type AllBgsQueryResult = Apollo.QueryResult<AllBgsQuery, AllBgsQueryVariables>;
-export const AllCharactersDocument = gql`
-    query AllCharacters {
+export const GetAllCharactersDocument = gql`
+    query GetAllCharacters {
   allCharacters {
     nodes {
-      name
       characterId
+      name
+      currentLevel
       raceByRaceId {
+        name
+      }
+      subraceBySubraceId {
+        name
+      }
+      classByClassId {
+        name
+      }
+      subclassBySubclassId {
         name
       }
     }
@@ -10917,31 +11463,31 @@ export const AllCharactersDocument = gql`
     `;
 
 /**
- * __useAllCharactersQuery__
+ * __useGetAllCharactersQuery__
  *
- * To run a query within a React component, call `useAllCharactersQuery` and pass it any options that fit your needs.
- * When your component renders, `useAllCharactersQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetAllCharactersQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllCharactersQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useAllCharactersQuery({
+ * const { data, loading, error } = useGetAllCharactersQuery({
  *   variables: {
  *   },
  * });
  */
-export function useAllCharactersQuery(baseOptions?: Apollo.QueryHookOptions<AllCharactersQuery, AllCharactersQueryVariables>) {
+export function useGetAllCharactersQuery(baseOptions?: Apollo.QueryHookOptions<GetAllCharactersQuery, GetAllCharactersQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<AllCharactersQuery, AllCharactersQueryVariables>(AllCharactersDocument, options);
+        return Apollo.useQuery<GetAllCharactersQuery, GetAllCharactersQueryVariables>(GetAllCharactersDocument, options);
       }
-export function useAllCharactersLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllCharactersQuery, AllCharactersQueryVariables>) {
+export function useGetAllCharactersLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllCharactersQuery, GetAllCharactersQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<AllCharactersQuery, AllCharactersQueryVariables>(AllCharactersDocument, options);
+          return Apollo.useLazyQuery<GetAllCharactersQuery, GetAllCharactersQueryVariables>(GetAllCharactersDocument, options);
         }
-export type AllCharactersQueryHookResult = ReturnType<typeof useAllCharactersQuery>;
-export type AllCharactersLazyQueryHookResult = ReturnType<typeof useAllCharactersLazyQuery>;
-export type AllCharactersQueryResult = Apollo.QueryResult<AllCharactersQuery, AllCharactersQueryVariables>;
+export type GetAllCharactersQueryHookResult = ReturnType<typeof useGetAllCharactersQuery>;
+export type GetAllCharactersLazyQueryHookResult = ReturnType<typeof useGetAllCharactersLazyQuery>;
+export type GetAllCharactersQueryResult = Apollo.QueryResult<GetAllCharactersQuery, GetAllCharactersQueryVariables>;
 export const AllClassNamesDocument = gql`
     query AllClassNames {
   allClasses(orderBy: NAME_ASC) {
@@ -11317,6 +11863,7 @@ export const AllSkillsDocument = gql`
     query AllSkills {
   allSkills {
     skills: nodes {
+      id
       skill
       attributeByAttrId {
         attribute
@@ -11352,6 +11899,57 @@ export function useAllSkillsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<
 export type AllSkillsQueryHookResult = ReturnType<typeof useAllSkillsQuery>;
 export type AllSkillsLazyQueryHookResult = ReturnType<typeof useAllSkillsLazyQuery>;
 export type AllSkillsQueryResult = Apollo.QueryResult<AllSkillsQuery, AllSkillsQueryVariables>;
+export const GetAllSkillsSelectedDocument = gql`
+    query GetAllSkillsSelected($characterId: UUID!, $classFeatId: UUID, $subclassFeatId: UUID, $grantedByStartingProf: Boolean) {
+  allSkillsSelecteds(
+    condition: {characterId: $characterId, grantingClassFeatId: $classFeatId, grantingSubcclassFeatId: $subclassFeatId, grantedByStartingProf: $grantedByStartingProf}
+  ) {
+    nodes {
+      skillSelId
+      characterId
+      skillId
+      level
+      grantedByStartingProf
+      grantingClassFeatId
+      grantingSubcclassFeatId
+      skillBySkillId {
+        skill
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetAllSkillsSelectedQuery__
+ *
+ * To run a query within a React component, call `useGetAllSkillsSelectedQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllSkillsSelectedQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllSkillsSelectedQuery({
+ *   variables: {
+ *      characterId: // value for 'characterId'
+ *      classFeatId: // value for 'classFeatId'
+ *      subclassFeatId: // value for 'subclassFeatId'
+ *      grantedByStartingProf: // value for 'grantedByStartingProf'
+ *   },
+ * });
+ */
+export function useGetAllSkillsSelectedQuery(baseOptions: Apollo.QueryHookOptions<GetAllSkillsSelectedQuery, GetAllSkillsSelectedQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllSkillsSelectedQuery, GetAllSkillsSelectedQueryVariables>(GetAllSkillsSelectedDocument, options);
+      }
+export function useGetAllSkillsSelectedLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllSkillsSelectedQuery, GetAllSkillsSelectedQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllSkillsSelectedQuery, GetAllSkillsSelectedQueryVariables>(GetAllSkillsSelectedDocument, options);
+        }
+export type GetAllSkillsSelectedQueryHookResult = ReturnType<typeof useGetAllSkillsSelectedQuery>;
+export type GetAllSkillsSelectedLazyQueryHookResult = ReturnType<typeof useGetAllSkillsSelectedLazyQuery>;
+export type GetAllSkillsSelectedQueryResult = Apollo.QueryResult<GetAllSkillsSelectedQuery, GetAllSkillsSelectedQueryVariables>;
 export const GetAllSpellsDocument = gql`
     query GetAllSpells {
   allSpells {
@@ -11460,6 +12058,7 @@ export const GetAllAsiSelectionsByFeatIdDocument = gql`
       count
       asiFrom
       featId
+      asiId
       asiByAsiId {
         asiId
         long
@@ -11499,7 +12098,7 @@ export type GetAllAsiSelectionsByFeatIdQueryHookResult = ReturnType<typeof useGe
 export type GetAllAsiSelectionsByFeatIdLazyQueryHookResult = ReturnType<typeof useGetAllAsiSelectionsByFeatIdLazyQuery>;
 export type GetAllAsiSelectionsByFeatIdQueryResult = Apollo.QueryResult<GetAllAsiSelectionsByFeatIdQuery, GetAllAsiSelectionsByFeatIdQueryVariables>;
 export const ClassByIdDocument = gql`
-    query ClassById($id: UUID!) {
+    query ClassById($id: UUID!, $subclassId: UUID) {
   classById(id: $id) {
     name
     id
@@ -11541,15 +12140,18 @@ export const ClassByIdDocument = gql`
         preparedSpells
       }
     }
-    subclassFeaturesByClassId(orderBy: NAME_ASC) {
+    subclassFeaturesByClassId(condition: {id: $subclassId}, orderBy: NAME_ASC) {
       nodes {
         entries
         id
         level
         isClassFeatureVariant
         nodeId
+        hasOptions
         name
         page
+        isSuboption
+        subclassId
         subclassShortName
         subclassSource
         source
@@ -11586,6 +12188,7 @@ export const ClassByIdDocument = gql`
  * const { data, loading, error } = useClassByIdQuery({
  *   variables: {
  *      id: // value for 'id'
+ *      subclassId: // value for 'subclassId'
  *   },
  * });
  */

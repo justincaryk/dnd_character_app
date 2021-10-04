@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import classnames from 'classnames'
-import { start } from 'repl'
+import {
+  useCreateSkillSelectedMutation,
+  // useGetAllSkillsSelectedQuery,
+  useUpdateSkillSelectedMutation,
+  useAllSkillsQuery,
+  SkillLevelSel,
+  GetAllSkillsSelectedQuery,
+} from '../../../../generated/graphql'
+import BlueExclamation from '../../../shared/blue-exclamation'
 
 interface Props {
   startingProficiencies: {
@@ -10,15 +18,43 @@ interface Props {
     skills: any
   }
   savingThrows: any
+  characterId: string
+  skillsSel: GetAllSkillsSelectedQuery,
+  refetchSkillsSel: any
 }
 
 const FeatureStartProf: React.FC<Props> = ({
   startingProficiencies,
   savingThrows,
+  characterId,
+  skillsSel,
+  refetchSkillsSel,
 }) => {
+  const [allOptionsSelected, setAllOptionsSelected] = useState(false)
   const [profDetailsActive, toggleProfDetailsActive] = useState(false)
-  
-  if (!startingProficiencies) {
+  const [performCreate] = useCreateSkillSelectedMutation()
+  const [performUpdate] = useUpdateSkillSelectedMutation()
+
+  const { data: skills, loading: skillsLoad } = useAllSkillsQuery()
+
+  useEffect(() => {
+    if (!startingProficiencies) {
+      return
+    }
+
+    const triggerOne = skillsSel?.allSkillsSelecteds &&
+    skillsSel?.allSkillsSelecteds?.nodes.length <
+      startingProficiencies.skills.choose.count
+
+    const triggerTwo = skillsSel?.allSkillsSelecteds?.nodes.find((x) => !x?.skillId)
+    if (triggerOne || triggerTwo) {
+      setAllOptionsSelected(false)
+    } else {
+      setAllOptionsSelected(true)
+    }
+  }, [startingProficiencies, skillsSel?.allSkillsSelecteds, setAllOptionsSelected])
+
+  if (!startingProficiencies || skillsLoad) {
     return null
   }
 
@@ -26,13 +62,62 @@ const FeatureStartProf: React.FC<Props> = ({
     startingProficiencies.skills.choose.count
   ).fill('x', 0)
 
+  const handleSkillSelection = async (
+    e: React.ChangeEvent<HTMLSelectElement>,
+    i: number
+  ) => {
+    if (!e.currentTarget.value) {
+      await performUpdate({
+        variables: {
+          skillSelId: skillsSel?.allSkillsSelecteds?.nodes[i]?.skillSelId,
+          skillId: null,
+          grantedByStartingProf: true,
+          level: SkillLevelSel.Prof
+        },
+      })
+      await refetchSkillsSel()
+      
+      return
+    }
+
+    const skillId = skills?.allSkills?.skills.find(
+      (x) => x?.skill.toLowerCase() === e.currentTarget.value.toLowerCase()
+    )?.id
+
+    if (!skillsSel?.allSkillsSelecteds?.nodes[i]) {
+      await performCreate({
+        variables: {
+          characterId: characterId,
+          skillId: skillId,
+          grantedByStartingProf: true,
+          level: SkillLevelSel.Prof,
+        },
+      })
+    } else {
+      await performUpdate({
+        variables: {
+          skillSelId: skillsSel.allSkillsSelecteds.nodes[i]?.skillSelId,
+          skillId: skillId,
+          grantedByStartingProf: true,
+        },
+      })
+    }
+
+    await refetchSkillsSel()
+  }
+
   return (
-    <div className='space-y-3'>
-      <div className='border bg-white'>
+    <div className='space-y-3 relative'>
+      {!allOptionsSelected ? (
+        <BlueExclamation />
+      ) : null}
+      <div className='bg-white'>
         <div
           className={classnames({
             'p-2 hover:bg-cream cursor-pointer': true,
             'bg-cream border-b': profDetailsActive,
+            'border-1 border-sky-blue shadow-md-sky-blue': !allOptionsSelected,
+            'border': allOptionsSelected,
           })}
           onClick={() => toggleProfDetailsActive(!profDetailsActive)}
         >
@@ -40,7 +125,7 @@ const FeatureStartProf: React.FC<Props> = ({
           <div className='text-xs text-gray-500'>1st level</div>
         </div>
         {profDetailsActive && (
-          <div className='p-2 text-sm'>
+          <div className='p-2 text-sm border-b border-l border-r'>
             <div className='capitalize'>
               <strong>Armor:</strong>{' '}
               {startingProficiencies.armor?.join(', ') || 'None'}
@@ -64,24 +149,39 @@ const FeatureStartProf: React.FC<Props> = ({
                 {startingProficiencies.skills.choose.from.join(', ')}
               </div>
               <div className='mt-1 space-y-2'>
-                {arrayToIterate.map((x, i) => (
-                  <select
-                    className='w-full border rounded text-sm p-2'
-                    defaultValue={''}
-                    key={i}
-                  >
-                    <option value=''>- Choose a Skill -</option>
-                    {startingProficiencies.skills.choose.from.map(
-                      (skill: string) => {
-                        return (
-                          <option key={i} value='skill'>
-                            {skill}
-                          </option>
-                        )
-                      }
-                    )}
-                  </select>
-                ))}
+                {arrayToIterate.map((x, i) => {
+                  const defaultValue = skills?.allSkills?.skills.find(
+                    (x) =>
+                      x?.id === skillsSel?.allSkillsSelecteds?.nodes[i]?.skillId
+                  )?.skill
+                  return (
+                    <select
+                      className={classnames({
+                        'w-full rounded text-sm p-2': true,
+                        'border-1 border-sky-blue shadow-md-sky-blue': !defaultValue,
+                        'border': defaultValue,
+                      })}
+                      defaultValue={defaultValue || ''}
+                      key={i}
+                      onChange={(e) => handleSkillSelection(e, i)}
+                    >
+                      <option value=''>- Choose a Skill -</option>
+                      {startingProficiencies.skills.choose.from.map(
+                        (skill: string, j: number) => {
+                          const skillCapFirst = skill[0].toUpperCase()
+                          const skillCapRest = skill.slice(1, skill.length)
+                          const skillFull = skillCapFirst + skillCapRest
+
+                          return (
+                            <option key={`${j}-${skill}`} value={skillFull}>
+                              {skillFull}
+                            </option>
+                          )
+                        }
+                      )}
+                    </select>
+                  )
+                })}
               </div>
             </div>
           </div>

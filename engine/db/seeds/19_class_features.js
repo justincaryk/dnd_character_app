@@ -541,13 +541,14 @@ exports.seed = knex => (
                             'At 3rd level, choose two of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.',
                             'At 10th level, you can choose another two skill proficiencies to gain this benefit.',
                             {
-                                type: 'skillOptions',
+                                type: 'expertiseSkillOptions',
                                 options: {
                                     choose: {
                                         count: 2,
                                         from: 'known'
                                     }
-                                }
+                                },
+                                increment: 0
                             }
                         ],
                     },
@@ -696,13 +697,14 @@ exports.seed = knex => (
                         e: [
                             'At 10th level, you can choose another two skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.',
                             {
-                                type: 'skillOptions',
+                                type: 'expertiseSkillOptions',
                                 options: {
                                     choose: {
                                         count: 2,
                                         from: 'known'
                                     }
-                                }
+                                },
+                                increment: 1
                             }
                         ],
                     },
@@ -3505,13 +3507,14 @@ exports.seed = knex => (
                             "At 1st level, choose two of your skill proficiencies, or one of your skill proficiencies and your proficiency with thieves' tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.",
                             "At 6th level, you can choose two more of your proficiencies (in skills or with thieves' tools) to gain this benefit.",
                             {
-                                type: 'skillOptions',
+                                type: 'expertiseSkillOptions',
                                 options: {
                                     choose: {
                                         count: 2,
                                         from: 'known'
                                     }
-                                }
+                                },
+                                increment: 0
                             }
                         ],
                     },
@@ -3637,13 +3640,14 @@ exports.seed = knex => (
                         e: [
                             "At 6th level, you can choose two more of your proficiencies (in skills or with thieves' tools) to gain the benefit of Expertise.",
                             {
-                                type: 'skillOptions',
+                                type: 'expertiseSkillOptions',
                                 options: {
                                     choose: {
                                         count: 2,
                                         from: 'known'
                                     }
-                                }
+                                },
+                                increment: 1
                             }
                         ],
                     },
@@ -3989,7 +3993,7 @@ exports.seed = knex => (
                                 type: 'options',
                                 options: {
                                     choose: {
-                                        count: 1,
+                                        count: 2,
                                         from: ['Careful Spell','Distant Spell','Empowered Spell','Extended Spell','Heightened Spell','Quickened Spell','Subtle Spell','Twinned Spell','Seeking Spell','Transmuted Spell']
                                     }
                                 },
@@ -4073,7 +4077,16 @@ exports.seed = knex => (
                     class_source: 'PHB',
                     level: 10,
                     entries: {
-                        e: ['At 10th level, you learn an additional metamagic option.'],
+                        e: ['At 10th level, you learn an additional metamagic option.',
+                        {
+                            type: 'options',
+                            options: {
+                                choose: {
+                                    count: 1,
+                                    from: ['Careful Spell','Distant Spell','Empowered Spell','Extended Spell','Heightened Spell','Quickened Spell','Subtle Spell','Twinned Spell','Seeking Spell','Transmuted Spell']
+                                }
+                            },
+                        },],
                     },
                     id: uuidv4(),
                     class_id: 'e1068650-2673-4835-af88-adddd16d5095',
@@ -4099,7 +4112,16 @@ exports.seed = knex => (
                     class_source: 'PHB',
                     level: 17,
                     entries: {
-                        e: ['At 17th level, you learn an additional metamagic option.'],
+                        e: ['At 17th level, you learn an additional metamagic option.',
+                        {
+                            type: 'options',
+                            options: {
+                                choose: {
+                                    count: 1,
+                                    from: ['Careful Spell','Distant Spell','Empowered Spell','Extended Spell','Heightened Spell','Quickened Spell','Subtle Spell','Twinned Spell','Seeking Spell','Transmuted Spell']
+                                }
+                            },
+                        },],
                     },
                     id: uuidv4(),
                     class_id: 'e1068650-2673-4835-af88-adddd16d5095',
@@ -4335,6 +4357,7 @@ exports.seed = knex => (
                     page: 105,
                     class_source: 'PHB',
                     level: 3,
+                    has_options: true,
                     entries: {
                         e: [
                             'At 3rd level, your otherworldly patron bestows a gift upon you for your loyal service. You gain one of the following features of your choice.',
@@ -4360,6 +4383,75 @@ exports.seed = knex => (
                                     },
                                 ],
                             },
+                        ],
+                    },
+                    id: uuidv4(),
+                    class_id: '468deff3-41eb-4ddb-a635-a39d251eaf62',
+                },
+                {
+                    name: 'Pact of the Blade',
+                    class_source: 'PHB',
+                    is_suboption: true,
+                    level: 3,
+                    entries: {
+                        e: [
+                            'You can use your action to create a pact weapon in your empty hand. You can choose the form that this melee weapon takes each time you create it (see the Weapons section for weapon options). You are proficient with it while you wield it. This weapon counts as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.',
+                            'Your pact weapon disappears if it is more than 5 feet away from you for 1 minute or more. It also disappears if you use this feature again, if you dismiss the weapon (no action required), or if you die.',
+                            'You can transform one magic weapon into your pact weapon by performing a special ritual while you hold the weapon. You perform the ritual over the course of 1 hour, which can be done during a short rest. You can then dismiss the weapon, shunting it into an extradimensional space, and it appears whenever you create your pact weapon thereafter. You can’t affect an artifact or a sentient weapon in this way. The weapon ceases being your pact weapon if you die, if you perform the 1-hour ritual on a different weapon, or if you use a 1-hour ritual to break your bond to it. The weapon appears at your feet if it is in the extradimensional space when the bond breaks.',
+                        ],
+                    },
+                    id: uuidv4(),
+                    class_id: '468deff3-41eb-4ddb-a635-a39d251eaf62',
+                },
+                {
+                    name: 'Pact of the Chain',
+                    class_source: 'PHB',
+                    is_suboption: true,
+                    level: 3,
+                    entries: {
+                        e: [
+                            'You learn the find familiar spell and can cast it as a ritual. The spell doesn’t count against your number of spells known.',
+                            'When you cast the spell, you can choose one of the normal forms for your familiar or one of the following special forms: imp, pseudodragon, quasit, or sprite.',
+                            'Additionally, when you take the Attack action, you can forgo one of your own attacks to allow your familiar to make one attack with its reaction.'
+                        ],
+                    },
+                    id: uuidv4(),
+                    class_id: '468deff3-41eb-4ddb-a635-a39d251eaf62',
+                },
+                {
+                    name: 'Pact of the Talisman',
+                    class_source: 'PHB',
+                    is_suboption: true,
+                    level: 3,
+                    entries: {
+                        e: [
+                            'Your patron gives you an amulet, a talisman that can aid the wearer when the need is great. When the wearer fails an ability check, they can add a d4 to the roll, potentially turning the roll into a success. This benefit can be used a number of times equal to your proficiency bonus, and all expended uses are restored when you finish a long rest.',
+                            'If you lose the talisman, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and it destroys the previous amulet. The talisman turns to ash when you die.'
+                        ],
+                    },
+                    id: uuidv4(),
+                    class_id: '468deff3-41eb-4ddb-a635-a39d251eaf62',
+                },
+                {
+                    name: 'Pact of the Tome',
+                    class_source: 'PHB',
+                    is_suboption: true,
+                    level: 3,
+                    entries: {
+                        e: [
+                            'our patron gives you a grimoire called a Book of Shadows. When you gain this feature, choose three cantrips from any class’s spell list (the three needn’t be from the same list). While the book is on your person, you can cast those cantrips at will. They don’t count against your number of cantrips known. If they don’t appear on the warlock spell list, they are nonetheless warlock spells for you.',
+                            'If you lose your Book of Shadows, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and it destroys the previous book. The book turns to ash when you die.',
+                            {
+                                type: 'cantrips',
+                                options: {
+                                    choose: {
+                                        count: 3,
+                                        from: {
+                                            class: 'any'
+                                        }
+                                    }
+                                }
+                            }
                         ],
                     },
                     id: uuidv4(),

@@ -319,7 +319,7 @@ const CharDescript: React.FC = () => {
             className='w-full border rounded text-xl p-2'
             value={bgId}
             onChange={handleBgSelection}
-            defaultValue={''}
+            // defaultValue={''}
           >
             <option value=''>-- Choose a Background ---</option>
             {/* custom bg */}

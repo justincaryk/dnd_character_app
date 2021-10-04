@@ -1,8 +1,10 @@
 import gql from 'graphql-tag'
 
 export default gql`
-  query GetAllAsiSelections($characterId: UUID!) {
-    allAsiSelecteds(condition: { characterId: $characterId }) {
+  query GetAllAsiSelections($characterId: UUID!, $asiFrom: AsiFromType) {
+    allAsiSelecteds(
+      condition: { characterId: $characterId, asiFrom: $asiFrom }
+    ) {
       nodes {
         asiSelId
         count

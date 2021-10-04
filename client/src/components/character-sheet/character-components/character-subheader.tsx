@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 const CharacterSubHeader: React.FC = () => {
   return (
@@ -6,7 +6,7 @@ const CharacterSubHeader: React.FC = () => {
       <div className='inline-block mr-4 rounded'>
         <img 
           className='max-w-xxs rounded' 
-          alt='Image is gone, find another'
+          alt='Gone, find another'
           src='https://i.pinimg.com/originals/39/7b/93/397b933463afe1dbce57d50d915ef29f.jpg'/>
       </div>
       <div className='inline-block'>
