@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useCreateSpellSelectedMutation, useDeleteSpellSelectedMutation, useGetAllSpellsSelectedQuery, useGetSpellsByClassNameQuery, useUpdateSpellSelectedMutation } from '../../../../generated/graphql'
+import { useAllAsisQuery, useCreateSpellSelectedMutation, useDeleteSpellSelectedMutation, useGetAllAsiChoicesQuery, useGetAllAsiSelectionsQuery, useGetAllSpellsSelectedQuery, useGetSpellsByClassNameQuery, useUpdateSpellSelectedMutation } from '../../../../generated/graphql'
+import { bonuses } from '../../../../lib/utils'
 import SpellBlock from './spell'
 
 interface Props {
@@ -159,6 +160,8 @@ const ManageSpells: React.FC<Props> = ({
   const [learnSpellsVis, toggleLearnSpellsVis] = useState(false)
   const [knownSpellsVis, toggleKnownSpellsVis] = useState(false)
 
+  const [asiBonus, setAsiBonus] = useState(0)
+
   const [legalSpells, setLegalSpells] = useState<any[]>([])
   const [knownSpells, setKnownSpells] = useState<any[]>([])
 
@@ -169,6 +172,14 @@ const ManageSpells: React.FC<Props> = ({
       className: dndClass.name,
     },
   })
+  
+  // asis
+  const { data: asiChoices, loading: asiChoicesLoading } = useGetAllAsiChoicesQuery({
+    variables: {
+      characterId: characterId,
+    },
+  })
+  const { data: asis, loading: asisLoading} = useAllAsisQuery()
 
   const [performCreate] = useCreateSpellSelectedMutation()
   const [performUpdate] = useUpdateSpellSelectedMutation()
@@ -182,11 +193,46 @@ const ManageSpells: React.FC<Props> = ({
   })
 
   useEffect(() => {
-    if (dndClass.casterProgression === 'full') {
-      setMaxCantrips(dndClass.cantripProgression[currentLevel - 1])
-      setMaxSpells(dndClass.spellsKnownProgression[currentLevel - 1])
+    if (asis && asiChoices) {
+      let score = 0;
+      let asi = asis.allAsis.nodes.find(x => x.short === dndClass.spellcastingAbility)
+
+      for (const node of asiChoices.allAsiSelectedCores.nodes) {
+        const key = asi.long.toLowerCase() as 'intelligence' | 'wisdom' | 'charisma'
+        score += node[key]
+      }
+
+      for (const node of asiChoices.allAsiSelecteds.nodes) {
+        if (node.asiByAsiId.asiId === asi.asiId) {
+          score += node.count
+        }
+      }
+      setAsiBonus(bonuses[score])
     }
-  }, [dndClass, setMaxSpells, setMaxCantrips, currentLevel])
+  }, [asiChoices, dndClass, setAsiBonus, asis])
+
+  useEffect(() => {
+    // static progression
+    if (dndClass.spellsKnownProgression) {
+      setMaxSpells(dndClass.spellsKnownProgression[currentLevel - 1])
+    } else if (dndClass.preparedSpells) {
+      let divisor = 1;
+      if (dndClass.casterProgression === '1/2') {
+        divisor = 2
+      }
+      if (dndClass.casterProgression === '1/3') {
+        divisor = 3
+      }
+
+      setMaxSpells(Math.floor(currentLevel/ divisor) + asiBonus)
+    }
+    // prepared casters
+    if (dndClass.cantripProgression) {
+      setMaxCantrips(dndClass.cantripProgression[currentLevel - 1])
+    }
+
+    
+  }, [dndClass, setMaxSpells, setMaxCantrips, currentLevel, asiBonus])
 
   useEffect(() => {
     if (spells) {

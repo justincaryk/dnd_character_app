@@ -157,7 +157,7 @@ const ClassFeatures: React.FC<Props> = ({
   if (loading || skillsSelLoad || !skillsSel) {
     return <div>...Loading</div>
   }
-  
+
   return (
     <div className='space-y-4'>
       {/* row 1 - PAGE HEADER */}
@@ -211,7 +211,7 @@ const ClassFeatures: React.FC<Props> = ({
           </div>
         </div>
       </div>
-      {/* row 3 STUPID NOTHINGNESS */}
+      {/* row 3 - CLASS FEATURE / SPELLS TOGGLE */}
       <div className='flex gap-x-5'>
         <div
           className={classnames({

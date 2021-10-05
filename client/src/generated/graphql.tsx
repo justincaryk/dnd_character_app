@@ -10528,6 +10528,32 @@ export type UpdateSpellSelectedMutation = (
   )> }
 );
 
+export type GetAllAsiChoicesQueryVariables = Exact<{
+  characterId: Scalars['UUID'];
+}>;
+
+
+export type GetAllAsiChoicesQuery = (
+  { __typename?: 'Query' }
+  & { allAsiSelecteds?: Maybe<(
+    { __typename?: 'AsiSelectedsConnection' }
+    & { nodes: Array<Maybe<(
+      { __typename?: 'AsiSelected' }
+      & Pick<AsiSelected, 'asiSelId' | 'count' | 'asiFrom' | 'featId'>
+      & { asiByAsiId?: Maybe<(
+        { __typename?: 'Asi' }
+        & Pick<Asi, 'asiId' | 'long' | 'short'>
+      )> }
+    )>> }
+  )>, allAsiSelectedCores?: Maybe<(
+    { __typename?: 'AsiSelectedCoresConnection' }
+    & { nodes: Array<Maybe<(
+      { __typename?: 'AsiSelectedCore' }
+      & Pick<AsiSelectedCore, 'strength' | 'dexterity' | 'constitution' | 'intelligence' | 'wisdom' | 'charisma'>
+    )>> }
+  )> }
+);
+
 export type GetAllAsiSelectionsQueryVariables = Exact<{
   characterId: Scalars['UUID'];
   asiFrom?: Maybe<AsiFromType>;
@@ -11943,6 +11969,61 @@ export function useUpdateSpellSelectedMutation(baseOptions?: Apollo.MutationHook
 export type UpdateSpellSelectedMutationHookResult = ReturnType<typeof useUpdateSpellSelectedMutation>;
 export type UpdateSpellSelectedMutationResult = Apollo.MutationResult<UpdateSpellSelectedMutation>;
 export type UpdateSpellSelectedMutationOptions = Apollo.BaseMutationOptions<UpdateSpellSelectedMutation, UpdateSpellSelectedMutationVariables>;
+export const GetAllAsiChoicesDocument = gql`
+    query GetAllAsiChoices($characterId: UUID!) {
+  allAsiSelecteds(condition: {characterId: $characterId}) {
+    nodes {
+      asiSelId
+      count
+      asiFrom
+      featId
+      asiByAsiId {
+        asiId
+        long
+        short
+      }
+    }
+  }
+  allAsiSelectedCores(condition: {characterId: $characterId}) {
+    nodes {
+      strength
+      dexterity
+      constitution
+      intelligence
+      wisdom
+      charisma
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetAllAsiChoicesQuery__
+ *
+ * To run a query within a React component, call `useGetAllAsiChoicesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllAsiChoicesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllAsiChoicesQuery({
+ *   variables: {
+ *      characterId: // value for 'characterId'
+ *   },
+ * });
+ */
+export function useGetAllAsiChoicesQuery(baseOptions: Apollo.QueryHookOptions<GetAllAsiChoicesQuery, GetAllAsiChoicesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllAsiChoicesQuery, GetAllAsiChoicesQueryVariables>(GetAllAsiChoicesDocument, options);
+      }
+export function useGetAllAsiChoicesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllAsiChoicesQuery, GetAllAsiChoicesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllAsiChoicesQuery, GetAllAsiChoicesQueryVariables>(GetAllAsiChoicesDocument, options);
+        }
+export type GetAllAsiChoicesQueryHookResult = ReturnType<typeof useGetAllAsiChoicesQuery>;
+export type GetAllAsiChoicesLazyQueryHookResult = ReturnType<typeof useGetAllAsiChoicesLazyQuery>;
+export type GetAllAsiChoicesQueryResult = Apollo.QueryResult<GetAllAsiChoicesQuery, GetAllAsiChoicesQueryVariables>;
 export const GetAllAsiSelectionsDocument = gql`
     query GetAllAsiSelections($characterId: UUID!, $asiFrom: AsiFromType) {
   allAsiSelecteds(condition: {characterId: $characterId, asiFrom: $asiFrom}) {
