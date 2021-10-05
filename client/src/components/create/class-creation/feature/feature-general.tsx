@@ -2,16 +2,17 @@ import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import classnames from 'classnames'
 import { numberToSpeakable } from '../../../../lib/utils'
 import {
-  GetAllSkillsSelectedQuery,
-  SkillLevelSel,
+  Character,
+  // GetAllSkillsSelectedQuery,
+  // SkillLevelSel,
   useFightingStyleByNameQuery,
-  useGetAllSkillsSelectedQuery,
+  // useGetAllSkillsSelectedQuery,
   useSubclassNamesByClassIdQuery,
   useUpdateCharacterMutation,
-  useCreateSkillSelectedMutation,
-  useUpdateSkillSelectedMutation,
-  useDeleteAllCharacterSkillsMutation,
-  useDeleteSkillSelectedMutation,
+  // useCreateSkillSelectedMutation,
+  // useUpdateSkillSelectedMutation,
+  // useDeleteAllCharacterSkillsMutation,
+  // useDeleteSkillSelectedMutation,
 } from '../../../../generated/graphql'
 import { EntryListType, EntryTableType } from '../../../shared/entries'
 import EntryExpertiseType from './shared/entry-expertise-type'
@@ -144,7 +145,7 @@ const SubclassOptionType: React.FC<SubclassProps> = ({
     })
     await refetchCharacter()
   }
-  
+
   return (
     <select
       className='w-full border rounded text-sm p-2'
@@ -180,7 +181,7 @@ interface Props {
     subclassId?: string
   }
   viewOnly?: boolean
-  character: any
+  character: Pick<Character, "subclassId" | "characterId" | "name" | "bgId" | "classId" | "description" | "raceId" | "subraceId" | "currentLevel"> | null
   refetchCharacter?: any
   skillsSel: any
 }
@@ -195,7 +196,7 @@ const FeatureGeneral: React.FC<Props> = ({
   const [detailsActive, toggleDetailActive] = useState(false)
   const [entries, setEntries] = useState([])
   const [allOptionsSelected, setAllOptionsSelected] = useState(false)
-
+  
   useEffect(() => {
     const parsed = JSON.parse(feature.entries).e
     setEntries(parsed)
@@ -204,11 +205,78 @@ const FeatureGeneral: React.FC<Props> = ({
   useEffect(() => {
     const subclassTest = entries?.filter((x: any) => x.type === 'subclass')
 
-    if (feature.hasOptions && character.subclassId && subclassTest.length) {
+    if (feature.hasOptions && character?.subclassId && subclassTest.length) {
       setAllOptionsSelected(true)
     }
-  }, [entries, character.subclassId, feature.hasOptions])
-  
+  }, [entries, character?.subclassId, feature.hasOptions])
+
+  const buildEntries = (entry: any, i: number) => {
+    if (typeof entry === 'string') {
+      return <StringType key={i} entry={entry} />
+    }
+    if (entry.type === 'skillOptions' && !viewOnly) {
+      return (
+        <SkillOptionType
+          key={i}
+          options={entry.options}
+          setAllOptionsSelected={setAllOptionsSelected}
+        />
+      )
+    }
+    if (entry.type === 'fightStyleOptions' && !viewOnly) {
+      return (
+        <FightOptionType
+          key={i}
+          options={entry.options}
+          setAllOptionsSelected={setAllOptionsSelected}
+        />
+      )
+    }
+
+    if (entry.type === 'subclass' && !viewOnly) {
+      return (
+        <SubclassOptionType
+          key={i}
+          classId={feature.classId}
+          subclassIdent={feature.name}
+          characterId={character?.characterId}
+          subclassId={character?.subclassId}
+          refetchCharacter={refetchCharacter}
+        />
+      )
+    }
+
+    if (entry.type === 'list') {
+      return <EntryListType key={i} entry={entry} />
+    }
+
+    if (entry.type === 'table') {
+      return <EntryTableType key={i} entry={entry} />
+    }
+
+    if (entry.type === 'expertiseSkillOptions' && !viewOnly) {
+      return (
+        <EntryExpertiseType
+          entry={entry}
+          characterId={character?.characterId}
+          skillsSel={skillsSel}
+          featId={feature.id}
+          classOrSubclass={'class'}
+          setAllOptionsSelected={setAllOptionsSelected}
+        />
+      )
+    }
+
+    if (entry.type === 'entries') {
+      return entry.entries.map((e: any, j: number) => buildEntries(e, j))
+    }
+    
+    console.log('TODO: ', entry.type)
+    console.log(entry)
+
+    return null
+  }
+
   return (
     <div className='relative'>
       {!viewOnly && feature.hasOptions && !allOptionsSelected ? (
@@ -224,7 +292,7 @@ const FeatureGeneral: React.FC<Props> = ({
                 feature.hasOptions && !allOptionsSelected && !viewOnly
                   ? true
                   : false,
-              border: allOptionsSelected || viewOnly
+              border: allOptionsSelected || viewOnly,
             })}
             onClick={() => toggleDetailActive(!detailsActive)}
           >
@@ -241,66 +309,7 @@ const FeatureGeneral: React.FC<Props> = ({
             })}
           >
             {entries.map((entry: any, i: number) => {
-              if (typeof entry === 'string') {
-                return <StringType key={i} entry={entry} />
-              }
-              if (entry.type === 'skillOptions' && !viewOnly) {
-                return (
-                  <SkillOptionType
-                    key={i}
-                    options={entry.options}
-                    setAllOptionsSelected={setAllOptionsSelected}
-                  />
-                )
-              }
-              if (entry.type === 'fightStyleOptions' && !viewOnly) {
-                return (
-                  <FightOptionType
-                    key={i}
-                    options={entry.options}
-                    setAllOptionsSelected={setAllOptionsSelected}
-                  />
-                )
-              }
-
-              if (entry.type === 'subclass' && !viewOnly) {
-                return (
-                  <SubclassOptionType
-                    key={i}
-                    classId={feature.classId}
-                    subclassIdent={feature.name}
-                    characterId={character.characterId}
-                    subclassId={character.subclassId}
-                    refetchCharacter={refetchCharacter}
-                  />
-                )
-              }
-
-              if (entry.type === 'list') {
-                return <EntryListType key={i} entry={entry} />
-              }
-
-              if (entry.type === 'table') {
-                return <EntryTableType key={i} entry={entry} />
-              }
-
-              if (entry.type === 'expertiseSkillOptions' && !viewOnly) {
-                return (
-                  <EntryExpertiseType
-                    entry={entry}
-                    characterId={character.characterId}
-                    skillsSel={skillsSel}
-                    featId={feature.id}
-                    classOrSubclass={'class'}
-                    setAllOptionsSelected={setAllOptionsSelected}
-                  />
-                )
-              }
-
-              console.log('TODO: ', entry.type)
-              console.log(entry)
-
-              return null
+              return buildEntries(entry, i)
             })}
           </div>
         </div>

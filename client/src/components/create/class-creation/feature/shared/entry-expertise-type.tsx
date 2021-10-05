@@ -24,7 +24,6 @@ interface EntryExpertiseTypeProps {
   classOrSubclass: 'class' | 'subclass'
   skillsSel: GetAllSkillsSelectedQuery
   setAllOptionsSelected: Dispatch<SetStateAction<boolean>>
-  viewOnly?: boolean
 }
 
 const EntryExpertiseType: React.FC<EntryExpertiseTypeProps> = ({
@@ -34,8 +33,8 @@ const EntryExpertiseType: React.FC<EntryExpertiseTypeProps> = ({
   classOrSubclass,
   skillsSel,
   setAllOptionsSelected,
-  viewOnly,
 }) => {
+  
   const emptyArray = Array(entry.options.choose.count).fill('x', 0)
   const [performCreate] = useCreateSkillSelectedMutation()
   const [performUpdate] = useUpdateSkillSelectedMutation()

@@ -720,6 +720,8 @@ export type Character = Node & {
   asiSelectedsByCharacterId: AsiSelectedsConnection;
   /** Reads and enables pagination through a set of `FeatSelected`. */
   featSelectedsByCharacterId: FeatSelectedsConnection;
+  /** Reads and enables pagination through a set of `SpellSelected`. */
+  spellSelectedsByCharacterId: SpellSelectedsConnection;
 };
 
 
@@ -775,6 +777,17 @@ export type CharacterFeatSelectedsByCharacterIdArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<FeatSelectedsOrderBy>>;
   condition?: Maybe<FeatSelectedCondition>;
+};
+
+
+export type CharacterSpellSelectedsByCharacterIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<SpellSelectedsOrderBy>>;
+  condition?: Maybe<SpellSelectedCondition>;
 };
 
 /**
@@ -2291,6 +2304,45 @@ export type CreateSpellPayloadSpellEdgeArgs = {
   orderBy?: Maybe<Array<SpellsOrderBy>>;
 };
 
+/** All input for the create `SpellSelected` mutation. */
+export type CreateSpellSelectedInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `SpellSelected` to be created by this mutation. */
+  spellSelected: SpellSelectedInput;
+};
+
+/** The output of our create `SpellSelected` mutation. */
+export type CreateSpellSelectedPayload = {
+  __typename?: 'CreateSpellSelectedPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `SpellSelected` that was created by this mutation. */
+  spellSelected?: Maybe<SpellSelected>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Minion` that is related to this `SpellSelected`. */
+  minionByUserId?: Maybe<Minion>;
+  /** Reads a single `Character` that is related to this `SpellSelected`. */
+  characterByCharacterId?: Maybe<Character>;
+  /** Reads a single `Spell` that is related to this `SpellSelected`. */
+  spellBySpellId?: Maybe<Spell>;
+  /** An edge for our `SpellSelected`. May be used by Relay 1. */
+  spellSelectedEdge?: Maybe<SpellSelectedsEdge>;
+};
+
+
+/** The output of our create `SpellSelected` mutation. */
+export type CreateSpellSelectedPayloadSpellSelectedEdgeArgs = {
+  orderBy?: Maybe<Array<SpellSelectedsOrderBy>>;
+};
+
 /** All input for the create `SpellSlug` mutation. */
 export type CreateSpellSlugInput = {
   /**
@@ -3688,6 +3740,56 @@ export type DeleteSpellPayloadSpellEdgeArgs = {
   orderBy?: Maybe<Array<SpellsOrderBy>>;
 };
 
+/** All input for the `deleteSpellSelectedBySpellSelId` mutation. */
+export type DeleteSpellSelectedBySpellSelIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  spellSelId: Scalars['UUID'];
+};
+
+/** All input for the `deleteSpellSelected` mutation. */
+export type DeleteSpellSelectedInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `SpellSelected` to be deleted. */
+  nodeId: Scalars['ID'];
+};
+
+/** The output of our delete `SpellSelected` mutation. */
+export type DeleteSpellSelectedPayload = {
+  __typename?: 'DeleteSpellSelectedPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `SpellSelected` that was deleted by this mutation. */
+  spellSelected?: Maybe<SpellSelected>;
+  deletedSpellSelectedId?: Maybe<Scalars['ID']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Minion` that is related to this `SpellSelected`. */
+  minionByUserId?: Maybe<Minion>;
+  /** Reads a single `Character` that is related to this `SpellSelected`. */
+  characterByCharacterId?: Maybe<Character>;
+  /** Reads a single `Spell` that is related to this `SpellSelected`. */
+  spellBySpellId?: Maybe<Spell>;
+  /** An edge for our `SpellSelected`. May be used by Relay 1. */
+  spellSelectedEdge?: Maybe<SpellSelectedsEdge>;
+};
+
+
+/** The output of our delete `SpellSelected` mutation. */
+export type DeleteSpellSelectedPayloadSpellSelectedEdgeArgs = {
+  orderBy?: Maybe<Array<SpellSelectedsOrderBy>>;
+};
+
 /** All input for the `deleteSpellSlugById` mutation. */
 export type DeleteSpellSlugByIdInput = {
   /**
@@ -4748,6 +4850,8 @@ export type Minion = Node & {
   asiSelectedsByUserId: AsiSelectedsConnection;
   /** Reads and enables pagination through a set of `FeatSelected`. */
   featSelectedsByUserId: FeatSelectedsConnection;
+  /** Reads and enables pagination through a set of `SpellSelected`. */
+  spellSelectedsByUserId: SpellSelectedsConnection;
 };
 
 
@@ -4825,6 +4929,17 @@ export type MinionFeatSelectedsByUserIdArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<FeatSelectedsOrderBy>>;
   condition?: Maybe<FeatSelectedCondition>;
+};
+
+
+export type MinionSpellSelectedsByUserIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<SpellSelectedsOrderBy>>;
+  condition?: Maybe<SpellSelectedCondition>;
 };
 
 /** A condition to be used against `Minion` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -4965,6 +5080,8 @@ export type Mutation = {
   createFightStyleSelected?: Maybe<CreateFightStyleSelectedPayload>;
   /** Creates a single `SkillsSelected`. */
   createSkillsSelected?: Maybe<CreateSkillsSelectedPayload>;
+  /** Creates a single `SpellSelected`. */
+  createSpellSelected?: Maybe<CreateSpellSelectedPayload>;
   /** Updates a single `Asi` using its globally unique id and a patch. */
   updateAsi?: Maybe<UpdateAsiPayload>;
   /** Updates a single `Asi` using a unique key and a patch. */
@@ -5069,6 +5186,10 @@ export type Mutation = {
   updateSkillsSelected?: Maybe<UpdateSkillsSelectedPayload>;
   /** Updates a single `SkillsSelected` using a unique key and a patch. */
   updateSkillsSelectedBySkillSelId?: Maybe<UpdateSkillsSelectedPayload>;
+  /** Updates a single `SpellSelected` using its globally unique id and a patch. */
+  updateSpellSelected?: Maybe<UpdateSpellSelectedPayload>;
+  /** Updates a single `SpellSelected` using a unique key and a patch. */
+  updateSpellSelectedBySpellSelId?: Maybe<UpdateSpellSelectedPayload>;
   /** Deletes a single `Asi` using its globally unique id. */
   deleteAsi?: Maybe<DeleteAsiPayload>;
   /** Deletes a single `Asi` using a unique key. */
@@ -5173,6 +5294,10 @@ export type Mutation = {
   deleteSkillsSelected?: Maybe<DeleteSkillsSelectedPayload>;
   /** Deletes a single `SkillsSelected` using a unique key. */
   deleteSkillsSelectedBySkillSelId?: Maybe<DeleteSkillsSelectedPayload>;
+  /** Deletes a single `SpellSelected` using its globally unique id. */
+  deleteSpellSelected?: Maybe<DeleteSpellSelectedPayload>;
+  /** Deletes a single `SpellSelected` using a unique key. */
+  deleteSpellSelectedBySpellSelId?: Maybe<DeleteSpellSelectedPayload>;
   signin?: Maybe<SigninPayload>;
   signup?: Maybe<SignupPayload>;
   deleteAllClassAsisById?: Maybe<DeleteAllClassAsisByIdPayload>;
@@ -5371,6 +5496,12 @@ export type MutationCreateFightStyleSelectedArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateSkillsSelectedArgs = {
   input: CreateSkillsSelectedInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateSpellSelectedArgs = {
+  input: CreateSpellSelectedInput;
 };
 
 
@@ -5687,6 +5818,18 @@ export type MutationUpdateSkillsSelectedBySkillSelIdArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateSpellSelectedArgs = {
+  input: UpdateSpellSelectedInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateSpellSelectedBySpellSelIdArgs = {
+  input: UpdateSpellSelectedBySpellSelIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteAsiArgs = {
   input: DeleteAsiInput;
 };
@@ -5999,6 +6142,18 @@ export type MutationDeleteSkillsSelectedBySkillSelIdArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteSpellSelectedArgs = {
+  input: DeleteSpellSelectedInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteSpellSelectedBySpellSelIdArgs = {
+  input: DeleteSpellSelectedBySpellSelIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationSigninArgs = {
   input: SigninInput;
 };
@@ -6128,6 +6283,8 @@ export type Query = Node & {
   allFightStyleSelecteds?: Maybe<FightStyleSelectedsConnection>;
   /** Reads and enables pagination through a set of `SkillsSelected`. */
   allSkillsSelecteds?: Maybe<SkillsSelectedsConnection>;
+  /** Reads and enables pagination through a set of `SpellSelected`. */
+  allSpellSelecteds?: Maybe<SpellSelectedsConnection>;
   asiByAsiId?: Maybe<Asi>;
   attributeById?: Maybe<Attribute>;
   bgFeatureById?: Maybe<BgFeature>;
@@ -6162,6 +6319,9 @@ export type Query = Node & {
   featSelectedByFeatSelId?: Maybe<FeatSelected>;
   fightStyleSelectedByFightStyleSelId?: Maybe<FightStyleSelected>;
   skillsSelectedBySkillSelId?: Maybe<SkillsSelected>;
+  spellSelectedBySpellSelId?: Maybe<SpellSelected>;
+  /** Reads and enables pagination through a set of `Spell`. */
+  getSpellsByClassName?: Maybe<SpellsConnection>;
   /** Reads a single `Asi` using its globally unique `ID`. */
   asi?: Maybe<Asi>;
   /** Reads a single `ClassFeature` using its globally unique `ID`. */
@@ -6198,6 +6358,8 @@ export type Query = Node & {
   fightStyleSelected?: Maybe<FightStyleSelected>;
   /** Reads a single `SkillsSelected` using its globally unique `ID`. */
   skillsSelected?: Maybe<SkillsSelected>;
+  /** Reads a single `SpellSelected` using its globally unique `ID`. */
+  spellSelected?: Maybe<SpellSelected>;
 };
 
 
@@ -6592,6 +6754,18 @@ export type QueryAllSkillsSelectedsArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
+export type QueryAllSpellSelectedsArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<SpellSelectedsOrderBy>>;
+  condition?: Maybe<SpellSelectedCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
 export type QueryAsiByAsiIdArgs = {
   asiId: Scalars['UUID'];
 };
@@ -6796,6 +6970,23 @@ export type QuerySkillsSelectedBySkillSelIdArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
+export type QuerySpellSelectedBySpellSelIdArgs = {
+  spellSelId: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryGetSpellsByClassNameArgs = {
+  className?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
 export type QueryAsiArgs = {
   nodeId: Scalars['ID'];
 };
@@ -6899,6 +7090,12 @@ export type QueryFightStyleSelectedArgs = {
 
 /** The root query type which gives access points into the data universe. */
 export type QuerySkillsSelectedArgs = {
+  nodeId: Scalars['ID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QuerySpellSelectedArgs = {
   nodeId: Scalars['ID'];
 };
 
@@ -7481,6 +7678,19 @@ export type Spell = {
   dndClass?: Maybe<Scalars['String']>;
   archetype?: Maybe<Scalars['String']>;
   circles?: Maybe<Scalars['String']>;
+  /** Reads and enables pagination through a set of `SpellSelected`. */
+  spellSelectedsBySpellId: SpellSelectedsConnection;
+};
+
+
+export type SpellSpellSelectedsBySpellIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<SpellSelectedsOrderBy>>;
+  condition?: Maybe<SpellSelectedCondition>;
 };
 
 /** A condition to be used against `Spell` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -7570,6 +7780,104 @@ export type SpellPatch = {
   archetype?: Maybe<Scalars['String']>;
   circles?: Maybe<Scalars['String']>;
 };
+
+export type SpellSelected = Node & {
+  __typename?: 'SpellSelected';
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID'];
+  spellSelId: Scalars['UUID'];
+  userId?: Maybe<Scalars['UUID']>;
+  characterId: Scalars['UUID'];
+  spellId: Scalars['UUID'];
+  spellBook?: Maybe<Scalars['Boolean']>;
+  prepared: Scalars['Boolean'];
+  /** Reads a single `Minion` that is related to this `SpellSelected`. */
+  minionByUserId?: Maybe<Minion>;
+  /** Reads a single `Character` that is related to this `SpellSelected`. */
+  characterByCharacterId?: Maybe<Character>;
+  /** Reads a single `Spell` that is related to this `SpellSelected`. */
+  spellBySpellId?: Maybe<Spell>;
+};
+
+/**
+ * A condition to be used against `SpellSelected` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type SpellSelectedCondition = {
+  /** Checks for equality with the object’s `spellSelId` field. */
+  spellSelId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `userId` field. */
+  userId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `characterId` field. */
+  characterId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `spellId` field. */
+  spellId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `spellBook` field. */
+  spellBook?: Maybe<Scalars['Boolean']>;
+  /** Checks for equality with the object’s `prepared` field. */
+  prepared?: Maybe<Scalars['Boolean']>;
+};
+
+/** An input for mutations affecting `SpellSelected` */
+export type SpellSelectedInput = {
+  spellSelId?: Maybe<Scalars['UUID']>;
+  userId?: Maybe<Scalars['UUID']>;
+  characterId: Scalars['UUID'];
+  spellId: Scalars['UUID'];
+  spellBook?: Maybe<Scalars['Boolean']>;
+  prepared: Scalars['Boolean'];
+};
+
+/** Represents an update to a `SpellSelected`. Fields that are set will be updated. */
+export type SpellSelectedPatch = {
+  spellSelId?: Maybe<Scalars['UUID']>;
+  userId?: Maybe<Scalars['UUID']>;
+  characterId?: Maybe<Scalars['UUID']>;
+  spellId?: Maybe<Scalars['UUID']>;
+  spellBook?: Maybe<Scalars['Boolean']>;
+  prepared?: Maybe<Scalars['Boolean']>;
+};
+
+/** A connection to a list of `SpellSelected` values. */
+export type SpellSelectedsConnection = {
+  __typename?: 'SpellSelectedsConnection';
+  /** A list of `SpellSelected` objects. */
+  nodes: Array<Maybe<SpellSelected>>;
+  /** A list of edges which contains the `SpellSelected` and cursor to aid in pagination. */
+  edges: Array<SpellSelectedsEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `SpellSelected` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `SpellSelected` edge in the connection. */
+export type SpellSelectedsEdge = {
+  __typename?: 'SpellSelectedsEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `SpellSelected` at the end of the edge. */
+  node?: Maybe<SpellSelected>;
+};
+
+/** Methods to use when ordering `SpellSelected`. */
+export enum SpellSelectedsOrderBy {
+  Natural = 'NATURAL',
+  SpellSelIdAsc = 'SPELL_SEL_ID_ASC',
+  SpellSelIdDesc = 'SPELL_SEL_ID_DESC',
+  UserIdAsc = 'USER_ID_ASC',
+  UserIdDesc = 'USER_ID_DESC',
+  CharacterIdAsc = 'CHARACTER_ID_ASC',
+  CharacterIdDesc = 'CHARACTER_ID_DESC',
+  SpellIdAsc = 'SPELL_ID_ASC',
+  SpellIdDesc = 'SPELL_ID_DESC',
+  SpellBookAsc = 'SPELL_BOOK_ASC',
+  SpellBookDesc = 'SPELL_BOOK_DESC',
+  PreparedAsc = 'PREPARED_ASC',
+  PreparedDesc = 'PREPARED_DESC',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
+}
 
 export type SpellSlug = {
   __typename?: 'SpellSlug';
@@ -9399,6 +9707,59 @@ export type UpdateSpellPayloadSpellEdgeArgs = {
   orderBy?: Maybe<Array<SpellsOrderBy>>;
 };
 
+/** All input for the `updateSpellSelectedBySpellSelId` mutation. */
+export type UpdateSpellSelectedBySpellSelIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `SpellSelected` being updated. */
+  spellSelectedPatch: SpellSelectedPatch;
+  spellSelId: Scalars['UUID'];
+};
+
+/** All input for the `updateSpellSelected` mutation. */
+export type UpdateSpellSelectedInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `SpellSelected` to be updated. */
+  nodeId: Scalars['ID'];
+  /** An object where the defined keys will be set on the `SpellSelected` being updated. */
+  spellSelectedPatch: SpellSelectedPatch;
+};
+
+/** The output of our update `SpellSelected` mutation. */
+export type UpdateSpellSelectedPayload = {
+  __typename?: 'UpdateSpellSelectedPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `SpellSelected` that was updated by this mutation. */
+  spellSelected?: Maybe<SpellSelected>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Minion` that is related to this `SpellSelected`. */
+  minionByUserId?: Maybe<Minion>;
+  /** Reads a single `Character` that is related to this `SpellSelected`. */
+  characterByCharacterId?: Maybe<Character>;
+  /** Reads a single `Spell` that is related to this `SpellSelected`. */
+  spellBySpellId?: Maybe<Spell>;
+  /** An edge for our `SpellSelected`. May be used by Relay 1. */
+  spellSelectedEdge?: Maybe<SpellSelectedsEdge>;
+};
+
+
+/** The output of our update `SpellSelected` mutation. */
+export type UpdateSpellSelectedPayloadSpellSelectedEdgeArgs = {
+  orderBy?: Maybe<Array<SpellSelectedsOrderBy>>;
+};
+
 /** All input for the `updateSpellSlugById` mutation. */
 export type UpdateSpellSlugByIdInput = {
   /**
@@ -9813,6 +10174,23 @@ export type CreateFeatBaseSelMutation = (
   )> }
 );
 
+export type CreateFightStyleMutationVariables = Exact<{
+  characterId: Scalars['UUID'];
+  fightStyleId: Scalars['UUID'];
+}>;
+
+
+export type CreateFightStyleMutation = (
+  { __typename?: 'Mutation' }
+  & { createFightStyleSelected?: Maybe<(
+    { __typename?: 'CreateFightStyleSelectedPayload' }
+    & { fightStyleSelected?: Maybe<(
+      { __typename?: 'FightStyleSelected' }
+      & Pick<FightStyleSelected, 'fightStyleId'>
+    )> }
+  )> }
+);
+
 export type CreateSkillSelectedMutationVariables = Exact<{
   skillId: Scalars['UUID'];
   characterId: Scalars['UUID'];
@@ -9830,6 +10208,25 @@ export type CreateSkillSelectedMutation = (
     & { skillsSelected?: Maybe<(
       { __typename?: 'SkillsSelected' }
       & Pick<SkillsSelected, 'skillSelId'>
+    )> }
+  )> }
+);
+
+export type CreateSpellSelectedMutationVariables = Exact<{
+  characterId: Scalars['UUID'];
+  spellId: Scalars['UUID'];
+  spellBook?: Maybe<Scalars['Boolean']>;
+  prepared: Scalars['Boolean'];
+}>;
+
+
+export type CreateSpellSelectedMutation = (
+  { __typename?: 'Mutation' }
+  & { createSpellSelected?: Maybe<(
+    { __typename?: 'CreateSpellSelectedPayload' }
+    & { spellSelected?: Maybe<(
+      { __typename?: 'SpellSelected' }
+      & Pick<SpellSelected, 'spellSelId'>
     )> }
   )> }
 );
@@ -9905,6 +10302,22 @@ export type DeleteFeatSelByIdMutation = (
   )> }
 );
 
+export type DeleteFightStyleMutationVariables = Exact<{
+  fightStyleSelId: Scalars['UUID'];
+}>;
+
+
+export type DeleteFightStyleMutation = (
+  { __typename?: 'Mutation' }
+  & { deleteFightStyleSelectedByFightStyleSelId?: Maybe<(
+    { __typename?: 'DeleteFightStyleSelectedPayload' }
+    & { fightStyleSelected?: Maybe<(
+      { __typename?: 'FightStyleSelected' }
+      & Pick<FightStyleSelected, 'fightStyleSelId'>
+    )> }
+  )> }
+);
+
 export type DeleteAsiSelByCharIdMutationVariables = Exact<{
   characterId: Scalars['UUID'];
 }>;
@@ -9930,6 +10343,22 @@ export type DeleteSkillSelectedMutation = (
     & { skillsSelected?: Maybe<(
       { __typename?: 'SkillsSelected' }
       & Pick<SkillsSelected, 'skillSelId'>
+    )> }
+  )> }
+);
+
+export type DeleteSpellSelectedMutationVariables = Exact<{
+  spellSelId: Scalars['UUID'];
+}>;
+
+
+export type DeleteSpellSelectedMutation = (
+  { __typename?: 'Mutation' }
+  & { deleteSpellSelectedBySpellSelId?: Maybe<(
+    { __typename?: 'DeleteSpellSelectedPayload' }
+    & { spellSelected?: Maybe<(
+      { __typename?: 'SpellSelected' }
+      & Pick<SpellSelected, 'spellSelId'>
     )> }
   )> }
 );
@@ -10044,6 +10473,23 @@ export type UpdateFeatSelectedByIdMutation = (
   )> }
 );
 
+export type UpdateFightStyleMutationVariables = Exact<{
+  fightStyleSelId: Scalars['UUID'];
+  fightStyleId: Scalars['UUID'];
+}>;
+
+
+export type UpdateFightStyleMutation = (
+  { __typename?: 'Mutation' }
+  & { updateFightStyleSelectedByFightStyleSelId?: Maybe<(
+    { __typename?: 'UpdateFightStyleSelectedPayload' }
+    & { fightStyleSelected?: Maybe<(
+      { __typename?: 'FightStyleSelected' }
+      & Pick<FightStyleSelected, 'fightStyleId'>
+    )> }
+  )> }
+);
+
 export type UpdateSkillSelectedMutationVariables = Exact<{
   skillId?: Maybe<Scalars['UUID']>;
   level?: Maybe<SkillLevelSel>;
@@ -10061,6 +10507,23 @@ export type UpdateSkillSelectedMutation = (
     & { skillsSelected?: Maybe<(
       { __typename?: 'SkillsSelected' }
       & Pick<SkillsSelected, 'skillSelId'>
+    )> }
+  )> }
+);
+
+export type UpdateSpellSelectedMutationVariables = Exact<{
+  spellSelId: Scalars['UUID'];
+  prepared: Scalars['Boolean'];
+}>;
+
+
+export type UpdateSpellSelectedMutation = (
+  { __typename?: 'Mutation' }
+  & { updateSpellSelectedBySpellSelId?: Maybe<(
+    { __typename?: 'UpdateSpellSelectedPayload' }
+    & { spellSelected?: Maybe<(
+      { __typename?: 'SpellSelected' }
+      & Pick<SpellSelected, 'spellSelId'>
     )> }
   )> }
 );
@@ -10374,6 +10837,22 @@ export type GetAllSkillsSelectedQuery = (
   )> }
 );
 
+export type GetAllSpellsSelectedQueryVariables = Exact<{
+  characterId: Scalars['UUID'];
+}>;
+
+
+export type GetAllSpellsSelectedQuery = (
+  { __typename?: 'Query' }
+  & { allSpellSelecteds?: Maybe<(
+    { __typename?: 'SpellSelectedsConnection' }
+    & { nodes: Array<Maybe<(
+      { __typename?: 'SpellSelected' }
+      & Pick<SpellSelected, 'spellSelId' | 'spellId' | 'spellBook' | 'prepared'>
+    )>> }
+  )> }
+);
+
 export type GetAllSpellsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -10483,7 +10962,23 @@ export type GetCharacterByIdQuery = (
   { __typename?: 'Query' }
   & { characterByCharacterId?: Maybe<(
     { __typename?: 'Character' }
-    & Pick<Character, 'characterId' | 'name' | 'subraceId' | 'subclassId' | 'classId' | 'raceId' | 'description' | 'bgId' | 'currentLevel'>
+    & Pick<Character, 'nodeId' | 'characterId' | 'name' | 'subraceId' | 'subclassId' | 'classId' | 'raceId' | 'description' | 'bgId' | 'currentLevel'>
+  )> }
+);
+
+export type GetSpellsByClassNameQueryVariables = Exact<{
+  className: Scalars['String'];
+}>;
+
+
+export type GetSpellsByClassNameQuery = (
+  { __typename?: 'Query' }
+  & { getSpellsByClassName?: Maybe<(
+    { __typename?: 'SpellsConnection' }
+    & { nodes: Array<Maybe<(
+      { __typename?: 'Spell' }
+      & Pick<Spell, 'id' | 'archetype' | 'castingTime' | 'circles' | 'components' | 'concentration' | 'desc' | 'dndClass' | 'duration' | 'higherLevel' | 'levelInt' | 'level' | 'material' | 'name' | 'page' | 'range' | 'ritual' | 'school' | 'slug'>
+    )>> }
   )> }
 );
 
@@ -10667,6 +11162,44 @@ export function useCreateFeatBaseSelMutation(baseOptions?: Apollo.MutationHookOp
 export type CreateFeatBaseSelMutationHookResult = ReturnType<typeof useCreateFeatBaseSelMutation>;
 export type CreateFeatBaseSelMutationResult = Apollo.MutationResult<CreateFeatBaseSelMutation>;
 export type CreateFeatBaseSelMutationOptions = Apollo.BaseMutationOptions<CreateFeatBaseSelMutation, CreateFeatBaseSelMutationVariables>;
+export const CreateFightStyleDocument = gql`
+    mutation CreateFightStyle($characterId: UUID!, $fightStyleId: UUID!) {
+  createFightStyleSelected(
+    input: {fightStyleSelected: {characterId: $characterId, fightStyleId: $fightStyleId}}
+  ) {
+    fightStyleSelected {
+      fightStyleId
+    }
+  }
+}
+    `;
+export type CreateFightStyleMutationFn = Apollo.MutationFunction<CreateFightStyleMutation, CreateFightStyleMutationVariables>;
+
+/**
+ * __useCreateFightStyleMutation__
+ *
+ * To run a mutation, you first call `useCreateFightStyleMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateFightStyleMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createFightStyleMutation, { data, loading, error }] = useCreateFightStyleMutation({
+ *   variables: {
+ *      characterId: // value for 'characterId'
+ *      fightStyleId: // value for 'fightStyleId'
+ *   },
+ * });
+ */
+export function useCreateFightStyleMutation(baseOptions?: Apollo.MutationHookOptions<CreateFightStyleMutation, CreateFightStyleMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreateFightStyleMutation, CreateFightStyleMutationVariables>(CreateFightStyleDocument, options);
+      }
+export type CreateFightStyleMutationHookResult = ReturnType<typeof useCreateFightStyleMutation>;
+export type CreateFightStyleMutationResult = Apollo.MutationResult<CreateFightStyleMutation>;
+export type CreateFightStyleMutationOptions = Apollo.BaseMutationOptions<CreateFightStyleMutation, CreateFightStyleMutationVariables>;
 export const CreateSkillSelectedDocument = gql`
     mutation CreateSkillSelected($skillId: UUID!, $characterId: UUID!, $level: SkillLevelSel, $classFeatId: UUID, $subclassFeatId: UUID, $grantedByStartingProf: Boolean) {
   createSkillsSelected(
@@ -10709,6 +11242,46 @@ export function useCreateSkillSelectedMutation(baseOptions?: Apollo.MutationHook
 export type CreateSkillSelectedMutationHookResult = ReturnType<typeof useCreateSkillSelectedMutation>;
 export type CreateSkillSelectedMutationResult = Apollo.MutationResult<CreateSkillSelectedMutation>;
 export type CreateSkillSelectedMutationOptions = Apollo.BaseMutationOptions<CreateSkillSelectedMutation, CreateSkillSelectedMutationVariables>;
+export const CreateSpellSelectedDocument = gql`
+    mutation CreateSpellSelected($characterId: UUID!, $spellId: UUID!, $spellBook: Boolean, $prepared: Boolean!) {
+  createSpellSelected(
+    input: {spellSelected: {characterId: $characterId, spellId: $spellId, spellBook: $spellBook, prepared: $prepared}}
+  ) {
+    spellSelected {
+      spellSelId
+    }
+  }
+}
+    `;
+export type CreateSpellSelectedMutationFn = Apollo.MutationFunction<CreateSpellSelectedMutation, CreateSpellSelectedMutationVariables>;
+
+/**
+ * __useCreateSpellSelectedMutation__
+ *
+ * To run a mutation, you first call `useCreateSpellSelectedMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateSpellSelectedMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createSpellSelectedMutation, { data, loading, error }] = useCreateSpellSelectedMutation({
+ *   variables: {
+ *      characterId: // value for 'characterId'
+ *      spellId: // value for 'spellId'
+ *      spellBook: // value for 'spellBook'
+ *      prepared: // value for 'prepared'
+ *   },
+ * });
+ */
+export function useCreateSpellSelectedMutation(baseOptions?: Apollo.MutationHookOptions<CreateSpellSelectedMutation, CreateSpellSelectedMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreateSpellSelectedMutation, CreateSpellSelectedMutationVariables>(CreateSpellSelectedDocument, options);
+      }
+export type CreateSpellSelectedMutationHookResult = ReturnType<typeof useCreateSpellSelectedMutation>;
+export type CreateSpellSelectedMutationResult = Apollo.MutationResult<CreateSpellSelectedMutation>;
+export type CreateSpellSelectedMutationOptions = Apollo.BaseMutationOptions<CreateSpellSelectedMutation, CreateSpellSelectedMutationVariables>;
 export const DeleteAllCharacterAsiSelsDocument = gql`
     mutation DeleteAllCharacterAsiSels($characterId: UUID!) {
   deleteAllClassSkillsById(input: {characterId: $characterId}) {
@@ -10878,6 +11451,43 @@ export function useDeleteFeatSelByIdMutation(baseOptions?: Apollo.MutationHookOp
 export type DeleteFeatSelByIdMutationHookResult = ReturnType<typeof useDeleteFeatSelByIdMutation>;
 export type DeleteFeatSelByIdMutationResult = Apollo.MutationResult<DeleteFeatSelByIdMutation>;
 export type DeleteFeatSelByIdMutationOptions = Apollo.BaseMutationOptions<DeleteFeatSelByIdMutation, DeleteFeatSelByIdMutationVariables>;
+export const DeleteFightStyleDocument = gql`
+    mutation DeleteFightStyle($fightStyleSelId: UUID!) {
+  deleteFightStyleSelectedByFightStyleSelId(
+    input: {fightStyleSelId: $fightStyleSelId}
+  ) {
+    fightStyleSelected {
+      fightStyleSelId
+    }
+  }
+}
+    `;
+export type DeleteFightStyleMutationFn = Apollo.MutationFunction<DeleteFightStyleMutation, DeleteFightStyleMutationVariables>;
+
+/**
+ * __useDeleteFightStyleMutation__
+ *
+ * To run a mutation, you first call `useDeleteFightStyleMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteFightStyleMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteFightStyleMutation, { data, loading, error }] = useDeleteFightStyleMutation({
+ *   variables: {
+ *      fightStyleSelId: // value for 'fightStyleSelId'
+ *   },
+ * });
+ */
+export function useDeleteFightStyleMutation(baseOptions?: Apollo.MutationHookOptions<DeleteFightStyleMutation, DeleteFightStyleMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<DeleteFightStyleMutation, DeleteFightStyleMutationVariables>(DeleteFightStyleDocument, options);
+      }
+export type DeleteFightStyleMutationHookResult = ReturnType<typeof useDeleteFightStyleMutation>;
+export type DeleteFightStyleMutationResult = Apollo.MutationResult<DeleteFightStyleMutation>;
+export type DeleteFightStyleMutationOptions = Apollo.BaseMutationOptions<DeleteFightStyleMutation, DeleteFightStyleMutationVariables>;
 export const DeleteAsiSelByCharIdDocument = gql`
     mutation DeleteAsiSelByCharId($characterId: UUID!) {
   deleteAllRaceAsiSelByCharacterId(input: {characterId: $characterId}) {
@@ -10946,6 +11556,41 @@ export function useDeleteSkillSelectedMutation(baseOptions?: Apollo.MutationHook
 export type DeleteSkillSelectedMutationHookResult = ReturnType<typeof useDeleteSkillSelectedMutation>;
 export type DeleteSkillSelectedMutationResult = Apollo.MutationResult<DeleteSkillSelectedMutation>;
 export type DeleteSkillSelectedMutationOptions = Apollo.BaseMutationOptions<DeleteSkillSelectedMutation, DeleteSkillSelectedMutationVariables>;
+export const DeleteSpellSelectedDocument = gql`
+    mutation DeleteSpellSelected($spellSelId: UUID!) {
+  deleteSpellSelectedBySpellSelId(input: {spellSelId: $spellSelId}) {
+    spellSelected {
+      spellSelId
+    }
+  }
+}
+    `;
+export type DeleteSpellSelectedMutationFn = Apollo.MutationFunction<DeleteSpellSelectedMutation, DeleteSpellSelectedMutationVariables>;
+
+/**
+ * __useDeleteSpellSelectedMutation__
+ *
+ * To run a mutation, you first call `useDeleteSpellSelectedMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteSpellSelectedMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteSpellSelectedMutation, { data, loading, error }] = useDeleteSpellSelectedMutation({
+ *   variables: {
+ *      spellSelId: // value for 'spellSelId'
+ *   },
+ * });
+ */
+export function useDeleteSpellSelectedMutation(baseOptions?: Apollo.MutationHookOptions<DeleteSpellSelectedMutation, DeleteSpellSelectedMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<DeleteSpellSelectedMutation, DeleteSpellSelectedMutationVariables>(DeleteSpellSelectedDocument, options);
+      }
+export type DeleteSpellSelectedMutationHookResult = ReturnType<typeof useDeleteSpellSelectedMutation>;
+export type DeleteSpellSelectedMutationResult = Apollo.MutationResult<DeleteSpellSelectedMutation>;
+export type DeleteSpellSelectedMutationOptions = Apollo.BaseMutationOptions<DeleteSpellSelectedMutation, DeleteSpellSelectedMutationVariables>;
 export const SigninDocument = gql`
     mutation Signin($username: String!, $password: String!) {
   signin(input: {username: $username, password: $password}) {
@@ -11180,6 +11825,44 @@ export function useUpdateFeatSelectedByIdMutation(baseOptions?: Apollo.MutationH
 export type UpdateFeatSelectedByIdMutationHookResult = ReturnType<typeof useUpdateFeatSelectedByIdMutation>;
 export type UpdateFeatSelectedByIdMutationResult = Apollo.MutationResult<UpdateFeatSelectedByIdMutation>;
 export type UpdateFeatSelectedByIdMutationOptions = Apollo.BaseMutationOptions<UpdateFeatSelectedByIdMutation, UpdateFeatSelectedByIdMutationVariables>;
+export const UpdateFightStyleDocument = gql`
+    mutation UpdateFightStyle($fightStyleSelId: UUID!, $fightStyleId: UUID!) {
+  updateFightStyleSelectedByFightStyleSelId(
+    input: {fightStyleSelId: $fightStyleSelId, fightStyleSelectedPatch: {fightStyleId: $fightStyleId}}
+  ) {
+    fightStyleSelected {
+      fightStyleId
+    }
+  }
+}
+    `;
+export type UpdateFightStyleMutationFn = Apollo.MutationFunction<UpdateFightStyleMutation, UpdateFightStyleMutationVariables>;
+
+/**
+ * __useUpdateFightStyleMutation__
+ *
+ * To run a mutation, you first call `useUpdateFightStyleMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateFightStyleMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateFightStyleMutation, { data, loading, error }] = useUpdateFightStyleMutation({
+ *   variables: {
+ *      fightStyleSelId: // value for 'fightStyleSelId'
+ *      fightStyleId: // value for 'fightStyleId'
+ *   },
+ * });
+ */
+export function useUpdateFightStyleMutation(baseOptions?: Apollo.MutationHookOptions<UpdateFightStyleMutation, UpdateFightStyleMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<UpdateFightStyleMutation, UpdateFightStyleMutationVariables>(UpdateFightStyleDocument, options);
+      }
+export type UpdateFightStyleMutationHookResult = ReturnType<typeof useUpdateFightStyleMutation>;
+export type UpdateFightStyleMutationResult = Apollo.MutationResult<UpdateFightStyleMutation>;
+export type UpdateFightStyleMutationOptions = Apollo.BaseMutationOptions<UpdateFightStyleMutation, UpdateFightStyleMutationVariables>;
 export const UpdateSkillSelectedDocument = gql`
     mutation UpdateSkillSelected($skillId: UUID, $level: SkillLevelSel, $classFeatId: UUID, $subclassFeatId: UUID, $grantedByStartingProf: Boolean, $skillSelId: UUID!) {
   updateSkillsSelectedBySkillSelId(
@@ -11222,6 +11905,44 @@ export function useUpdateSkillSelectedMutation(baseOptions?: Apollo.MutationHook
 export type UpdateSkillSelectedMutationHookResult = ReturnType<typeof useUpdateSkillSelectedMutation>;
 export type UpdateSkillSelectedMutationResult = Apollo.MutationResult<UpdateSkillSelectedMutation>;
 export type UpdateSkillSelectedMutationOptions = Apollo.BaseMutationOptions<UpdateSkillSelectedMutation, UpdateSkillSelectedMutationVariables>;
+export const UpdateSpellSelectedDocument = gql`
+    mutation UpdateSpellSelected($spellSelId: UUID!, $prepared: Boolean!) {
+  updateSpellSelectedBySpellSelId(
+    input: {spellSelId: $spellSelId, spellSelectedPatch: {prepared: $prepared}}
+  ) {
+    spellSelected {
+      spellSelId
+    }
+  }
+}
+    `;
+export type UpdateSpellSelectedMutationFn = Apollo.MutationFunction<UpdateSpellSelectedMutation, UpdateSpellSelectedMutationVariables>;
+
+/**
+ * __useUpdateSpellSelectedMutation__
+ *
+ * To run a mutation, you first call `useUpdateSpellSelectedMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateSpellSelectedMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateSpellSelectedMutation, { data, loading, error }] = useUpdateSpellSelectedMutation({
+ *   variables: {
+ *      spellSelId: // value for 'spellSelId'
+ *      prepared: // value for 'prepared'
+ *   },
+ * });
+ */
+export function useUpdateSpellSelectedMutation(baseOptions?: Apollo.MutationHookOptions<UpdateSpellSelectedMutation, UpdateSpellSelectedMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<UpdateSpellSelectedMutation, UpdateSpellSelectedMutationVariables>(UpdateSpellSelectedDocument, options);
+      }
+export type UpdateSpellSelectedMutationHookResult = ReturnType<typeof useUpdateSpellSelectedMutation>;
+export type UpdateSpellSelectedMutationResult = Apollo.MutationResult<UpdateSpellSelectedMutation>;
+export type UpdateSpellSelectedMutationOptions = Apollo.BaseMutationOptions<UpdateSpellSelectedMutation, UpdateSpellSelectedMutationVariables>;
 export const GetAllAsiSelectionsDocument = gql`
     query GetAllAsiSelections($characterId: UUID!, $asiFrom: AsiFromType) {
   allAsiSelecteds(condition: {characterId: $characterId, asiFrom: $asiFrom}) {
@@ -11950,6 +12671,46 @@ export function useGetAllSkillsSelectedLazyQuery(baseOptions?: Apollo.LazyQueryH
 export type GetAllSkillsSelectedQueryHookResult = ReturnType<typeof useGetAllSkillsSelectedQuery>;
 export type GetAllSkillsSelectedLazyQueryHookResult = ReturnType<typeof useGetAllSkillsSelectedLazyQuery>;
 export type GetAllSkillsSelectedQueryResult = Apollo.QueryResult<GetAllSkillsSelectedQuery, GetAllSkillsSelectedQueryVariables>;
+export const GetAllSpellsSelectedDocument = gql`
+    query GetAllSpellsSelected($characterId: UUID!) {
+  allSpellSelecteds(condition: {characterId: $characterId}) {
+    nodes {
+      spellSelId
+      spellId
+      spellBook
+      prepared
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetAllSpellsSelectedQuery__
+ *
+ * To run a query within a React component, call `useGetAllSpellsSelectedQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllSpellsSelectedQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAllSpellsSelectedQuery({
+ *   variables: {
+ *      characterId: // value for 'characterId'
+ *   },
+ * });
+ */
+export function useGetAllSpellsSelectedQuery(baseOptions: Apollo.QueryHookOptions<GetAllSpellsSelectedQuery, GetAllSpellsSelectedQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAllSpellsSelectedQuery, GetAllSpellsSelectedQueryVariables>(GetAllSpellsSelectedDocument, options);
+      }
+export function useGetAllSpellsSelectedLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllSpellsSelectedQuery, GetAllSpellsSelectedQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAllSpellsSelectedQuery, GetAllSpellsSelectedQueryVariables>(GetAllSpellsSelectedDocument, options);
+        }
+export type GetAllSpellsSelectedQueryHookResult = ReturnType<typeof useGetAllSpellsSelectedQuery>;
+export type GetAllSpellsSelectedLazyQueryHookResult = ReturnType<typeof useGetAllSpellsSelectedLazyQuery>;
+export type GetAllSpellsSelectedQueryResult = Apollo.QueryResult<GetAllSpellsSelectedQuery, GetAllSpellsSelectedQueryVariables>;
 export const GetAllSpellsDocument = gql`
     query GetAllSpells {
   allSpells {
@@ -12246,6 +13007,7 @@ export type FightingStyleByNameQueryResult = Apollo.QueryResult<FightingStyleByN
 export const GetCharacterByIdDocument = gql`
     query GetCharacterById($characterId: UUID!) {
   characterByCharacterId(characterId: $characterId) {
+    nodeId
     characterId
     name
     subraceId
@@ -12286,6 +13048,61 @@ export function useGetCharacterByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookO
 export type GetCharacterByIdQueryHookResult = ReturnType<typeof useGetCharacterByIdQuery>;
 export type GetCharacterByIdLazyQueryHookResult = ReturnType<typeof useGetCharacterByIdLazyQuery>;
 export type GetCharacterByIdQueryResult = Apollo.QueryResult<GetCharacterByIdQuery, GetCharacterByIdQueryVariables>;
+export const GetSpellsByClassNameDocument = gql`
+    query GetSpellsByClassName($className: String!) {
+  getSpellsByClassName(className: $className) {
+    nodes {
+      id
+      archetype
+      castingTime
+      circles
+      components
+      concentration
+      desc
+      dndClass
+      duration
+      higherLevel
+      levelInt
+      level
+      material
+      name
+      page
+      range
+      ritual
+      school
+      slug
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetSpellsByClassNameQuery__
+ *
+ * To run a query within a React component, call `useGetSpellsByClassNameQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetSpellsByClassNameQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetSpellsByClassNameQuery({
+ *   variables: {
+ *      className: // value for 'className'
+ *   },
+ * });
+ */
+export function useGetSpellsByClassNameQuery(baseOptions: Apollo.QueryHookOptions<GetSpellsByClassNameQuery, GetSpellsByClassNameQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetSpellsByClassNameQuery, GetSpellsByClassNameQueryVariables>(GetSpellsByClassNameDocument, options);
+      }
+export function useGetSpellsByClassNameLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetSpellsByClassNameQuery, GetSpellsByClassNameQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetSpellsByClassNameQuery, GetSpellsByClassNameQueryVariables>(GetSpellsByClassNameDocument, options);
+        }
+export type GetSpellsByClassNameQueryHookResult = ReturnType<typeof useGetSpellsByClassNameQuery>;
+export type GetSpellsByClassNameLazyQueryHookResult = ReturnType<typeof useGetSpellsByClassNameLazyQuery>;
+export type GetSpellsByClassNameQueryResult = Apollo.QueryResult<GetSpellsByClassNameQuery, GetSpellsByClassNameQueryVariables>;
 export const SubclassNamesByClassIdDocument = gql`
     query SubclassNamesByClassId($classId: UUID!) {
   query {

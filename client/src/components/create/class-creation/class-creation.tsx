@@ -23,7 +23,7 @@ const ClassCreation: React.FC = () => {
       setClassSelected('empty')
     }
     
-  }, [char?.characterByCharacterId?.classId, classes?.allClasses?.nodes])
+  }, [char?.characterByCharacterId, classes?.allClasses?.nodes])
 
   const handleClassSelection = async (c: any) => {
     setClassSelected(c)
@@ -38,6 +38,10 @@ const ClassCreation: React.FC = () => {
 
   if (loading || charLoading || !char || !classSelected) {
     return <div>...Loading</div>
+  }
+
+  if (char.characterByCharacterId === undefined) {
+    return null
   }
 
   if (classSelected === 'empty' && classes) {

@@ -282,7 +282,7 @@ const CharDescript: React.FC = () => {
 
   const handleNameUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (char?.characterByCharacterId?.name === name) {
-      return null
+      return
     }
 
     performUpdate({

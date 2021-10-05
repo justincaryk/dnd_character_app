@@ -12872,6 +12872,7 @@ exports.seed = knex => (
                     subclass_id: 'e0e15786-094a-46bb-9bed-75bf9d5d3325',
                     subclass_source: 'PHB',
                     level: 1,
+                    has_options: true,
                     entries: {
                         e: [
                             'At 1st level, you learn two languages of your choice. You also become proficient in your choice of two of the following skills: Arcana, History, Nature, or Religion.',

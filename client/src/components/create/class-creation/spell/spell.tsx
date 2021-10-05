@@ -1,9 +1,6 @@
+import classnames from 'classnames'
 import React, { useState } from 'react'
-import { SpellType } from '../../../lib/types'
-
-interface Props {
-  rawSpell: SpellType
-}
+import { Spell } from '../../../../generated/graphql'
 
 const formatSpell = (spell: any) => {
   const range = JSON.parse(spell.range)
@@ -14,7 +11,7 @@ const formatSpell = (spell: any) => {
 
 const buildDescTypeEntries = (desc: any) => {
   return (
-    <div className='label-text-pair-outer space-y-4' key={_getRandoNum()}>
+    <div className='flex gap-x-2 space-y-4' key={_getRandoNum()}>
       <div>{desc.name}.</div>
       {desc.entries.map((entry: any) => {
         if (typeof entry == 'string') {
@@ -143,7 +140,7 @@ const buildDescTypeTable = (desc: any) => {
 const buildHigherLevelHtml = (higherLevel: string) => {
   if (higherLevel) {
     return (
-      <div className='label-text-pair-outer'>
+      <div className='flex gap-x-2'>
         <div>At Higher Levels.</div>
         <div>{higherLevel}</div>
       </div>
@@ -179,7 +176,27 @@ const buildSpellDescriptHtml = (spell: any) => {
   return <div className='space-y-4'>{htmlDescriptChunkInner}</div>
 }
 
-const Spell: React.FC<Props> = ({ rawSpell }) => {
+interface Props {
+  rawSpell: Spell
+  isKnown: boolean
+  onLearnClick: (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    spellId: string
+  ) => void
+  onRemoveClick: (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    spellId: string
+  ) => void
+  viewOnly?: boolean
+}
+
+const SpellBlock: React.FC<Props> = ({
+  rawSpell,
+  isKnown,
+  onLearnClick,
+  onRemoveClick,
+  viewOnly,
+}) => {
   const [detailsActive, setDetailsActive] = useState<boolean>(false)
   const [spell] = useState(formatSpell(rawSpell))
 
@@ -214,15 +231,18 @@ const Spell: React.FC<Props> = ({ rawSpell }) => {
   if (!rawSpell) {
     return null
   }
-  
+
   return (
     <div className='bg-white text-sm'>
       <div
-        className='spell-preview flex justify-between items-center'
+        className={classnames({
+          'flex justify-between items-center hover:bg-cream p-2 border': true,
+          'bg-cream': detailsActive,
+        })}
         onClick={() => setDetailsActive(!detailsActive)}
       >
         <div>
-          <div className='spell-preview-name'>{spell.name}</div>
+          <div className='font-bold text-sm'>{spell.name}</div>
           <div className='spell-preview-subhead'>
             {spell.level}{' '}
             {spell.concentration === true ? (
@@ -232,39 +252,62 @@ const Spell: React.FC<Props> = ({ rawSpell }) => {
             )}
           </div>
         </div>
-        <span className='text-3xl text-green-400 font-bold'>
-          {detailsActive === false ? '+' : '-'}
-        </span>
+        <div className='flex items-center gap-x-4'>
+          {!viewOnly ? (
+            <div>
+              {isKnown ? (
+                <button
+                  className='p-1 text-xs uppercase text-red-400 border-1 font-roboto border-red-400'
+                  onClick={(e) => onRemoveClick(e, spell.id)}
+                >
+                  Remove
+                </button>
+              ) : (
+                <button
+                  className='p-1 text-xs uppercase text-green-400 border-1 font-roboto border-green-400'
+                  onClick={(e) => onLearnClick(e, spell.id)}
+                >
+                  Learn
+                </button>
+              )}
+            </div>
+          ) : null}
+
+          <div className='text-3xl text-gray-600 font-bold cursor-pointer mb-2'>
+            {detailsActive === false ? '+' : '-'}
+          </div>
+        </div>
       </div>
       <div
-        className={
-          detailsActive ? 'spell-detail active space-y-4' : 'spell-detail'
-        }
+        className={classnames({
+          'space-y-4 p-2 border': true,
+          hidden: !detailsActive,
+        })}
       >
-        <div className='italic-lead'>
+        <div className='italic'>
           {spell.level} {spell.school}
         </div>
         <div>
-          <div className='label-text-pair-outer'>
-            <div>Casting Time.</div>
+          <div className='flex gap-x-2'>
+            <div className='font-bold'>Casting Time.</div>
             <div>{spell.castingTime}</div>
           </div>
-          <div className='label-text-pair-outer'>
-            <div>Range/Area.</div>
+          <div className='flex gap-x-2'>
+            <div className='font-bold'>Range/Area.</div>
             <div>{getRangeTextFromHash()}</div>
           </div>
-          <div className='label-text-pair-outer'>
-            <div>Components.</div>
+          <div className='flex gap-x-2'>
+            <div className='font-bold'>Components.</div>
             <div>
               {spell.components} {spell.material ? `(${spell.material})` : null}
             </div>
           </div>
-          <div className='label-text-pair-outer'>
-            <div>Duration.</div>
+          <div className='flex gap-x-2'>
+            <div className='font-bold'>Duration.</div>
             <div>{spell.duration}</div>
           </div>
-          <div className='label-text-pair-outer'>
-            <div>Source.</div>
+          <div className='flex gap-x-2'>
+            <div className='font-bold'>Source.</div>
             <div>{spell.page}</div>
           </div>
         </div>
@@ -275,7 +318,7 @@ const Spell: React.FC<Props> = ({ rawSpell }) => {
   )
 }
 
-export default Spell
+export default SpellBlock
 
 function _getRandoNum() {
   return Math.random()

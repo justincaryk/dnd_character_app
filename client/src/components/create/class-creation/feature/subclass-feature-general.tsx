@@ -59,10 +59,11 @@ const SubclassFeatureGeneral: React.FC<SubclassFeatureProps> = ({
   featuresFiltered,
   characterId,
   skillsSel,
-  viewOnly
+  viewOnly,
 }) => {
   const [detailActive, toggleDetailActive] = useState(false)
   const [suboptSelected, setSuboptSelected] = useState('')
+  const [allOptionsSelected, setAllOptionsSelected] = useState(false)
 
   const handleSuboptionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSuboptSelected(e.currentTarget.value)
@@ -71,11 +72,11 @@ const SubclassFeatureGeneral: React.FC<SubclassFeatureProps> = ({
   if (feature.isSuboption) {
     return null
   }
-  
+
   return (
     <div className='bg-white'>
       <div className='relative'>
-        {feature.hasOptions ? (
+        {!viewOnly && feature.hasOptions && !allOptionsSelected ? (
           <BlueExclamation />
         ) : null}
       </div>
@@ -83,7 +84,7 @@ const SubclassFeatureGeneral: React.FC<SubclassFeatureProps> = ({
         className={classnames({
           'p-2 hover:bg-cream cursor-pointer': true,
           'bg-cream': detailActive,
-          'border': true
+          border: true,
         })}
         onClick={() => toggleDetailActive(!detailActive)}
       >
@@ -92,59 +93,61 @@ const SubclassFeatureGeneral: React.FC<SubclassFeatureProps> = ({
           {numberToSpeakable(feature.level ? feature.level : 1)} level
         </div>
       </div>
-      {detailActive && (
-        <div className='p-2 text-sm space-y-2'>
-          {JSON.parse(feature.entries).e.map((entry: any, i: number) => {
-            if (typeof entry === 'string') {
-              return <div key={i}>{entry}</div>
-            }
-            if (entry.type === 'options' && entry.count) {
-              return (
-                <ChoicesBlock
-                  entry={entry}
-                  handleSuboptionChange={handleSuboptionChange}
-                />
-              )
-            }
+      <div
+        className={classnames({
+          'p-2 text-sm space-y-2': true,
+          hidden: !detailActive,
+        })}
+      >
+        {JSON.parse(feature.entries).e.map((entry: any, i: number) => {
+          if (typeof entry === 'string') {
+            return <div key={i}>{entry}</div>
+          }
+          if (entry.type === 'options' && entry.count) {
+            return (
+              <ChoicesBlock
+                entry={entry}
+                handleSuboptionChange={handleSuboptionChange}
+              />
+            )
+          }
 
-            if (entry.type === 'expertiseSkillOptions' && !viewOnly) {
-              return (
-                <EntryExpertiseType
-                  entry={entry}
-                  characterId={characterId}
-                  skillsSel={skillsSel}
-                  featId={feature.id}
-                  classOrSubclass={'class'}
-                  setAllOptionsSelected={() => null}
-                  viewOnly={viewOnly}
-                />
-              )
-            }
+          if (entry.type === 'expertiseSkillOptions' && !viewOnly) {
+            return (
+              <EntryExpertiseType
+                entry={entry}
+                characterId={characterId}
+                skillsSel={skillsSel}
+                featId={feature.id}
+                classOrSubclass={'subclass'}
+                setAllOptionsSelected={setAllOptionsSelected}
+              />
+            )
+          }
 
-            console.log('TODO: ', entry.type)
-            console.log(entry)
-            return null
-          })}
-          <div>
-            {suboptSelected && featuresFiltered ? (
-              <>
-                {featuresFiltered
-                  .filter((feat) => feat.name === suboptSelected)
-                  .map((feat) => (
-                    <>
-                      {JSON.parse(feat.entries).e.map((entry: any, i: number) => {
-                        if (typeof entry === 'string') {
-                          return <div key={i}>{entry}</div>
-                        }
-                        return null
-                      })}
-                    </>
-                  ))}
-              </>
-            ) : null}
-          </div>
+          console.log('TODO: ', entry.type)
+          console.log(entry)
+          return null
+        })}
+        <div>
+          {suboptSelected && featuresFiltered ? (
+            <>
+              {featuresFiltered
+                .filter((feat) => feat.name === suboptSelected)
+                .map((feat) => (
+                  <>
+                    {JSON.parse(feat.entries).e.map((entry: any, i: number) => {
+                      if (typeof entry === 'string') {
+                        return <div key={i}>{entry}</div>
+                      }
+                      return null
+                    })}
+                  </>
+                ))}
+            </>
+          ) : null}
         </div>
-      )}
+      </div>
     </div>
   )
 }
