@@ -238,10 +238,10 @@ const ClassFeatures: React.FC<Props> = ({
         <div className='space-y-3'>
           {/* row 4 HITPOINTS */}
           <div className='space-y-3'>
-            <div className='border bg-white'>
+            <div className='bg-white'>
               <div
                 className={classnames({
-                  'p-2 hover:bg-cream cursor-pointer': true,
+                  'p-2 hover:bg-cream cursor-pointer border': true,
                   'bg-cream border-b': hpDetailsActive,
                 })}
                 onClick={() => toggleHpDetailsActive(!hpDetailsActive)}
@@ -250,7 +250,7 @@ const ClassFeatures: React.FC<Props> = ({
                 <div className='text-xs text-gray-500'>1st level</div>
               </div>
               {hpDetailsActive && (
-                <div className='p-2 text-sm'>
+                <div className='p-2 text-sm border'>
                   <div>
                     <strong>Hit Dice:</strong> 1d12 per{' '}
                     {classObj.name.toLowerCase()} level

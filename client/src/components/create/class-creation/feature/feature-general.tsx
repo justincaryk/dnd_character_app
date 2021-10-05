@@ -208,6 +208,9 @@ const FeatureGeneral: React.FC<Props> = ({
     if (feature.hasOptions && character?.subclassId && subclassTest.length) {
       setAllOptionsSelected(true)
     }
+    if (!feature.hasOptions) {
+      setAllOptionsSelected(true)
+    }
   }, [entries, character?.subclassId, feature.hasOptions])
 
   const buildEntries = (entry: any, i: number) => {
