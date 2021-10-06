@@ -176,9 +176,9 @@ const SpellsSelector: React.FC = () => {
               <div
                 onClick={() => updateSpellLevelStates(lvl)}
                 className={classnames({
-                  'bg-green-400 text-off-white': lvl.active,
-                  'bg-white text-green-400': lvl.active === false,
-                  'relative whitespace-nowrap h-12 w-12 rounded border-2 border-green-400 cursor-pointer':
+                  'bg-green-700 text-off-white': lvl.active,
+                  'bg-white text-green-700': lvl.active === false,
+                  'relative whitespace-nowrap h-12 w-12 rounded border-2 border-green-700 cursor-pointer':
                     true,
                 })}
                 key={'s-l-' + lvl.lvl}
@@ -196,7 +196,7 @@ const SpellsSelector: React.FC = () => {
           ? filteredSpells.map((spell: any) => {
               return (
                 <div
-                  className='rounded bg-white p-2 border-1 border-green-400'
+                  className='rounded bg-white p-2 border-1 border-green-700'
                   key={spell.slug}
                 >
                   <Spell rawSpell={spell}></Spell>

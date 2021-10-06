@@ -178,12 +178,17 @@ const buildSpellDescriptHtml = (spell: any) => {
 
 interface Props {
   rawSpell: Spell
-  isKnown: boolean
-  onLearnClick: (
+  isKnown?: boolean
+  isPrepared?: boolean
+  onPrepareClick?: (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     spellId: string
   ) => void
-  onRemoveClick: (
+  onLearnClick?: (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    spellId: string
+  ) => void
+  onRemoveClick?: (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     spellId: string
   ) => void
@@ -193,8 +198,10 @@ interface Props {
 const SpellBlock: React.FC<Props> = ({
   rawSpell,
   isKnown,
+  isPrepared,
   onLearnClick,
   onRemoveClick,
+  onPrepareClick,
   viewOnly,
 }) => {
   const [detailsActive, setDetailsActive] = useState<boolean>(false)
@@ -255,19 +262,32 @@ const SpellBlock: React.FC<Props> = ({
         <div className='flex items-center gap-x-4'>
           {!viewOnly ? (
             <div>
-              {isKnown ? (
+              {isKnown && (
                 <button
-                  className='p-1 text-xs uppercase text-red-400 border-1 font-roboto border-red-400'
+                  className='p-1 text-xs uppercase text-red-400 border-1 font-roboto border-red-400 hover:bg-red-400 hover:text-white'
                   onClick={(e) => onRemoveClick(e, spell.id)}
                 >
                   Remove
                 </button>
-              ) : (
+              )}
+              {!isKnown && onLearnClick && (
                 <button
-                  className='p-1 text-xs uppercase text-green-400 border-1 font-roboto border-green-400'
+                  className='p-1 text-xs uppercase text-green-700 border-1 font-roboto border-green-700 hover:bg-green-700 hover:text-white'
                   onClick={(e) => onLearnClick(e, spell.id)}
                 >
                   Learn
+                </button>
+              )}
+              {onPrepareClick && (
+                <button
+                  className={classnames({
+                    'p-1 text-xs uppercase  border-1 font-roboto border-green-700': true,
+                    'bg-green-700 text-white': isPrepared,
+                    'bg-white hover:shadow-inner hover:bg-cream text-green-700': !isPrepared
+                  })}
+                  onClick={(e) => onPrepareClick(e, spell.id)}
+                >
+                  Prepare{isPrepared? 'd' : ''}
                 </button>
               )}
             </div>

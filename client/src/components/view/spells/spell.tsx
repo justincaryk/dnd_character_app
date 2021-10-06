@@ -232,7 +232,7 @@ const Spell: React.FC<Props> = ({ rawSpell }) => {
             )}
           </div>
         </div>
-        <span className='text-3xl text-green-400 font-bold'>
+        <span className='text-3xl text-green-700 font-bold'>
           {detailsActive === false ? '+' : '-'}
         </span>
       </div>

@@ -2,10 +2,11 @@ import React, { useEffect, useState, Dispatch, SetStateAction } from 'react'
 import {
   useClassByIdQuery,
   useUpdateCharacterMutation,
-  useDeleteAllCharacterSkillsMutation,
+  // useDeleteAllCharacterSkillsMutation,
   useGetAllSkillsSelectedQuery,
-  useDeleteAllCharacterAsiSelsMutation,
+  // useDeleteAllCharacterAsiSelsMutation,
   Character,
+  useDeleteClassDependenciesMutation,
 } from '../../../generated/graphql'
 import FeatureAsi from './feature/feature-asi'
 import FeatureGeneral from './feature/feature-general'
@@ -65,8 +66,8 @@ const ClassFeatures: React.FC<Props> = ({
   
 
   const [performUpdate] = useUpdateCharacterMutation()
-  const [performDeleteAllSkills] = useDeleteAllCharacterSkillsMutation()
-  const [performDeleteAllAsis] = useDeleteAllCharacterAsiSelsMutation()
+  const [performDeleteAllDependencies] = useDeleteClassDependenciesMutation()
+  
   const {
     data: skillsSel,
     loading: skillsSelLoad,
@@ -130,12 +131,7 @@ const ClassFeatures: React.FC<Props> = ({
     })
     await refetchCharacter()
 
-    await performDeleteAllSkills({
-      variables: {
-        characterId: character?.characterId,
-      },
-    })
-    await performDeleteAllAsis({
+    await performDeleteAllDependencies({
       variables: {
         characterId: character?.characterId,
       },
@@ -216,7 +212,7 @@ const ClassFeatures: React.FC<Props> = ({
         <div
           className={classnames({
             'font-roboto text-sm uppercase cursor-pointer': true,
-            'border-b-4 border-green-400': !spellsActive,
+            'border-b-4 border-green-700': !spellsActive,
           })}
           onClick={() => setSpellsActive(false)}
         >
@@ -226,7 +222,7 @@ const ClassFeatures: React.FC<Props> = ({
           <div
             className={classnames({
               'font-roboto text-sm uppercase cursor-pointer': true,
-              'border-b-4 border-green-400': spellsActive,
+              'border-b-4 border-green-700': spellsActive,
             })}
             onClick={() => setSpellsActive(true)}
           >
@@ -327,7 +323,7 @@ const ClassFeatures: React.FC<Props> = ({
                 Available at Higher Levels ({20 - currentLevel})
               </div>
               <div
-                className='absolute -right-8 -top-2 text-4xl leading-none cursor-pointer font-bold text-green-400'
+                className='absolute -right-8 -top-2 text-4xl leading-none cursor-pointer font-bold text-green-700'
                 onClick={() =>
                   toggleHigherFeaturesVisible(!higherFeaturesVisible)
                 }

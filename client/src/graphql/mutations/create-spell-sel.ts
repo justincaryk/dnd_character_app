@@ -6,6 +6,7 @@ export default gql`
     $spellId: UUID!
     $spellBook: Boolean
     $prepared: Boolean!
+    $spellFrom: SpellSelFromType!
   ) {
     createSpellSelected(
       input: {
@@ -14,6 +15,7 @@ export default gql`
           spellId: $spellId
           spellBook: $spellBook
           prepared: $prepared
+          spellSelFrom: $spellFrom
         }
       }
     ) {

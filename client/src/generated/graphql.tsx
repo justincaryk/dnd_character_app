@@ -2603,6 +2603,29 @@ export type DeleteAllClassSkillsByIdPayload = {
   query?: Maybe<Query>;
 };
 
+/** All input for the `deleteAllClassSpellSelsByCharacterId` mutation. */
+export type DeleteAllClassSpellSelsByCharacterIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  characterid: Scalars['UUID'];
+};
+
+/** The output of our `deleteAllClassSpellSelsByCharacterId` mutation. */
+export type DeleteAllClassSpellSelsByCharacterIdPayload = {
+  __typename?: 'DeleteAllClassSpellSelsByCharacterIdPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  boolean?: Maybe<Scalars['Boolean']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
 /** All input for the `deleteAllRaceAsiSelByCharacterId` mutation. */
 export type DeleteAllRaceAsiSelByCharacterIdInput = {
   /**
@@ -2960,6 +2983,29 @@ export type DeleteClassByIdInput = {
    */
   clientMutationId?: Maybe<Scalars['String']>;
   id: Scalars['UUID'];
+};
+
+/** All input for the `deleteClassDependencies` mutation. */
+export type DeleteClassDependenciesInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  characterId: Scalars['UUID'];
+};
+
+/** The output of our `deleteClassDependencies` mutation. */
+export type DeleteClassDependenciesPayload = {
+  __typename?: 'DeleteClassDependenciesPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  boolean?: Maybe<Scalars['Boolean']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
 };
 
 /** All input for the `deleteClassFeatureById` mutation. */
@@ -5302,8 +5348,10 @@ export type Mutation = {
   signup?: Maybe<SignupPayload>;
   deleteAllClassAsisById?: Maybe<DeleteAllClassAsisByIdPayload>;
   deleteAllClassSkillsById?: Maybe<DeleteAllClassSkillsByIdPayload>;
+  deleteAllClassSpellSelsByCharacterId?: Maybe<DeleteAllClassSpellSelsByCharacterIdPayload>;
   deleteAllRaceAsiSelByCharacterId?: Maybe<DeleteAllRaceAsiSelByCharacterIdPayload>;
   deleteAllRaceFeatSelByCharacterId?: Maybe<DeleteAllRaceFeatSelByCharacterIdPayload>;
+  deleteClassDependencies?: Maybe<DeleteClassDependenciesPayload>;
 };
 
 
@@ -6178,6 +6226,12 @@ export type MutationDeleteAllClassSkillsByIdArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteAllClassSpellSelsByCharacterIdArgs = {
+  input: DeleteAllClassSpellSelsByCharacterIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteAllRaceAsiSelByCharacterIdArgs = {
   input: DeleteAllRaceAsiSelByCharacterIdInput;
 };
@@ -6186,6 +6240,12 @@ export type MutationDeleteAllRaceAsiSelByCharacterIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteAllRaceFeatSelByCharacterIdArgs = {
   input: DeleteAllRaceFeatSelByCharacterIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteClassDependenciesArgs = {
+  input: DeleteClassDependenciesInput;
 };
 
 /** An object with a globally unique `ID`. */
@@ -7781,6 +7841,11 @@ export type SpellPatch = {
   circles?: Maybe<Scalars['String']>;
 };
 
+export enum SpellSelFromType {
+  Class = 'CLASS',
+  Race = 'RACE'
+}
+
 export type SpellSelected = Node & {
   __typename?: 'SpellSelected';
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -7791,6 +7856,7 @@ export type SpellSelected = Node & {
   spellId: Scalars['UUID'];
   spellBook?: Maybe<Scalars['Boolean']>;
   prepared: Scalars['Boolean'];
+  spellSelFrom: SpellSelFromType;
   /** Reads a single `Minion` that is related to this `SpellSelected`. */
   minionByUserId?: Maybe<Minion>;
   /** Reads a single `Character` that is related to this `SpellSelected`. */
@@ -7816,6 +7882,8 @@ export type SpellSelectedCondition = {
   spellBook?: Maybe<Scalars['Boolean']>;
   /** Checks for equality with the object’s `prepared` field. */
   prepared?: Maybe<Scalars['Boolean']>;
+  /** Checks for equality with the object’s `spellSelFrom` field. */
+  spellSelFrom?: Maybe<SpellSelFromType>;
 };
 
 /** An input for mutations affecting `SpellSelected` */
@@ -7826,6 +7894,7 @@ export type SpellSelectedInput = {
   spellId: Scalars['UUID'];
   spellBook?: Maybe<Scalars['Boolean']>;
   prepared: Scalars['Boolean'];
+  spellSelFrom: SpellSelFromType;
 };
 
 /** Represents an update to a `SpellSelected`. Fields that are set will be updated. */
@@ -7836,6 +7905,7 @@ export type SpellSelectedPatch = {
   spellId?: Maybe<Scalars['UUID']>;
   spellBook?: Maybe<Scalars['Boolean']>;
   prepared?: Maybe<Scalars['Boolean']>;
+  spellSelFrom?: Maybe<SpellSelFromType>;
 };
 
 /** A connection to a list of `SpellSelected` values. */
@@ -7875,6 +7945,8 @@ export enum SpellSelectedsOrderBy {
   SpellBookDesc = 'SPELL_BOOK_DESC',
   PreparedAsc = 'PREPARED_ASC',
   PreparedDesc = 'PREPARED_DESC',
+  SpellSelFromAsc = 'SPELL_SEL_FROM_ASC',
+  SpellSelFromDesc = 'SPELL_SEL_FROM_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -10217,6 +10289,7 @@ export type CreateSpellSelectedMutationVariables = Exact<{
   spellId: Scalars['UUID'];
   spellBook?: Maybe<Scalars['Boolean']>;
   prepared: Scalars['Boolean'];
+  spellFrom: SpellSelFromType;
 }>;
 
 
@@ -10241,6 +10314,19 @@ export type DeleteAllCharacterAsiSelsMutation = (
   & { deleteAllClassSkillsById?: Maybe<(
     { __typename?: 'DeleteAllClassSkillsByIdPayload' }
     & Pick<DeleteAllClassSkillsByIdPayload, 'boolean'>
+  )> }
+);
+
+export type DeleteClassDependenciesMutationVariables = Exact<{
+  characterId: Scalars['UUID'];
+}>;
+
+
+export type DeleteClassDependenciesMutation = (
+  { __typename?: 'Mutation' }
+  & { deleteClassDependencies?: Maybe<(
+    { __typename?: 'DeleteClassDependenciesPayload' }
+    & Pick<DeleteClassDependenciesPayload, 'boolean'>
   )> }
 );
 
@@ -11269,9 +11355,9 @@ export type CreateSkillSelectedMutationHookResult = ReturnType<typeof useCreateS
 export type CreateSkillSelectedMutationResult = Apollo.MutationResult<CreateSkillSelectedMutation>;
 export type CreateSkillSelectedMutationOptions = Apollo.BaseMutationOptions<CreateSkillSelectedMutation, CreateSkillSelectedMutationVariables>;
 export const CreateSpellSelectedDocument = gql`
-    mutation CreateSpellSelected($characterId: UUID!, $spellId: UUID!, $spellBook: Boolean, $prepared: Boolean!) {
+    mutation CreateSpellSelected($characterId: UUID!, $spellId: UUID!, $spellBook: Boolean, $prepared: Boolean!, $spellFrom: SpellSelFromType!) {
   createSpellSelected(
-    input: {spellSelected: {characterId: $characterId, spellId: $spellId, spellBook: $spellBook, prepared: $prepared}}
+    input: {spellSelected: {characterId: $characterId, spellId: $spellId, spellBook: $spellBook, prepared: $prepared, spellSelFrom: $spellFrom}}
   ) {
     spellSelected {
       spellSelId
@@ -11298,6 +11384,7 @@ export type CreateSpellSelectedMutationFn = Apollo.MutationFunction<CreateSpellS
  *      spellId: // value for 'spellId'
  *      spellBook: // value for 'spellBook'
  *      prepared: // value for 'prepared'
+ *      spellFrom: // value for 'spellFrom'
  *   },
  * });
  */
@@ -11341,6 +11428,39 @@ export function useDeleteAllCharacterAsiSelsMutation(baseOptions?: Apollo.Mutati
 export type DeleteAllCharacterAsiSelsMutationHookResult = ReturnType<typeof useDeleteAllCharacterAsiSelsMutation>;
 export type DeleteAllCharacterAsiSelsMutationResult = Apollo.MutationResult<DeleteAllCharacterAsiSelsMutation>;
 export type DeleteAllCharacterAsiSelsMutationOptions = Apollo.BaseMutationOptions<DeleteAllCharacterAsiSelsMutation, DeleteAllCharacterAsiSelsMutationVariables>;
+export const DeleteClassDependenciesDocument = gql`
+    mutation DeleteClassDependencies($characterId: UUID!) {
+  deleteClassDependencies(input: {characterId: $characterId}) {
+    boolean
+  }
+}
+    `;
+export type DeleteClassDependenciesMutationFn = Apollo.MutationFunction<DeleteClassDependenciesMutation, DeleteClassDependenciesMutationVariables>;
+
+/**
+ * __useDeleteClassDependenciesMutation__
+ *
+ * To run a mutation, you first call `useDeleteClassDependenciesMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteClassDependenciesMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteClassDependenciesMutation, { data, loading, error }] = useDeleteClassDependenciesMutation({
+ *   variables: {
+ *      characterId: // value for 'characterId'
+ *   },
+ * });
+ */
+export function useDeleteClassDependenciesMutation(baseOptions?: Apollo.MutationHookOptions<DeleteClassDependenciesMutation, DeleteClassDependenciesMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<DeleteClassDependenciesMutation, DeleteClassDependenciesMutationVariables>(DeleteClassDependenciesDocument, options);
+      }
+export type DeleteClassDependenciesMutationHookResult = ReturnType<typeof useDeleteClassDependenciesMutation>;
+export type DeleteClassDependenciesMutationResult = Apollo.MutationResult<DeleteClassDependenciesMutation>;
+export type DeleteClassDependenciesMutationOptions = Apollo.BaseMutationOptions<DeleteClassDependenciesMutation, DeleteClassDependenciesMutationVariables>;
 export const DeleteAllCharacterSkillsDocument = gql`
     mutation DeleteAllCharacterSkills($characterId: UUID!) {
   deleteAllClassSkillsById(input: {characterId: $characterId}) {

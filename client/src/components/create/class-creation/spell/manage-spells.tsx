@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useAllAsisQuery, useCreateSpellSelectedMutation, useDeleteSpellSelectedMutation, useGetAllAsiChoicesQuery, useGetAllAsiSelectionsQuery, useGetAllSpellsSelectedQuery, useGetSpellsByClassNameQuery, useUpdateSpellSelectedMutation } from '../../../../generated/graphql'
+import { Spell, SpellSelected, SpellSelFromType, useAllAsisQuery, useCreateSpellSelectedMutation, useDeleteSpellSelectedMutation, useGetAllAsiChoicesQuery, useGetAllAsiSelectionsQuery, useGetAllSpellsSelectedQuery, useGetSpellsByClassNameQuery, useUpdateSpellSelectedMutation } from '../../../../generated/graphql'
 import { bonuses } from '../../../../lib/utils'
 import SpellBlock from './spell'
 
@@ -152,18 +152,23 @@ const getMaxSpellLevelKnown = (
   return rulesHash[progression][charLevel]
 }
 
+type ActiveBlockType = 'learn'|'prep'|'book'
+
 const ManageSpells: React.FC<Props> = ({
   characterId,
   currentLevel,
   dndClass,
 }) => {
-  const [learnSpellsVis, toggleLearnSpellsVis] = useState(false)
-  const [knownSpellsVis, toggleKnownSpellsVis] = useState(false)
+  // const [learnSpellsVis, toggleLearnSpellsVis] = useState(false)
+  // const [preparedSpellsVis, togglePreparedSpellsVis] = useState(false)
+  // const [spellBookVis, toggleSpellBookVis] = useState(false)
+  const [ activeBlock, setActiveBlock ] = useState<ActiveBlockType|null>(null)
 
   const [asiBonus, setAsiBonus] = useState(0)
 
-  const [legalSpells, setLegalSpells] = useState<any[]>([])
-  const [knownSpells, setKnownSpells] = useState<any[]>([])
+  const [legalSpells, setLegalSpells] = useState<Spell[]>([])
+  const [knownSpells, setKnownSpells] = useState<Spell[]>([])
+  const [preparedSpells, setPreparedSpells] = useState<Spell[]>([])
 
   const [maxCantrips, setMaxCantrips] = useState(0)
   const [maxSpells, setMaxSpells] = useState(0)
@@ -184,7 +189,6 @@ const ManageSpells: React.FC<Props> = ({
   const [performCreate] = useCreateSpellSelectedMutation()
   const [performUpdate] = useUpdateSpellSelectedMutation()
   const [performDelete] = useDeleteSpellSelectedMutation()
-
 
   const { data: known, loading: knownLoading, refetch: refetchKnown } = useGetAllSpellsSelectedQuery({
     variables: {
@@ -259,7 +263,8 @@ const ManageSpells: React.FC<Props> = ({
           // nothing to split them
           return 0
         }
-      })
+      }) as Spell[]
+
       setLegalSpells(sorted)
     }
   }, [spells, setLegalSpells, currentLevel, dndClass.casterProgression])
@@ -268,6 +273,27 @@ const ManageSpells: React.FC<Props> = ({
     const found = legalSpells.filter(x => known.allSpellSelecteds.nodes.find(y => x.id === y.spellId))
     setKnownSpells(found)
   },[setKnownSpells, known, legalSpells])
+
+  useEffect(() => {
+    const prepared = knownSpells.filter(x => known.allSpellSelecteds.nodes.find(y => y.spellId == x.id && y.prepared === true))
+    setPreparedSpells(prepared)
+  }, [setPreparedSpells, knownSpells, known])
+
+  const handlePrepareClick = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    spellId: string
+  ) => {
+    e.stopPropagation()
+
+    await performUpdate({
+      variables: {
+        spellSelId: known.allSpellSelecteds.nodes.find(x => x.spellId === spellId).spellSelId,
+        prepared: !known.allSpellSelecteds.nodes.find(x => x.spellId === spellId).prepared
+      }
+    })
+
+    await refetchKnown()
+  }
 
   const handleLearnClick = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -284,6 +310,7 @@ const ManageSpells: React.FC<Props> = ({
           spellId: spellId,
           spellBook: true,
           prepared: false,
+          spellFrom: SpellSelFromType.Class,
         }
       })
     // add to spellbook: false prepared: true
@@ -293,6 +320,7 @@ const ManageSpells: React.FC<Props> = ({
           characterId: characterId,
           spellId: spellId,
           prepared: true,
+          spellFrom: SpellSelFromType.Class,
         }
       })
     }
@@ -315,6 +343,10 @@ const ManageSpells: React.FC<Props> = ({
     await refetchKnown()
   }
 
+  const handleBlockClick = (active: ActiveBlockType) => {
+    const newBlock = activeBlock === active ? null : active
+    setActiveBlock(newBlock)
+  }
   if (!spells || spellsLoading || knownLoading) {
     return <div>...Loading</div>
   }
@@ -324,59 +356,97 @@ const ManageSpells: React.FC<Props> = ({
       <div>
         <div 
           className='flex justify-between items-center border bg-cream px-2'
-          onClick={() => toggleKnownSpellsVis(!knownSpellsVis)}
+          onClick={() => {
+            handleBlockClick('prep')
+          }}
         >
           <div className='font-bold'>Known/Prepared Spells</div>
-          <div className='font-bold text-3xl text-gray-600'>{knownSpellsVis ? '-' : '+'}</div>
+          <div className='font-bold text-3xl text-gray-600 cursor-pointer'>{activeBlock === 'prep' ? '-' : '+'}</div>
         </div>
-        {knownSpellsVis ? (
+        {activeBlock === 'prep' ? (
+              <div className='space-y-2 mt-2'>
+                {preparedSpells.map((spell) => {
+                  return (
+                    <div key={spell.id}>
+                      <SpellBlock
+                        rawSpell={spell}
+                        isKnown={known.allSpellSelecteds.nodes.find(x => x.spellId === spell.id) ? true : false}
+                        onLearnClick={handleLearnClick}
+                        onRemoveClick={handleRemoveClick}
+                        viewOnly
+                      />
+                    </div>
+                  )
+                })}
+                {
+                  !preparedSpells.length ? (
+                    <div className='text-center text-sm'>You currently have no prepared spells.</div>
+                  ) : null
+                }
+              </div>
+        ): null}
+      </div>
+      {dndClass.name === 'Wizard' ? (
+        <div>
+          <div 
+            className='flex justify-between items-center border bg-cream px-2'
+            onClick={() => handleBlockClick('book')}
+          >
+            <div className='font-bold'>Spellbook</div>
+            <div className='font-bold text-3xl text-gray-600 cursor-pointer'>{activeBlock === 'book' ? '-' : '+'}</div>
+          </div>
+          {activeBlock === 'book' ? (
           <div className='space-y-2 mt-2'>
             {knownSpells.map((spell) => {
               return (
                 <div key={spell.id}>
                   <SpellBlock
-                    // @ts-ignore
                     rawSpell={spell}
-                    isKnown={known.allSpellSelecteds.nodes.find(x => x.spellId === spell.id) ? true : false}
-                    onLearnClick={handleLearnClick}
-                    onRemoveClick={handleRemoveClick}
-                    viewOnly
+                    isPrepared={known.allSpellSelecteds.nodes.find(x => x.spellId === spell.id).prepared}
+                    onPrepareClick={handlePrepareClick}
                   />
                 </div>
               )
             })}
+            {
+              !knownSpells.length ? (
+                <div className='text-center text-sm'>You currently have no known spells. Learn spells from your list of available spells below.</div>
+              ) : null
+            }
           </div>
         ): null}
-      </div>
-      {dndClass.name === 'Wizard' ? (
-        <div>
-          <div className='flex justify-between items-center border bg-cream px-2'>
-            <div className='font-bold'>Spellbook</div>
-            <div className='font-bold text-3xl text-gray-600'>+</div>
-          </div>
         </div>
       ) : null}
       <div className='space-y-4'>
         <div
           className='flex justify-between items-center border bg-cream px-2'
-          onClick={() => toggleLearnSpellsVis(!learnSpellsVis)}
+          onClick={() => handleBlockClick('learn')}
         >
           <div className='font-bold'>Add Spells</div>
           <div className='font-bold text-3xl text-gray-600 cursor-pointer'>
-            {learnSpellsVis ? '-' : '+'}
+            {activeBlock === 'learn' ? '-' : '+'}
           </div>
         </div>
-        {learnSpellsVis ? (
+        {activeBlock === 'learn' ? (
           <div className='space-y-2 mt-2'>
             <div>
               <div className='text-sm'>Cantrips: {maxCantrips}</div>
               <div className='text-sm'>Known Spells: {maxSpells}</div>
             </div>
+            <div className='flex gap-x-1 hidden'>
+              <button className='w-10 h-9 text-center border-1 border-green-700 bg-white rounded text-green-700 hover:shadow-inner text-xs'>-0-</button>
+              <button className='w-10 h-9 text-center border-1 border-green-700 bg-white rounded text-green-700 hover:shadow-inner text-xs'>1st</button>
+              <button className='w-10 h-9 text-center border-1 border-green-700 bg-white rounded text-green-700 hover:shadow-inner text-xs'>2nd</button>
+              <button className='w-10 h-9 text-center border-1 border-green-700 bg-white rounded text-green-700 hover:shadow-inner text-xs'>3rd</button>
+              <button className='w-10 h-9 text-center border-1 border-green-700 bg-white rounded text-green-700 hover:shadow-inner text-xs'>4th</button>
+              <button className='w-10 h-9 text-center border-1 border-green-700 bg-white rounded text-green-700 hover:shadow-inner text-xs'>5th</button>
+              <button className='w-10 h-9 text-center border-1 border-green-700 bg-white rounded text-green-700 hover:shadow-inner text-xs'>8th</button>
+              <button className='w-10 h-9 text-center border-1 border-green-700 bg-white rounded text-green-700 hover:shadow-inner text-xs'>9th</button>
+            </div>
             {legalSpells.map((spell) => {
               return (
                 <div key={spell.id}>
                   <SpellBlock
-                    // @ts-ignore
                     rawSpell={spell}
                     isKnown={known.allSpellSelecteds.nodes.find(x => x.spellId === spell.id) ? true : false}
                     onLearnClick={handleLearnClick}

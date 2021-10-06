@@ -7,7 +7,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-
+      
       maxWidth: {
         '1/4': '25%',
         '1/2': '50%',
@@ -19,7 +19,7 @@ module.exports = {
       },
       backgroundColor: {
         stone: '#353536',
-        cream: '#F1F0ED',
+        cream: '#F1F0ED !important',
         'sky-blue': '#1C9AEF',
       },
       fontFamily: {
