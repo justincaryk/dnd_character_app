@@ -99,7 +99,7 @@ const SubclassFeatureGeneral: React.FC<SubclassFeatureProps> = ({
           hidden: !detailActive,
         })}
       >
-        {JSON.parse(feature.entries).e.map((entry: any, i: number) => {
+        {feature.entries.e.map((entry: any, i: number) => {
           if (typeof entry === 'string') {
             return <div key={i}>{entry}</div>
           }
@@ -136,7 +136,7 @@ const SubclassFeatureGeneral: React.FC<SubclassFeatureProps> = ({
                 .filter((feat) => feat.name === suboptSelected)
                 .map((feat) => (
                   <>
-                    {JSON.parse(feat.entries).e.map((entry: any, i: number) => {
+                    {feat.entries.e.map((entry: any, i: number) => {
                       if (typeof entry === 'string') {
                         return <div key={i}>{entry}</div>
                       }

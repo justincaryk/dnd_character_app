@@ -64,7 +64,7 @@ const FeatSelects: React.FC<Props> = ({ raceAsis, characterId, raceName }) => {
     }
   }, [featSel, feats])
 
-  const parsed = JSON.parse(raceAsis).options
+  const parsed = raceAsis.options
 
   let dropdowns
 

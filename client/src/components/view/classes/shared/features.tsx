@@ -13,7 +13,7 @@ const Features: React.FC<IFeatureProps> = ({ features }) => {
   const copied = cloneDeep(features)
   const features2 = copied.map((feat) => {
     try {
-      feat.entries = JSON.parse(feat.entries).e
+      feat.entries = feat.entries.e
     } catch {}
 
     return feat

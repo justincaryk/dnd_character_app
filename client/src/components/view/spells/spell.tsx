@@ -6,7 +6,7 @@ interface Props {
 }
 
 const formatSpell = (spell: any) => {
-  const range = JSON.parse(spell.range)
+  const range = spell.range
   const formatted = { ...spell }
   formatted.range = range
   return formatted

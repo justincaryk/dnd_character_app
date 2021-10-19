@@ -8,14 +8,6 @@ interface Props {
 const ClassSummary: React.FC<Props> = ({gen}) => {
 
   const gen2: ClassClassType = Object.assign({}, gen)
-
-  //@ts-ignore 
-  gen2.multiclassing = JSON.parse(gen2.multiclassing)
-  //@ts-ignore 
-  gen2.startingEquipment = JSON.parse(gen2.startingEquipment)
-  //@ts-ignore 
-  gen2.startingProficiencies = JSON.parse(gen2.startingProficiencies)
-
   const mcProf = gen2.multiclassing?.proficienciesGained
   const mcReq = gen2.multiclassing.requirements
   const mcReqs: string[] = []

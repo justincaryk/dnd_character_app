@@ -148,8 +148,7 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
 
 
   useEffect(() => {
-    const parsed = JSON.parse(feature.entries).e
-    setEntries(parsed)
+    setEntries(feature.entries.e)
   }, [feature.entries])
 
   useEffect(() => {

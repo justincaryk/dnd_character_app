@@ -27,7 +27,7 @@ const buildRacialFeatureHtmlBlocks = (features: any) => {
 
 
 const buildAsiString = (asis: any) => {
-  asis = JSON.parse(asis).options
+  asis = asis.options
 
   const asiArr: any = []
 

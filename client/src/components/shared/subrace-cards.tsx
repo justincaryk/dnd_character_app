@@ -2,7 +2,7 @@ import React from 'react'
 import Subraces from '../view/races/subraces'
 
 const buildAsiString = (asis: any) => {
-  asis = JSON.parse(asis).options
+  asis = asis.options
 
   const asiArr: any = []
 

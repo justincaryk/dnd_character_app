@@ -16,7 +16,7 @@ const getSubclassTableGroups = (subclasses: any, subclassName: string) => {
     if (subclassName === sc.shortName) {
       if (sc.subclassTableGroups?.length) {
         sc.subclassTableGroups.forEach((sctg: string) => {
-          subclassTableGroups.push(JSON.parse(sctg))
+          subclassTableGroups.push(sctg)
         })
       }
     }
@@ -51,7 +51,7 @@ const PcClass: React.FC<IProps> = ({ classData, subclassFeatures }) => {
         <ClassSummary gen={classData} />
         <Subtable
           features={parsedFeatures(classData.classFeatures)}
-          tableGroups={JSON.parse(classData.meta)}
+          tableGroups={classData.meta}
           subclassTableGroups={subclassTableGroups}
         />
       </div>

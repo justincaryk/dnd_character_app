@@ -42,7 +42,7 @@ const AsiSelects: React.FC<Props> = ({ raceAsis, characterId }) => {
   }, [raceAsis, refetchAllAsis, asisSelData, setAsisSelected])
 
 
-  const parsed = JSON.parse(raceAsis).options
+  const parsed = raceAsis.options
   let dropdowns
 
   for (const opt of parsed) {

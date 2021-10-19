@@ -122,7 +122,7 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
           <strong className='text-gray-700'>Skill Proficiencies: </strong>
           {
             //@ts-ignore
-            JSON.parse(selectedBg.skillOptions).options.map((skill, index) => {
+            selectedBg.skillOptions.options.map((skill, index) => {
               const isLast =
                 index == selectedBg.skillOptions.length - 1 ? true : false
 
@@ -135,7 +135,7 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
         </div>
         <div>
           <SkillProficienciesSelector
-            skillOptions={JSON.parse(selectedBg.skillOptions).options}
+            skillOptions={selectedBg.skillOptions.options}
             numberOfSkillsGranted={selectedBg.numberOfSkillsGranted}
           ></SkillProficienciesSelector>
         </div>
@@ -147,7 +147,7 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
     <div className='space-y-4'>
       <div>
         <strong className='text-gray-700'>Languages: </strong>
-        {JSON.parse(selectedBg.languageOptions).options.map(
+        {selectedBg.languageOptions.options.map(
           (language: BgOptionGenericType, index: number) => {
             const isLast =
               index == selectedBg.languageOptions.length - 1 ? true : false
@@ -163,9 +163,7 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
       <div>
         <LanguageSelector
           numberOfLanguagesGranted={selectedBg.numberOfExtraLanguages}
-          languageOptionConstraints={
-            JSON.parse(selectedBg.languageOptions).options
-          }
+          languageOptionConstraints={selectedBg.languageOptions.options}
           languages={languages.allLanguages.languages}
         />
       </div>
@@ -175,10 +173,10 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
   const toolsChunk = () => (
     <div className='space-y-4'>
       <div>
-        {JSON.parse(selectedBg.toolOptions).options.length ? (
+        {selectedBg.toolOptions.options.length ? (
           <strong className='text-gray-700'>Tool Proficiencies: </strong>
         ) : null}
-        {JSON.parse(selectedBg.toolOptions).options.map(
+        {selectedBg.toolOptions.options.map(
           (tool: BgOptionGenericType, index: number) => {
             const isLast =
               index == selectedBg.toolOptions.length - 1 ? true : false
@@ -192,7 +190,7 @@ const SelectedBgChunks: React.FC<ISelectedBackgroundProps> = (
       </div>
       <div>
         <ToolProficienciesSelector
-          allToolOptions={JSON.parse(selectedBg.toolOptions).options}
+          allToolOptions={selectedBg.toolOptions.options}
           numberOfToolsGranted={selectedBg.numberOfToolsGranted}
           equipment={equipment.allEquipment.items}
         ></ToolProficienciesSelector>

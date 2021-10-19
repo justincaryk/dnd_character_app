@@ -111,11 +111,7 @@ const ClassFeatures: React.FC<Props> = ({
   }, [data?.classById, currentLevel, character])
 
   useEffect(() => {
-    const parsed = data
-      ? JSON.parse(data?.classById?.startingProficiencies)
-      : null
-
-    setStartingProficiencies(parsed)
+    setStartingProficiencies(data?.classById?.startingProficiencies)
   }, [data])
 
   const handleClassDelete = async () => {

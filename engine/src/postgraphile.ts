@@ -25,6 +25,7 @@ export default postgraphile(
     jwtPgTypeIdentifier: 'public.jwt_token',
     watchPg: NODE_ENV != 'production',
     graphiql: true,
+    dynamicJson: true,
     enhanceGraphiql: true,
     pgDefaultRole: 'anonymous_user',
     // ignoreRBAC: true, // Role Based Access Control (RBAC),

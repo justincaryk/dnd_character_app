@@ -66,7 +66,6 @@ const FightOptionType: React.FC<OptionsTypeProps> = ({
   useEffect(() => {
     if (data?.allFightingStyles?.nodes.length) {
       const tempObj = Object.assign({}, data.allFightingStyles.nodes[0])
-      tempObj.entries = JSON.parse(tempObj.entries)
       setStyleObj(tempObj)
     }
   }, [data?.allFightingStyles?.nodes])
@@ -198,8 +197,7 @@ const FeatureGeneral: React.FC<Props> = ({
   const [allOptionsSelected, setAllOptionsSelected] = useState(false)
   
   useEffect(() => {
-    const parsed = JSON.parse(feature.entries).e
-    setEntries(parsed)
+    setEntries(feature.entries.e)
   }, [feature])
 
   useEffect(() => {
