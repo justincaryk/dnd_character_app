@@ -25,7 +25,6 @@
   },
   "private": true,
   "engines": {
-    "yarn": ">=1.22.11",
     "node": ">=12"
   },
   "engineStrict": true
