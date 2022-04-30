@@ -6,14 +6,14 @@ jobs:
     if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-        with:
-          ref: ${{ github.head_ref }}
       - name: Install Dependencies
         run: yarn ci
         uses: borales/actions-yarn@v2.3.0
         with:
           cmd: install
+      - uses: actions/checkout@v1
+        with:
+          ref: ${{ github.head_ref }}
       - name: prettier
         run: yarn prettier --write './'
       - name: Check for modified files
