@@ -75,7 +75,7 @@ const AttributeCardBlock = ({ attributesImmutable }: Props) => {
 
   return (
     <div className='grid grid-cols-3 gap-x-6 gap-4'>
-      {attributesImmutable.map((attr) => {
+      {attributesImmutable.map(attr => {
         return (
           <div className='attr-block border rounded bg-white' key={attr.id}>
             <div className='rounded-t bg-dark border-black p-2 text-white font-roboto text-sm text-center font-bold uppercase'>
@@ -85,7 +85,8 @@ const AttributeCardBlock = ({ attributesImmutable }: Props) => {
               <div className='grid grid-cols-2 font-roboto'>
                 <div className='border-b p-4 text-left'>Total</div>
                 <div className='border-b p-4 border-l-4 bg-gray-100 text-xl text-center font-roboto font-bold'>
-                  {attr.currentAssignedScore + racialHash[attr.name.toLowerCase()]}
+                  {attr.currentAssignedScore +
+                    racialHash[attr.name.toLowerCase()]}
                 </div>
                 <div className='border-b p-4 text-left'>Base</div>
                 <div className='border-b p-4 border-l-4 bg-gray-100 text-xl text-center font-roboto font-bold'>
@@ -93,7 +94,12 @@ const AttributeCardBlock = ({ attributesImmutable }: Props) => {
                 </div>
                 <div className='border-b p-4 text-left'>Modifer</div>
                 <div className='border-b p-4 border-l-4 bg-gray-100 text-xl text-center font-roboto font-bold'>
-                  {getBonusDisplayVal(bonuses[attr.currentAssignedScore + racialHash[attr.name.toLowerCase()]])}
+                  {getBonusDisplayVal(
+                    bonuses[
+                      attr.currentAssignedScore +
+                        racialHash[attr.name.toLowerCase()]
+                    ]
+                  )}
                 </div>
                 <div className='border-b p-4 text-left'>Racial Bonus</div>
                 <div className='border-b p-4 border-l-4 bg-gray-100 text-xl text-center font-roboto font-bold'>

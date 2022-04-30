@@ -1,6 +1,10 @@
 import React from 'react'
 import { cloneDeep } from 'lodash'
-import { EntryEntryType, EntryListType, EntryTableType } from '../../../shared/entries'
+import {
+  EntryEntryType,
+  EntryListType,
+  EntryTableType,
+} from '../../../shared/entries'
 interface IStringType {
   entry: string
 }
@@ -11,7 +15,7 @@ interface IFeatureProps {
 }
 const Features: React.FC<IFeatureProps> = ({ features }) => {
   const copied = cloneDeep(features)
-  const features2 = copied.map((feat) => {
+  const features2 = copied.map(feat => {
     try {
       feat.entries = JSON.parse(feat.entries).e
     } catch {}
@@ -21,8 +25,11 @@ const Features: React.FC<IFeatureProps> = ({ features }) => {
 
   return (
     <div className='space-y-2'>
-      {features2.map((x) => (
-        <div className='border p-2 text-sm shadow-sm rounded bg-white' key={x.id}>
+      {features2.map(x => (
+        <div
+          className='border p-2 text-sm shadow-sm rounded bg-white'
+          key={x.id}
+        >
           <div
             className={
               x.subclassShortName

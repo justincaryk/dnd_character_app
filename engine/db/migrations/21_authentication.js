@@ -1,6 +1,5 @@
-exports.up = knex => (
-    knex.schema
-        .raw(`
+exports.up = knex =>
+  knex.schema.raw(`
         CREATE ROLE role_minion;
         CREATE ROLE anonymous_user;
         
@@ -105,8 +104,5 @@ exports.up = knex => (
         GRANT EXECUTE ON FUNCTION public.signin (username text, PASSWORD text)
         TO anonymous_user;
     `)
-)
 
-exports.down = knex => (
-    knex.schema.dropTable('subclass_features')
-)
+exports.down = knex => knex.schema.dropTable('subclass_features')

@@ -5,32 +5,36 @@ import { AuthContext } from '../global-state'
 import { isEqual } from 'lodash'
 
 const Home: React.FC = () => {
-  const [authState, setAuthState ] = useContext(AuthContext)
+  const [authState, setAuthState] = useContext(AuthContext)
   const [performSignup, { data, loading }] = useCreateCharacterMutation()
   const history = useHistory()
 
   const handleCreateNewCharacter = async () => {
-    const {data } = await performSignup({
+    const { data } = await performSignup({
       variables: {
-        name: authState.username
-      }
+        name: authState.username,
+      },
     })
     const newAuthState = Object.assign(
-      { currentCharacterId: data?.createCharacter?.character?.characterId }, 
+      { currentCharacterId: data?.createCharacter?.character?.characterId },
       authState
     )
-    
+
     setAuthState(newAuthState)
-    
-    history.push(`/create/${data?.createCharacter?.character?.characterId}/description`)
-    
+
+    history.push(
+      `/create/${data?.createCharacter?.character?.characterId}/description`
+    )
   }
-  
+
   return (
     <div className='space-y-10 mt-10'>
       <div className='flex justify-center gap-x-10 max-w-full w-full'>
         <div className='self-end relative'>
-          <button className='hover:no-underline decoration-none' onClick={handleCreateNewCharacter}>
+          <button
+            className='hover:no-underline decoration-none'
+            onClick={handleCreateNewCharacter}
+          >
             <img src='/assets/strip-1.png' alt='' />
             <div className='absolute top-1/2 left-7 -translate-x-1/2 -translate-y-1/2 text-2xl font-roboto font-bold text-blue-500'>
               Create a Character

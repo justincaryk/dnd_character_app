@@ -1,70 +1,46 @@
 //every seed runs every time yarn seed:run is executed, so we need to delete the data in an order that won't throw errors
-exports.seed = async (knex) => {
-    
-    await knex('fighting_style')
-        .del()
-        
-    await knex('subclass_features')
-        .del()
+exports.seed = async knex => {
+  await knex('fighting_style').del()
 
-    await knex('class_features')
-        .del()
+  await knex('subclass_features').del()
 
-    await knex('subclasses')
-        .del()
+  await knex('class_features').del()
 
-    await knex('classes')
-        .del()
+  await knex('subclasses').del()
 
-    await knex('diseases')
-        .del()
+  await knex('classes').del()
 
-    await knex('conditions')
-        .del()
+  await knex('diseases').del()
 
-    await knex('race_features')
-        .del()
+  await knex('conditions').del()
 
-    await knex('subrace_features')
-        .del()
+  await knex('race_features').del()
 
-    await knex('subraces')
-        .del()
+  await knex('subrace_features').del()
 
-    await knex('races')
-        .del()
+  await knex('subraces').del()
 
-    await knex('racial_features')
-        .del()
+  await knex('races').del()
 
-    await knex('bgs')
-        .del()
+  await knex('racial_features').del()
 
-    await knex('feats')
-        .del()
+  await knex('bgs').del()
 
-    await knex('spells')
-        .del()
+  await knex('feats').del()
 
-    await knex('spell_slugs')
-        .del()
+  await knex('spells').del()
 
-    await knex('equipment')
-        .del()
+  await knex('spell_slugs').del()
 
-    await knex('skills')
-        .del()
+  await knex('equipment').del()
 
-    await knex('asi')
-        .del()
+  await knex('skills').del()
 
-    await knex('attributes')
-        .del()
+  await knex('asi').del()
 
-    await knex('languages')
-        .del()
+  await knex('attributes').del()
 
-    await knex('bg_features')
-        .del()
+  await knex('languages').del()
 
+  await knex('bg_features').del()
 }

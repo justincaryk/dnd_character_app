@@ -5,15 +5,14 @@ import { getLongFormAbilityScore } from '../../../../lib/utils'
 interface Props {
   gen: ClassClassType
 }
-const ClassSummary: React.FC<Props> = ({gen}) => {
-
+const ClassSummary: React.FC<Props> = ({ gen }) => {
   const gen2: ClassClassType = Object.assign({}, gen)
 
-  //@ts-ignore 
+  //@ts-ignore
   gen2.multiclassing = JSON.parse(gen2.multiclassing)
-  //@ts-ignore 
+  //@ts-ignore
   gen2.startingEquipment = JSON.parse(gen2.startingEquipment)
-  //@ts-ignore 
+  //@ts-ignore
   gen2.startingProficiencies = JSON.parse(gen2.startingProficiencies)
 
   const mcProf = gen2.multiclassing?.proficienciesGained
@@ -21,7 +20,7 @@ const ClassSummary: React.FC<Props> = ({gen}) => {
   const mcReqs: string[] = []
 
   if (mcReq.or) {
-    Object.keys(mcReq.or).forEach((r) => {
+    Object.keys(mcReq.or).forEach(r => {
       let str = getLongFormAbilityScore(r)
       str += ' ' + mcReq.or[r]
       mcReqs.push(str)
@@ -60,19 +59,25 @@ const ClassSummary: React.FC<Props> = ({gen}) => {
         <div>
           <span className='font-semibold mr-1 inline'>Armor:</span>
           <span>
-            {gen2.startingProficiencies.armor.length ? gen2.startingProficiencies.armor.join(', ') : 'none'}
+            {gen2.startingProficiencies.armor.length
+              ? gen2.startingProficiencies.armor.join(', ')
+              : 'none'}
           </span>
         </div>
         <div>
           <span className='font-semibold mr-1 inline'>Weapons:</span>
           <span>
-            {gen2.startingProficiencies.weapons.length ? gen2.startingProficiencies.weapons.join(', ') : 'none'}
+            {gen2.startingProficiencies.weapons.length
+              ? gen2.startingProficiencies.weapons.join(', ')
+              : 'none'}
           </span>
         </div>
         <div>
           <span className='font-semibold mr-1 inline'>Tools:</span>
           <span>
-            {gen2.startingProficiencies.tools.length ? gen2.startingProficiencies.tools.join(', ') : 'none'}
+            {gen2.startingProficiencies.tools.length
+              ? gen2.startingProficiencies.tools.join(', ')
+              : 'none'}
           </span>
         </div>
         <div>
@@ -106,8 +111,8 @@ const ClassSummary: React.FC<Props> = ({gen}) => {
         </ul>
         <div>
           Alternatively, you may start with{' '}
-          {gen2.startingEquipment?.goldAlternative?.split('Starting Gold')[0]} gp
-          to buy your own equipment.
+          {gen2.startingEquipment?.goldAlternative?.split('Starting Gold')[0]}{' '}
+          gp to buy your own equipment.
         </div>
       </div>
       <div>
@@ -125,17 +130,21 @@ const ClassSummary: React.FC<Props> = ({gen}) => {
             </span>
           )}
         </div>
-        {mcProf.armor.length > 0 && <div>
-          <span className='font-semibold mr-1 inline'>Armor:</span>
-          <span>{mcProf.armor.join(', ')}</span>
-        </div>}
-        {mcProf.weapons.length > 0 && <div>
-          <span className='font-semibold mr-1 inline'>Weapons:</span>
-          <span>
-            {mcProf.weapons.join(' weapons, ')}{' '}
-            {mcProf.weapons.length && ' weapons'}
-          </span>
-        </div>}
+        {mcProf.armor.length > 0 && (
+          <div>
+            <span className='font-semibold mr-1 inline'>Armor:</span>
+            <span>{mcProf.armor.join(', ')}</span>
+          </div>
+        )}
+        {mcProf.weapons.length > 0 && (
+          <div>
+            <span className='font-semibold mr-1 inline'>Weapons:</span>
+            <span>
+              {mcProf.weapons.join(' weapons, ')}{' '}
+              {mcProf.weapons.length && ' weapons'}
+            </span>
+          </div>
+        )}
       </div>
     </div>
   )

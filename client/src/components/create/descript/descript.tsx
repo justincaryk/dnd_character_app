@@ -265,11 +265,13 @@ const CharDescript: React.FC = () => {
     }
   }, [char?.characterByCharacterId])
 
-  const handleBgSelection = async (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleBgSelection = async (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
     setBgId(event.currentTarget.value)
 
     const newBgId = event.currentTarget.value ? event.currentTarget.value : null
-    
+
     await performUpdate({
       variables: {
         characterId: id,
@@ -305,7 +307,7 @@ const CharDescript: React.FC = () => {
           <input
             className='w-full border rounded text-xl p-2'
             value={name}
-            onChange={(e) => setName(e.currentTarget.value)}
+            onChange={e => setName(e.currentTarget.value)}
             onBlur={handleNameUpdate}
           />
         </div>
@@ -324,16 +326,16 @@ const CharDescript: React.FC = () => {
             <option value=''>-- Choose a Background ---</option>
             {/* custom bg */}
             {backgrounds?.allBgs?.nodes
-              .filter((x) => x?.name.toLowerCase() === 'custom background')
-              .map((bg) => (
+              .filter(x => x?.name.toLowerCase() === 'custom background')
+              .map(bg => (
                 <option key={bg?.id} value={bg?.id}>
                   {bg?.name}
                 </option>
               ))}
             {/* all the rest */}
             {backgrounds?.allBgs?.nodes
-              .filter((x) => x?.name.toLowerCase() !== 'custom background')
-              .map((bg) => (
+              .filter(x => x?.name.toLowerCase() !== 'custom background')
+              .map(bg => (
                 <option key={bg?.id} value={bg?.id}>
                   {bg?.name}
                 </option>
@@ -343,7 +345,7 @@ const CharDescript: React.FC = () => {
       </div>
 
       <SelectedBgChunks
-        selectedBg={backgrounds?.allBgs?.nodes.find((x) => bgId == x?.id)}
+        selectedBg={backgrounds?.allBgs?.nodes.find(x => bgId == x?.id)}
         equipment={equipment}
         languages={languages}
         bgFeatures={bgFeatures}

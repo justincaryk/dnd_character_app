@@ -12,21 +12,21 @@ interface Props {
 
 const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
   const history = useHistory()
-  
+
   const location = useLocation()
   const subpaths = location.pathname.split(new RegExp('/(?<name>[^>]+)/'))
   let { id }: any = useParams()
-  
+
   if (subpaths.length > 1 && subpaths[1].indexOf('create') > -1 && !id) {
     id = subpaths[1].split('/')[1]
   }
-  
+
   // public
   if (isPublic) {
     return (
       <div className='h-38 w-full bg-black p-4 z-10 relative'>
         <div className='flex items-center justify-between'>
-          {links.map((x) => (
+          {links.map(x => (
             <div key={x.text}>
               <button
                 className='text-off-white font-roboto uppercase hover:text-hover-white hover:no-underline cursor-pointer outline-none'
@@ -104,12 +104,10 @@ const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
           <div className='relative px-5 py-6'>
             <div className='flex w-full justify-between items-center text-sm'>
               {links
-                .filter((x) => x.link.indexOf('create') > -1)
-                .map((x) => (
+                .filter(x => x.link.indexOf('create') > -1)
+                .map(x => (
                   <div key={x.text}>
-                    <Link
-                      to={x.link.replace(':id', id)}
-                    >
+                    <Link to={x.link.replace(':id', id)}>
                       <div className='text-off-white font-roboto uppercase hover:text-hover-white hover:no-underline cursor-pointer outline-none'>
                         {' '}
                         {x.text}
@@ -123,7 +121,7 @@ const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
       </>
     )
   }
-  
+
   // create character
   if (location.pathname.indexOf('create') > -1) {
     return (
@@ -154,12 +152,10 @@ const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
           <div className='relative px-5 py-3'>
             <div className='flex w-full justify-between items-center text-sm'>
               {links
-                .filter((x) => x.link.indexOf('create') > -1)
-                .map((x) => (
+                .filter(x => x.link.indexOf('create') > -1)
+                .map(x => (
                   <div key={x.text}>
-                    <Link
-                      to={x.link.replace(':id', id)}
-                    >
+                    <Link to={x.link.replace(':id', id)}>
                       <div className='text-off-white font-roboto uppercase hover:text-hover-white hover:no-underline cursor-pointer outline-none'>
                         {' '}
                         {x.text}
@@ -203,12 +199,10 @@ const NavBar: React.FC<Props> = ({ links, isPublic, signout }) => {
         <div className='relative px-5 py-6'>
           <div className='flex w-full justify-between items-center text-sm'>
             {links
-              .filter((x) => x.link.indexOf('create') === -1)
-              .map((x) => (
+              .filter(x => x.link.indexOf('create') === -1)
+              .map(x => (
                 <div key={x.text}>
-                  <Link
-                    to={x.link}
-                  >
+                  <Link to={x.link}>
                     <div className='text-off-white font-roboto uppercase hover:text-hover-white hover:no-underline cursor-pointer outline-none'>
                       {' '}
                       {x.text}

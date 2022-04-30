@@ -1,6 +1,5 @@
-exports.up = knex => (
-    knex.schema
-        .raw(`
+exports.up = knex =>
+  knex.schema.raw(`
             create type asi_from_type as enum(
               'race', 
               'points', 
@@ -50,8 +49,5 @@ exports.up = knex => (
             
             GRANT UPDATE ON app_character.asi_selected TO role_minion; 
         `)
-)
 
-exports.down = knex => (
-    knex.schema.raw(``)
-)
+exports.down = knex => knex.schema.raw(``)

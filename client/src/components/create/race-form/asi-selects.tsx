@@ -41,7 +41,6 @@ const AsiSelects: React.FC<Props> = ({ raceAsis, characterId }) => {
     refetch()
   }, [raceAsis, refetchAllAsis, asisSelData, setAsisSelected])
 
-
   const parsed = JSON.parse(raceAsis).options
   let dropdowns
 
@@ -63,7 +62,6 @@ const AsiSelects: React.FC<Props> = ({ raceAsis, characterId }) => {
     e: React.ChangeEvent<HTMLSelectElement>,
     i: number
   ) => {
-    
     if (!asisSelData?.allAsiSelecteds?.nodes[i]) {
       console.log('create')
       performCreate({
@@ -77,10 +75,9 @@ const AsiSelects: React.FC<Props> = ({ raceAsis, characterId }) => {
       await refetchAllAsis()
     } else {
       // const id = asisSelected?.allAsiSelecteds?.nodes[i]?.asiSelId
-      
+
       // if there is no value, delete the id
       if (!e.target.value) {
-        
         performDelete({
           variables: {
             asiSelId: asisSelected[i].asiSelId,
@@ -88,7 +85,7 @@ const AsiSelects: React.FC<Props> = ({ raceAsis, characterId }) => {
         })
         return
       }
-      
+
       // update it to the new vlaue
       performUpdate({
         variables: {
@@ -101,17 +98,19 @@ const AsiSelects: React.FC<Props> = ({ raceAsis, characterId }) => {
 
   return (
     <div className='bg-white border'>
-      <div className='bg-cream px-3 py-2 text-md font-roboto'>Ability Score Increase</div>
+      <div className='bg-cream px-3 py-2 text-md font-roboto'>
+        Ability Score Increase
+      </div>
       <div className='p-3 space-y-2'>
         {dropdowns?.map((x, i) => (
           <select
             key={i}
             className='w-full border rounded text-sm p-2'
             defaultValue={asisSelected[i]?.asiByAsiId.asiId || ''}
-            onChange={(e) => handleSelection(e, i)}
+            onChange={e => handleSelection(e, i)}
           >
             <option value=''>- Choose an Ability Score -</option>
-            {asis?.allAsis?.nodes.map((x) => {
+            {asis?.allAsis?.nodes.map(x => {
               return (
                 <option key={x?.asiId} value={x?.asiId}>
                   {x?.long} Score

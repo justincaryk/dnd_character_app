@@ -77,11 +77,8 @@ const AsiGenerator: React.FC = () => {
     { id: AsiCoreMethod.Manual, name: 'Manual' },
   ]
 
-  
-
   useEffect(() => {
     if (core?.allAsiSelectedCores?.nodes[0]) {
-    
       const newAttrs = defaultAttributes.map((x: any) => {
         //@ts-ignore
         const value = core.allAsiSelectedCores?.nodes[0][x.name.toLowerCase()]
@@ -96,7 +93,6 @@ const AsiGenerator: React.FC = () => {
       setAttributes(defaultAttributes)
     }
   }, [core?.allAsiSelectedCores?.nodes[0]])
-
 
   if (!core?.allAsiSelectedCores?.nodes || !attributes || coreLoading) {
     return <div>...Loading</div>
@@ -117,9 +113,9 @@ const AsiGenerator: React.FC = () => {
       },
     })
     await refetchAsiCore()
-    
+
     let newAttributes = cloneDeep(defaultAttributes)
-    
+
     if (method === AsiCoreMethod.Standard) {
       newAttributes = defaultAttributes.map((x: any) => {
         x.currentAssignedScore = null
@@ -127,14 +123,14 @@ const AsiGenerator: React.FC = () => {
         return x
       })
     }
-    
+
     setAttributes(newAttributes)
     setActiveMethod(method)
   }
 
   const handleAttributesChange = async (attributes: any) => {
     let variables: any = {}
-    
+
     attributes.forEach((x: any) => {
       if (x.currentAssignedScore != null) {
         variables[x.name.toLowerCase()] = x.currentAssignedScore
@@ -144,8 +140,7 @@ const AsiGenerator: React.FC = () => {
     if (!core?.allAsiSelectedCores?.nodes[0]) {
       variables.characterId = id
       variables.method = activeMethod
-      await performCreate({variables})
-
+      await performCreate({ variables })
     } else {
       variables.asiSelBaseId = core?.allAsiSelectedCores?.nodes[0]?.asiSelBaseId
       await performUpdate({ variables })
@@ -163,7 +158,7 @@ const AsiGenerator: React.FC = () => {
             onChange={handleMethodChange}
             defaultValue={core?.allAsiSelectedCores?.nodes[0]?.method}
           >
-            {methods.map((method) => {
+            {methods.map(method => {
               return (
                 <option value={method.id} key={method.id}>
                   {method.name}

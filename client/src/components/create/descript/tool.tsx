@@ -24,8 +24,8 @@ const getValidOptions = (
     if (tool.name === 'Musical Instrument') {
       if (!instruments.length) {
         instruments = extraEquipment
-          .filter((x) => x.type === 'instrument')
-          .map((x) => x.name)
+          .filter(x => x.type === 'instrument')
+          .map(x => x.name)
       }
       continue
     }
@@ -33,8 +33,8 @@ const getValidOptions = (
     if (tool.name === "Artisan's Tools") {
       if (!artisanTools.length) {
         artisanTools = extraEquipment
-          .filter((x) => x.type === 'artisan')
-          .map((x) => x.name)
+          .filter(x => x.type === 'artisan')
+          .map(x => x.name)
       }
       continue
     }
@@ -42,8 +42,8 @@ const getValidOptions = (
     if (tool.name === 'Gaming Set') {
       if (!gamingSet.length) {
         gamingSet = extraEquipment
-          .filter((x) => x.type === 'gaming')
-          .map((x) => x.name)
+          .filter(x => x.type === 'gaming')
+          .map(x => x.name)
       }
       continue
     }
@@ -119,7 +119,7 @@ const ToolProficienciesSelector: React.FC<Props> = ({
 
   return (
     <div className='space-y-4'>
-      {emptyArrayOfCorrectLen.map((x) => {
+      {emptyArrayOfCorrectLen.map(x => {
         return (
           <div key={x * 25}>
             <select
@@ -127,7 +127,7 @@ const ToolProficienciesSelector: React.FC<Props> = ({
               defaultValue={''}
             >
               <option value=''>- Choose a tool -</option>
-              {validToolOptions.map((tool) => {
+              {validToolOptions.map(tool => {
                 return <option key={tool}>{tool}</option>
               })}
             </select>

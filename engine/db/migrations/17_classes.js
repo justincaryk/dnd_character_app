@@ -1,6 +1,5 @@
-exports.up = knex => (
-    knex.schema
-        .raw(`
+exports.up = knex =>
+  knex.schema.raw(`
             create table if not exists classes (
                 id uuid primary key,
                 name varchar (30) not null,
@@ -27,8 +26,5 @@ exports.up = knex => (
                 subclass_title text
             );
         `)
-)
 
-exports.down = knex => (
-    knex.schema.dropTable('classes')
-)
+exports.down = knex => knex.schema.dropTable('classes')

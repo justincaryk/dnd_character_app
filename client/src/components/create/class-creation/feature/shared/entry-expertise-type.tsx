@@ -100,7 +100,7 @@ const EntryExpertiseType: React.FC<EntryExpertiseTypeProps> = ({
   if (loading) {
     return null
   }
-  
+
   return (
     <>
       {emptyArray.map((x: any, i: number) => {
@@ -108,7 +108,7 @@ const EntryExpertiseType: React.FC<EntryExpertiseTypeProps> = ({
         return (
           <select
             key={i}
-            onChange={(e) =>
+            onChange={e =>
               handleExpertiseSelection(
                 e,
                 data?.allSkillsSelecteds?.nodes[i]?.skillSelId
@@ -124,7 +124,7 @@ const EntryExpertiseType: React.FC<EntryExpertiseTypeProps> = ({
             <option value={''}>- Select a Skill -</option>
             {skillsSel?.allSkillsSelecteds?.nodes
               //   .filter((skill) => skill?.skillId)
-              .map((skillSel) => {
+              .map(skillSel => {
                 return (
                   <option key={skillSel?.skillId} value={skillSel?.skillId}>
                     {skillSel?.skillBySkillId?.skill}

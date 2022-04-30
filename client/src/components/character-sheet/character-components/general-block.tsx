@@ -82,7 +82,7 @@ const GeneralBlock: React.FC = () => {
               {showRemainingHitDieInput ? (
                 <input
                   className='w-full rounded border'
-                  onChange={(e) => {
+                  onChange={e => {
                     if (isNaN(Number(e.currentTarget.value))) {
                       return false
                     }
@@ -103,18 +103,22 @@ const GeneralBlock: React.FC = () => {
           </div>
           {/* successes / failures */}
           <div className='border-l p-1'>
-              <div className='text-xs text-gray-400 font-roboto uppercase'>Successes</div>
-              <div className='space-x-1'>
-                <input className='round-full' name='successes' type='checkbox'/>
-                <input className='round-full' name='successes' type='checkbox'/>
-                <input className='round-full' name='successes' type='checkbox'/>
-              </div>
-              <div className='text-xs text-gray-400 font-roboto uppercase'>Failures</div>
-              <div className='space-x-1'>
-                <input className='round-full' name='successes' type='checkbox'/>
-                <input className='round-full' name='successes' type='checkbox'/>
-                <input className='round-full' name='successes' type='checkbox'/>
-              </div>
+            <div className='text-xs text-gray-400 font-roboto uppercase'>
+              Successes
+            </div>
+            <div className='space-x-1'>
+              <input className='round-full' name='successes' type='checkbox' />
+              <input className='round-full' name='successes' type='checkbox' />
+              <input className='round-full' name='successes' type='checkbox' />
+            </div>
+            <div className='text-xs text-gray-400 font-roboto uppercase'>
+              Failures
+            </div>
+            <div className='space-x-1'>
+              <input className='round-full' name='successes' type='checkbox' />
+              <input className='round-full' name='successes' type='checkbox' />
+              <input className='round-full' name='successes' type='checkbox' />
+            </div>
           </div>
         </div>
       </div>

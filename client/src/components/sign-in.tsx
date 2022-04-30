@@ -7,21 +7,19 @@ const SignIn: React.FC = () => {
   const [pass, setPass] = useState('')
   const [performSignup, { data, loading }] = useSigninMutation()
 
-  
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!user || !pass) {
       return
     }
-    
+
     const { data } = await performSignup({
       variables: {
         username: user,
         password: pass,
       },
     })
-    
+
     if (data?.signin?.jwtToken) {
       localStorage.setItem(AUTH_TOKEN, data.signin.jwtToken)
       window.location.href = '/'
@@ -45,7 +43,7 @@ const SignIn: React.FC = () => {
             className='w-full border rounded text-xl p-2 text-center'
             placeholder='username'
             value={user}
-            onChange={(e) => setUser(e.currentTarget.value)}
+            onChange={e => setUser(e.currentTarget.value)}
           />
         </div>
         <div>
@@ -58,7 +56,7 @@ const SignIn: React.FC = () => {
             className='w-full border rounded text-xl p-2 text-center'
             placeholder='password'
             value={pass}
-            onChange={(e) => setPass(e.currentTarget.value)}
+            onChange={e => setPass(e.currentTarget.value)}
           />
         </div>
         <div>

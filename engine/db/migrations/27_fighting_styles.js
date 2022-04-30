@@ -1,6 +1,5 @@
-exports.up = knex => (
-    knex.schema
-        .raw(`
+exports.up = knex =>
+  knex.schema.raw(`
             create table fighting_style (
                 fighting_style_id uuid default uuid_generate_v4(),
                 name varchar,
@@ -19,8 +18,5 @@ exports.up = knex => (
 
             GRANT SELECT ON public.fighting_style TO role_minion;
         `)
-)
 
-exports.down = knex => (
-    knex.schema.dropTable('fighting_style')
-)
+exports.down = knex => knex.schema.dropTable('fighting_style')

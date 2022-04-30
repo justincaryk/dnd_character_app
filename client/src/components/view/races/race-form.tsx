@@ -17,14 +17,15 @@ const getItemFromArrayWithId = (someId: string, someArray: any) => {
 const buildRacialFeatureHtmlBlocks = (features: any) => {
   const racialFeatureHtmlArray = features.map((feat: any) => (
     <div className='bg-white rounded px-2 py-3 text-sm border border-2'>
-      <div className='font-bold'>{feat.racialFeatureByRacialFeatureId.name}</div>
+      <div className='font-bold'>
+        {feat.racialFeatureByRacialFeatureId.name}
+      </div>
       <div>{feat.racialFeatureByRacialFeatureId.description}</div>
     </div>
   ))
 
   return racialFeatureHtmlArray
 }
-
 
 const buildAsiString = (asis: any) => {
   asis = JSON.parse(asis).options
@@ -44,7 +45,7 @@ const buildAsiString = (asis: any) => {
 
 const RaceSelectionForm: React.FC = () => {
   // const { id }: any = useParams()
-  
+
   const [selectedRaceId, setSelectedRaceId] = useState<string | null>(null)
   const [selectedSubraceId, setSelectedSubraceId] = useState<string | null>(
     null
@@ -77,8 +78,6 @@ const RaceSelectionForm: React.FC = () => {
   // TODO:
   // make an active race html block for active race only scenarios
   // make a more clear combined html for active race + active subrace scenarios
-
-
 
   return (
     <div className='max-w-screen-sm m-auto m-0'>

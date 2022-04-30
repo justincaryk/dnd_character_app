@@ -1,6 +1,5 @@
-exports.up = knex => (
-    knex.schema
-        .raw(`
+exports.up = knex =>
+  knex.schema.raw(`
             create type app_status AS ENUM ('applied', 'active');
             
             alter table minion
@@ -39,8 +38,5 @@ exports.up = knex => (
             $$
             LANGUAGE plpgsql VOLATILE SECURITY DEFINER;
         `)
-)
 
-exports.down = knex => (
-    knex.schema.raw(``)
-)
+exports.down = knex => knex.schema.raw(``)

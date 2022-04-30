@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { AttributeInterface } from '../../../../lib/types'
 import PointBuyAttrInputBlock from './point-buy-attr-input'
- 
+
 interface Props {
   attributesImmutable: AttributeInterface[]
   callbackToSetAttributes: Dispatch<SetStateAction<AttributeInterface[]>>
@@ -11,8 +11,7 @@ const PointBuy: React.FC<Props> = ({
   attributesImmutable,
   callbackToSetAttributes,
 }) => {
-  const [attributes, setAttributes] =
-    useState<AttributeInterface[]>([])
+  const [attributes, setAttributes] = useState<AttributeInterface[]>([])
   const [pointsRemaining, setPointsRemaining] = useState<number>(27)
   const [standardPointsPool] = useState<number>(27)
   const [standardPointCost] = useState<any>({
@@ -36,7 +35,7 @@ const PointBuy: React.FC<Props> = ({
 
   useEffect(() => {
     setAttributes(attributesImmutable)
-    
+
     if (attributesImmutable) {
       let pointsPool = 27
 
@@ -46,22 +45,27 @@ const PointBuy: React.FC<Props> = ({
 
       setPointsRemaining(pointsPool)
     }
-    
   }, [attributesImmutable])
 
-  const handleChange = (event: React.ChangeEvent<HTMLFormElement>, attributeId: any) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLFormElement>,
+    attributeId: any
+  ) => {
     const newAttributeScore = Number(event.currentTarget.value)
     let pointsPool = 27
-    
+
     const newAttributes = attributes.map(attr => {
-      const cost = attributeId === attr.id ? standardPointCost[newAttributeScore] : standardPointCost[attr.currentAssignedScore || 8]
+      const cost =
+        attributeId === attr.id
+          ? standardPointCost[newAttributeScore]
+          : standardPointCost[attr.currentAssignedScore || 8]
       if (attributeId === attr.id) {
         attr.currentAssignedScore = newAttributeScore
-      } 
+      }
       pointsPool -= cost
       return attr
     })
-    
+
     setAttributes([...newAttributes])
     setPointsRemaining(pointsPool)
     callbackToSetAttributes(newAttributes) // callback handler;
@@ -80,15 +84,17 @@ const PointBuy: React.FC<Props> = ({
       <div>
         <form>
           <div className='grid grid-cols-6 gap-x-2'>
-            {attributes.map((attr) => {
+            {attributes.map(attr => {
               return (
                 <div key={attr.id}>
-                  <div className='text-sm text-center uppercase font-roboto font-bold rounded-t bg-dark text-white p-1'>{attr.name}</div>
-                    <PointBuyAttrInputBlock
-                      attribute={attr}
-                      availablePoints={pointsRemaining}
-                      handleChange={handleChange}
-                    ></PointBuyAttrInputBlock>
+                  <div className='text-sm text-center uppercase font-roboto font-bold rounded-t bg-dark text-white p-1'>
+                    {attr.name}
+                  </div>
+                  <PointBuyAttrInputBlock
+                    attribute={attr}
+                    availablePoints={pointsRemaining}
+                    handleChange={handleChange}
+                  ></PointBuyAttrInputBlock>
                 </div>
               )
             })}

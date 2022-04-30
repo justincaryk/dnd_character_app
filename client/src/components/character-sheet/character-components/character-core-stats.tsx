@@ -40,7 +40,7 @@ const CharacterCoreStats: React.FC = () => {
     <div className='pb-2'>
       <div className='grid grid-cols-2 space-x-8'>
         <div className='grid grid-cols-6 space-x-4 p'>
-          {coreStats.map((stat) => (
+          {coreStats.map(stat => (
             <CoreStatBlock
               attribute={stat.attribute}
               bonus={stat.bonus}

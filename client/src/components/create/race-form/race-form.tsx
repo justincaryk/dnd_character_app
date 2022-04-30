@@ -28,7 +28,8 @@ const RaceSelectionForm: React.FC = () => {
   const { data: races, loading: racesLoading } = useGetAllRacesQuery()
   const [performUpdate] = useUpdateCharacterMutation()
   const [performDeleteAllRaceAsis] = useDeleteAsiSelByCharIdMutation()
-  const [performDeleteAllFeatSels] = useDeleteAllRacialFeatsByCharacterIdMutation()
+  const [performDeleteAllFeatSels] =
+    useDeleteAllRacialFeatsByCharacterIdMutation()
 
   useEffect(() => {
     if (
@@ -40,7 +41,7 @@ const RaceSelectionForm: React.FC = () => {
       if (!activeRace) {
         setActiveRace(
           races?.allRaces?.nodes.find(
-            (x) => x?.id === char?.characterByCharacterId?.raceId
+            x => x?.id === char?.characterByCharacterId?.raceId
           )
         )
       }
@@ -57,17 +58,17 @@ const RaceSelectionForm: React.FC = () => {
         characterId: id,
       },
     })
-    
+
     await performDeleteAllFeatSels({
       variables: {
-        characterId: id
-      }
+        characterId: id,
+      },
     })
 
     setSelectedRaceId(event.target.value)
     setSelectedSubraceId(null)
     const activeRace = races?.allRaces?.nodes.find(
-      (x) => x?.id === event.target.value
+      x => x?.id === event.target.value
     )
 
     setActiveRace(activeRace)
@@ -147,8 +148,8 @@ const RaceSelectionForm: React.FC = () => {
 
       {selectedRaceId && (
         <div className='space-y-4 mt-4'>
-          <div 
-            className='text-md font-roboto cursor-pointer uppercase' 
+          <div
+            className='text-md font-roboto cursor-pointer uppercase'
             onClick={() => toggleShowRaceInfo(!showRaceInfo)}
           >
             {showRaceInfo ? 'Hide Details -' : 'Show Details +'}

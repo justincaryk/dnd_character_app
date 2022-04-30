@@ -19,7 +19,7 @@ const Feats: React.FC = () => {
 
   const handleMethodChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const feat = data?.allFeats?.feats.find(
-      (f) => f?.id == event.target.value
+      f => f?.id == event.target.value
     ) as FeatInterface
     if (feat) {
       setFocusedFeat(feat)
@@ -36,9 +36,9 @@ const Feats: React.FC = () => {
         <div>
           <select
             className='w-full border rounded-b text-xl p-2'
-            onChange={(e) => handleMethodChange(e)}
+            onChange={e => handleMethodChange(e)}
           >
-            {data.allFeats.feats.map((f) => {
+            {data.allFeats.feats.map(f => {
               if (f) {
                 return (
                   <option value={f.id} key={f.id}>

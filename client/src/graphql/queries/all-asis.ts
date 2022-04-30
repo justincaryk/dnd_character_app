@@ -5,7 +5,7 @@ export default gql`
     allAsis {
       nodes {
         asiId
-        short 
+        short
         long
       }
     }

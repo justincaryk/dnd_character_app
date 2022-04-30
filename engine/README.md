@@ -1,4 +1,3 @@
-
 local development
 
 1. install and set up postgres

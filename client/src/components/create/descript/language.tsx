@@ -48,7 +48,7 @@ const LanguageSelector: React.FC<Props> = ({
     if (correctKeyReference == 'ALL') {
       return languages
     }
-    return languages.filter((l) => l.type === correctKeyReference.toLowerCase())
+    return languages.filter(l => l.type === correctKeyReference.toLowerCase())
   }
 
   const calcNumOfSelectElemsToGenerate = () => {
@@ -88,14 +88,14 @@ const LanguageSelector: React.FC<Props> = ({
 
   return (
     <div className='space-y-4'>
-      {dummy_array_to_generate_correct_num_of_select_elems.map((x) => {
+      {dummy_array_to_generate_correct_num_of_select_elems.map(x => {
         return (
           <div key={x * 25}>
             <select className='w-full border rounded-b text-xl p-2'>
               <option value='' selected>
                 - Choose a Language -
               </option>
-              {validLanguageOptions.map((language) => {
+              {validLanguageOptions.map(language => {
                 return <option key={language.name}>{language.name}</option>
               })}
             </select>
