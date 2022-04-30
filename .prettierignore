@@ -1,0 +1,17 @@
+
+*.html
+node_modules
+
+dist/
+
+yarn.lock
+
+.env
+
+package-lock.json
+
+.vscode
+
+client/build
+
+client/public
