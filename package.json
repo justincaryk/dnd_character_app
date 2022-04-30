@@ -21,11 +21,11 @@
     "typescript": "^4.2.2"
   },
   "devDependencies": {
-    
+    "prettier": "^2.6.2"
   },
   "private": true,
   "engines": {
-    "yarn": "1.22.11",
+    "yarn": ">=1.22.11",
     "node": ">=12"
   },
   "engineStrict": true
