@@ -27,4 +27,4 @@ jobs:
           cmd: install
 
       - name: Code Linting
-        run: yarn prettier --write
+        run: yarn prettier --write ./
