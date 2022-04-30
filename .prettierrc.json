@@ -2,7 +2,6 @@
   "arrowParens": "avoid",
   "bracketSameLine": false,
   "bracketSpacing": true,
-  "emptyLinesBetweenBlocks": 1,
   "endOfLine": "lf",
   "jsxSingleQuote": true,
   "printWidth": 80,
