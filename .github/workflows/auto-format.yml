@@ -13,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Dependencies
-        run: yarn ci
         uses: borales/actions-yarn@v2.3.0
         with:
           cmd: install
