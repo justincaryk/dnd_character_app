@@ -73,21 +73,21 @@ const ClassFeatures: React.FC<Props> = ({
     const classFeats = data?.classById?.classFeaturesByClassId?.nodes
     const subclassFeats =
       data?.classById?.subclassFeaturesByClassId?.nodes.filter(
-        (x) => x?.subclassId === character.subclassId
+        x => x?.subclassId === character.subclassId
       ) as any[]
 
     const merged = classFeats ? classFeats.concat(subclassFeats) : []
     //@ts-ignore
     merged.sort((a, b) => a.level - b.level)
 
-    const filteredEligible = merged.filter((x) =>
+    const filteredEligible = merged.filter(x =>
       x?.level ? x.level <= currentLevel : false
     )
 
     setFeatures(filteredEligible || [])
 
     const filteredIneligible =
-      data?.classById?.classFeaturesByClassId.nodes.filter((x) =>
+      data?.classById?.classFeaturesByClassId.nodes.filter(x =>
         x?.level ? x.level > currentLevel : false
       )
 
@@ -102,7 +102,7 @@ const ClassFeatures: React.FC<Props> = ({
     setStartingProficiencies(parsed)
   }, [data])
 
-  const handleClassDelete = async ()=> {
+  const handleClassDelete = async () => {
     setClassSelected('empty')
     setCurrentLevel(1)
     await performUpdate({
@@ -110,20 +110,20 @@ const ClassFeatures: React.FC<Props> = ({
         characterId: id,
         currentLevel: 1,
         classId: null,
-        subclassId: null
+        subclassId: null,
       },
     })
     await refetchCharacter()
-    
+
     await performDeleteAllSkills({
       variables: {
-        characterId: character.characterId
-      }
+        characterId: character.characterId,
+      },
     })
     await performDeleteAllAsis({
       variables: {
-        characterId: character.characterId
-      }
+        characterId: character.characterId,
+      },
     })
   }
 
@@ -178,11 +178,11 @@ const ClassFeatures: React.FC<Props> = ({
           </label>
           <select
             className='w-full border rounded text-md p-1'
-            onChange={(e) => handleLevelChange(e)}
+            onChange={e => handleLevelChange(e)}
             name='level'
             value={currentLevel}
           >
-            {levels.map((lvl) => (
+            {levels.map(lvl => (
               <option key={lvl} value={lvl}>
                 {lvl}
               </option>
@@ -248,21 +248,22 @@ const ClassFeatures: React.FC<Props> = ({
           if (feature.name.toLowerCase() === 'ability score improvement') {
             return (
               <div key={i}>
-                <FeatureAsi feature={feature} characterId={character.characterId} />
+                <FeatureAsi
+                  feature={feature}
+                  characterId={character.characterId}
+                />
               </div>
             )
           } else if (feature.subclassId) {
             return (
               <div className='relative' key={i}>
-                {feature.hasOptions && (
-                  <BlueExclamation />
-                )}
+                {feature.hasOptions && <BlueExclamation />}
                 <SubclassFeatureGeneral
                   feature={feature}
                   characterId={character.characterId}
                   skillsSel={skillsSel}
                   featuresFiltered={features.filter(
-                    (feat) => feat.level === feature.level && feat.isSuboption
+                    feat => feat.level === feature.level && feat.isSuboption
                   )}
                 />
               </div>
@@ -300,16 +301,20 @@ const ClassFeatures: React.FC<Props> = ({
               if (feature.name.toLowerCase() === 'ability score improvement') {
                 return (
                   <div key={i}>
-                    <FeatureAsi viewOnly feature={feature} characterId={character.characterId} />
+                    <FeatureAsi
+                      viewOnly
+                      feature={feature}
+                      characterId={character.characterId}
+                    />
                   </div>
                 )
               } else if (feature.subclassId) {
                 return (
-                  <SubclassFeatureGeneral 
-                    feature={feature} 
+                  <SubclassFeatureGeneral
+                    feature={feature}
                     characterId={character.characterId}
                     skillsSel={skillsSel}
-                    viewOnly 
+                    viewOnly
                   />
                 )
               } else {

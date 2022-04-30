@@ -1,40 +1,40 @@
-import { Hash } from './types';
+import { Hash } from './types'
 
 export const tryParseInt = (str: any, defaultValue: boolean) => {
-    let returnValue: number | boolean = defaultValue;
+  let returnValue: number | boolean = defaultValue
 
-    if(str !== null) {
-        if(str.length > 0) {
-            if (!isNaN(str)) {
-                returnValue = parseInt(str);
-            }
-        }
+  if (str !== null) {
+    if (str.length > 0) {
+      if (!isNaN(str)) {
+        returnValue = parseInt(str)
+      }
     }
-    return returnValue;
+  }
+  return returnValue
 }
 
 export const getProficiencyRules = (level: number) => {
-    if (level < 5) return 2
-    if (level < 9) return 3
-    if (level < 13) return 4
-    if (level < 17) return 5
-    return 6
+  if (level < 5) return 2
+  if (level < 9) return 3
+  if (level < 13) return 4
+  if (level < 17) return 5
+  return 6
 }
 
 export const getLongFormAbilityScore = (asiAbbrev: string): string => {
-    const hash: Hash = {
-        'str': 'Strength',
-        'dex': 'Dexterity',
-        'con': 'Constitution',
-        'int': 'Intelligence',
-        'wis': 'Wisdom',
-        'cha': 'Charisma'
-    }
+  const hash: Hash = {
+    str: 'Strength',
+    dex: 'Dexterity',
+    con: 'Constitution',
+    int: 'Intelligence',
+    wis: 'Wisdom',
+    cha: 'Charisma',
+  }
 
-    return hash[asiAbbrev]
+  return hash[asiAbbrev]
 }
 
-const sortFeatureList = (list: any[]) => (
+const sortFeatureList = (list: any[]) =>
   list.sort((a: any, b: any) => {
     if (typeof a == 'string' && typeof b === 'string') {
       return Number(a.split('||')[1]) - Number(b.split('||')[1])
@@ -51,41 +51,45 @@ const sortFeatureList = (list: any[]) => (
     // a.classFeature only
     return Number(a.classFeature.split('||')[1]) - Number(b.split('||')[1])
   })
-)
 
-const parseFeatureList = (list: any[], hasSubclassFeats: boolean) => (
+const parseFeatureList = (list: any[], hasSubclassFeats: boolean) =>
   list.map((x: any) => {
     if (typeof x === 'string' && x.toLowerCase().indexOf('subclass') === -1) {
       return {
         name: x.split('||')[0],
-        level: x.split('||')[1]
+        level: x.split('||')[1],
       }
-    } 
-    
+    }
+
     if (hasSubclassFeats) {
       const y = {
-        level: x
+        level: x,
       }
       y.level = x.toLowerCase().split('||subclass')[0]
       y.level = y.level.split('||')[1]
       return y
     }
-    
+
     const remainder = x.split('||subclass')[0]
     const name = remainder.split('||')[0]
-    const level = name.split('||')[1] 
+    const level = name.split('||')[1]
     return {
       name: name,
-      level: level
+      level: level,
     }
   })
-)
 
-
-export const getFeatures = (list: any, classFeats: any, subclassFeats?: any) => {
+export const getFeatures = (
+  list: any,
+  classFeats: any,
+  subclassFeats?: any
+) => {
   const sortedList: any = sortFeatureList([...list])
-  const parsedList: any = parseFeatureList(sortedList, subclassFeats !== undefined)
-  
+  const parsedList: any = parseFeatureList(
+    sortedList,
+    subclassFeats !== undefined
+  )
+
   const featsFormatted = []
 
   for (const key of parsedList) {
@@ -95,23 +99,22 @@ export const getFeatures = (list: any, classFeats: any, subclassFeats?: any) => 
         // filtering by name AND level ensures proper choice with dupe feat names (eg. ASI)
         if (feat.name === key.name && feat.level === Number(key.level)) {
           featsFormatted.push(feat)
-          break;
+          break
         }
       }
-      continue;
+      continue
     }
-    
+
     //subclass feature
     for (const feat of subclassFeats) {
       if (Number(key.level) === feat.level) {
-        featsFormatted.push(feat)  
+        featsFormatted.push(feat)
       }
     }
   }
 
   return featsFormatted
 }
-
 
 export const parsedFeatures = (classFeatures: any) => {
   const hashFeatures: any = {}
@@ -138,7 +141,7 @@ export const parsedFeatures = (classFeatures: any) => {
 export const numberToSpeakable = (num: number) => {
   if (num === 1) {
     return '1st'
-  } 
+  }
   if (num === 2) {
     return '2nd'
   }
@@ -150,11 +153,16 @@ export const numberToSpeakable = (num: number) => {
 }
 
 export const parseJwt = (token: string) => {
-  var base64Url = token.split('.')[1];
-  var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-  var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-  }).join(''));
+  var base64Url = token.split('.')[1]
+  var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
+  var jsonPayload = decodeURIComponent(
+    atob(base64)
+      .split('')
+      .map(function (c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+      })
+      .join('')
+  )
 
-  return JSON.parse(jsonPayload);
-};
+  return JSON.parse(jsonPayload)
+}

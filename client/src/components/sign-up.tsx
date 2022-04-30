@@ -30,7 +30,7 @@ const SignUp: React.FC = () => {
     <div>
       {signUpSuccessful ? (
         <div className='space-y-4 relative w-1/2 m-auto m-0 pt-12 text-xl text-center font-bold'>
-          Sign up successful! 
+          Sign up successful!
         </div>
       ) : (
         <form
@@ -46,7 +46,7 @@ const SignUp: React.FC = () => {
               className='w-full border rounded text-xl p-2 text-center'
               placeholder='username'
               value={user}
-              onChange={(e) => setUser(e.currentTarget.value)}
+              onChange={e => setUser(e.currentTarget.value)}
             />
           </div>
           <div>
@@ -59,7 +59,7 @@ const SignUp: React.FC = () => {
               className='w-full border rounded text-xl p-2 text-center'
               placeholder='password'
               value={pass}
-              onChange={(e) => setPass(e.currentTarget.value)}
+              onChange={e => setPass(e.currentTarget.value)}
             />
           </div>
           <div>

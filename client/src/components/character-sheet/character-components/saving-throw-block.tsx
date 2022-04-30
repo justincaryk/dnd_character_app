@@ -44,7 +44,7 @@ const SavingThrowBlock: React.FC = () => {
   return (
     <div className='p-6 border-2 border-red-400 rounded bg-white'>
       <div className='space-y-2'>
-        {saves.map((save) => (
+        {saves.map(save => (
           <div className='grid grid-cols-6'>
             <div className='flex items-center justify-center text-center'>
               {save.prof ? prof : notProf}
@@ -53,7 +53,9 @@ const SavingThrowBlock: React.FC = () => {
             <div className='font-roboto text-xs col-span-4'>{save.stat}</div>
           </div>
         ))}
-        <div className='mt-4 font-roboto text-sm text-center'>SAVING THROWS</div>
+        <div className='mt-4 font-roboto text-sm text-center'>
+          SAVING THROWS
+        </div>
       </div>
     </div>
   )

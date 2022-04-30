@@ -33,14 +33,14 @@ const SubraceCards: React.FC<Props> = ({ subrace }) => {
         <div className='font-bold'>Ability Score Increase:</div>
         <div>{asiString}</div>
       </div>
-      {
-          subrace.subraceFeaturesBySubraceId.nodes.map((feat: any) => (
-            <div className='bg-white rounded px-2 py-3 text-sm border border-2'>
-              <div className='font-bold'>{feat.racialFeatureByRacialFeatureId.name}</div>
-              <div>{feat.racialFeatureByRacialFeatureId.description}</div>
-            </div>
-          ))
-      }
+      {subrace.subraceFeaturesBySubraceId.nodes.map((feat: any) => (
+        <div className='bg-white rounded px-2 py-3 text-sm border border-2'>
+          <div className='font-bold'>
+            {feat.racialFeatureByRacialFeatureId.name}
+          </div>
+          <div>{feat.racialFeatureByRacialFeatureId.description}</div>
+        </div>
+      ))}
     </div>
   )
 }

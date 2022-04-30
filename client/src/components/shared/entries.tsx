@@ -1,36 +1,36 @@
 import React from 'react'
 
 interface ITableType {
-    entry: {
-      caption: string
-      colLabels: string[]
-      rows: [string[]]
-    }
+  entry: {
+    caption: string
+    colLabels: string[]
+    rows: [string[]]
   }
-  
+}
+
 export const EntryTableType: React.FC<ITableType> = ({ entry }) => (
-    <>
-      <div className='italic'>{entry.caption}</div>
-      <div className='table'>
-        <div className='table-header-group font-semibold'>
-          {entry.colLabels.map((cl, i) => (
-            <div className='table-cell pl-2' key={i}>
-              {cl}
-            </div>
-          ))}
-        </div>
-        {entry.rows.map((row) => (
-          <div className='table-row'>
-            {row.map((col) => (
-              <div className='table-cell pl-2' key={col}>
-                {col}
-              </div>
-            ))}
+  <>
+    <div className='italic'>{entry.caption}</div>
+    <div className='table'>
+      <div className='table-header-group font-semibold'>
+        {entry.colLabels.map((cl, i) => (
+          <div className='table-cell pl-2' key={i}>
+            {cl}
           </div>
         ))}
       </div>
-    </>
-  )
+      {entry.rows.map(row => (
+        <div className='table-row'>
+          {row.map(col => (
+            <div className='table-cell pl-2' key={col}>
+              {col}
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  </>
+)
 
 interface IEntryType {
   entry: any // worst data model ever
@@ -78,30 +78,30 @@ export const EntryEntryType: React.FC<IEntryType> = ({ entry }) => {
 }
 
 interface IListType {
-    entry: {
-      items:
-        | string[]
-        | {
-            type: string
-            name: string
-            entry: string
-          }[]
-    }
+  entry: {
+    items:
+      | string[]
+      | {
+          type: string
+          name: string
+          entry: string
+        }[]
   }
-  
-  export const EntryListType: React.FC<IListType> = ({ entry }) => (
-    <ul className='list-disc list-inside mt-2 mb-2'>
-      {entry.items.map((x, i) => {
-        if (typeof x === 'string') {
-          return <li key={x}>{x}</li>
-        }
-  
-        return (
-          <div key={i}>
-            <div className='italic'>{x.name}</div>
-            <div>{x.entry}</div>
-          </div>
-        )
-      })}
-    </ul>
-  )
+}
+
+export const EntryListType: React.FC<IListType> = ({ entry }) => (
+  <ul className='list-disc list-inside mt-2 mb-2'>
+    {entry.items.map((x, i) => {
+      if (typeof x === 'string') {
+        return <li key={x}>{x}</li>
+      }
+
+      return (
+        <div key={i}>
+          <div className='italic'>{x.name}</div>
+          <div>{x.entry}</div>
+        </div>
+      )
+    })}
+  </ul>
+)

@@ -24,14 +24,14 @@ const ManualOption: React.FC<Props> = ({
       return
     }
 
-    const tempAttrs = attributes.map((a) => {
+    const tempAttrs = attributes.map(a => {
       if (a.id === attrId) {
         a.previousAssignedScore = a.currentAssignedScore || newAttributeScore
         a.currentAssignedScore = newAttributeScore
       }
       return a
     })
-    
+
     callbackToSetAttributes(tempAttrs) // callback handler
     setAttributes(tempAttrs)
   }
@@ -39,7 +39,7 @@ const ManualOption: React.FC<Props> = ({
   return (
     <form>
       <div className='grid grid-cols-6 gap-x-2'>
-        {attributes.map((attr) => {
+        {attributes.map(attr => {
           return (
             <div key={attr.id}>
               <div className='text-sm text-center uppercase font-roboto font-bold rounded-t bg-dark text-white p-1'>
@@ -47,7 +47,7 @@ const ManualOption: React.FC<Props> = ({
               </div>
               <input
                 className='w-full border rounded-b text-xl p-2'
-                onBlur={(event) => {
+                onBlur={event => {
                   handleChange(event, attr.id)
                   event.target.value = getValidScore(
                     event.target.value

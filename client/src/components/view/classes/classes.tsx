@@ -21,7 +21,7 @@ const Classes: React.FC = () => {
   if (data && !classOptions.length) {
     const options: any[] = []
     if (data?.allClasses?.nodes) {
-      data.allClasses.nodes.forEach((x) => {
+      data.allClasses.nodes.forEach(x => {
         const opt = {
           value: x?.id,
           label: x?.name,
@@ -48,13 +48,14 @@ const Classes: React.FC = () => {
 
   const handleSubclassChange = (e: SelectChangeEventType) => {
     setSelectedSubclass(e)
-    
+
     const subclassShortName = e?.value
-    
-    const subclassFeatures = selectedClass.subclassFeaturesByClassId.nodes.filter((x: any) => {
-      return x.subclassShortName === subclassShortName ? true : false
-    })
-    
+
+    const subclassFeatures =
+      selectedClass.subclassFeaturesByClassId.nodes.filter((x: any) => {
+        return x.subclassShortName === subclassShortName ? true : false
+      })
+
     setSubclassFeatures(subclassFeatures)
   }
 
@@ -64,7 +65,7 @@ const Classes: React.FC = () => {
         <Select
           options={classOptions}
           placeholder={'Make a selection'}
-          onChange={(e) => handleClassChange(e)}
+          onChange={e => handleClassChange(e)}
         />
       </div>
 

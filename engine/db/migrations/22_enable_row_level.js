@@ -1,9 +1,8 @@
 require('dotenv').config()
 const { ROLE_ANON } = process.env
 
-exports.up = knex => (
-    knex.schema
-        .raw(`
+exports.up = knex =>
+  knex.schema.raw(`
             ALTER TABLE attributes ENABLE ROW LEVEL SECURITY;
             ALTER TABLE bg_features ENABLE ROW LEVEL SECURITY;
             ALTER TABLE bgs ENABLE ROW LEVEL SECURITY;
@@ -141,8 +140,5 @@ exports.up = knex => (
             GRANT SELECT ON public.subclass_features TO role_minion;
             GRANT SELECT ON public.subraces TO role_minion;
         `)
-)
 
-exports.down = knex => (
-    knex.schema.dropTable('')
-)
+exports.down = knex => knex.schema.dropTable('')

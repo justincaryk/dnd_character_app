@@ -1,6 +1,5 @@
-exports.up = knex => (
-    knex.schema
-        .raw(`
+exports.up = knex =>
+  knex.schema.raw(`
             
             create type asi_core_method as enum(
               'point_buy',
@@ -57,9 +56,5 @@ exports.up = knex => (
             
             GRANT DELETE ON app_character.asi_selected_core TO role_minion; 
         `)
-)
 
-exports.down = knex => (
-    knex.schema.raw(``)
-)
-
+exports.down = knex => knex.schema.raw(``)

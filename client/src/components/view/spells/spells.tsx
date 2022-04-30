@@ -126,7 +126,7 @@ const SpellsSelector: React.FC = () => {
     // this block will handle checking the spell matches both criteria
     if (activeSpellLevelHash.filteringByLevel && caster) {
       filteredSpells = allSpells.length
-        ? allSpells.filter((spell) => {
+        ? allSpells.filter(spell => {
             const eligCasters =
               spell && spell.dndClass ? spell.dndClass.split(', ') : []
             const levelIsIncluded = spell
@@ -139,14 +139,14 @@ const SpellsSelector: React.FC = () => {
 
     // we're only filtering by spell level
     else if (activeSpellLevelHash.filteringByLevel) {
-      filteredSpells = allSpells.filter((spell) =>
+      filteredSpells = allSpells.filter(spell =>
         spell ? activeSpellLevelHash[spell.levelInt] : false
       )
     }
 
     // we're only filtering by caster
     else if (caster) {
-      filteredSpells = allSpells.filter((spell) =>
+      filteredSpells = allSpells.filter(spell =>
         spell?.dndClass?.split(', ').includes(caster)
       )
     }
@@ -159,9 +159,12 @@ const SpellsSelector: React.FC = () => {
       <div className='filter-block space-y-4'>
         <div className='text-off-white font-bold'>Filter By:</div>
         <div>
-          <select className='w-full border rounded-b text-xl p-2' onChange={handleCasterListSelected}>
+          <select
+            className='w-full border rounded-b text-xl p-2'
+            onChange={handleCasterListSelected}
+          >
             <option value=''>Select a Caster List</option>
-            {spellCasters.map((caster) => {
+            {spellCasters.map(caster => {
               return (
                 <option key={'s-c-' + caster} value={caster}>
                   {caster}
@@ -171,7 +174,7 @@ const SpellsSelector: React.FC = () => {
           </select>
         </div>
         <div className='flex justify-between w-full px-10'>
-          {spellLevels.map((lvl) => {
+          {spellLevels.map(lvl => {
             return (
               <div
                 onClick={() => updateSpellLevelStates(lvl)}

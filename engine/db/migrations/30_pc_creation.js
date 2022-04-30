@@ -1,6 +1,5 @@
-exports.up = knex => (
-    knex.schema
-        .raw(`
+exports.up = knex =>
+  knex.schema.raw(`
             drop table public.asi;
 
             create table asi (
@@ -101,8 +100,5 @@ exports.up = knex => (
             );
         
         `)
-)
 
-exports.down = knex => (
-    knex.schema.raw(``)
-)
+exports.down = knex => knex.schema.raw(``)

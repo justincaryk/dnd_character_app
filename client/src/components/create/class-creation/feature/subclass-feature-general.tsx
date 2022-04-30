@@ -59,7 +59,7 @@ const SubclassFeatureGeneral: React.FC<SubclassFeatureProps> = ({
   featuresFiltered,
   characterId,
   skillsSel,
-  viewOnly
+  viewOnly,
 }) => {
   const [detailActive, toggleDetailActive] = useState(false)
   const [suboptSelected, setSuboptSelected] = useState('')
@@ -71,19 +71,17 @@ const SubclassFeatureGeneral: React.FC<SubclassFeatureProps> = ({
   if (feature.isSuboption) {
     return null
   }
-  
+
   return (
     <div className='bg-white'>
       <div className='relative'>
-        {feature.hasOptions ? (
-          <BlueExclamation />
-        ) : null}
+        {feature.hasOptions ? <BlueExclamation /> : null}
       </div>
       <div
         className={classnames({
           'p-2 hover:bg-cream cursor-pointer': true,
           'bg-cream': detailActive,
-          'border': true
+          border: true,
         })}
         onClick={() => toggleDetailActive(!detailActive)}
       >
@@ -129,15 +127,17 @@ const SubclassFeatureGeneral: React.FC<SubclassFeatureProps> = ({
             {suboptSelected && featuresFiltered ? (
               <>
                 {featuresFiltered
-                  .filter((feat) => feat.name === suboptSelected)
-                  .map((feat) => (
+                  .filter(feat => feat.name === suboptSelected)
+                  .map(feat => (
                     <>
-                      {JSON.parse(feat.entries).e.map((entry: any, i: number) => {
-                        if (typeof entry === 'string') {
-                          return <div key={i}>{entry}</div>
+                      {JSON.parse(feat.entries).e.map(
+                        (entry: any, i: number) => {
+                          if (typeof entry === 'string') {
+                            return <div key={i}>{entry}</div>
+                          }
+                          return null
                         }
-                        return null
-                      })}
+                      )}
                     </>
                   ))}
               </>

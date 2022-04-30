@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import { useAllClassNamesQuery, useGetCharacterByIdQuery, useUpdateCharacterMutation } from '../../../generated/graphql'
+import {
+  useAllClassNamesQuery,
+  useGetCharacterByIdQuery,
+  useUpdateCharacterMutation,
+} from '../../../generated/graphql'
 import ClassFeatures from './class-features'
 
 const ClassCreation: React.FC = () => {
@@ -8,7 +12,11 @@ const ClassCreation: React.FC = () => {
   const { id }: any = useParams()
   const [classSelected, setClassSelected] = useState<any>(null)
   const [performUpdate] = useUpdateCharacterMutation()
-  const { data: char, loading: charLoading, refetch: refetchChar } = useGetCharacterByIdQuery({
+  const {
+    data: char,
+    loading: charLoading,
+    refetch: refetchChar,
+  } = useGetCharacterByIdQuery({
     variables: {
       characterId: id,
     },
@@ -16,13 +24,14 @@ const ClassCreation: React.FC = () => {
 
   useEffect(() => {
     if (char?.characterByCharacterId?.classId && classes?.allClasses?.nodes) {
-      const c = classes?.allClasses?.nodes.find(c => c?.id === char.characterByCharacterId?.classId)
+      const c = classes?.allClasses?.nodes.find(
+        c => c?.id === char.characterByCharacterId?.classId
+      )
       setClassSelected(c)
-    } 
+    }
     if (char?.characterByCharacterId && !char.characterByCharacterId.classId) {
       setClassSelected('empty')
     }
-    
   }, [char?.characterByCharacterId?.classId, classes?.allClasses?.nodes])
 
   const handleClassSelection = async (c: any) => {
@@ -31,8 +40,8 @@ const ClassCreation: React.FC = () => {
     await performUpdate({
       variables: {
         characterId: id,
-        classId: c.id
-      }
+        classId: c.id,
+      },
     })
   }
 
@@ -43,7 +52,7 @@ const ClassCreation: React.FC = () => {
   if (classSelected === 'empty' && classes) {
     return (
       <div className='space-y-2 max-w-screen-sm m-auto m-0'>
-        {classes.allClasses?.nodes.map((c) => (
+        {classes.allClasses?.nodes.map(c => (
           <div
             className='w-full p-2 border-2 border-gray-200 rounded bg-white cursor-pointer flex justify-between items-center'
             onClick={() => handleClassSelection(c)}
@@ -79,8 +88,8 @@ const ClassCreation: React.FC = () => {
   if (classSelected) {
     return (
       <div className='space-y-2 max-w-screen-sm m-auto m-0'>
-        <ClassFeatures 
-          classObj={classSelected} 
+        <ClassFeatures
+          classObj={classSelected}
           setClassSelected={setClassSelected}
           character={char.characterByCharacterId}
           refetchCharacter={refetchChar}

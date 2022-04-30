@@ -139,7 +139,7 @@ const addOrRemoveAvailableOptionsAtIndex = (state: any, props: Props) => {
   return options
 }
 
-const AttributeInputBlock: React.FC<Props> = (props) => {
+const AttributeInputBlock: React.FC<Props> = props => {
   const [indexOfOptionSelected, setIndexOfOptionSelected] = useState<number>(0)
   const [allOptions] = useState<JSX.Element[]>(buildAvailableOptions(props))
 
@@ -169,10 +169,11 @@ const AttributeInputBlock: React.FC<Props> = (props) => {
 
   return (
     <div>
-      <select 
-        className='w-full border rounded-b text-xl p-2' 
+      <select
+        className='w-full border rounded-b text-xl p-2'
         onChange={handleChange}
-        defaultValue={`${props.attribute.currentAssignedScore}-${props.attribute.id}`}>
+        defaultValue={`${props.attribute.currentAssignedScore}-${props.attribute.id}`}
+      >
         {options}
       </select>
     </div>

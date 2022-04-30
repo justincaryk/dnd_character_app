@@ -7,6 +7,7 @@ local development
 5. run `yarn dev`
 
 <sup>1</sup> .env
+
 ```.env
 
 DATABASE=dnd

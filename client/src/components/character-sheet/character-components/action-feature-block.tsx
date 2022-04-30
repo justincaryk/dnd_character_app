@@ -225,7 +225,11 @@ const ActionFeatureBlock: React.FC = () => {
                 its seals to another creature within range.
               </div>
               <div className='font-bold text-gray-500'>I Am Death.</div>
-              <div> At 6th level, after placing a seal on a creature, your attacks against that creature have advantage until the end of your turn.</div>
+              <div>
+                {' '}
+                At 6th level, after placing a seal on a creature, your attacks
+                against that creature have advantage until the end of your turn.
+              </div>
             </div>
             <div>
               <div className='text-gray-400 font-bold'>2d6 (Short rest)</div>
@@ -291,7 +295,13 @@ const ActionFeatureBlock: React.FC = () => {
               <span className='text-gray-400 font-bold'>(Long rest)</span>
             </div>
             <div className='font-bold'>By the Throat</div>
-            <div>Starting at 7th level, you can, as an action, place a seal on an enemy within 30 feet. If they are Large or smaller, they must make a Wisdom saving throw (DC = 8 + your proficiency bonus + your Charisma modifier) or be grappled (escape DC 15), and the target is restrained until the grapple ends.</div>
+            <div>
+              Starting at 7th level, you can, as an action, place a seal on an
+              enemy within 30 feet. If they are Large or smaller, they must make
+              a Wisdom saving throw (DC = 8 + your proficiency bonus + your
+              Charisma modifier) or be grappled (escape DC 15), and the target
+              is restrained until the grapple ends.
+            </div>
           </div>
           {/* feats */}
         </div>

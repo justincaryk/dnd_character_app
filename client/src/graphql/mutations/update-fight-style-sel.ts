@@ -1,13 +1,11 @@
 import gql from 'graphql-tag'
 
 export default gql`
-  mutation UpdateFightStyle($fightStyleSelId: UUID!, $fightStyleId: UUID!) {         
+  mutation UpdateFightStyle($fightStyleSelId: UUID!, $fightStyleId: UUID!) {
     updateFightStyleSelectedByFightStyleSelId(
       input: {
-        fightStyleSelId: $fightStyleSelId,
-        fightStyleSelectedPatch: {
-          fightStyleId: $fightStyleId
-        }
+        fightStyleSelId: $fightStyleSelId
+        fightStyleSelectedPatch: { fightStyleId: $fightStyleId }
       }
     ) {
       fightStyleSelected {
@@ -15,5 +13,4 @@ export default gql`
       }
     }
   }
-  
 `

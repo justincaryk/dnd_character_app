@@ -29,12 +29,12 @@ const buildSkillsBlock = (
       <div>
         <strong>Skill Proficiencies:</strong>
       </div>
-      {dummy_array.map((x) => {
+      {dummy_array.map(x => {
         return (
           <div key={'skills-dropdown-' + x}>
             <select className='w-full border rounded-b text-xl p-2'>
               <option value=''>- Choose a Skill -</option>
-              {skillsData.map((skill) => {
+              {skillsData.map(skill => {
                 return (
                   <option key={skill.skill} value={skill.skill}>
                     {skill.skill}
@@ -61,12 +61,12 @@ const buildToolsBlock = (
       <div>
         <strong>Tools Proficiencies:</strong>
       </div>
-      {dummy_array.map((x) => {
+      {dummy_array.map(x => {
         return (
           <div key={'tool-dropdown-' + x}>
             <select className='w-full border rounded-b text-xl p-2'>
               <option value=''>- Choose a Tool -</option>
-              {sortedTools.map((tool) => {
+              {sortedTools.map(tool => {
                 return (
                   <option key={tool.name} value={tool.name}>
                     {tool.name}
@@ -86,18 +86,18 @@ const buildLanguagesBlock = (
   languages: LanguageType[]
 ) => {
   const dummy_array = buildDummyArrayToMapOver(numOfSelectElems)
-  
+
   return (
     <div className='space-y-4'>
       <div>
         <strong>Languages:</strong>
       </div>
-      {dummy_array.map((x) => {
+      {dummy_array.map(x => {
         return (
           <div key={'language-dropdown-' + x}>
             <select className='w-full border rounded-b text-xl p-2'>
               <option value=''>- Choose a Language -</option>
-              {languages.map((language) => {
+              {languages.map(language => {
                 return (
                   <option key={language.name} value={language.name}>
                     {language.name}
@@ -121,9 +121,12 @@ const buildBgFeatureBlock = (
       <div>
         <strong>Background Features:</strong>
       </div>
-      <select className='w-full border rounded-b text-xl p-2' onChange={displayBgFeatureDetailClosure}>
+      <select
+        className='w-full border rounded-b text-xl p-2'
+        onChange={displayBgFeatureDetailClosure}
+      >
         <option value=''>- Choose a Background Feature -</option>
-        {bgFeatures.map((feat) => {
+        {bgFeatures.map(feat => {
           return <option value={feat.name}>{feat.name}</option>
         })}
       </select>
@@ -147,7 +150,6 @@ const CustomBgSelector: React.FC<Props> = ({
   equipment,
   bgFeatures,
 }) => {
-  
   const customOptionReferenceConstants = {
     two_tools: 1,
     two_languages: 2,
@@ -240,7 +242,6 @@ const CustomBgSelector: React.FC<Props> = ({
       selectedCustomRuleOption ==
       customOptionReferenceConstants['two_languages']
     ) {
-      
       const languagesBlock = buildLanguagesBlock(2, languageData)
 
       fullBlockToReturn = (
@@ -298,9 +299,12 @@ const CustomBgSelector: React.FC<Props> = ({
   return (
     <div className='space-y-4'>
       <div>
-        <select className='w-full border rounded-b text-xl p-2' onChange={handleSelection}>
+        <select
+          className='w-full border rounded-b text-xl p-2'
+          onChange={handleSelection}
+        >
           <option value=''>Choose an Option</option>
-          {customOptions.map((opt) => {
+          {customOptions.map(opt => {
             return (
               <option key={opt.id} value={opt.id}>
                 {opt.display}

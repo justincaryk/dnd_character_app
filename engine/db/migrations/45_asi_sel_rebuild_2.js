@@ -1,6 +1,5 @@
-exports.up = knex => (
-    knex.schema
-        .raw(`
+exports.up = knex =>
+  knex.schema.raw(`
             drop table app_character.asi_selected;
             drop type asi_from_type;
             
@@ -61,8 +60,5 @@ exports.up = knex => (
     
             GRANT DELETE ON app_character.asi_selected TO role_minion; 
         `)
-)
 
-exports.down = knex => (
-    knex.schema.raw(``)
-)
+exports.down = knex => knex.schema.raw(``)

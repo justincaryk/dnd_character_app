@@ -51,7 +51,7 @@ const asiLevelHash = {
     '1': AsiFromType.Asi10_1,
     '2': AsiFromType.Asi10_2,
   },
-  
+
   '12': {
     '1': AsiFromType.Asi12_1,
     '2': AsiFromType.Asi12_2,
@@ -113,7 +113,7 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
       asiFrom: asiLevelHash[feature.level]['2'],
     },
   })
-  
+
   const {
     data: featSel,
     loading: featSelLoading,
@@ -125,16 +125,15 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
     },
   })
 
-  
   const {
     data: featAsi,
     loading: featAsiLoading,
-    refetch: refetchFeatAsi
+    refetch: refetchFeatAsi,
   } = useGetAllAsiSelectionsByFeatIdQuery({
     variables: {
       characterId: characterId,
-      featId: featSelection?.id
-    }
+      featId: featSelection?.id,
+    },
   })
 
   const [performCreateFeat] = useCreateFeatBaseSelMutation()
@@ -145,8 +144,6 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
   const [performUpdateAsi] = useUpdateAsiSelectMutation()
   const [performDeleteAsi] = useDeleteAsiSelectedMutation()
 
-
-
   useEffect(() => {
     const parsed = JSON.parse(feature.entries).e
     setEntries(parsed)
@@ -155,8 +152,7 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
   useEffect(() => {
     if (featSel?.allFeatSelecteds?.nodes[0] && !choice) {
       setChoice('feat')
-    }
-    else if (
+    } else if (
       (asi1?.allAsiSelecteds?.nodes[0] || asi2?.allAsiSelecteds?.nodes[0]) &&
       !choice &&
       !asi1?.allAsiSelecteds?.nodes[0]?.featId
@@ -168,7 +164,7 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
   useEffect(() => {
     if (feats && featSel) {
       const feat = feats?.allFeats?.feats.find(
-        (f) => featSel?.allFeatSelecteds?.nodes[0]?.featId === f?.id
+        f => featSel?.allFeatSelecteds?.nodes[0]?.featId === f?.id
       )
 
       setFeatSelection(feat)
@@ -195,9 +191,11 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
     }
   }, [asi2, asiSelection2, setAsiSelection2])
 
-  useEffect(()=> {
+  useEffect(() => {
     if (!featAsiSel && featAsi?.allAsiSelecteds?.nodes[0]) {
-      const asiScore = asis?.allAsis?.nodes.find(x => x?.asiId === featAsi.allAsiSelecteds?.nodes[0]?.asiId)?.long
+      const asiScore = asis?.allAsis?.nodes.find(
+        x => x?.asiId === featAsi.allAsiSelecteds?.nodes[0]?.asiId
+      )?.long
       setFeatAsiSel(asiScore ? asiScore : '')
     }
   }, [featAsi, asis, featAsiSel, setFeatAsiSel])
@@ -303,7 +301,7 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
     }
 
     const feat = feats?.allFeats?.feats.filter(
-      (f) => e.currentTarget.value === f?.id
+      f => e.currentTarget.value === f?.id
     )
     if (feat?.length) {
       setFeatSelection(feat[0])
@@ -340,7 +338,7 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
     }
 
     // if e && !asiSelection1
-    if (!asi1?.allAsiSelecteds?.nodes[asiNum-1]) {
+    if (!asi1?.allAsiSelecteds?.nodes[asiNum - 1]) {
       // create
       const asiFrom =
         asiNum === 1
@@ -377,19 +375,21 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
   }
 
   const handleFeatAsiSel = async (e: React.ChangeEvent<HTMLSelectElement>) => {
-    
     if (!e.currentTarget.value) {
       //delete
       await performDeleteAsi({
         variables: {
-          asiSelId: featAsi?.allAsiSelecteds?.nodes[0]?.asiSelId
-        }})
+          asiSelId: featAsi?.allAsiSelecteds?.nodes[0]?.asiSelId,
+        },
+      })
       await refetchFeatAsi()
       setFeatAsiSel('')
       return
     }
 
-    const asiId = asis?.allAsis?.nodes.find(x => x?.long?.toLowerCase() === e.currentTarget.value.toLowerCase())?.asiId
+    const asiId = asis?.allAsis?.nodes.find(
+      x => x?.long?.toLowerCase() === e.currentTarget.value.toLowerCase()
+    )?.asiId
     const asiScore = e.currentTarget.value
     if (!featAsi?.allAsiSelecteds?.nodes[0]) {
       //create
@@ -400,18 +400,16 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
           asiId: asiId,
           featId: featSelection.id,
           count: 1,
-        }
+        },
       })
       await refetchFeatAsi()
-
-      
     } else {
       //perform update
       await performUpdateAsi({
         variables: {
           asiSelId: featAsi.allAsiSelecteds.nodes[0].asiSelId,
-          asiId: asiId
-        }
+          asiId: asiId,
+        },
       })
       await refetchFeatAsi()
     }
@@ -454,9 +452,7 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
 
   return (
     <div className='relative'>
-      {optionsMissing ? (
-        <BlueExclamation />
-      ) : null}
+      {optionsMissing ? <BlueExclamation /> : null}
       <div className='space-y-3'>
         <div className='bg-white'>
           <div
@@ -465,7 +461,7 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
               'bg-cream': detailsActive,
               'border-1 border-sky-blue shadow-md-sky-blue':
                 optionsMissing && !viewOnly ? true : false,
-              border: !optionsMissing
+              border: !optionsMissing,
             })}
             onClick={() => toggleDetailsActive(!detailsActive)}
           >
@@ -495,14 +491,15 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
                       <select
                         className={classnames({
                           'w-full rounded text-sm p-2': true,
-                          'border-1 border-sky-blue shadow-md-sky-blue': !asiSelection1,
+                          'border-1 border-sky-blue shadow-md-sky-blue':
+                            !asiSelection1,
                           border: asiSelection1,
                         })}
                         defaultValue={asiSelection1}
-                        onChange={(e) => handleAsiSelection(e, 1)}
+                        onChange={e => handleAsiSelection(e, 1)}
                       >
                         <option value=''>- Choose an Option -</option>
-                        {asis?.allAsis?.nodes.map((asi) => (
+                        {asis?.allAsis?.nodes.map(asi => (
                           <option key={asi?.asiId} value={asi?.asiId}>
                             {asi?.long} Score
                           </option>
@@ -511,14 +508,15 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
                       <select
                         className={classnames({
                           'w-full rounded text-sm p-2': true,
-                          'border-1 border-sky-blue shadow-md-sky-blue': !asiSelection2,
+                          'border-1 border-sky-blue shadow-md-sky-blue':
+                            !asiSelection2,
                           border: asiSelection2,
                         })}
                         defaultValue={asiSelection2}
-                        onChange={(e) => handleAsiSelection(e, 2)}
+                        onChange={e => handleAsiSelection(e, 2)}
                       >
                         <option value=''>- Choose an Option -</option>
-                        {asis?.allAsis?.nodes.map((asi) => (
+                        {asis?.allAsis?.nodes.map(asi => (
                           <option key={asi?.asiId} value={asi?.asiId}>
                             {asi?.long} Score
                           </option>
@@ -533,7 +531,7 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
                       onChange={handleFeatSelection}
                     >
                       <option value=''>- Choose an Option -</option>
-                      {feats?.allFeats?.feats.map((x) => (
+                      {feats?.allFeats?.feats.map(x => (
                         <option value={x?.id}>{x?.name}</option>
                       ))}
                     </select>
@@ -556,11 +554,12 @@ const FeatureAsi: React.FC<Props> = ({ feature, viewOnly, characterId }) => {
 
                       {featSelection?.scores && (
                         <select
-                        className={classnames({
-                          'w-full rounded text-sm p-2': true,
-                          'border-1 border-sky-blue shadow-md-sky-blue': !featAsiSel,
-                          border: featAsiSel,
-                        })}
+                          className={classnames({
+                            'w-full rounded text-sm p-2': true,
+                            'border-1 border-sky-blue shadow-md-sky-blue':
+                              !featAsiSel,
+                            border: featAsiSel,
+                          })}
                           defaultValue={featAsiSel}
                           onChange={handleFeatAsiSel}
                         >

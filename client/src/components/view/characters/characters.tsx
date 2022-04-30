@@ -20,7 +20,7 @@ const ViewCharacters: React.FC = () => {
         <div>TODO: Sort By</div>
       </div>
       <div className='grid grid-cols-3 gap-x-5 gap-y-5'>
-        {data?.allCharacters?.nodes.map((char) => (
+        {data?.allCharacters?.nodes.map(char => (
           <div className='bg-white'>
             <div className='bg-stone text-white p-2'>
               <div className='text-xl font-bold'>{char?.name}</div>
@@ -43,17 +43,21 @@ const ViewCharacters: React.FC = () => {
             </div>
             <div className='p-2 flex justify-between border-b border-l border-r'>
               <div>
-                <button 
-                    className='text-sky-blue font-roboto uppercase hover:no-underline cursor-pointer outline-none'
-                    onClick={() => history.push(`/create/${char?.characterId}/sheet`)}
+                <button
+                  className='text-sky-blue font-roboto uppercase hover:no-underline cursor-pointer outline-none'
+                  onClick={() =>
+                    history.push(`/create/${char?.characterId}/sheet`)
+                  }
                 >
                   View
                 </button>
               </div>
               <div>
-                <button 
-                    className='text-sky-blue font-roboto uppercase hover:no-underline cursor-pointer outline-none'
-                    onClick={() => history.push(`/create/${char?.characterId}/description`)}
+                <button
+                  className='text-sky-blue font-roboto uppercase hover:no-underline cursor-pointer outline-none'
+                  onClick={() =>
+                    history.push(`/create/${char?.characterId}/description`)
+                  }
                 >
                   Edit
                 </button>

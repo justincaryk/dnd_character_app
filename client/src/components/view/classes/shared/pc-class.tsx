@@ -32,7 +32,7 @@ const PcClass: React.FC<IProps> = ({ classData, subclassFeatures }) => {
     classData.subclassesByClassId.nodes,
     subclassName
   )
-  
+
   const features = subclassFeatures
     ? getFeatures(
         classData.classFeatures,
@@ -43,7 +43,7 @@ const PcClass: React.FC<IProps> = ({ classData, subclassFeatures }) => {
         classData.classFeatures,
         classData.classFeaturesByClassId.nodes
       )
-    
+
   return (
     <div>
       <div className='text-lg font-bold mb-4'>{classData.name}</div>
@@ -55,7 +55,7 @@ const PcClass: React.FC<IProps> = ({ classData, subclassFeatures }) => {
           subclassTableGroups={subclassTableGroups}
         />
       </div>
-      <div className='mt-4'> 
+      <div className='mt-4'>
         <Features features={features} />
       </div>
     </div>

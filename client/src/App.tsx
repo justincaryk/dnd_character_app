@@ -26,7 +26,6 @@ import Home from './components/home'
 import ClassCreation from './components/create/class-creation/class-creation'
 import ViewCharacters from './components/view/characters/characters'
 
-
 const publicLinks: LinkType[] = [
   {
     link: '/signup',

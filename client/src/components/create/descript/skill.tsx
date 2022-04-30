@@ -31,14 +31,14 @@ const SkillProficienciesSelector: React.FC<Props> = ({
 
   return (
     <div className='space-y-4'>
-      {dummy_array_to_help_generate_correct_num_of_select_elems.map((x) => {
+      {dummy_array_to_help_generate_correct_num_of_select_elems.map(x => {
         return (
           <div key={x * 25}>
             <select className='w-full border rounded-b text-xl p-2'>
               <option value='' selected>
                 - Choose a Skill -
               </option>
-              {validSkillOptions.map((skill) => {
+              {validSkillOptions.map(skill => {
                 return <option key={skill.name}>{skill.name}</option>
               })}
             </select>

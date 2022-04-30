@@ -83,7 +83,7 @@ const FightOptionType: React.FC<OptionsTypeProps> = ({
             className='w-full border rounded text-sm p-2'
             defaultValue={''}
             key={i}
-            onChange={(e) => setStyleName(e.currentTarget.value)}
+            onChange={e => setStyleName(e.currentTarget.value)}
           >
             <option value=''>- Choose a Fighting Style -</option>
             {options.choose.from.map((x: any) => (
@@ -144,7 +144,7 @@ const SubclassOptionType: React.FC<SubclassProps> = ({
     })
     await refetchCharacter()
   }
-  
+
   return (
     <select
       className='w-full border rounded text-sm p-2'
@@ -152,7 +152,7 @@ const SubclassOptionType: React.FC<SubclassProps> = ({
       onChange={handleSubclassChange}
     >
       <option>- Choose a {subclassIdent}</option>
-      {data?.query.allSubclasses?.nodes.map((sc) => (
+      {data?.query.allSubclasses?.nodes.map(sc => (
         <option key={sc?.id} value={sc?.id}>
           {sc?.name}
         </option>
@@ -208,7 +208,7 @@ const FeatureGeneral: React.FC<Props> = ({
       setAllOptionsSelected(true)
     }
   }, [entries, character.subclassId, feature.hasOptions])
-  
+
   return (
     <div className='relative'>
       {!viewOnly && feature.hasOptions && !allOptionsSelected ? (
@@ -224,7 +224,7 @@ const FeatureGeneral: React.FC<Props> = ({
                 feature.hasOptions && !allOptionsSelected && !viewOnly
                   ? true
                   : false,
-              border: allOptionsSelected || viewOnly
+              border: allOptionsSelected || viewOnly,
             })}
             onClick={() => toggleDetailActive(!detailsActive)}
           >

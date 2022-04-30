@@ -18,7 +18,7 @@ const buildAsiString = (asis: any) => {
 
 const buildRacialTraitsString = (race: any) => {
   let racialTraitsArr = []
-  
+
   if (race.asis) {
     const asiString = buildAsiString(race.asis)
     racialTraitsArr.push(asiString)
@@ -72,10 +72,9 @@ interface Props {
   race: any
 }
 export const RaceCards: React.FC<Props> = ({ race }) => {
-
   const racialTraitsStr = buildRacialTraitsString(race)
   const languagesString = buildLanguagesString(race.languages)
-  
+
   return (
     <div className='space-y-4'>
       {/* <div className='bg-white rounded px-2 py-3 text-sm border border-2'>
@@ -108,7 +107,10 @@ export const RaceCards: React.FC<Props> = ({ race }) => {
       </div>
 
       {race.raceFeaturesByRaceId.nodes.map((feat: any) => (
-        <div className='bg-white rounded px-2 py-3 text-sm border border-2' key={feat.racialFeatureByRacialFeatureId.name}>
+        <div
+          className='bg-white rounded px-2 py-3 text-sm border border-2'
+          key={feat.racialFeatureByRacialFeatureId.name}
+        >
           <div className='font-bold'>
             {feat.racialFeatureByRacialFeatureId.name}
           </div>

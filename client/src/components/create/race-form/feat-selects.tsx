@@ -60,7 +60,7 @@ const FeatSelects: React.FC<Props> = ({ raceAsis, characterId, raceName }) => {
   useEffect(() => {
     if (featSel && feats) {
       const id = featSel.allFeatSelecteds?.nodes[0]?.featId
-      setSelectedFeat(feats.allFeats?.feats.find((x) => x?.id === id))
+      setSelectedFeat(feats.allFeats?.feats.find(x => x?.id === id))
     }
   }, [featSel, feats])
 
@@ -95,7 +95,7 @@ const FeatSelects: React.FC<Props> = ({ raceAsis, characterId, raceName }) => {
     }
 
     const feat = feats?.allFeats?.feats.find(
-      (x) => x?.id === e.currentTarget.value
+      x => x?.id === e.currentTarget.value
     )
     setSelectedFeat(feat)
 
@@ -125,7 +125,7 @@ const FeatSelects: React.FC<Props> = ({ raceAsis, characterId, raceName }) => {
     e: React.ChangeEvent<HTMLSelectElement>
   ) => {
     const asiSel = asisSelData?.allAsiSelecteds?.nodes.find(
-      (x) => x?.featId === selectedFeat.id
+      x => x?.featId === selectedFeat.id
     )
 
     // delete
@@ -139,7 +139,7 @@ const FeatSelects: React.FC<Props> = ({ raceAsis, characterId, raceName }) => {
     }
 
     const asi = asis?.allAsis?.nodes.find(
-      (x) => x?.long?.toLowerCase() === e.currentTarget.value.toLowerCase()
+      x => x?.long?.toLowerCase() === e.currentTarget.value.toLowerCase()
     )
 
     if (asiSel) {
@@ -172,12 +172,12 @@ const FeatSelects: React.FC<Props> = ({ raceAsis, characterId, raceName }) => {
             key={i}
             className='w-full border rounded text-sm p-2'
             defaultValue={featSel?.allFeatSelecteds?.nodes[i]?.featId || ''}
-            onChange={(e) => handleFeatSelection(e, i)}
+            onChange={e => handleFeatSelection(e, i)}
           >
             <option value=''>- Choose a Feat -</option>
             {feats?.allFeats?.feats
-              .filter((x) => !x?.prereq || x?.prereq?.indexOf(raceName) > -1)
-              .map((x) => (
+              .filter(x => !x?.prereq || x?.prereq?.indexOf(raceName) > -1)
+              .map(x => (
                 <option key={x?.id} value={x?.id}>
                   {x?.name}
                 </option>
@@ -193,9 +193,12 @@ const FeatSelects: React.FC<Props> = ({ raceAsis, characterId, raceName }) => {
         {selectedFeat?.scores?.length ? (
           <select
             className='w-full border rounded text-sm p-2'
-            defaultValue={asisSelData?.allAsiSelecteds?.nodes.find(
-                (x) => x?.featId === selectedFeat.id)?.asiByAsiId?.long?.toLowerCase() || ''}
-            onChange={(e) => handleFeatAsiSelection(e)}
+            defaultValue={
+              asisSelData?.allAsiSelecteds?.nodes
+                .find(x => x?.featId === selectedFeat.id)
+                ?.asiByAsiId?.long?.toLowerCase() || ''
+            }
+            onChange={e => handleFeatAsiSelection(e)}
           >
             <option value={''}>- Select an Ability Score -</option>
             {selectedFeat.scores.map((score: string, i: number) => (

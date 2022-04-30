@@ -1,6 +1,5 @@
-exports.up = knex => (
-    knex.schema
-        .raw(`
+exports.up = knex =>
+  knex.schema.raw(`
             create table asi (
                 asi_id uuid default uuid_generate_v4(),
                 long varchar(25),
@@ -16,8 +15,5 @@ exports.up = knex => (
 
             GRANT SELECT ON asi TO role_minion;
         `)
-)
 
-exports.down = knex => (
-    knex.schema.raw(``)
-)
+exports.down = knex => knex.schema.raw(``)
