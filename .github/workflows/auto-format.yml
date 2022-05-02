@@ -27,7 +27,6 @@ jobs:
       - name: Push changes
         if: steps.git-check.outputs.modified == 'true'
         run: 
-          echo "github_token- ${{secrets.GITHUB_TOKEN}}" &&
           git config user.email "your_friendly_github_formatter@wonderschool.noreply.com" &&
           git config user.name "your friendly github PR formatter" &&
           git commit -am "Automated linting" &&
