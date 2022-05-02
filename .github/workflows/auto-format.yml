@@ -5,7 +5,7 @@ on:
 
 env: # environment variables (available in any part of the action)
   NODE_VERSION: 12
-  
+
 jobs:
   format:
     # Check if the PR is not from a fork
@@ -27,7 +27,7 @@ jobs:
       - name: Push changes
         if: steps.git-check.outputs.modified == 'true'
         run: 
-          echo "github_token- ${{secrets.GITHUB_TOKEN}}"
+          echo "github_token- ${{secrets.GITHUB_TOKEN}}" &&
           git config --global user.email "your_friendly_github_formatter@wonderschool.noreply.com" &&
           git config --global user.name "your friendly github PR formatter" &&
           git remote set-url origin https://x-access-token:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git &&
