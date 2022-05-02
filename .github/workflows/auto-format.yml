@@ -27,10 +27,10 @@ jobs:
       - name: Push changes
         if: steps.git-check.outputs.modified == 'true'
         run: 
-          echo "github_token- ${{secrets.GITHUB_TOKEN}}" &&
-          git config --global user.email "your_friendly_github_formatter@wonderschool.noreply.com" &&
-          git config --global user.name "your friendly github PR formatter" &&
-          git remote set-url origin https://x-access-token:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git &&
+          # echo "github_token- ${{secrets.GITHUB_TOKEN}}" &&
+          # git config --global user.email "your_friendly_github_formatter@wonderschool.noreply.com" &&
+          # git config --global user.name "your friendly github PR formatter" &&
+          # git remote set-url origin https://x-access-token:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git &&
           git commit -am "Automated linting" &&
           git push
         # with: 
