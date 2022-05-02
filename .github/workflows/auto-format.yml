@@ -31,7 +31,7 @@ jobs:
           git config user.email "your_friendly_github_formatter@wonderschool.noreply.com" &&
           git config user.name "your friendly github PR formatter" &&
           git commit -am "Automated linting" &&
-          git remote set-url origin https://x-access-token:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git &&
+          git remote set-url origin https://x-access-token:${{secrets.WORKFLOW_TOKEN}}@github.com/${{github.repository}}.git &&
           git push
         # with: 
         #   repo-token: ${{ secrets.GITHUB_TOKEN }}
