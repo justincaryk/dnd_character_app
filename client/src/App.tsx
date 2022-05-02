@@ -104,7 +104,7 @@ const App: React.FC = () => {
               <Switch>
                 {/* signed out */}
                 {!authToken && (
-                  <div className="container">
+                  <div className='container'>
                     <NavBar links={publicLinks} isPublic />
                     <Route exact path='/'>
                       <div className='layout'>
