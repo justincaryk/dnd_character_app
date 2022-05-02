@@ -33,5 +33,5 @@ jobs:
           git remote set-url origin https://x-access-token:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git &&
           git commit -am "Automated linting" &&
           git push
-        with: 
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+        # with: 
+        #   repo-token: ${{ secrets.GITHUB_TOKEN }}
